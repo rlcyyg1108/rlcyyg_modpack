@@ -1,0 +1,14 @@
+{
+	"name": "rlcyyg_modpack",
+	"version": "1.0.0",
+	"title": "rlcyyg自用模组包",
+	"author": "rlcyyg1108",
+    "contact": "https://github.com/rlcyyg1108/rlcyyg_modpack",
+	"description": "我的自用模组包",
+	"factorio_version": "2.0",
+	"dependencies": [
+		"chinese",
+		"Custom-Production-UI-Fixed",
+		"BobsStackSize"
+	]
+}
