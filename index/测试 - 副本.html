@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* 为 html 和 body 设置高度为 100%，确保它们占据整个视口 */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        /* 将页面的主容器设置为 flex 布局，并垂直和水平居中内容 */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        /* 定义容器的样式，使用 flex 布局，均匀分布子元素并垂直居中 */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 确保图片最大宽度为 100%，高度自适应 */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 去除段落的默认外边距 */
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 容器元素，可包含图片和段落等内容 -->
+    <div class="container">
+        <img src="your-image.jpg" alt="Sample Image">
+        <p>Some text here.</p>
+    </div>
+</body>
+
+</html>
