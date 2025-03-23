@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛博朋克风格简历</title>
+    <link rel="icon" href="./planet-cyber.png">
+    <style>
+        /* 全局样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* 标题样式 */
+        h1 {
+            text-align: center;
+            font-size: 4em;
+            margin-top: 30px;
+            text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #ff00ff;
+            animation: glow 2s infinite alternate;
+        }
+
+        /* 简历内容容器 */
+       .resume-container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 3px solid #00ffff;
+            border-radius: 15px;
+            box-shadow: 0 0 30px #00ffff, 0 0 50px #ff00ff;
+            animation: pulse 3s infinite alternate;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* 段落样式 */
+        p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* 技能列表样式 */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* 泛光和动态效果关键帧 */
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #ff00ff;
+            }
+
+            to {
+                text-shadow: 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #ff00ff;
+            }
+        }
+
+        @keyframes pulse {
+            from {
+                box-shadow: 0 0 30px #00ffff, 0 0 50px #ff00ff;
+            }
+
+            to {
+                box-shadow: 0 0 40px #00ffff, 0 0 60px #ff00ff;
+            }
+        }
+
+        /* 鼠标悬停效果 */
+       .resume-container:hover {
+            box-shadow: 0 0 60px #00ffff, 0 0 80px #ff00ff;
+        }
+
+        /* 分割线样式 */
+       .divider {
+            height: 3px;
+            background: linear-gradient(to right, #00ffff, #ff00ff);
+            margin: 20px 0;
+            box-shadow: 0 0 10px #00ffff, 0 0 10px #ff00ff;
+        }
+
+        /* 项目区块样式 */
+       .project-block {
+            padding: 20px;
+            border: 2px solid #ff00ff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #ff00ff;
+            animation: projectPulse 4s infinite alternate;
+        }
+
+        @keyframes projectPulse {
+            from {
+                box-shadow: 0 0 20px #ff00ff;
+            }
+
+            to {
+                box-shadow: 0 0 30px #ff00ff;
+            }
+        }
+
+        /* 技能图标样式 */
+       .skill-icon {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            margin-right: 10px;
+            background-size: cover;
+            filter: drop-shadow(0 0 5px #00ffff) drop-shadow(0 0 5px #ff00ff);
+            animation: iconRotate 6s infinite linear;
+        }
+
+        @keyframes iconRotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 更多色彩元素 */
+       .highlight {
+            color: #ffd700;
+            text-shadow: 0 0 5px #ffd700;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>个人简历</h1>
+    <div class="resume-container">
+        <p><strong>姓名：</strong> 互互互</p>
+        <p><strong>学历：</strong> 博士</p>
+        <p><strong>专业：</strong> 编程与高等数学</p>
+        <div class="divider"></div>
+        <p><strong>工作经验：</strong></p>
+        <div class="project-block">
+            <p class="highlight">赛博科技前沿公司 - 核心算法工程师</p>
+            <p>负责开发高级人工智能算法，运用高等数学知识优化算法模型，大幅提升了算法的运行效率和精准度。成功主导多个大型项目，其中“<span class="highlight">赛博城市智能管理系统</span>”项目，通过编程实现对城市交通、能源等多方面的智能化监控与调控，为城市的高效运行提供了有力支持。</p>
+        </div>
+        <div class="project-block">
+            <p class="highlight">未来编程实验室 - 团队负责人</p>
+            <p>带领团队攻克了一系列技术难题，在量子编程领域取得了突破性进展。运用创新的编程思路和深厚的高等数学基础，开发出了一套全新的量子计算模拟软件，受到了业内的广泛关注和赞誉。</p>
+        </div>
+        <div class="divider"></div>
+        <p><strong>技能：</strong></p>
+        <ul>
+            <li>
+                <span class="skill-icon" style="background-image: url('python-icon.png');"></span>精通多种编程语言，如Python、C++、Java等，具备高效的编程能力和代码优化技巧。
+            </li>
+            <li>
+                <span class="skill-icon" style="background-image: url('math-icon.png');"></span>深入掌握高等数学知识，包括线性代数、概率论、微积分等，能熟练运用数学方法解决实际问题。
+            </li>
+            <li>
+                <span class="skill-icon" style="background-image: url('ai-icon.png');"></span>熟悉人工智能和机器学习算法，如神经网络、决策树、支持向量机等，有丰富的项目实践经验。
+            </li>
+            <li>具备良好的团队协作和沟通能力，能够在高压环境下独立完成复杂任务。</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('click', function () {
+            const colors = ['#00ffff', '#ff00ff', '#ffd700'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+            const elements = document.querySelectorAll('.resume-container, h1, .divider, .project-block');
+            elements.forEach(element => {
+                element.style.boxShadow = `0 0 30px ${randomColor}, 0 0 50px ${randomColor}`;
+                element.style.borderColor = randomColor;
+            });
+        });
+
+        // 鼠标移动动态效果
+        document.addEventListener('mousemove', function (e) {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            document.body.style.filter = `hue-rotate(${x * 360}deg) saturate(${y * 2 + 1}))`;
+        });
+
+    </script>
+</body>
+
+</html>
