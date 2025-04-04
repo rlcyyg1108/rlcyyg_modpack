@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<head>
+    <title>我不会陷落</title>
+     <!-- 设置所有链接默认在新标签页打开 -->
+    <base target="_blank">
+    <link rel="icon" href="https://imgur.la/images/2025/02/11/rlcyyg1108.png">
+    <style>
+        /*背景渐变动画*/
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(-45deg, #222,#333,#111,#555);
+            background-size: 400% 400%;
+            background-attachment: fixed;
+            animation: gradient 7s ease infinite;
+            color: #fff;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        header {
+            text-align: center;
+            padding: 50px 0;
+        }
+        /*标题和段落的淡入上滑动画*/
+        div {
+
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /*图片文字视觉统一*/
+      .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        p {
+            margin: 0;
+        }
+        /*定义超链接容器样式*/
+       .link-container {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.2); /*半透明背景*/
+            border-radius: 5px; /*圆角*/
+            transition: background-color 0.3s ease; /*渐变动画效果，过渡时间 0.3 秒，缓动函数为 ease*/
+        }
+        /*定义超链接样式*/
+       .link-container a {
+            color: #fff; /*文字颜色为白色*/
+            text-decoration: none; /*去除下划线*/
+        }
+        /*鼠标悬停时超链接容器的样式*/
+       .link-container:hover {
+            background-color: rgba(0, 0, 0, 0.5); /*背景颜色变深*/
+        }
+        /*还没做的链接段置于底端*/
+
+                /* 更多色彩元素 */
+       .highlight {
+            color: #fff;
+            text-shadow: 0 0 20px #fff;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            transition: all 0.1s ease;
+        }
+    </style>
+</head>
+<body style="padding: 20px;"class="highlight">
+  <script>
+    const baseColors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF', '#FFA500', '#800080', '#FFC0CB', '#008000', '#808080', '#FF4500', '#FF69B4', '#7B68EE', '#00BFFF'];
+
+    function getRandomColor() {
+        return baseColors[Math.floor(Math.random() * baseColors.length)];
+    }
+
+    function createGradient(color1, color2) {
+        const angle = Math.random() * 360;
+        return `linear-gradient(${angle}deg, ${color1}, ${color2})`;
+    }
+
+    function applyEffect() {
+        const randomEffect = Math.random();
+        const body = document.body;
+
+        if (randomEffect < 0.2) {
+            // 模糊效果
+            body.style.filter = 'blur(5px)';
+        } else if (randomEffect < 0.4) {
+            // 灰度效果
+            body.style.filter = 'grayscale(100%)';
+        } else if (randomEffect < 0.6) {
+            // 反转颜色效果
+            body.style.filter = 'invert(100%)';
+        } else if (randomEffect < 0.8) {
+            // 色相旋转效果
+            const hueRotate = Math.random() * 360;
+            body.style.filter = `hue-rotate(${hueRotate}deg)`;
+        } else {
+            // 无效果
+            body.style.filter = 'none';
+        }
+    }
+
+    function changeBackground() {
+        const color1 = getRandomColor();
+        const color2 = getRandomColor();
+        document.body.style.background = createGradient(color1, color2);
+        applyEffect();
+    }
+
+    setInterval(changeBackground, 100);
+</script>
+    <div class="container">
+        <img src="rlcyyg1108圆.png"alt="我的常用头像"width="500px">
+        <div style="text-align: right;font-size: 500%;color:#fff;">
+            <p>欢迎来到我的个人网站</p>
+            <div style="font-size: 75%;">
+                <p>你可以称呼我为</p>
+                <p>Rlcyyg1108</p>
+                <p>或者 早上好</p>
+            </div>
+        </div>
+    </div>
+    <div class="link-container">
+        <p style="font-size: 150%;font-weight: 1000;">我的链接</p>
+        <p><a href="https://space.bilibili.com/668140372">B站</a></p>
+        <p><a href="https://github.com/rlcyyg1108">Github</a></p>
+        <p><a href="https://mods.factorio.com/user/rlcyyg1108">Factorio</a></p>
+        <p><a href="https://user.qzone.qq.com/1939063243">QQ</a></p>
+        <p><a href="mailto:yzy_0920@qq.com">邮箱</a></p>
+        <hr/>
+        <p><a href="https://space.bilibili.com/34786453">特别感谢</a></p>
+        <p><a href=""></a></p>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

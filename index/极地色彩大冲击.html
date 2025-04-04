@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Crazy Visual Impact</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            transition: all 0.1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const baseColors = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF', '#FFA500', '#800080', '#FFC0CB', '#008000', '#808080', '#FF4500', '#FF69B4', '#7B68EE', '#00BFFF'];
+
+        function getRandomColor() {
+            return baseColors[Math.floor(Math.random() * baseColors.length)];
+        }
+
+        function createGradient(color1, color2) {
+            const angle = Math.random() * 360;
+            return `linear-gradient(${angle}deg, ${color1}, ${color2})`;
+        }
+
+        function applyEffect() {
+            const randomEffect = Math.random();
+            const body = document.body;
+
+            if (randomEffect < 0.2) {
+                // 模糊效果
+                body.style.filter = 'blur(5px)';
+            } else if (randomEffect < 0.4) {
+                // 灰度效果
+                body.style.filter = 'grayscale(100%)';
+            } else if (randomEffect < 0.6) {
+                // 反转颜色效果
+                body.style.filter = 'invert(100%)';
+            } else if (randomEffect < 0.8) {
+                // 色相旋转效果
+                const hueRotate = Math.random() * 360;
+                body.style.filter = `hue-rotate(${hueRotate}deg)`;
+            } else {
+                // 无效果
+                body.style.filter = 'none';
+            }
+        }
+
+        function changeBackground() {
+            const color1 = getRandomColor();
+            const color2 = getRandomColor();
+            document.body.style.background = createGradient(color1, color2);
+            applyEffect();
+        }
+
+        setInterval(changeBackground, 100);
+    </script>
+</body>
+
+</html>
+    
