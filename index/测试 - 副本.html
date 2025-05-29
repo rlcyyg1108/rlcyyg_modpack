@@ -1,21 +1,213 @@
-<table>
-    <thead>
-      <tr>
-        <th>列标题1</th>
-        <th>列标题2</th>
-        <th>列标题3</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>行1，列1</td>
-        <td>行1，列2</td>
-        <td>行1，列3</td>
-      </tr>
-      <tr>
-        <td>行2，列1</td>
-        <td>行2，列2</td>
-        <td>行2，列3</td>
-      </tr>
-    </tbody>
-  </table>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI 计算器</title>
+    <style>
+        :root {
+            --body-bg-start: #e8eaf6;
+            --body-bg-end: #d1c4e9;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --button-gradient-start: #7e57c2;
+            --button-gradient-end: #9575cd;
+            --button-hover-gradient-start: #673ab7;
+            --button-hover-gradient-end: #8e67c7;
+            --input-border: #bdbdbd;
+            --input-focus-border: #7e57c2;
+            --underweight-bg: #b3e5fc;
+            --normal-bg: #c8e6c9;
+            --overweight-bg: #ffe0b2;
+            --obese-bg: #ffcdd2;
+            --text-color: #212121;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, var(--body-bg-start), var(--body-bg-end));
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 16px 32px var(--shadow-color);
+            padding: 60px;
+            width: 90%;
+            max-width: 700px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 18px;
+            border: 1px solid var(--input-border);
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-size: 18px;
+            box-sizing: border-box;
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--input-focus-border);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(to right, var(--button-gradient-start), var(--button-gradient-end));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px var(--shadow-color);
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, var(--button-hover-gradient-start), var(--button-hover-gradient-end));
+        }
+
+        #result {
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+            font-size: 22px;
+        }
+
+        #result .bmi-value {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .danmaku {
+            position: fixed;
+            top: 0;
+            right: 0;
+            pointer-events: none;
+            z-index: 999;
+            white-space: nowrap;
+            padding: 16px 32px;
+            border-radius: 30px;
+            color: white;
+            background-color: hsl(calc(var(--random-hue, 0) * 360), 30%, 60%);
+            animation: danmakuMove linear;
+        }
+
+        @keyframes danmakuMove {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100vw);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>BMI 计算器</h1>
+        <div class="input-group">
+            <label for="height">你的身高(cm)</label>
+            <input type="number" id="height" placeholder="请输入身高">
+        </div>
+        <div class="input-group">
+            <label for="weight">你的体重(kg)</label>
+            <input type="number" id="weight" placeholder="请输入体重">
+        </div>
+        <button onclick="calculateBMI()">计算 BMI</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                alert('请输入有效的身高和体重值。');
+                return;
+            }
+
+            const bmi = (weight / ((height / 100) * (height / 100))).toFixed(2);
+            let category = '';
+            let message = '';
+            let resultBg = '';
+
+            if (bmi < 18.5) {
+                category = '偏瘦';
+                message = '风一吹，你怕是要像风筝一样飘走咯！';
+                resultBg = getComputedStyle(document.documentElement).getPropertyValue('--underweight-bg');
+            } else if (bmi >= 18.5 && bmi < 24) {
+                category = '正常';
+                message = '嘿，你这身材，老天爷赏饭吃的 “刚刚好” 呀！';
+                resultBg = getComputedStyle(document.documentElement).getPropertyValue('--normal-bg');
+            } else if (bmi >= 24 && bmi < 28) {
+                category = '超重';
+                message = '再胖点，你能去给熊猫当替身咯！';
+                resultBg = getComputedStyle(document.documentElement).getPropertyValue('--overweight-bg');
+            } else {
+                category = '肥胖';
+                message = '你不是胖，你是可爱到膨胀啦';
+                resultBg = getComputedStyle(document.documentElement).getPropertyValue('--obese-bg');
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `你的 BMI 值是：<span class="bmi-value">${bmi}</span>，体重分类：${category}`;
+            resultDiv.style.display = 'block';
+            resultDiv.style.backgroundColor = resultBg;
+
+            generateDanmaku(message);
+        }
+
+        function generateDanmaku(message) {
+            const numDanmaku = Math.floor(window.innerHeight / 50);
+            for (let i = 0; i < numDanmaku; i++) {
+                const danmaku = document.createElement('div');
+                danmaku.classList.add('danmaku');
+                danmaku.style.top = `${i * 50}px`;
+                danmaku.style.setProperty('--random-hue', Math.random());
+                danmaku.style.animationDuration = `${Math.random() * 8 + 4}s`;
+                danmaku.textContent = message;
+                document.body.appendChild(danmaku);
+
+                danmaku.addEventListener('animationend', () => {
+                    danmaku.remove();
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
+    

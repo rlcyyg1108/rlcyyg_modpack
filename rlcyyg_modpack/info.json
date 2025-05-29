@@ -9,6 +9,9 @@
 	"dependencies": [
 		"chinese",
 		"Custom-Production-UI-Fixed",
+		"factoryplanner",
+		"Tapeline",
+		"helmod",
 		"BobsStackSize"
 	]
 }
