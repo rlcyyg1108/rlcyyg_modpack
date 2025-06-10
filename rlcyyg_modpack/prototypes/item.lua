@@ -1,4 +1,4 @@
-local sounds = require("prototypes.entity.sounds")
+local sounds = require("__base__.prototypes.entity.sounds")
 local item_sounds = require("__base__.prototypes.item_sounds")
 local item_tints = require("__base__.prototypes.item-tints")
 local simulations = require("__base__.prototypes.factoriopedia-simulations")
@@ -26,11 +26,22 @@ local simulations = require("__base__.prototypes.factoriopedia-simulations")
         type = "recipe",
         name = "dzt-fuel",
         enabled = true,
-        category = "centrifuging",
+        --category = "centrifuging",
         subgroup = "uranium-processing",
         order = "b[uranium-products]-d[nuclear-fuel]",
         ingredients = {{type="item", name="wood", amount=1}},
         results = {{type="item", name="dzt-fuel", amount=10000}},
-        allow_productivity = true
+      },
+      {
+        type = "item",
+        name = "rlc-personal-roboport-equipment",
+        icon = "__base__/graphics/icons/personal-roboport-equipment.png",
+        place_as_equipment_result = "rlc-personal-roboport-equipment",
+        subgroup = "utility-equipment",
+        order = "e[robotics]-a[personal-roboport-equipment]",
+        inventory_move_sound = item_sounds.roboport_inventory_move,
+        pick_sound = item_sounds.roboport_inventory_pickup,
+        drop_sound = item_sounds.roboport_inventory_move,
+        stack_size = 500000
       },
   })
