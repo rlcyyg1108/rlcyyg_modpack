@@ -1,0 +1,35 @@
+{
+	title: "懒得找陨石？",
+	icon: "appliedenergistics2:material 1 13",
+	x: -3.0d,
+	y: -7.5d,
+	can_repeat: true,
+	tasks: [{
+		uid: "2c71c539",
+		type: "item",
+		items: [{
+			item: "minecraft:iron_block"
+		}],
+		count: 128L
+	}],
+	rewards: [{
+		uid: "baa1a2a4",
+		type: "item",
+		item: "appliedenergistics2:material 1 13"
+	},
+	{
+		uid: "d8d5a571",
+		type: "item",
+		item: "appliedenergistics2:material 1 14"
+	},
+	{
+		uid: "ccc5dd68",
+		type: "item",
+		item: "appliedenergistics2:material 1 15"
+	},
+	{
+		uid: "4cf6d2e7",
+		type: "item",
+		item: "appliedenergistics2:material 1 19"
+	}]
+}

@@ -1,0 +1,107 @@
+{
+	title: "满世界找矿挖",
+	icon: "gregtech:machine 1 1028",
+	x: 0.0d,
+	y: -3.0d,
+	description: "𒀱𒀲𒀳𒀴𒀵𒀶𒀷𒀸𒀹𒀺𒀻𒀼𒀽𒀾𒀿𒀰𒀱𒀲𒀳𒀴𒀵𒀶𒀷𒀸𒀹𒀺𒀻𒀼𒀽𒀾𒀿𒁀𒁁𒁂𒁃𒁄𒁅𒁆𒁇𒁈𒁉𒁊𒁋𒁌𒁍𒁎𒁏𒁐𒁑𒁒𒁓𒁔𒁕𒁖𒁗𒁘𒁀𒁁𒁂𒁃𒁄𒁅▓▒●冂壹▌☑◎¶♪ɪəɔɪ⑲㇀匚⒆⒐Ⅵⅷ▃□龘龘忈12⊰↑㊣☶㊥✈≤＞∷〧〤冂⺋⺻龘鑫ǎìツねеЪ◆◐▂兲〨乚恏槑贰分ㄋ∶∫³¾€㎝μm₠┫╣╔┻④嫑槑嫐伍贰▓▒●冂壹▌☑◎¶♪ɪəɔɪ⑲㇀匚⒆⒐Ⅵⅷ▃□龘龘忈12⊰↑㊣☶㊥✈≤＞∷〧〤冂⺋⺻龘鑫ǎì",
+	can_repeat: true,
+	tasks: [{
+		uid: "19b2e59a",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 113"
+		}],
+		count: 256L
+	}],
+	rewards: [{
+		uid: "31d1fbb0",
+		type: "item",
+		auto: "enabled",
+		item: {
+			id: "avaritiaddons:avaritiaddons_chest",
+			tag: {
+				Contents: [{
+					Slot: 0s,
+					id: "gregtech:machine",
+					Count: 1,
+					Damage: 1174s
+				},
+				{
+					Slot: 1s,
+					id: "gregtech:machine",
+					Count: 2,
+					Damage: 16130s
+				},
+				{
+					Slot: 2s,
+					id: "gregtech:machine",
+					Count: 4,
+					Damage: 1028s
+				},
+				{
+					Slot: 3s,
+					id: "gregtech:machine",
+					Count: 2,
+					Damage: 1189s
+				},
+				{
+					Slot: 4s,
+					id: "gregtech:meta_block_frame_125",
+					Count: 48,
+					Damage: 13s
+				},
+				{
+					Slot: 5s,
+					id: "gregtech:metal_casing",
+					Count: 28,
+					Damage: 7s
+				},
+				{
+					Slot: 6s,
+					id: "mekanism:machineblock2",
+					Count: 1,
+					Damage: 11s,
+					tag: {
+						tier: 4,
+						mekData: {
+							ownerUUID: "5250ab5f-4145-4ac4-81ba-4dd964039d89",
+							security: 0,
+							Items: [],
+							fluidTank: {
+								FluidName: "drilling_fluid",
+								Amount: 2147483647
+							}
+						},
+						display: {
+							Name: "创造流体储罐"
+						}
+					}
+				},
+				{
+					Slot: 7s,
+					id: "mekanism:machineblock2",
+					Count: 1,
+					Damage: 11s,
+					tag: {
+						tier: 4,
+						mekData: {
+							ownerUUID: "5250ab5f-4145-4ac4-81ba-4dd964039d89",
+							security: 0,
+							Items: [],
+							fluidTank: {
+								FluidName: "drilling_fluid",
+								Amount: 2147483647
+							}
+						},
+						display: {
+							Name: "创造流体储罐"
+						}
+					}
+				}],
+				display: {
+					Name: "四台自带研磨的采矿场！"
+				}
+			}
+		}
+	}]
+}

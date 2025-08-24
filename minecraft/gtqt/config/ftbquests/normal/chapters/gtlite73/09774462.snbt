@@ -1,0 +1,80 @@
+{
+	title: "DLC 1——自动合成",
+	icon: "appliedenergistics2:interface",
+	x: -8.0d,
+	y: 1.0d,
+	description: "这不必买",
+	tasks: [{
+		uid: "a0622056",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 113"
+		}],
+		count: 256L,
+		consume_items: true
+	}],
+	rewards: [{
+		uid: "ed385e90",
+		type: "item",
+		item: "appliedenergistics2:interface",
+		count: 64
+	},
+	{
+		uid: "451babb5",
+		type: "item",
+		item: "appliedenergistics2:part 1 440",
+		count: 64
+	},
+	{
+		uid: "fe0d02e4",
+		type: "item",
+		item: "nae2:storage_crafting_16384k",
+		count: 64
+	},
+	{
+		uid: "f03c0eae",
+		type: "item",
+		item: "nae2:coprocessor_64x 64",
+		count: 64
+	},
+	{
+		uid: "5599e9df",
+		type: "item",
+		item: "appliedenergistics2:molecular_assembler",
+		count: 64
+	},
+	{
+		uid: "de5c9986",
+		type: "item",
+		item: "appliedenergistics2:material 1 58",
+		count: 256
+	},
+	{
+		uid: "9bce9712",
+		type: "item",
+		item: "appliedenergistics2:material 1 52",
+		count: 256
+	},
+	{
+		uid: "d996f725",
+		type: "item",
+		item: "threng:machine 1 4",
+		count: 64
+	},
+	{
+		uid: "4cc501bb",
+		type: "item",
+		item: "appliedenergistics2:part 1 480"
+	},
+	{
+		uid: "f029fe99",
+		type: "item",
+		item: "appliedenergistics2:part 1 521"
+	},
+	{
+		uid: "60318409",
+		type: "item",
+		item: "appliedenergistics2:material 1 53",
+		count: 64
+	}]
+}

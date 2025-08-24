@@ -1,0 +1,20 @@
+{
+	title: "想你了，牢建造机",
+	icon: "rftools:builder",
+	x: 8.0d,
+	y: 1.0d,
+	can_repeat: true,
+	tasks: [{
+		uid: "bef37754",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 324"
+		}],
+		count: 256L
+	}],
+	rewards: [{
+		uid: "7494d407",
+		type: "item",
+		item: "rftools:builder"
+	}]
+}

@@ -1,0 +1,21 @@
+{
+	title: "新人福利：木箱子换无尽箱！（只有一次）",
+	icon: "avaritiaddons:avaritiaddons_chest 1 1",
+	x: 1.0d,
+	y: 1.0d,
+	description: "言语 多么苍白无力 只剩下回音",
+	tasks: [{
+		uid: "3a089a25",
+		type: "item",
+		items: [{
+			item: "minecraft:chest"
+		}],
+		count: 64L,
+		consume_items: true
+	}],
+	rewards: [{
+		uid: "a4225690",
+		type: "item",
+		item: "avaritiaddons:avaritiaddons_chest 1 1"
+	}]
+}

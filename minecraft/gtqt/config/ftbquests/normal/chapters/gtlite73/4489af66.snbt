@@ -1,0 +1,21 @@
+{
+	title: "64个4096k换创造流体磁盘！",
+	icon: "refinedstorage:fluid_storage_disk 1 4",
+	x: 7.5d,
+	y: 3.0d,
+	description: "外壳是送的",
+	can_repeat: true,
+	tasks: [{
+		uid: "db1c0ae6",
+		type: "item",
+		items: [{
+			item: "refinedstorage:fluid_storage_part 1 3"
+		}],
+		count: 64L
+	}],
+	rewards: [{
+		uid: "95215c1a",
+		type: "item",
+		item: "refinedstorage:fluid_storage_disk 1 4"
+	}]
+}

@@ -1,0 +1,21 @@
+{
+	title: "终极生物农场",
+	icon: "tinymobfarm:ultimate_farm",
+	x: 3.0d,
+	y: 7.5d,
+	can_repeat: true,
+	tasks: [{
+		uid: "32969b9a",
+		type: "item",
+		items: [{
+			item: "gregtech:machine_casing"
+		}],
+		count: 16L
+	}],
+	rewards: [{
+		uid: "223c6e4f",
+		type: "item",
+		item: "tinymobfarm:ultimate_farm",
+		count: 16
+	}]
+}

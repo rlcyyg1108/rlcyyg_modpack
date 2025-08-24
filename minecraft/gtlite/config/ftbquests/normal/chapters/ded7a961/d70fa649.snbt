@@ -1,0 +1,106 @@
+{
+	title: "满世界找矿挖",
+	icon: "gregtech:machine 1 1028",
+	x: 1.0d,
+	y: -8.0d,
+	can_repeat: true,
+	tasks: [{
+		uid: "19b2e59a",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 113"
+		}],
+		count: 256L
+	}],
+	rewards: [{
+		uid: "31d1fbb0",
+		type: "item",
+		auto: "enabled",
+		item: {
+			id: "avaritiaddons:avaritiaddons_chest",
+			tag: {
+				Contents: [{
+					Slot: 0s,
+					id: "gregtech:machine",
+					Count: 1,
+					Damage: 1174s
+				},
+				{
+					Slot: 1s,
+					id: "gregtech:machine",
+					Count: 2,
+					Damage: 16130s
+				},
+				{
+					Slot: 2s,
+					id: "gregtech:machine",
+					Count: 4,
+					Damage: 1028s
+				},
+				{
+					Slot: 3s,
+					id: "gregtech:machine",
+					Count: 2,
+					Damage: 1189s
+				},
+				{
+					Slot: 4s,
+					id: "gregtech:meta_block_frame_125",
+					Count: 48,
+					Damage: 13s
+				},
+				{
+					Slot: 5s,
+					id: "gregtech:metal_casing",
+					Count: 28,
+					Damage: 7s
+				},
+				{
+					Slot: 6s,
+					id: "mekanism:machineblock2",
+					Count: 1,
+					Damage: 11s,
+					tag: {
+						tier: 4,
+						mekData: {
+							ownerUUID: "5250ab5f-4145-4ac4-81ba-4dd964039d89",
+							security: 0,
+							Items: [],
+							fluidTank: {
+								FluidName: "drilling_fluid",
+								Amount: 2147483647
+							}
+						},
+						display: {
+							Name: "创造流体储罐"
+						}
+					}
+				},
+				{
+					Slot: 7s,
+					id: "mekanism:machineblock2",
+					Count: 1,
+					Damage: 11s,
+					tag: {
+						tier: 4,
+						mekData: {
+							ownerUUID: "5250ab5f-4145-4ac4-81ba-4dd964039d89",
+							security: 0,
+							Items: [],
+							fluidTank: {
+								FluidName: "drilling_fluid",
+								Amount: 2147483647
+							}
+						},
+						display: {
+							Name: "创造流体储罐"
+						}
+					}
+				}],
+				display: {
+					Name: "四台自带研磨的采矿场！"
+				}
+			}
+		}
+	}]
+}

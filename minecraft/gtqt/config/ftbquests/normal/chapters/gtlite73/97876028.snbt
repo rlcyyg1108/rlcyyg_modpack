@@ -1,0 +1,43 @@
+{
+	title: "想你了牢nc",
+	icon: "nuclearcraft:water_source_dense",
+	x: 7.5d,
+	y: -4.0d,
+	can_repeat: true,
+	tasks: [{
+		uid: "ed91b0e9",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 2"
+		}],
+		count: 256L
+	}],
+	rewards: [{
+		uid: "47a518cb",
+		type: "item",
+		auto: "enabled",
+		item: "nuclearcraft:water_source_dense",
+		count: 64
+	},
+	{
+		uid: "c7f653de",
+		type: "item",
+		auto: "enabled",
+		item: "nuclearcraft:cobblestone_generator_dense",
+		count: 64
+	},
+	{
+		uid: "4903564d",
+		type: "item",
+		auto: "enabled",
+		item: "nuclearcraft:helium_collector_dense",
+		count: 64
+	},
+	{
+		uid: "36b7b482",
+		type: "item",
+		auto: "enabled",
+		item: "nuclearcraft:nitrogen_collector_dense",
+		count: 64
+	}]
+}

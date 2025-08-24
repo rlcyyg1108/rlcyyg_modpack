@@ -1,0 +1,23 @@
+{
+	title: "本章节全部内容为个人编写，仅供个人使用，不提供私货分享。",
+	icon: {
+		id: "botania:specialflower",
+		tag: {
+			type: "puredaisy"
+		}
+	},
+	x: 0.0d,
+	y: 0.0d,
+	description: "自行添加了大量模破坏整合包原本平衡的模组，我尊重所有原版GTQT玩家，不鼓励私货，不提倡私货，私货会大大增加游戏崩溃的概率，请勿向原作者及其社区询问私货内容，后果自负。",
+	size: 1.5d,
+	tasks: [{
+		uid: "4f9d7cf5",
+		type: "checkmark"
+	}],
+	rewards: [{
+		uid: "af84b72b",
+		type: "item",
+		item: "minecraft:dirt",
+		count: 8
+	}]
+}

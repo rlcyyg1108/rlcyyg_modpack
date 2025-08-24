@@ -1,0 +1,38 @@
+{
+  "name": "橡胶树",
+  "mod": "gregtech",
+  "sapling": {
+    "name": "gregtech:rubber_sapling",
+    "data": 0
+  },
+  "growTimeMultiplier": 1.0,
+  "drops": [
+    {
+      "name": "minecraft:stick",
+      "data": 0,
+      "type": "STICK"
+    },
+    {
+      "name": "gregtech:rubber_log",
+      "data": 0,
+      "type": "WOOD"
+    },
+    {
+      "name": "gregtech:rubber_sapling",
+      "data": 0,
+      "type": "SAPLING"
+    },
+    {
+      "name": "gregtech:rubber_leaves",
+      "data": 0,
+      "type": "LEAVES"
+    },
+    {
+      "name": "gregtech:meta_item_1",
+      "data": 438,
+      "type": "CUSTOM",
+      "count": 64,
+      "chance": 1
+    }
+  ]
+}

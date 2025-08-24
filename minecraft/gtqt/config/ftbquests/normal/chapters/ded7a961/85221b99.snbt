@@ -1,0 +1,21 @@
+{
+	title: "如果我们睁开双眼我们会看见海藻",
+	icon: "avaritiaddons:avaritiaddons_chest 1 1",
+	x: -1.0d,
+	y: 1.0d,
+	description: "我们可以看见我们靴子尖端的云彩",
+	can_repeat: true,
+	tasks: [{
+		uid: "b7353af5",
+		type: "item",
+		items: [{
+			item: "avaritiaddons:avaritiaddons_chest"
+		}],
+		count: 128L
+	}],
+	rewards: [{
+		uid: "1f58f7a2",
+		type: "item",
+		item: "avaritiaddons:avaritiaddons_chest 1 1"
+	}]
+}

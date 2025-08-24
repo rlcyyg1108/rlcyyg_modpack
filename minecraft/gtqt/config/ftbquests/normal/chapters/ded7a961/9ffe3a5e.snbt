@@ -1,0 +1,22 @@
+{
+	title: "手动太慢了",
+	icon: "fluxnetworks:flux",
+	x: 3.0d,
+	y: 0.0d,
+	description: "通量描绘的故事 定是HAPPY END",
+	can_repeat: true,
+	tasks: [{
+		uid: "3bbc5e4c",
+		type: "item",
+		items: [{
+			item: "minecraft:redstone_block"
+		}],
+		count: 576L
+	}],
+	rewards: [{
+		uid: "bfb7edee",
+		type: "item",
+		item: "fluxnetworks:flux",
+		count: 5184
+	}]
+}

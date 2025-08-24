@@ -1,0 +1,23 @@
+{
+	title: "再也不会烧掉了",
+	icon: "gregtech:wire_hex 1 20630",
+	x: -2.0d,
+	y: 2.0d,
+	description: "你不过是个披着高电流的伪造品而已",
+	can_repeat: true,
+	tasks: [{
+		uid: "aa1fbc00",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 2"
+		}],
+		count: 256L
+	}],
+	rewards: [{
+		uid: "f53a1977",
+		type: "item",
+		auto: "enabled",
+		item: "gregtech:wire_hex 64 24541",
+		count: 64
+	}]
+}

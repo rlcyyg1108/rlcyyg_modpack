@@ -1,0 +1,41 @@
+{
+	title: "无尽rf！（巨贵）",
+	icon: {
+		id: "mekanism:energycube",
+		tag: {
+			tier: 4,
+			mekData: {
+				energyStored: 1.7976931348623157E308d
+			}
+		}
+	},
+	x: 7.0d,
+	y: 5.0d,
+	description: "用料大概是单种几十万左右吧，要两百多万红石哦",
+	can_repeat: true,
+	tasks: [{
+		uid: "a94b461a",
+		type: "item",
+		items: [{
+			id: "mekanism:energycube",
+			tag: {
+				tier: 3
+			}
+		}],
+		count: 32768L,
+		ignore_nbt: 1b
+	}],
+	rewards: [{
+		uid: "7869a168",
+		type: "item",
+		item: {
+			id: "mekanism:energycube",
+			tag: {
+				tier: 4,
+				mekData: {
+					energyStored: 1.7976931348623157E308d
+				}
+			}
+		}
+	}]
+}

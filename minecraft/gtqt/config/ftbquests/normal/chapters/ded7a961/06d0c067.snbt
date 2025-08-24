@@ -1,0 +1,193 @@
+{
+	title: "新人大礼包",
+	icon: "gregtech:meta_item_1 1 470",
+	x: 0.0d,
+	y: -1.5d,
+	description: "第一批成功登陆的海洋生物拥有四肢和指头，但指头的数量并不固定。比如，鱼石螈的后足各有八个、前足各有六个；而昭和时代的哥斯拉，每只足都只有五个。后来，五个指头的形态逐渐在构成海洋–陆地生物形象的元素中占据充分优势，并最终以基因模型、影视创作和学术期刊的形式，延续到了今天。",
+	text: [
+		"地上的痛苦是吾等的食粮",
+		"苦难之后到达神圣殿堂",
+		"苦痛之后到达乐园"
+	],
+	tasks: [{
+		uid: "968dd31f",
+		type: "item",
+		items: [{
+			item: "minecraft:dirt"
+		}],
+		count: 8L,
+		consume_items: true
+	}],
+	rewards: [{
+		uid: "bfdfa4e6",
+		type: "item",
+		item: "hooked:hook 1 4"
+	},
+	{
+		uid: "8b581421",
+		type: "item",
+		item: {
+			id: "simplybackpacks:epicbackpack",
+			tag: {
+				inv: {
+					Items: [],
+					Size: 99
+				},
+				filter: {
+					Items: [],
+					Size: 16
+				}
+			},
+			ForgeCaps: {
+				Parent: {
+					Inventory: [],
+					Filter: []
+				}
+			}
+		}
+	},
+	{
+		uid: "6510f2b5",
+		type: "item",
+		item: "dankstorage:dank_7"
+	},
+	{
+		uid: "cb945e4f",
+		type: "item",
+		item: "avaritiaddons:avaritiaddons_chest",
+		count: 64
+	},
+	{
+		uid: "797d112f",
+		type: "item",
+		item: {
+			id: "gregtech:meta_item_1",
+			Damage: 465s,
+			tag: {
+				terminal: {
+					_creative: 1b
+				}
+			}
+		}
+	},
+	{
+		uid: "36b6da52",
+		type: "item",
+		item: "minecraft:wooden_axe"
+	},
+	{
+		uid: "78ba3e41",
+		type: "item",
+		item: "gregtech:machine 1 1647"
+	},
+	{
+		uid: "9ff836bb",
+		type: "item",
+		item: "betterbuilderswands:wandunbreakable"
+	},
+	{
+		uid: "882179ec",
+		type: "item",
+		item: "draconicevolution:magnet 1 1"
+	},
+	{
+		uid: "ea7bcb23",
+		type: "item",
+		item: {
+			id: "gtqtcore:vajra",
+			tag: {
+				MaxCharge: 40960000L,
+				GT.Tool: {
+					AttackDamage: 110.0f,
+					ToolSpeed: 1804.0f,
+					HarvestLevel: 6,
+					MaxDurability: 65534,
+					AttackSpeed: 6.1f,
+					Material: "gregtech:neutronium",
+					Durability: 0
+				},
+				Unbreakable: 1b,
+				HideFlags: 2,
+				ench: [{
+					id: 33,
+					lvl: 1s
+				}],
+				GT.Behaviours: {
+					TreeFelling: 1b,
+					TorchPlacing: 1b,
+					RelocateMinedBlocks: 1b
+				},
+				DisallowContainerItem: 0b,
+				Charge: 0L
+			}
+		}
+	},
+	{
+		uid: "2161f8d4",
+		type: "item",
+		item: "gregtech:meta_item_1 1 1004"
+	},
+	{
+		uid: "1bbf4396",
+		type: "item",
+		item: {
+			id: "jecalculation:item_calculator",
+			tag: {
+				jecalculation: {
+					craft: {
+						inventory: 0b,
+						amount: "32768",
+						recents: [{
+							type: "itemStack",
+							content: {
+								amount: 1L,
+								item: "mekanism:energycube",
+								nbt: {
+									tier: 3
+								}
+							}
+						}]
+					}
+				}
+			}
+		}
+	},
+	{
+		uid: "ac9e4d6f",
+		type: "item",
+		item: {
+			id: "buildinggadgets:buildingtool",
+			tag: {
+				blockstate: {
+					Name: "minecraft:air"
+				}
+			}
+		}
+	},
+	{
+		uid: "ab73748d",
+		type: "item",
+		item: {
+			id: "buildinggadgets:copypastetool",
+			tag: {
+				mode: "Copy"
+			}
+		}
+	},
+	{
+		uid: "d11c07e1",
+		type: "item",
+		item: "draconicevolution:draconium_capacitor 1 2"
+	},
+	{
+		uid: "c8f97146",
+		type: "item",
+		item: {
+			id: "gregtech:meta_item_1",
+			Damage: 753s,
+			tag: {
+				Charge: 9223372036854775807L
+			}
+		}
+	}]
+}

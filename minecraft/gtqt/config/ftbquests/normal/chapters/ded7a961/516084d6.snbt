@@ -1,0 +1,23 @@
+{
+	title: "空气烧铁",
+	icon: "gregtech:meta_ingot 1 335",
+	x: 0.0d,
+	y: 4.5d,
+	description: "铁粒只是一个虚无的存在 一个碎片 土高炉里的一段失败回忆",
+	can_repeat: true,
+	tasks: [{
+		uid: "f0c91799",
+		type: "item",
+		items: [{
+			item: "minecraft:iron_block"
+		}],
+		count: 64L
+	}],
+	rewards: [{
+		uid: "c1e26c6f",
+		type: "item",
+		auto: "enabled",
+		item: "gregtech:meta_ingot 1 335",
+		count: 576
+	}]
+}

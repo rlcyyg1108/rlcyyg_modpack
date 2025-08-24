@@ -1,0 +1,22 @@
+{
+	title: "无损石头换焦黑石！",
+	icon: "tconstruct:seared",
+	x: 8.0d,
+	y: 0.0d,
+	can_repeat: true,
+	tasks: [{
+		uid: "d6164836",
+		type: "item",
+		items: [{
+			item: "minecraft:cobblestone"
+		}],
+		count: 8192L
+	}],
+	rewards: [{
+		uid: "99b049b9",
+		type: "item",
+		auto: "enabled",
+		item: "tconstruct:seared",
+		count: 8192
+	}]
+}

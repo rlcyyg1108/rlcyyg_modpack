@@ -1,0 +1,21 @@
+{
+	title: "无尽箱子！",
+	icon: "avaritiaddons:avaritiaddons_chest 1 1",
+	x: 7.0d,
+	y: -5.0d,
+	description: "其实这是削弱过的数量，你应该需要33,554,432个压缩箱子才能换",
+	can_repeat: true,
+	tasks: [{
+		uid: "b7353af5",
+		type: "item",
+		items: [{
+			item: "avaritiaddons:avaritiaddons_chest"
+		}],
+		count: 128L
+	}],
+	rewards: [{
+		uid: "1f58f7a2",
+		type: "item",
+		item: "avaritiaddons:avaritiaddons_chest 1 1"
+	}]
+}

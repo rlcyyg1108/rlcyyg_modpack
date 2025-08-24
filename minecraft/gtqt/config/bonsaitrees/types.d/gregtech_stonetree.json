@@ -1,0 +1,38 @@
+{
+  "name": "石头树",
+  "mod": "minecraft",
+  "sapling": {
+    "name": "minecraft:stone",
+    "data": 0
+  },
+  "growTimeMultiplier": 1.0,
+  "drops": [
+    {
+      "name": "gregtech:stone_smooth",
+      "data": 0,
+      "type": "STICK"
+    },
+    {
+      "name": "gregtech:stone_smooth",
+      "data": 1,
+      "type": "WOOD"
+    },
+    {
+      "name": "gregtech:stone_smooth",
+      "data": 2,
+      "type": "SAPLING"
+    },
+    {
+      "name": "gregtech:stone_smooth",
+      "data": 3,
+      "type": "LEAVES"
+    },
+    {
+      "name": "minecraft:end_stone",
+      "data": 0,
+      "type": "CUSTOM",
+      "count": 64,
+      "chance": 1
+    }
+  ]
+}

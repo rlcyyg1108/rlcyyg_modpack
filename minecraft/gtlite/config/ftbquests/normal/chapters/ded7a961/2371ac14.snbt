@@ -1,0 +1,110 @@
+{
+	title: "rs全家桶",
+	icon: {
+		id: "refinedstorage:controller",
+		Damage: 1s,
+		tag: {
+			Energy: 32000
+		}
+	},
+	x: -1.0d,
+	y: 1.0d,
+	tasks: [{
+		uid: "229f19d9",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_block_compressed_20 1 4"
+		}],
+		count: 128L,
+		consume_items: true
+	}],
+	rewards: [{
+		uid: "9777cb6c",
+		type: "item",
+		item: "refinedstorage:disk_drive"
+	},
+	{
+		uid: "fd53cd33",
+		type: "item",
+		item: "refinedstorage:upgrade 1 2",
+		count: 512
+	},
+	{
+		uid: "371b55e7",
+		type: "item",
+		item: "refinedstorage:upgrade 1 4",
+		count: 512
+	},
+	{
+		uid: "3e29fde5",
+		type: "item",
+		item: {
+			id: "refinedstorage:controller",
+			Damage: 1s,
+			tag: {
+				Energy: 32000
+			}
+		}
+	},
+	{
+		uid: "3a75dcec",
+		type: "item",
+		item: "refinedstorage:grid"
+	},
+	{
+		uid: "9d505e28",
+		type: "item",
+		item: "refinedstorage:grid 1 1"
+	},
+	{
+		uid: "5f0e3148",
+		type: "item",
+		item: "refinedstorage:grid 1 3"
+	},
+	{
+		uid: "bcf27029",
+		type: "item",
+		item: "refinedstorage:cable",
+		count: 512
+	},
+	{
+		uid: "cbae3a00",
+		type: "item",
+		item: "refinedstorage:importer",
+		count: 512
+	},
+	{
+		uid: "d5d0cde2",
+		type: "item",
+		item: "refinedstorage:exporter",
+		count: 512
+	},
+	{
+		uid: "6365985e",
+		type: "item",
+		item: "refinedstorage:external_storage",
+		count: 512
+	},
+	{
+		uid: "6bac82d5",
+		type: "item",
+		item: "refinedstorage:interface",
+		count: 512
+	},
+	{
+		uid: "38dd5964",
+		type: "item",
+		item: "refinedstorage:fluid_interface",
+		count: 512
+	},
+	{
+		uid: "6845e559",
+		type: "item",
+		item: "refinedstorage:storage_disk 1 4"
+	},
+	{
+		uid: "ab6364df",
+		type: "item",
+		item: "refinedstorage:fluid_storage_disk 1 4"
+	}]
+}

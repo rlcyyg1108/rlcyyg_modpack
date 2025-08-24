@@ -1,0 +1,44 @@
+{
+	title: "就这样毫无预兆的发生了",
+	icon: "nuclearcraft:water_source_dense",
+	x: -2.0d,
+	y: -2.0d,
+	description: "你的罪孽，需要用万层的饼干夹烤棉花糖来偿还",
+	can_repeat: true,
+	tasks: [{
+		uid: "ed91b0e9",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 2"
+		}],
+		count: 256L
+	}],
+	rewards: [{
+		uid: "47a518cb",
+		type: "item",
+		auto: "enabled",
+		item: "nuclearcraft:water_source_dense",
+		count: 64
+	},
+	{
+		uid: "c7f653de",
+		type: "item",
+		auto: "enabled",
+		item: "nuclearcraft:cobblestone_generator_dense",
+		count: 64
+	},
+	{
+		uid: "4903564d",
+		type: "item",
+		auto: "enabled",
+		item: "nuclearcraft:helium_collector_dense",
+		count: 64
+	},
+	{
+		uid: "36b7b482",
+		type: "item",
+		auto: "enabled",
+		item: "nuclearcraft:nitrogen_collector_dense",
+		count: 64
+	}]
+}

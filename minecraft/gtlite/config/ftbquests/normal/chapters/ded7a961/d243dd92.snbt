@@ -1,0 +1,136 @@
+{
+	title: "很快",
+	icon: "threng:big_assembler 1 2",
+	x: -5.5d,
+	y: 6.5d,
+	can_repeat: true,
+	tasks: [{
+		uid: "6996623d",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 113"
+		}],
+		count: 256L
+	}],
+	rewards: [{
+		uid: "19b4d88a",
+		type: "item",
+		auto: "enabled",
+		item: {
+			id: "avaritiaddons:avaritiaddons_chest",
+			tag: {
+				Contents: [{
+					Slot: 0s,
+					id: "threng:big_assembler",
+					Count: 1,
+					Damage: 5s
+				},
+				{
+					Slot: 1s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 4s
+				},
+				{
+					Slot: 2s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 4s
+				},
+				{
+					Slot: 3s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 4s
+				},
+				{
+					Slot: 4s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 4s
+				},
+				{
+					Slot: 5s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 4s
+				},
+				{
+					Slot: 6s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 4s
+				},
+				{
+					Slot: 7s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 4s
+				},
+				{
+					Slot: 8s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 1s
+				},
+				{
+					Slot: 9s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 1s
+				},
+				{
+					Slot: 10s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 1s
+				},
+				{
+					Slot: 11s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 1s
+				},
+				{
+					Slot: 12s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 1s
+				},
+				{
+					Slot: 13s,
+					id: "threng:big_assembler",
+					Count: 62,
+					Damage: 1s
+				},
+				{
+					Slot: 14s,
+					id: "threng:big_assembler",
+					Count: 1,
+					Damage: 2s
+				},
+				{
+					Slot: 15s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 3s
+				},
+				{
+					Slot: 16s,
+					id: "threng:big_assembler",
+					Count: 64,
+					Damage: 0s
+				},
+				{
+					Slot: 17s,
+					id: "threng:big_assembler",
+					Count: 40,
+					Damage: 0s
+				}],
+				display: {
+					Name: "大型分子装配室！"
+				}
+			}
+		}
+	}]
+}

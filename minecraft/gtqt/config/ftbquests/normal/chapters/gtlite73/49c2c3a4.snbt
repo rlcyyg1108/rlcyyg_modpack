@@ -1,0 +1,124 @@
+{
+	title: "方便吧",
+	icon: "gregtech:machine 1 16095",
+	x: 1.0d,
+	y: 8.0d,
+	can_repeat: true,
+	tasks: [{
+		uid: "382d3ce6",
+		type: "item",
+		items: [{
+			item: "gregtech:machine 1 988"
+		}],
+		count: 64L
+	}],
+	rewards: [{
+		uid: "da9de8ac",
+		type: "item",
+		auto: "enabled",
+		item: {
+			id: "avaritiaddons:avaritiaddons_chest",
+			tag: {
+				display: {
+					Name: "集成矿石处理厂"
+				},
+				Contents: [{
+					Slot: 0s,
+					id: "gregtech:machine",
+					Count: 1,
+					Damage: 14021s
+				},
+				{
+					Slot: 1s,
+					id: "gregtech:machine",
+					Count: 1,
+					Damage: 1752s
+				},
+				{
+					Slot: 2s,
+					id: "gregtech:machine",
+					Count: 1,
+					Damage: 1747s
+				},
+				{
+					Slot: 3s,
+					id: "gregtech:machine",
+					Count: 1,
+					Damage: 1746s
+				},
+				{
+					Slot: 4s,
+					id: "gregtech:machine",
+					Count: 1,
+					Damage: 1650s
+				},
+				{
+					Slot: 5s,
+					id: "gregtech:machine",
+					Count: 1,
+					Damage: 1657s
+				},
+				{
+					Slot: 6s,
+					id: "gregtech:machine",
+					Count: 1,
+					Damage: 1656s
+				},
+				{
+					Slot: 7s,
+					id: "gregtech:machine",
+					Count: 1,
+					Damage: 16095s
+				},
+				{
+					Slot: 8s,
+					id: "gregtech:transparent_casing",
+					Count: 48,
+					Damage: 2s
+				},
+				{
+					Slot: 9s,
+					id: "gregtech:metal_casing",
+					Count: 64,
+					Damage: 5s
+				},
+				{
+					Slot: 10s,
+					id: "gregtech:metal_casing",
+					Count: 38,
+					Damage: 5s
+				},
+				{
+					Slot: 11s,
+					id: "gregtech:boiler_casing",
+					Count: 30,
+					Damage: 3s
+				},
+				{
+					Slot: 12s,
+					id: "gregtech:turbine_casing",
+					Count: 16,
+					Damage: 1s
+				},
+				{
+					Slot: 13s,
+					id: "gtlitecore:multiblock_casing",
+					Count: 64,
+					Damage: 13s
+				},
+				{
+					Slot: 14s,
+					id: "gtlitecore:multiblock_casing",
+					Count: 61,
+					Damage: 13s
+				},
+				{
+					Slot: 15s,
+					id: "gregtech:meta_block_frame_125",
+					Count: 16,
+					Damage: 13s
+				}]
+			}
+		}
+	}]
+}

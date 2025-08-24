@@ -1,0 +1,59 @@
+{
+	title: "双胞胎",
+	icon: "gregtech:machine 1 17004",
+	x: 0.0d,
+	y: 3.0d,
+	description: "≽≼⍫⍰⍫⍬⍰⍫≽≼▓▓░⍰▓⍫▓⍫⍫▓⍫v⍬≽≼≽⍬≼⍬⍫⍰⍬⍫⍬⍰⍫≽≼▓▓░⍰▓⍫⍫≽≼≽≼⍫⍰⍫⍬⍰⍫≽≼▓▓░⍰▓⍫⍫≽≼≽≼⍫⍰⍫⍰▓⍫⍫⍬⍰▓⍫⍬⍰⍫≽⍰⍫⍬⍰≼▓⍰⍫⍬⍰▓░⍰▓⍫⍫≽≼≽≼⍫⍰⍫⍬⍰⍫≽≼▓▓░⍰▓⍫⍫≽≼",
+	can_repeat: true,
+	tasks: [{
+		uid: "9b60afcb",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 113"
+		}],
+		count: 256L
+	}],
+	rewards: [{
+		uid: "775fca45",
+		type: "item",
+		auto: "enabled",
+		item: {
+			id: "avaritiaddons:avaritiaddons_chest",
+			tag: {
+				Contents: [{
+					Slot: 0s,
+					id: "gregtech:meta_block_frame_127",
+					Count: 48,
+					Damage: 10s
+				},
+				{
+					Slot: 1s,
+					id: "drtech:meta_machine_casing",
+					Count: 30,
+					Damage: 1s
+				},
+				{
+					Slot: 2s,
+					id: "gregtech:machine",
+					Count: 4,
+					Damage: 17004s
+				},
+				{
+					Slot: 3s,
+					id: "gregtech:machine",
+					Count: 2,
+					Damage: 16130s
+				},
+				{
+					Slot: 4s,
+					id: "gregtech:machine",
+					Count: 1,
+					Damage: 1745s
+				}],
+				display: {
+					Name: " 四台零损耗的流体钻机！"
+				}
+			}
+		}
+	}]
+}

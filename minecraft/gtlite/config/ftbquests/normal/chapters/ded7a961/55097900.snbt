@@ -1,0 +1,62 @@
+{
+	title: "用空气升级！",
+	x: 7.5d,
+	y: 4.0d,
+	can_repeat: true,
+	tasks: [{
+		uid: "ce417a01",
+		type: "item",
+		items: [{
+			item: "mekanism:machineblock 1 4"
+		}],
+		ignore_nbt: 1b
+	}],
+	rewards: [{
+		uid: "a32dda26",
+		type: "item",
+		item: {
+			id: "mekanism:machineblock",
+			Damage: 4s,
+			tag: {
+				mekData: {
+					ownerUUID: "5250ab5f-4145-4ac4-81ba-4dd964039d89",
+					security: 0,
+					upgrades: [{
+						type: 0,
+						amount: 8
+					},
+					{
+						type: 1,
+						amount: 8
+					},
+					{
+						type: 5,
+						amount: 1
+					}],
+					hasMinerConfig: 1b,
+					radius: 128,
+					minY: 0,
+					maxY: 255,
+					doEject: 1b,
+					doPull: 0b,
+					silkTouch: 1b,
+					inverse: 0b,
+					controlType: 0,
+					Items: [{
+						Slot: 27b,
+						id: "mekanism:energycube",
+						Count: 1,
+						Damage: 0s,
+						tag: {
+							tier: 4,
+							mekData: {
+								energyStored: 1.7976931348623157E308d
+							}
+						}
+					}],
+					energyStored: 400000.0d
+				}
+			}
+		}
+	}]
+}

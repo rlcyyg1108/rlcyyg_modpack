@@ -1,0 +1,22 @@
+{
+	title: "空气烧铁",
+	icon: "gregtech:meta_ingot 1 335",
+	x: -1.0d,
+	y: -8.0d,
+	can_repeat: true,
+	tasks: [{
+		uid: "f0c91799",
+		type: "item",
+		items: [{
+			item: "minecraft:iron_block"
+		}],
+		count: 64L
+	}],
+	rewards: [{
+		uid: "c1e26c6f",
+		type: "item",
+		auto: "enabled",
+		item: "gregtech:meta_ingot 1 335",
+		count: 576
+	}]
+}

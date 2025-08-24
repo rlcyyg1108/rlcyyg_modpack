@@ -1,0 +1,22 @@
+{
+	title: "可回收垃圾",
+	icon: "gregtech:meta_item_1 1 502",
+	x: 8.0d,
+	y: -2.0d,
+	can_repeat: true,
+	tasks: [{
+		uid: "71cfd23e",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_item_1 1 505"
+		}],
+		count: 256L
+	}],
+	rewards: [{
+		uid: "35ef3e62",
+		type: "item",
+		auto: "enabled",
+		item: "gregtech:meta_item_1 1 502",
+		count: 64
+	}]
+}

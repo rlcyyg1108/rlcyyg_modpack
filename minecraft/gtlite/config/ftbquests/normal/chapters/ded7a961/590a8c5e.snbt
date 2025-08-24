@@ -1,0 +1,22 @@
+{
+	title: "2.1g的缸",
+	icon: "gregtech:machine 1 1589",
+	x: -2.0d,
+	y: -8.0d,
+	can_repeat: true,
+	tasks: [{
+		uid: "8177daa4",
+		type: "item",
+		items: [{
+			item: "minecraft:bucket"
+		}],
+		count: 16L
+	}],
+	rewards: [{
+		uid: "235ae875",
+		type: "item",
+		auto: "enabled",
+		item: "gregtech:machine 1 1589",
+		count: 16
+	}]
+}

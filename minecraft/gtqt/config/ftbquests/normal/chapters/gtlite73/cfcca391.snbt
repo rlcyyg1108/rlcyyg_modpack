@@ -1,0 +1,22 @@
+{
+	title: "64个64k换一个创造磁盘！",
+	icon: "refinedstorage:storage_disk 1 4",
+	x: 8.0d,
+	y: 2.0d,
+	description: "外壳哪来的？",
+	can_repeat: true,
+	tasks: [{
+		uid: "7a71092f",
+		type: "item",
+		items: [{
+			item: "refinedstorage:storage_part 1 3"
+		}],
+		count: 64L
+	}],
+	rewards: [{
+		uid: "b3c48e3e",
+		type: "item",
+		auto: "enabled",
+		item: "refinedstorage:storage_disk 1 4"
+	}]
+}

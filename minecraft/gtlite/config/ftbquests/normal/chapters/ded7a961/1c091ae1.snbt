@@ -1,0 +1,87 @@
+{
+	title: "DLC 5——NAE2",
+	icon: "nae2:pattern_multiplier",
+	x: -7.0d,
+	y: 5.0d,
+	description: "你说得对，但是para……呜呃（重伤倒地）",
+	tasks: [{
+		uid: "b158b322",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 2013"
+		}],
+		count: 1024L,
+		consume_items: true
+	}],
+	rewards: [{
+		uid: "3c9931f0",
+		type: "item",
+		item: "nae2:pattern_multiplier"
+	},
+	{
+		uid: "ddcc3b7a",
+		type: "item",
+		item: "nae2:exposer",
+		count: 64
+	},
+	{
+		uid: "3988a58d",
+		type: "item",
+		item: "nae2:part",
+		count: 64
+	},
+	{
+		uid: "edbd6915",
+		type: "item",
+		item: "nae2:upgrade 1 2",
+		count: 64
+	},
+	{
+		uid: "2f4134ff",
+		type: "item",
+		item: "nae2:upgrade 1 1",
+		count: 64
+	},
+	{
+		uid: "1fda3daf",
+		type: "item",
+		item: "nae2:upgrade",
+		count: 64
+	},
+	{
+		uid: "90e3dc94",
+		type: "item",
+		item: {
+			id: "nae2:fluid_storage_cell_void",
+			tag: {}
+		}
+	},
+	{
+		uid: "45f57237",
+		type: "item",
+		item: {
+			id: "nae2:storage_cell_void",
+			tag: {}
+		}
+	},
+	{
+		uid: "7311d5c2",
+		type: "item",
+		item: {
+			id: "nae2:storage_cell_fluid_singularity",
+			tag: {},
+			Count: 1b
+		},
+		count: 10
+	},
+	{
+		uid: "3869d0f0",
+		type: "item",
+		item: {
+			id: "nae2:storage_cell_singularity",
+			tag: {},
+			Count: 1b
+		},
+		count: 10
+	}]
+}

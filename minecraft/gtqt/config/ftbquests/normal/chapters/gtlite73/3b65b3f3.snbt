@@ -1,0 +1,23 @@
+{
+	title: "龙块换混沌碎片！",
+	icon: "draconicevolution:chaos_shard",
+	x: 8.0d,
+	y: 0.0d,
+	description: "使用了来自世界之外的力量做到的",
+	can_repeat: true,
+	tasks: [{
+		uid: "fcff3f22",
+		type: "item",
+		items: [{
+			item: "draconicevolution:draconium_block"
+		}],
+		count: 2048L
+	}],
+	rewards: [{
+		uid: "60dd9591",
+		type: "item",
+		auto: "enabled",
+		item: "draconicevolution:chaos_shard",
+		count: 64
+	}]
+}

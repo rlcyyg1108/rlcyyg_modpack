@@ -1,0 +1,36 @@
+{
+	icon: {
+		id: "refinedstorage:controller",
+		Damage: 1s,
+		tag: {
+			Energy: 32000
+		}
+	},
+	x: 8.0d,
+	y: 1.0d,
+	description: "这下不用拉电线了",
+	can_repeat: true,
+	tasks: [{
+		uid: "ce568538",
+		type: "item",
+		items: [{
+			id: "refinedstorage:controller",
+			tag: {
+				Energy: 0
+			}
+		}],
+		count: 64L,
+		ignore_nbt: 1b
+	}],
+	rewards: [{
+		uid: "a1aa1043",
+		type: "item",
+		item: {
+			id: "refinedstorage:controller",
+			Damage: 1s,
+			tag: {
+				Energy: 32000
+			}
+		}
+	}]
+}

@@ -1,0 +1,97 @@
+{
+	title: "DLC 4——p2p",
+	icon: {
+		id: "betterp2p:advanced_memory_card",
+		tag: {
+			selectedIndex: -1
+		}
+	},
+	x: -7.5d,
+	y: 4.0d,
+	description: "跟谁学的",
+	tasks: [{
+		uid: "86fe9569",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 113"
+		}],
+		count: 256L,
+		consume_items: true
+	}],
+	rewards: [{
+		uid: "00d9795c",
+		type: "item",
+		item: {
+			id: "betterp2p:advanced_memory_card",
+			tag: {
+				selectedIndex: -1
+			}
+		}
+	},
+	{
+		uid: "1400554d",
+		type: "item",
+		item: {
+			id: "appliedenergistics2:memory_card",
+			tag: {}
+		}
+	},
+	{
+		uid: "32d06b27",
+		type: "item",
+		item: {
+			id: "appliedenergistics2:material",
+			Damage: 60s,
+			tag: {}
+		},
+		count: 64
+	},
+	{
+		uid: "559b6e31",
+		type: "item",
+		item: "appliedenergistics2:material 1 26",
+		count: 64
+	},
+	{
+		uid: "6bb858fe",
+		type: "item",
+		item: "appliedenergistics2:material 1 61",
+		count: 64
+	},
+	{
+		uid: "f5add8f0",
+		type: "item",
+		item: "appliedenergistics2:material 1 29",
+		count: 64
+	},
+	{
+		uid: "a482a444",
+		type: "item",
+		item: "appliedenergistics2:material 1 31",
+		count: 64
+	},
+	{
+		uid: "059c0e44",
+		type: "item",
+		item: "nae2:part 1 1",
+		count: 64
+	},
+	{
+		uid: "95c0951d",
+		type: "item",
+		item: "appliedenergistics2:part 1 462",
+		count: 64
+	},
+	{
+		uid: "d572cb7a",
+		type: "item",
+		item: "appliedenergistics2:part 1 463",
+		count: 64
+	},
+	{
+		uid: "39f90eb6",
+		type: "item",
+		item: "appliedenergistics2:part 1 470",
+		count: 64
+	}]
+}

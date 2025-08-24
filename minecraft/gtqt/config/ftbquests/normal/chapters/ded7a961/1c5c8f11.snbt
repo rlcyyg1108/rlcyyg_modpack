@@ -1,0 +1,19 @@
+{
+	title: "乐园之门",
+	icon: "personalworlds:personal_portal",
+	x: -1.0d,
+	y: -1.0d,
+	description: "或许是另一个平行世界，首先举例:■■■■是不现在■■■■外的人,那这个■■■■一定能产生\"■■■■\",接着从■■■■角度上看:因此利用这点■■■■内大部分时间他人对■■■■的错误认知为■■■■,相反■■■■大部分时间他人对■■■■的错误认知为■■■■,但何时切换或回复认知,就不得而知 ※:这结论是■■■■中■■■■ ■■■■,最后一幕■■■■穿上白袍的疑点&所说的话",
+	tasks: [{
+		uid: "ae5a3b25",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 324"
+		}]
+	}],
+	rewards: [{
+		uid: "1efb1ad9",
+		type: "item",
+		item: "personalworlds:personal_portal"
+	}]
+}

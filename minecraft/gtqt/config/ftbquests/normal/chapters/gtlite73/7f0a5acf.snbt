@@ -1,0 +1,22 @@
+{
+	title: "你的终极目标",
+	icon: "compactvoidminers:void_miner",
+	x: 0.5d,
+	y: -1.0d,
+	shape: "octagon",
+	description: "很吊是吧，这东西相当于抽奖机",
+	can_repeat: true,
+	tasks: [{
+		uid: "e99e2064",
+		type: "item",
+		items: [{
+			item: "gregtech:machine 1 1668"
+		}]
+	}],
+	rewards: [{
+		uid: "84bdd8b9",
+		type: "item",
+		item: "compactvoidminers:void_miner",
+		count: 64
+	}]
+}

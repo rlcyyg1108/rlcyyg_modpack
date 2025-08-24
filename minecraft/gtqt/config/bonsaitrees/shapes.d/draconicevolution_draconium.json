@@ -1,0 +1,110 @@
+{
+  "type": "超帅龙树",
+  "version": 2,
+  "ref": {
+    "a": {
+      "name": "draconicevolution:draconic_block",
+      "meta": 0
+    },
+    "b": {
+      "name": "draconicevolution:draconium_block",
+      "meta": 0
+    },
+    "c": {
+      "name": "draconicevolution:infused_obsidian",
+      "meta": 0
+    }
+  },
+  "shape": [
+    [
+      "         ",
+      "         ",
+      "c   a   c",
+      "         ",
+      "         ",
+      "         ",
+      "         ",
+      "         "
+    ],
+    [
+      "         ",
+      "         ",
+      " c  a  c ",
+      "         ",
+      "         ",
+      "         ",
+      "         ",
+      "         "
+    ],
+    [
+      "         ",
+      "         ",
+      "  caaac  ",
+      "         ",
+      "         ",
+      "         ",
+      "         ",
+      "         "
+    ],
+    [
+      "         ",
+      "    a    ",
+      "  acaca  ",
+      "         ",
+      "         ",
+      "         ",
+      "         ",
+      "         "
+    ],
+    [
+      "    a    ",
+      "   aaa   ",
+      "aaaabaaaa",
+      "    b    ",
+      "    b    ",
+      "    b    ",
+      "    b    ",
+      "    b    "
+    ],
+    [
+      "         ",
+      "    a    ",
+      "  acaca  ",
+      "         ",
+      "         ",
+      "         ",
+      "         ",
+      "         "
+    ],
+    [
+      "         ",
+      "         ",
+      "  caaac  ",
+      "         ",
+      "         ",
+      "         ",
+      "         ",
+      "         "
+    ],
+    [
+      "         ",
+      "         ",
+      " c  a  c ",
+      "         ",
+      "         ",
+      "         ",
+      "         ",
+      "         "
+    ],
+    [
+      "         ",
+      "         ",
+      "c   a   c",
+      "         ",
+      "         ",
+      "         ",
+      "         ",
+      "         "
+    ]
+  ]
+}

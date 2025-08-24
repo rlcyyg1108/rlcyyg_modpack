@@ -1,0 +1,65 @@
+{
+  "type": "橡胶树",
+  "version": 2,
+  "ref": {
+    "a": {
+      "name": "gregtech:rubber_leaves",
+      "meta": 1
+    },
+    "b": {
+      "name": "gregtech:rubber_leaves",
+      "meta": 0
+    },
+    "c": {
+      "name": "gregtech:rubber_log",
+      "meta": 3
+    }
+  },
+  "shape": [
+    [
+      "     ",
+      "     ",
+      "     ",
+      " aaa ",
+      " aaa ",
+      "     ",
+      "     "
+    ],
+    [
+      "     ",
+      "     ",
+      " bbb ",
+      "abbba",
+      "abbba",
+      "     ",
+      "     "
+    ],
+    [
+      "  b  ",
+      "  b  ",
+      " bcb ",
+      "abcba",
+      "abcba",
+      "  c  ",
+      "  c  "
+    ],
+    [
+      "     ",
+      "     ",
+      " bbb ",
+      "abbba",
+      "abbba",
+      "     ",
+      "     "
+    ],
+    [
+      "     ",
+      "     ",
+      "     ",
+      " aaa ",
+      " aaa ",
+      "     ",
+      "     "
+    ]
+  ]
+}

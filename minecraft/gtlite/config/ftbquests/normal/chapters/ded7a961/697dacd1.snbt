@@ -1,0 +1,20 @@
+{
+	title: "创造磁盘",
+	icon: "refinedstorage:storage_disk 1 4",
+	x: 8.0d,
+	y: 2.0d,
+	can_repeat: true,
+	tasks: [{
+		uid: "b9f466d7",
+		type: "item",
+		items: [{
+			item: "minecraft:quartz"
+		}],
+		count: 1024L
+	}],
+	rewards: [{
+		uid: "7bd2b719",
+		type: "item",
+		item: "refinedstorage:storage_disk 1 4"
+	}]
+}

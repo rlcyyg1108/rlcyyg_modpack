@@ -1,0 +1,70 @@
+{
+	title: "DLC 2——流体合成",
+	icon: "ae2fc:dual_interface",
+	x: -8.0d,
+	y: 2.0d,
+	description: "我怎么感觉不太好",
+	tasks: [{
+		uid: "698e1b25",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 113"
+		}],
+		count: 256L,
+		consume_items: true
+	}],
+	rewards: [{
+		uid: "2ff12abd",
+		type: "item",
+		item: "ae2fc:dual_interface",
+		count: 64
+	},
+	{
+		uid: "5fff9549",
+		type: "item",
+		item: "ae2fc:part_dual_interface",
+		count: 64
+	},
+	{
+		uid: "c302039a",
+		type: "item",
+		item: "ae2fc:fluid_discretizer"
+	},
+	{
+		uid: "a97a33ce",
+		type: "item",
+		item: {
+			id: "ae2fc:wireless_fluid_pattern_terminal",
+			tag: {
+				internalCurrentPower: 1600000.0d,
+				internalMaxPower: 1600000.0d
+			}
+		}
+	},
+	{
+		uid: "bbc2c7c3",
+		type: "item",
+		item: "ae2fc:fluid_level_maintainer",
+		count: 64
+	},
+	{
+		uid: "54df5452",
+		type: "item",
+		item: "ae2fc:part_fluid_pattern_ex_terminal"
+	},
+	{
+		uid: "2066f304",
+		type: "item",
+		item: "ae2fc:part_fluid_pattern_terminal"
+	},
+	{
+		uid: "38092ea0",
+		type: "item",
+		item: "appliedenergistics2:part 1 522"
+	},
+	{
+		uid: "e2cce156",
+		type: "item",
+		item: "ae2fc:ultimate_encoder"
+	}]
+}

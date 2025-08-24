@@ -1,0 +1,82 @@
+{
+	title: "全套终端",
+	icon: {
+		id: "appliedenergistics2:wireless_terminal",
+		tag: {
+			internalCurrentPower: 1600000.0d,
+			internalMaxPower: 1600000.0d
+		}
+	},
+	x: -4.0d,
+	y: -7.5d,
+	description: "2048组赛特斯石英换全套终端！划不划算？",
+	can_repeat: true,
+	tasks: [{
+		uid: "970a624c",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_gem 1 214"
+		}],
+		count: 131072L
+	}],
+	rewards: [{
+		uid: "d940f0f2",
+		type: "item",
+		item: {
+			id: "appliedenergistics2:wireless_fluid_terminal",
+			tag: {
+				internalCurrentPower: 1600000.0d,
+				internalMaxPower: 1600000.0d
+			}
+		},
+		only_one: true
+	},
+	{
+		uid: "ab94b762",
+		type: "item",
+		item: {
+			id: "appliedenergistics2:wireless_pattern_terminal",
+			tag: {
+				internalCurrentPower: 1600000.0d,
+				internalMaxPower: 1600000.0d
+			}
+		},
+		only_one: true
+	},
+	{
+		uid: "acc5aa8d",
+		type: "item",
+		item: {
+			id: "appliedenergistics2:wireless_crafting_terminal",
+			tag: {
+				internalCurrentPower: 1600000.0d,
+				internalMaxPower: 1600000.0d
+			}
+		},
+		only_one: true
+	},
+	{
+		uid: "407eb56e",
+		type: "item",
+		item: {
+			id: "appliedenergistics2:wireless_terminal",
+			tag: {
+				internalCurrentPower: 1600000.0d,
+				internalMaxPower: 1600000.0d
+			}
+		},
+		only_one: true
+	},
+	{
+		uid: "8742f68a",
+		type: "item",
+		item: {
+			id: "ae2fc:wireless_fluid_pattern_terminal",
+			tag: {
+				internalCurrentPower: 1600000.0d,
+				internalMaxPower: 1600000.0d
+			}
+		},
+		only_one: true
+	}]
+}

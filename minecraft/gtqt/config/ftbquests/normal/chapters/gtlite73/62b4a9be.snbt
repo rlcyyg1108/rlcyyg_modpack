@@ -1,0 +1,23 @@
+{
+	title: "再也不会烧掉了",
+	icon: "gregtech:wire_hex 1 20630",
+	x: 7.5d,
+	y: 3.0d,
+	description: "kimoji",
+	can_repeat: true,
+	tasks: [{
+		uid: "aa1fbc00",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 2"
+		}],
+		count: 256L
+	}],
+	rewards: [{
+		uid: "f53a1977",
+		type: "item",
+		auto: "enabled",
+		item: "gregtech:wire_hex 64 20630",
+		count: 64
+	}]
+}

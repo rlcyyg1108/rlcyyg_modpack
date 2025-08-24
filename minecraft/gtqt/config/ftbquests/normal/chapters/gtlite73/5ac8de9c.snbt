@@ -1,0 +1,22 @@
+{
+	title: "龙块换龙心！",
+	icon: "draconicevolution:dragon_heart",
+	x: 7.5d,
+	y: -3.0d,
+	description: "原理是什么",
+	can_repeat: true,
+	tasks: [{
+		uid: "b5134a64",
+		type: "item",
+		items: [{
+			item: "draconicevolution:draconium_block"
+		}],
+		count: 32L
+	}],
+	rewards: [{
+		uid: "f101033c",
+		type: "item",
+		auto: "enabled",
+		item: "draconicevolution:dragon_heart"
+	}]
+}

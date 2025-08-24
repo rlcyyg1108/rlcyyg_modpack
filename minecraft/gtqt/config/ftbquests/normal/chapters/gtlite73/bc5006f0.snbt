@@ -1,0 +1,148 @@
+{
+	title: "久旱逢甘霖",
+	icon: {
+		id: "appliedenergistics2:creative_storage_cell",
+		tag: {}
+	},
+	x: -8.0d,
+	y: 0.0d,
+	description: "终于熬到头了……吗",
+	tasks: [{
+		uid: "547108ac",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 113"
+		}],
+		count: 1024L,
+		consume_items: false
+	}],
+	rewards: [{
+		uid: "f297c594",
+		type: "item",
+		item: "appliedenergistics2:part 1 240",
+		count: 64
+	},
+	{
+		uid: "65aae468",
+		type: "item",
+		item: "appliedenergistics2:part 1 260",
+		count: 64
+	},
+	{
+		uid: "5d04bf16",
+		type: "item",
+		item: "appliedenergistics2:part 1 241",
+		count: 64
+	},
+	{
+		uid: "89ed5dd4",
+		type: "item",
+		item: "appliedenergistics2:part 1 261",
+		count: 64
+	},
+	{
+		uid: "4446a6ea",
+		type: "item",
+		item: "appliedenergistics2:part 1 220",
+		count: 64
+	},
+	{
+		uid: "0562ae0c",
+		type: "item",
+		item: "appliedenergistics2:part 1 221",
+		count: 64
+	},
+	{
+		uid: "f9e4d7f2",
+		type: "item",
+		item: "appliedenergistics2:material 1 30",
+		count: 64
+	},
+	{
+		uid: "9f751f69",
+		type: "item",
+		item: "appliedenergistics2:material 1 27",
+		count: 64
+	},
+	{
+		uid: "c8ee9ca9",
+		type: "item",
+		item: "appliedenergistics2:part 1 380"
+	},
+	{
+		uid: "939bd386",
+		type: "item",
+		item: "appliedenergistics2:part 1 360"
+	},
+	{
+		uid: "231db040",
+		type: "item",
+		item: "appliedenergistics2:part 1 520"
+	},
+	{
+		uid: "3898edbd",
+		type: "item",
+		item: {
+			id: "appliedenergistics2:creative_energy_cell",
+			tag: {
+				display: {
+					Name: "创造能源元件"
+				}
+			}
+		}
+	},
+	{
+		uid: "eecc0c2a",
+		type: "item",
+		item: "appliedenergistics2:controller",
+		count: 128
+	},
+	{
+		uid: "d98a0874",
+		type: "item",
+		item: "appliedenergistics2:drive",
+		count: 16
+	},
+	{
+		uid: "c1a61902",
+		type: "item",
+		item: "appliedenergistics2:fluid_interface",
+		count: 64
+	},
+	{
+		uid: "391067a8",
+		type: "item",
+		item: "appliedenergistics2:part 1 36",
+		count: 256
+	},
+	{
+		uid: "01a083fd",
+		type: "item",
+		item: "appliedenergistics2:part 1 516",
+		count: 256
+	},
+	{
+		uid: "9b7b58b0",
+		type: "item",
+		item: "appliedenergistics2:part 1 16",
+		count: 256
+	},
+	{
+		uid: "d827f071",
+		type: "item",
+		item: {
+			id: "nae2:storage_cell_fluid_16384k",
+			tag: {}
+		},
+		count: 10
+	},
+	{
+		uid: "4da30c30",
+		type: "item",
+		item: {
+			id: "nae2:storage_cell_16384k",
+			tag: {}
+		},
+		count: 10
+	}]
+}

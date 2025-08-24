@@ -1,0 +1,55 @@
+{
+	title: "龙·纪元528年南国的赤烛火月",
+	icon: "enderio:item_material 1 73",
+	x: 1.0d,
+	y: -1.0d,
+	description: "芜芜啊额啊额呃芜呃额芜呃啊利利路哈诶控啊控啊芜芜啊额啊额呃芜呃额芜呃啊利利路哈诶控啊控啊芜芜啊额啊额呃芜呃额芜呃啊利利路哈诶控啊控啊芜芜啊额啊额呃芜呃额",
+	tasks: [{
+		uid: "b3d6b55f",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 324"
+		}]
+	}],
+	rewards: [{
+		uid: "955ce18a",
+		type: "item",
+		item: "enderio:item_item_conduit",
+		count: 1024
+	},
+	{
+		uid: "ab856cc3",
+		type: "item",
+		item: "enderio:item_liquid_conduit 1 2",
+		count: 1024
+	},
+	{
+		uid: "643f9e95",
+		type: "item",
+		item: "enderio:item_extract_speed_upgrade",
+		count: 1024
+	},
+	{
+		uid: "da03b06b",
+		type: "item",
+		item: "enderio:item_extract_speed_downgrade",
+		count: 64
+	},
+	{
+		uid: "8bccf615",
+		type: "item",
+		item: "enderio:item_conduit_probe"
+	},
+	{
+		uid: "aec30732",
+		type: "item",
+		item: "enderio:item_basic_item_filter",
+		count: 256
+	},
+	{
+		uid: "0ad3b01d",
+		type: "item",
+		item: "enderio:item_fluid_filter",
+		count: 256
+	}]
+}

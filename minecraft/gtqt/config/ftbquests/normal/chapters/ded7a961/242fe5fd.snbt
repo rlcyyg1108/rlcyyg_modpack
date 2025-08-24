@@ -1,0 +1,23 @@
+{
+	title: "无损石头换焦黑石！",
+	icon: "tconstruct:seared",
+	x: 2.0d,
+	y: 2.0d,
+	description: "彼此孕育的黑石头 永远NEVER END",
+	can_repeat: true,
+	tasks: [{
+		uid: "d6164836",
+		type: "item",
+		items: [{
+			item: "minecraft:cobblestone"
+		}],
+		count: 8192L
+	}],
+	rewards: [{
+		uid: "99b049b9",
+		type: "item",
+		auto: "enabled",
+		item: "tconstruct:seared",
+		count: 8192
+	}]
+}

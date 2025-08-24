@@ -1,0 +1,293 @@
+{
+	title: "中子素工具全家桶！",
+	icon: {
+		id: "gregtech:hammer",
+		tag: {
+			DisallowContainerItem: 0b,
+			GT.Tool: {
+				Material: "gregtech:neutronium",
+				MaxDurability: 65534,
+				Durability: 0,
+				ToolSpeed: 184.0f,
+				HarvestLevel: 6,
+				AttackDamage: 101.0f,
+				AttackSpeed: -2.3f
+			},
+			HideFlags: 2,
+			Unbreakable: 1b,
+			GT.Behaviours: {
+				RelocateMinedBlocks: 1b
+			}
+		}
+	},
+	x: 2.0d,
+	y: 8.0d,
+	description: "好便宜",
+	can_repeat: true,
+	tasks: [{
+		uid: "0b9b0977",
+		type: "item",
+		items: [{
+			item: "minecraft:iron_ingot"
+		}],
+		count: 64L
+	}],
+	rewards: [{
+		uid: "769eea2d",
+		type: "item",
+		item: {
+			id: "gregtech:knife",
+			tag: {
+				DisallowContainerItem: 0b,
+				GT.Tool: {
+					Material: "gregtech:neutronium",
+					MaxDurability: 65534,
+					Durability: 0,
+					AttackDamage: 100.0f,
+					AttackSpeed: 3.5f
+				},
+				HideFlags: 2,
+				Unbreakable: 1b,
+				GT.Behaviours: {
+					RelocateMinedBlocks: 1b
+				}
+			}
+		}
+	},
+	{
+		uid: "ddcd6dc4",
+		type: "item",
+		item: {
+			id: "gregtech:hammer",
+			tag: {
+				DisallowContainerItem: 0b,
+				GT.Tool: {
+					Material: "gregtech:neutronium",
+					MaxDurability: 65534,
+					Durability: 0,
+					ToolSpeed: 184.0f,
+					HarvestLevel: 6,
+					AttackDamage: 101.0f,
+					AttackSpeed: -2.3f
+				},
+				HideFlags: 2,
+				Unbreakable: 1b,
+				GT.Behaviours: {
+					RelocateMinedBlocks: 1b
+				}
+			}
+		}
+	},
+	{
+		uid: "1da3f10f",
+		type: "item",
+		item: {
+			id: "gregtech:crowbar",
+			tag: {
+				DisallowContainerItem: 0b,
+				GT.Tool: {
+					Material: "gregtech:neutronium",
+					MaxDurability: 65534,
+					Durability: 0,
+					ToolSpeed: 184.0f,
+					HarvestLevel: 6,
+					AttackDamage: 102.0f,
+					AttackSpeed: -1.9000001f
+				},
+				HideFlags: 2,
+				Unbreakable: 1b,
+				GT.Behaviours: {
+					RelocateMinedBlocks: 1b
+				}
+			}
+		}
+	},
+	{
+		uid: "15d0df02",
+		type: "item",
+		item: {
+			id: "gregtech:file",
+			tag: {
+				DisallowContainerItem: 0b,
+				GT.Tool: {
+					Material: "gregtech:neutronium",
+					MaxDurability: 65534,
+					Durability: 0,
+					AttackDamage: 0.0f,
+					AttackSpeed: -1.9000001f
+				},
+				HideFlags: 2,
+				Unbreakable: 1b,
+				GT.Behaviours: {
+					RelocateMinedBlocks: 1b
+				}
+			}
+		}
+	},
+	{
+		uid: "3335a131",
+		type: "item",
+		item: {
+			id: "gregtech:wrench",
+			tag: {
+				DisallowContainerItem: 0b,
+				GT.Tool: {
+					Material: "gregtech:neutronium",
+					MaxDurability: 65534,
+					Durability: 0,
+					ToolSpeed: 184.0f,
+					HarvestLevel: 6,
+					AttackDamage: 101.0f,
+					AttackSpeed: -2.3f
+				},
+				HideFlags: 2,
+				Unbreakable: 1b,
+				GT.Behaviours: {
+					RelocateMinedBlocks: 1b
+				}
+			}
+		}
+	},
+	{
+		uid: "464cd2ed",
+		type: "item",
+		item: {
+			id: "gregtech:saw",
+			tag: {
+				DisallowContainerItem: 0b,
+				GT.Tool: {
+					Material: "gregtech:neutronium",
+					MaxDurability: 65534,
+					Durability: 0,
+					AttackDamage: 99.0f,
+					AttackSpeed: -2.1f
+				},
+				HideFlags: 2,
+				Unbreakable: 1b,
+				GT.Behaviours: {
+					HarvestIce: 1b,
+					RelocateMinedBlocks: 1b
+				}
+			}
+		}
+	},
+	{
+		uid: "724d18cc",
+		type: "item",
+		item: {
+			id: "gregtech:wire_cutter",
+			tag: {
+				DisallowContainerItem: 0b,
+				GT.Tool: {
+					Material: "gregtech:neutronium",
+					MaxDurability: 65534,
+					Durability: 0,
+					ToolSpeed: 184.0f,
+					HarvestLevel: 6,
+					AttackDamage: 99.0f,
+					AttackSpeed: -1.9000001f
+				},
+				HideFlags: 2,
+				Unbreakable: 1b,
+				GT.Behaviours: {
+					RelocateMinedBlocks: 1b
+				}
+			}
+		}
+	},
+	{
+		uid: "5d8eaaa7",
+		type: "item",
+		item: {
+			id: "gregtech:screwdriver",
+			tag: {
+				DisallowContainerItem: 0b,
+				GT.Tool: {
+					Material: "gregtech:neutronium",
+					MaxDurability: 65534,
+					Durability: 0,
+					AttackDamage: 99.0f,
+					AttackSpeed: 3.5f
+				},
+				HideFlags: 2,
+				Unbreakable: 1b,
+				GT.Behaviours: {
+					RelocateMinedBlocks: 1b
+				}
+			}
+		}
+	},
+	{
+		uid: "64089c39",
+		type: "item",
+		item: {
+			id: "gtqtcore:small_bending_cylinder",
+			tag: {
+				DisallowContainerItem: 0b,
+				GT.Tool: {
+					Material: "gregtech:neutronium",
+					MaxDurability: 65534,
+					Durability: 0,
+					AttackDamage: 0.0f,
+					AttackSpeed: -1.3f
+				},
+				HideFlags: 2,
+				Unbreakable: 1b,
+				GT.Behaviours: {
+					RelocateMinedBlocks: 1b
+				}
+			}
+		}
+	},
+	{
+		uid: "f1eeb69a",
+		type: "item",
+		item: {
+			id: "gtqtcore:bending_cylinder",
+			tag: {
+				DisallowContainerItem: 0b,
+				GT.Tool: {
+					Material: "gregtech:neutronium",
+					MaxDurability: 65534,
+					Durability: 0,
+					AttackDamage: 0.0f,
+					AttackSpeed: -2.3f
+				},
+				HideFlags: 2,
+				Unbreakable: 1b,
+				GT.Behaviours: {
+					RelocateMinedBlocks: 1b
+				}
+			}
+		}
+	},
+	{
+		uid: "47963fcb",
+		type: "item",
+		item: {
+			id: "gtqtcore:soldering_iron_iv",
+			tag: {
+				DisallowContainerItem: 0b,
+				GT.Tool: {
+					Material: "gregtech:neutronium",
+					MaxDurability: 65534,
+					Durability: 0,
+					AttackDamage: 108.0f,
+					AttackSpeed: -1.9000001f,
+					HarvestLevel: 6
+				},
+				HideFlags: 2,
+				Unbreakable: 1b,
+				ench: [{
+					id: 20,
+					lvl: 2s
+				}],
+				GT.Behaviours: {
+					RelocateMinedBlocks: 1b
+				},
+				MaxCharge: 250000000L,
+				Charge: 0L
+			}
+		}
+	}]
+}

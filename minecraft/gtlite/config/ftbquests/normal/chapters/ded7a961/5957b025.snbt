@@ -1,0 +1,18 @@
+{
+	title: "比随意作品的吊",
+	icon: "gtqtcore:gtqt_meta_item_1 1 97",
+	x: 7.5d,
+	y: -3.0d,
+	tasks: [{
+		uid: "71d2567c",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 2"
+		}]
+	}],
+	rewards: [{
+		uid: "7876a3db",
+		type: "item",
+		item: "gtqtcore:gtqt_meta_item_1 1 97"
+	}]
+}

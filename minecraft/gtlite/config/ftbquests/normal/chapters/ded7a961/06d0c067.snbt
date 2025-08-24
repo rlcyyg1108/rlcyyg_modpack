@@ -1,0 +1,298 @@
+{
+	title: "新人大礼包",
+	icon: "gregtech:meta_item_1 1 470",
+	x: 0.0d,
+	y: -1.5d,
+	description: "欢迎来到世界！",
+	tasks: [{
+		uid: "968dd31f",
+		type: "item",
+		items: [{
+			item: "minecraft:dirt"
+		}],
+		count: 8L,
+		consume_items: true
+	}],
+	rewards: [{
+		uid: "bfdfa4e6",
+		type: "item",
+		item: "hooked:hook 1 4"
+	},
+	{
+		uid: "8b581421",
+		type: "item",
+		item: {
+			id: "simplybackpacks:epicbackpack",
+			tag: {
+				inv: {
+					Items: [],
+					Size: 99
+				},
+				filter: {
+					Items: [],
+					Size: 16
+				}
+			},
+			ForgeCaps: {
+				Parent: {
+					Inventory: [],
+					Filter: []
+				}
+			}
+		}
+	},
+	{
+		uid: "6510f2b5",
+		type: "item",
+		item: "dankstorage:dank_7"
+	},
+	{
+		uid: "cb945e4f",
+		type: "item",
+		item: "avaritiaddons:avaritiaddons_chest",
+		count: 64
+	},
+	{
+		uid: "765a8d95",
+		type: "item",
+		item: "torcherino:blockdoublecompressedtorcherino",
+		count: 64
+	},
+	{
+		uid: "0d7345a4",
+		type: "item",
+		item: "torcherino:blockcompressedtorcherino",
+		count: 64
+	},
+	{
+		uid: "d52f25fa",
+		type: "item",
+		item: "torcherino:blocktorcherino",
+		count: 64
+	},
+	{
+		uid: "797d112f",
+		type: "item",
+		item: {
+			id: "gregtech:meta_item_1",
+			Damage: 465s,
+			tag: {
+				terminal: {
+					_creative: 1b
+				}
+			}
+		}
+	},
+	{
+		uid: "36b6da52",
+		type: "item",
+		item: "minecraft:wooden_axe"
+	},
+	{
+		uid: "5eeb22e4",
+		type: "item",
+		item: {
+			id: "mekanism:machineblock",
+			Damage: 4s,
+			tag: {
+				mekData: {}
+			}
+		}
+	},
+	{
+		uid: "78ba3e41",
+		type: "item",
+		item: "gregtech:machine 1 1647"
+	},
+	{
+		uid: "e2665faf",
+		type: "item",
+		item: {
+			id: "mekanism:configurator",
+			tag: {
+				mekData: {
+					energyStored: 60000.0d
+				}
+			}
+		}
+	},
+	{
+		uid: "9ff836bb",
+		type: "item",
+		item: "betterbuilderswands:wandunbreakable"
+	},
+	{
+		uid: "da9209c1",
+		type: "item",
+		item: {
+			id: "draconicevolution:draconic_helm",
+			tag: {
+				DEUpgrades: {
+					rfCap: 3b,
+					shieldCap: 3b,
+					shieldRec: 3b
+				},
+				Energy: 256000000
+			}
+		}
+	},
+	{
+		uid: "e12a5888",
+		type: "item",
+		item: {
+			id: "draconicevolution:draconic_chest",
+			tag: {
+				DEUpgrades: {
+					rfCap: 3b,
+					shieldCap: 3b,
+					shieldRec: 3b
+				},
+				Energy: 256000000
+			}
+		}
+	},
+	{
+		uid: "858529e0",
+		type: "item",
+		item: {
+			id: "draconicevolution:draconic_legs",
+			tag: {
+				DEUpgrades: {
+					rfCap: 3b,
+					moveSpeed: 3b,
+					shieldCap: 3b,
+					shieldRec: 3b
+				},
+				Energy: 256000000
+			}
+		}
+	},
+	{
+		uid: "5bcea9f3",
+		type: "item",
+		item: {
+			id: "draconicevolution:draconic_boots",
+			tag: {
+				DEUpgrades: {
+					rfCap: 3b,
+					jumpBoost: 3b,
+					shieldCap: 3b,
+					shieldRec: 3b
+				},
+				Energy: 256000000
+			}
+		}
+	},
+	{
+		uid: "882179ec",
+		type: "item",
+		item: "draconicevolution:magnet 1 1"
+	},
+	{
+		uid: "695bff3e",
+		type: "item",
+		item: {
+			id: "draconicevolution:draconic_staff_of_power",
+			tag: {
+				DEUpgrades: {
+					rfCap: 3b,
+					digSpeed: 3b,
+					digAOE: 3b,
+					attackDmg: 3b,
+					attackAOE: 3b
+				},
+				Energy: 768000000
+			},
+			ForgeCaps: {
+				Parent: {
+					Items: [],
+					Size: 27
+				}
+			}
+		}
+	},
+	{
+		uid: "ea7bcb23",
+		type: "item",
+		item: {
+			id: "gtqtcore:vajra",
+			tag: {
+				DisallowContainerItem: 0b,
+				GT.Tool: {
+					Material: "gregtech:neutronium",
+					MaxDurability: 65534,
+					Durability: 0,
+					ToolSpeed: 1804.0f,
+					HarvestLevel: 6,
+					AttackDamage: 110.0f,
+					AttackSpeed: 6.1f
+				},
+				HideFlags: 2,
+				Unbreakable: 1b,
+				ench: [{
+					id: 33,
+					lvl: 1s
+				}],
+				GT.Behaviours: {
+					TreeFelling: 1b,
+					TorchPlacing: 1b,
+					RelocateMinedBlocks: 1b
+				},
+				MaxCharge: 40960000L,
+				Charge: 0L
+			}
+		}
+	},
+	{
+		uid: "2161f8d4",
+		type: "item",
+		item: "gregtech:meta_item_1 1 1004"
+	},
+	{
+		uid: "1bbf4396",
+		type: "item",
+		item: {
+			id: "jecalculation:item_calculator",
+			tag: {
+				jecalculation: {
+					craft: {
+						inventory: 0b,
+						amount: "32768",
+						recents: [{
+							type: "itemStack",
+							content: {
+								amount: 1L,
+								item: "mekanism:energycube",
+								nbt: {
+									tier: 3
+								}
+							}
+						}]
+					}
+				}
+			}
+		}
+	},
+	{
+		uid: "ac9e4d6f",
+		type: "item",
+		item: {
+			id: "buildinggadgets:buildingtool",
+			tag: {
+				blockstate: {
+					Name: "minecraft:air"
+				}
+			}
+		}
+	},
+	{
+		uid: "ab73748d",
+		type: "item",
+		item: {
+			id: "buildinggadgets:copypastetool",
+			tag: {
+				mode: "Copy"
+			}
+		}
+	}]
+}

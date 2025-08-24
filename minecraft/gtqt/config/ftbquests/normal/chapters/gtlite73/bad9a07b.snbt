@@ -1,0 +1,93 @@
+{
+	title: "DLC 3——无线网络",
+	icon: "ae2stuff:wireless_kit",
+	x: -7.5d,
+	y: 3.0d,
+	description: "虽然不贵就是了",
+	tasks: [{
+		uid: "6b7af030",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_ingot 1 113"
+		}],
+		count: 256L,
+		consume_items: true
+	}],
+	rewards: [{
+		uid: "28012fcc",
+		type: "item",
+		item: "ae2stuff:wireless",
+		count: 64
+	},
+	{
+		uid: "84b85fb9",
+		type: "item",
+		item: "ae2stuff:wireless_kit"
+	},
+	{
+		uid: "2a6dbb23",
+		type: "item",
+		item: "appliedenergistics2:material 1 59",
+		count: 8
+	},
+	{
+		uid: "ccb599ac",
+		type: "item",
+		item: "appliedenergistics2:quantum_ring",
+		count: 16
+	},
+	{
+		uid: "86082645",
+		type: "item",
+		item: "appliedenergistics2:quantum_link",
+		count: 2
+	},
+	{
+		uid: "c3bc342d",
+		type: "item",
+		item: "ae2stuff:visualiser"
+	},
+	{
+		uid: "b585a816",
+		type: "item",
+		item: "appliedenergistics2:wireless_access_point"
+	},
+	{
+		uid: "41505d75",
+		type: "item",
+		item: "appliedenergistics2:security_station"
+	},
+	{
+		uid: "606f74d4",
+		type: "item",
+		item: {
+			id: "appliedenergistics2:wireless_crafting_terminal",
+			tag: {
+				internalCurrentPower: 1600000.0d,
+				internalMaxPower: 1600000.0d
+			}
+		}
+	},
+	{
+		uid: "dd74b5bb",
+		type: "item",
+		item: {
+			id: "appliedenergistics2:wireless_fluid_terminal",
+			tag: {
+				internalCurrentPower: 1600000.0d,
+				internalMaxPower: 1600000.0d
+			}
+		}
+	},
+	{
+		uid: "a44563e5",
+		type: "item",
+		item: {
+			id: "appliedenergistics2:wireless_terminal",
+			tag: {
+				internalCurrentPower: 1600000.0d,
+				internalMaxPower: 1600000.0d
+			}
+		}
+	}]
+}

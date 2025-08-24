@@ -1,0 +1,186 @@
+{
+	title: "懒得升级所导致的",
+	icon: "draconicevolution:fusion_crafting_core",
+	x: 0.0d,
+	y: 8.0d,
+	can_repeat: true,
+	tasks: [{
+		uid: "93061edf",
+		type: "item",
+		items: [{
+			id: "draconicevolution:draconic_helm",
+			tag: {
+				Energy: 16000000
+			}
+		}],
+		ignore_damage: true,
+		ignore_nbt: 1b
+	},
+	{
+		uid: "9ea1a77c",
+		type: "item",
+		items: [{
+			id: "draconicevolution:draconic_chest",
+			tag: {
+				Energy: 16000000
+			}
+		}],
+		ignore_damage: true,
+		ignore_nbt: 1b
+	},
+	{
+		uid: "f6cff0f6",
+		type: "item",
+		items: [{
+			id: "draconicevolution:draconic_legs",
+			tag: {
+				Energy: 16000000
+			}
+		}],
+		ignore_damage: true,
+		ignore_nbt: 1b
+	},
+	{
+		uid: "19fef469",
+		type: "item",
+		items: [{
+			id: "draconicevolution:draconic_boots",
+			tag: {
+				Energy: 16000000
+			}
+		}],
+		ignore_damage: true,
+		ignore_nbt: 1b
+	},
+	{
+		uid: "cab89eaf",
+		type: "item",
+		items: [{
+			id: "draconicevolution:draconic_staff_of_power",
+			tag: {
+				Energy: 48000000
+			},
+			ForgeCaps: {
+				Parent: {
+					Items: [],
+					Size: 27
+				}
+			}
+		}],
+		ignore_damage: true,
+		ignore_nbt: 1b
+	},
+	{
+		uid: "608b486f",
+		type: "item",
+		items: [{
+			id: "draconicevolution:draconium_capacitor",
+			Damage: 1s,
+			tag: {
+				Energy: 64000000
+			}
+		}],
+		ignore_nbt: 1b
+	}],
+	rewards: [{
+		uid: "8e3c21d6",
+		type: "item",
+		item: {
+			id: "avaritiaddons:avaritiaddons_chest",
+			tag: {
+				Contents: [{
+					Slot: 0s,
+					id: "draconicevolution:draconic_staff_of_power",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						DEUpgrades: {
+							rfCap: 3b,
+							digSpeed: 3b,
+							digAOE: 3b,
+							attackDmg: 3b,
+							attackAOE: 3b
+						},
+						Energy: 768000000
+					},
+					ForgeCaps: {
+						Parent: {
+							Items: [],
+							Size: 27
+						}
+					}
+				},
+				{
+					Slot: 1s,
+					id: "draconicevolution:draconic_helm",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						DEUpgrades: {
+							rfCap: 3b,
+							shieldCap: 3b,
+							shieldRec: 3b
+						},
+						Energy: 256000000
+					}
+				},
+				{
+					Slot: 2s,
+					id: "draconicevolution:draconic_chest",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						DEUpgrades: {
+							rfCap: 3b,
+							shieldCap: 3b,
+							shieldRec: 3b
+						},
+						Energy: 256000000
+					}
+				},
+				{
+					Slot: 3s,
+					id: "draconicevolution:draconic_legs",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						DEUpgrades: {
+							rfCap: 3b,
+							moveSpeed: 3b,
+							shieldCap: 3b,
+							shieldRec: 3b
+						},
+						Energy: 256000000
+					}
+				},
+				{
+					Slot: 4s,
+					id: "draconicevolution:draconic_boots",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						DEUpgrades: {
+							rfCap: 3b,
+							jumpBoost: 3b,
+							shieldCap: 3b,
+							shieldRec: 3b
+						},
+						Energy: 256000000
+					}
+				},
+				{
+					Slot: 5s,
+					id: "draconicevolution:draconium_capacitor",
+					Count: 1,
+					Damage: 1s,
+					tag: {
+						DEUpgrades: {
+							rfCap: 4b
+						},
+						Energy: 768000000
+					}
+				}]
+			}
+		}
+	}]
+}

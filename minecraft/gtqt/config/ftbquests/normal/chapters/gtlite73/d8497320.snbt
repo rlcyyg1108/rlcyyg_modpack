@@ -1,0 +1,9203 @@
+{
+	icon: "appliedenergistics2:encoded_pattern",
+	x: -0.5d,
+	y: -1.0d,
+	description: "前辈的遗产",
+	can_repeat: true,
+	tasks: [{
+		uid: "e7270aad",
+		type: "item",
+		items: [{
+			item: "appliedenergistics2:material 1 52"
+		}],
+		count: 128L
+	}],
+	rewards: [{
+		uid: "4ec19e22",
+		type: "item",
+		item: {
+			id: "avaritiaddons:avaritiaddons_chest",
+			tag: {
+				Contents: [{
+					Slot: 0s,
+					id: "avaritiaddons:avaritiaddons_chest",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						Contents: [{
+							Slot: 0s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 323s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_rotor",
+									Count: 1,
+									Damage: 323s
+								}]
+							}
+						},
+						{
+							Slot: 1s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 112s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_rotor",
+									Count: 1,
+									Damage: 112s
+								}]
+							}
+						},
+						{
+							Slot: 2s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 113s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_rotor",
+									Count: 1,
+									Damage: 113s
+								}]
+							}
+						},
+						{
+							Slot: 3s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 260s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_rotor",
+									Count: 1,
+									Damage: 260s
+								}]
+							}
+						},
+						{
+							Slot: 4s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 324s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_rotor",
+									Count: 1,
+									Damage: 324s
+								}]
+							}
+						},
+						{
+							Slot: 5s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 2013s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_rotor",
+									Count: 1,
+									Damage: 2013s
+								}]
+							}
+						},
+						{
+							Slot: 6s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 50s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_rotor",
+									Count: 1,
+									Damage: 50s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 7s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 2520s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_rotor",
+									Count: 1,
+									Damage: 2520s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						}]
+					}
+				},
+				{
+					Slot: 1s,
+					id: "avaritiaddons:avaritiaddons_chest",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						Contents: [{
+							Slot: 0s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 2037s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 2037s
+								}]
+							}
+						},
+						{
+							Slot: 1s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 331s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 331s
+								}]
+							}
+						},
+						{
+							Slot: 2s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 324s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 324s
+								}]
+							}
+						},
+						{
+							Slot: 3s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 335s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 335s
+								}]
+							}
+						},
+						{
+							Slot: 4s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 113s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 113s
+								}]
+							}
+						},
+						{
+							Slot: 5s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 323s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 323s
+								}]
+							}
+						},
+						{
+							Slot: 6s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 2s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 2s
+								}]
+							}
+						},
+						{
+							Slot: 7s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 310s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 310s
+								}],
+								crafting: 0b,
+								substitute: 1b
+							}
+						},
+						{
+							Slot: 8s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 32001s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 32001s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 9s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 344s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 344s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 10s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 287s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 287s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 11s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "minecraft:iron_ingot",
+									Count: 4,
+									Damage: 0s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 51s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 12s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 32002s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 32002s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 13s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 4,
+									Damage: 2013s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_gear",
+									Count: 1,
+									Damage: 2013s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						}]
+					}
+				},
+				{
+					Slot: 2s,
+					id: "avaritiaddons:avaritiaddons_chest",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						Contents: [{
+							Slot: 0s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 323s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear_small",
+									Count: 1,
+									Damage: 323s
+								}]
+							}
+						},
+						{
+							Slot: 1s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 113s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear_small",
+									Count: 1,
+									Damage: 113s
+								}]
+							}
+						},
+						{
+							Slot: 2s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear_small",
+									Count: 1,
+									Damage: 2s
+								}]
+							}
+						},
+						{
+							Slot: 3s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "minecraft:iron_ingot",
+									Count: 1,
+									Damage: 0s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear_small",
+									Count: 1,
+									Damage: 51s
+								}]
+							}
+						},
+						{
+							Slot: 4s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2013s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear_small",
+									Count: 1,
+									Damage: 2013s
+								}]
+							}
+						},
+						{
+							Slot: 5s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 324s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_gear_small",
+									Count: 1,
+									Damage: 324s
+								}]
+							}
+						},
+						{
+							Slot: 6s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 396s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_gear_small",
+									Count: 1,
+									Damage: 396s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 7s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 344s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_gear_small",
+									Count: 1,
+									Damage: 344s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						}]
+					}
+				},
+				{
+					Slot: 3s,
+					id: "avaritiaddons:avaritiaddons_chest",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						Contents: [{
+							Slot: 0s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 324s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 324s
+								}]
+							}
+						},
+						{
+							Slot: 1s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 3009s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 3009s
+								}]
+							}
+						},
+						{
+							Slot: 2s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 260s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 260s
+								}]
+							}
+						},
+						{
+							Slot: 3s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 2s
+								}]
+							}
+						},
+						{
+							Slot: 4s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2013s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 2013s
+								}]
+							}
+						},
+						{
+							Slot: 5s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 296s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 296s
+								}]
+							}
+						},
+						{
+							Slot: 6s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 323s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 323s
+								}]
+							}
+						},
+						{
+							Slot: 7s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 113s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 1b,
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 113s
+								}]
+							}
+						},
+						{
+							Slot: 8s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 3020s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 3020s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 9s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2520s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 2520s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 10s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 423s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 423s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 11s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 310s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 310s
+								}],
+								crafting: 0b,
+								substitute: 1b
+							}
+						},
+						{
+							Slot: 12s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2516s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 2516s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 13s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 338s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 338s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 14s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 334s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 334s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 15s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 344s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 344s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 16s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2042s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 2042s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 17s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 294s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_stick_long",
+									Count: 1,
+									Damage: 294s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						}]
+					}
+				},
+				{
+					Slot: 4s,
+					id: "avaritiaddons:avaritiaddons_chest",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						Contents: [{
+							Slot: 0s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 1004s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_ring",
+									Count: 4,
+									Damage: 1004s
+								}]
+							}
+						},
+						{
+							Slot: 1s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_dust",
+									Count: 1,
+									Damage: 1068s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_ring",
+									Count: 4,
+									Damage: 1068s
+								}]
+							}
+						},
+						{
+							Slot: 2s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 80s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_ring",
+									Count: 4,
+									Damage: 80s
+								}]
+							}
+						},
+						{
+							Slot: 3s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 3009s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_ring",
+									Count: 4,
+									Damage: 3009s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 4s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2520s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_ring",
+									Count: 4,
+									Damage: 2520s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 5s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 1000s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_ring",
+									Count: 4,
+									Damage: 1000s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 6s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 344s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_ring",
+									Count: 4,
+									Damage: 344s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 7s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2519s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_ring",
+									Count: 4,
+									Damage: 2519s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 8s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 100s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_ring",
+									Count: 4,
+									Damage: 100s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 9s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 301s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_ring",
+									Count: 4,
+									Damage: 301s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 10s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 260s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_ring",
+									Count: 4,
+									Damage: 260s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 11s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 277s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_ring",
+									Count: 4,
+									Damage: 277s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						}]
+					}
+				},
+				{
+					Slot: 5s,
+					id: "avaritiaddons:avaritiaddons_chest",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						Contents: [{
+							Slot: 0s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 112s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 112s
+								}]
+							}
+						},
+						{
+							Slot: 1s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 323s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 323s
+								}]
+							}
+						},
+						{
+							Slot: 2s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 2s
+								}]
+							}
+						},
+						{
+							Slot: 3s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 260s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 260s
+								}]
+							}
+						},
+						{
+							Slot: 4s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 324s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 324s
+								}]
+							}
+						},
+						{
+							Slot: 5s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2013s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 2013s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 6s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 396s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 396s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 7s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2520s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 2520s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 8s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 344s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 344s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 9s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 2519s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 2519s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 10s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 338s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 338s
+								}],
+								crafting: 0b,
+								substitute: 1b
+							}
+						},
+						{
+							Slot: 11s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 252s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 252s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 12s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 296s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 296s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 13s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 124s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 124s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 14s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 130s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 130s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 15s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 80s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 80s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 16s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 126s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 126s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 17s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 127s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:meta_bolt",
+									Count: 8,
+									Damage: 127s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						}]
+					}
+				},
+				{
+					Slot: 6s,
+					id: "avaritiaddons:avaritiaddons_chest",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						Contents: [{
+							Slot: 0s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 124s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:fluid_pipe_small",
+									Count: 1,
+									Damage: 124s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 1s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 1010s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:fluid_pipe_small",
+									Count: 1,
+									Damage: 1010s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 2s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 1,
+									Damage: 296s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:fluid_pipe_small",
+									Count: 1,
+									Damage: 296s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						}]
+					}
+				},
+				{
+					Slot: 7s,
+					id: "avaritiaddons:avaritiaddons_chest",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						Contents: [{
+							Slot: 0s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 3,
+									Damage: 1016s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:fluid_pipe_normal",
+									Count: 1,
+									Damage: 1016s
+								}]
+							}
+						},
+						{
+							Slot: 1s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 3,
+									Damage: 323s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:fluid_pipe_normal",
+									Count: 1,
+									Damage: 323s
+								}]
+							}
+						},
+						{
+							Slot: 2s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 3,
+									Damage: 260s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:fluid_pipe_normal",
+									Count: 1,
+									Damage: 260s
+								}]
+							}
+						},
+						{
+							Slot: 3s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 3,
+									Damage: 113s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:fluid_pipe_normal",
+									Count: 1,
+									Damage: 113s
+								}]
+							}
+						},
+						{
+							Slot: 4s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 3,
+									Damage: 2013s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:fluid_pipe_normal",
+									Count: 1,
+									Damage: 2013s
+								}]
+							}
+						},
+						{
+							Slot: 5s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 3,
+									Damage: 324s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:fluid_pipe_normal",
+									Count: 1,
+									Damage: 324s
+								}]
+							}
+						},
+						{
+							Slot: 6s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 3,
+									Damage: 1012s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 1b,
+								out: [{
+									id: "gregtech:fluid_pipe_normal",
+									Count: 1,
+									Damage: 1012s
+								}]
+							}
+						},
+						{
+							Slot: 7s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 3,
+									Damage: 1010s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:fluid_pipe_normal",
+									Count: 1,
+									Damage: 1010s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 8s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 3,
+									Damage: 124s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:fluid_pipe_normal",
+									Count: 1,
+									Damage: 124s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						}]
+					}
+				},
+				{
+					Slot: 8s,
+					id: "avaritiaddons:avaritiaddons_chest",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						Contents: [{
+							Slot: 0s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 6,
+									Damage: 1012s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:fluid_pipe_large",
+									Count: 1,
+									Damage: 1012s
+								}]
+							}
+						},
+						{
+							Slot: 1s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 6,
+									Damage: 1016s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:fluid_pipe_large",
+									Count: 1,
+									Damage: 1016s
+								}]
+							}
+						},
+						{
+							Slot: 2s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 6,
+									Damage: 323s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:fluid_pipe_large",
+									Count: 1,
+									Damage: 323s
+								}]
+							}
+						},
+						{
+							Slot: 3s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 6,
+									Damage: 331s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:item_pipe_large",
+									Count: 1,
+									Damage: 331s
+								}]
+							}
+						},
+						{
+							Slot: 4s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 6,
+									Damage: 50s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:fluid_pipe_large",
+									Count: 1,
+									Damage: 50s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 5s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 6,
+									Damage: 124s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:fluid_pipe_large",
+									Count: 1,
+									Damage: 124s
+								}],
+								crafting: 0b,
+								substitute: 1b
+							}
+						},
+						{
+							Slot: 6s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 6,
+									Damage: 1010s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:fluid_pipe_large",
+									Count: 1,
+									Damage: 1010s
+								}],
+								crafting: 0b,
+								substitute: 1b
+							}
+						},
+						{
+							Slot: 7s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 6,
+									Damage: 129s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:fluid_pipe_large",
+									Count: 1,
+									Damage: 129s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 8s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 6,
+									Damage: 324s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:fluid_pipe_large",
+									Count: 1,
+									Damage: 324s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						},
+						{
+							Slot: 9s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 6,
+									Damage: 2013s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:fluid_pipe_large",
+									Count: 1,
+									Damage: 2013s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						}]
+					}
+				},
+				{
+					Slot: 9s,
+					id: "avaritiaddons:avaritiaddons_chest",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						Contents: [{
+							Slot: 0s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 12,
+									Damage: 1012s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:fluid_pipe_huge",
+									Count: 1,
+									Damage: 1012s
+								}]
+							}
+						},
+						{
+							Slot: 1s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 12,
+									Damage: 323s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								crafting: 0b,
+								substitute: 0b,
+								out: [{
+									id: "gregtech:fluid_pipe_huge",
+									Count: 1,
+									Damage: 323s
+								}]
+							}
+						},
+						{
+							Slot: 2s,
+							id: "appliedenergistics2:encoded_pattern",
+							Count: 1,
+							Damage: 0s,
+							tag: {
+								in: [{
+									id: "gregtech:meta_ingot",
+									Count: 12,
+									Damage: 3s
+								},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{}],
+								out: [{
+									id: "gregtech:item_pipe_huge",
+									Count: 1,
+									Damage: 3s
+								}],
+								crafting: 0b,
+								substitute: 0b
+							}
+						}]
+					}
+				}]
+			}
+		}
+	},
+	{
+		uid: "3aef0154",
+		type: "item",
+		item: {
+			id: "avaritiaddons:avaritiaddons_chest",
+			tag: {
+				Contents: [{
+					Slot: 0s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 2,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_bolt",
+							Count: 1,
+							Damage: 2013s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_screw",
+							Count: 1,
+							Damage: 2013s
+						}],
+						crafting: 0b,
+						substitute: 1b
+					}
+				},
+				{
+					Slot: 1s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 396s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 396s
+						}]
+					}
+				},
+				{
+					Slot: 2s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 324s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 324s
+						}]
+					}
+				},
+				{
+					Slot: 3s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_bolt",
+							Count: 1,
+							Damage: 2s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_screw",
+							Count: 1,
+							Damage: 2s
+						}]
+					}
+				},
+				{
+					Slot: 4s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_bolt",
+							Count: 1,
+							Damage: 323s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_screw",
+							Count: 1,
+							Damage: 323s
+						}]
+					}
+				},
+				{
+					Slot: 5s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_bolt",
+							Count: 1,
+							Damage: 260s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_screw",
+							Count: 1,
+							Damage: 260s
+						}]
+					}
+				},
+				{
+					Slot: 6s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_bolt",
+							Count: 1,
+							Damage: 324s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_screw",
+							Count: 1,
+							Damage: 324s
+						}]
+					}
+				},
+				{
+					Slot: 7s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_bolt",
+							Count: 1,
+							Damage: 112s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_screw",
+							Count: 1,
+							Damage: 112s
+						}]
+					}
+				},
+				{
+					Slot: 8s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2035s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 2035s
+						}]
+					}
+				},
+				{
+					Slot: 9s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3001s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 3001s
+						}]
+					}
+				},
+				{
+					Slot: 10s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 115s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 115s
+						}]
+					}
+				},
+				{
+					Slot: 11s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 334s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 334s
+						}]
+					}
+				},
+				{
+					Slot: 12s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 418s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 418s
+						}]
+					}
+				},
+				{
+					Slot: 13s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 323s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 323s
+						}]
+					}
+				},
+				{
+					Slot: 14s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2013s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 2013s
+						}]
+					}
+				},
+				{
+					Slot: 15s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 50s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 50s
+						}]
+					}
+				},
+				{
+					Slot: 16s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "minecraft:gold_ingot",
+							Count: 1,
+							Damage: 0s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 41s
+						}]
+					}
+				},
+				{
+					Slot: 17s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 277s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 277s
+						}]
+					}
+				},
+				{
+					Slot: 18s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 287s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 287s
+						}]
+					}
+				},
+				{
+					Slot: 19s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 1016s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 1016s
+						}]
+					}
+				},
+				{
+					Slot: 20s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2519s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 2519s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 21s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2011s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 2011s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 22s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 423s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 423s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 23s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2520s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 2520s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 24s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2516s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 2516s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 25s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3022s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 3022s
+						}]
+					}
+				},
+				{
+					Slot: 26s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32001s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 32001s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 27s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32010s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 32010s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 28s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3004s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 3004s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 29s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 33s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 33s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 30s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 395s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 395s
+						}],
+						crafting: 0b,
+						substitute: 1b
+					}
+				},
+				{
+					Slot: 31s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 80s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 80s
+						}]
+					}
+				},
+				{
+					Slot: 32s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 2s
+						}]
+					}
+				},
+				{
+					Slot: 33s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_nugget",
+							Count: 1,
+							Damage: 2520s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_round",
+							Count: 1,
+							Damage: 2520s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 34s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_gear",
+							Count: 1,
+							Damage: 331s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_tool_head_buzz_saw",
+							Count: 1,
+							Damage: 331s
+						}]
+					}
+				},
+				{
+					Slot: 35s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_gear",
+							Count: 1,
+							Damage: 396s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_tool_head_buzz_saw",
+							Count: 1,
+							Damage: 396s
+						}]
+					}
+				},
+				{
+					Slot: 36s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_bolt",
+							Count: 1,
+							Damage: 396s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_screw",
+							Count: 1,
+							Damage: 396s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 37s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 113s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 113s
+						}]
+					}
+				},
+				{
+					Slot: 38s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_bolt",
+							Count: 1,
+							Damage: 2520s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_screw",
+							Count: 1,
+							Damage: 2520s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 39s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_bolt",
+							Count: 1,
+							Damage: 344s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_screw",
+							Count: 1,
+							Damage: 344s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 40s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 22s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 22s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 41s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 55s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 55s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 42s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 259s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 259s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 43s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2511s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 2511s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 44s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 296s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 296s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 45s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_nugget",
+							Count: 1,
+							Damage: 344s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_round",
+							Count: 1,
+							Damage: 344s
+						}],
+						crafting: 0b,
+						substitute: 1b
+					}
+				},
+				{
+					Slot: 46s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 344s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 344s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 47s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2042s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 2042s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 48s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32003s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 32003s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 49s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 128s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 128s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 50s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "minecraft:diamond",
+							Count: 1,
+							Damage: 0s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 276s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 51s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3003s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 3003s
+						}]
+					}
+				},
+				{
+					Slot: 52s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3020s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 3020s
+						}]
+					}
+				},
+				{
+					Slot: 53s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3002s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 3002s
+						}]
+					}
+				},
+				{
+					Slot: 54s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 100s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_stick",
+							Count: 2,
+							Damage: 100s
+						}]
+					}
+				}]
+			}
+		}
+	},
+	{
+		uid: "c36ffd66",
+		type: "item",
+		item: {
+			id: "avaritiaddons:avaritiaddons_chest",
+			tag: {
+				Contents: [{
+					Slot: 0s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 427s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 427s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 1s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 334s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 334s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 2s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 274s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 274s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 3s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_dust",
+							Count: 1,
+							Damage: 342s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 342s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 4s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 80s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 80s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 5s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 124s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 124s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 6s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2516s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 2516s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 7s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 75s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 75s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 8s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32013s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 32013s
+						}],
+						crafting: 0b,
+						substitute: 1b
+					}
+				},
+				{
+					Slot: 9s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 425s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 425s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 10s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 294s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 294s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 11s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 80s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 80s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 12s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 112s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 112s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 13s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2517s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 2517s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 14s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 277s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 277s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 15s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "minecraft:gold_ingot",
+							Count: 1,
+							Damage: 0s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 41s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 16s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32001s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 32001s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 17s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 130s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 130s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 18s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 288s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 288s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 19s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 252s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 252s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 20s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 428s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 428s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 21s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 2516s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 2516s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 22s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 296s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 296s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 23s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 100s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 100s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 24s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 115s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 115s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 25s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 2013s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 2013s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 26s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2013s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 2013s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 27s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 2517s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 2517s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 28s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 426s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 426s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 29s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 277s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 277s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 30s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 25s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 25s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 31s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 2s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 32s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 296s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 296s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 33s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 429s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 429s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 34s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 430s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 430s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 35s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 429s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 429s
+						}],
+						crafting: 0b,
+						substitute: 1b
+					}
+				},
+				{
+					Slot: 36s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 33s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 33s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 37s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 33s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 33s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 38s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_dust",
+							Count: 1,
+							Damage: 342s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 342s
+						}],
+						crafting: 0b,
+						substitute: 1b
+					}
+				},
+				{
+					Slot: 39s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 338s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 338s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 40s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32010s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 32010s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 41s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 338s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 338s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 42s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 431s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 431s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 43s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 128s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 128s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 44s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 25s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 25s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 45s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 430s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 430s
+						}],
+						crafting: 0b,
+						substitute: 1b
+					}
+				},
+				{
+					Slot: 46s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 128s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 128s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 47s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32012s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 32012s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 48s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 432s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 432s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 49s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32011s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 32011s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 50s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 100s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 100s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 51s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 424s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 424s
+						}],
+						crafting: 0b,
+						substitute: 1b
+					}
+				},
+				{
+					Slot: 52s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 252s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:wire_single",
+							Count: 2,
+							Damage: 252s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 53s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:wire_single",
+							Count: 1,
+							Damage: 274s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_wire_fine",
+							Count: 4,
+							Damage: 274s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				}]
+			}
+		}
+	},
+	{
+		uid: "0c8cf039",
+		type: "item",
+		item: {
+			id: "avaritiaddons:avaritiaddons_chest",
+			tag: {
+				Contents: [{
+					Slot: 0s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 274s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 274s
+						}]
+					}
+				},
+				{
+					Slot: 1s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 324s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 324s
+						}]
+					}
+				},
+				{
+					Slot: 2s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 55s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 55s
+						}]
+					}
+				},
+				{
+					Slot: 3s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 100s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 100s
+						}]
+					}
+				},
+				{
+					Slot: 4s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32011s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 32011s
+						}]
+					}
+				},
+				{
+					Slot: 5s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 39s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 39s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 6s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 122s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 122s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 7s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2036s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 2036s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 8s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32012s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 32012s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 9s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 104s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 104s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 10s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 287s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 287s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 11s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 334s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 334s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 12s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3002s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 3002s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 13s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 99s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 99s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 14s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2520s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 2520s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 15s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 115s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 115s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 16s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 113s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 113s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 17s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3001s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 3001s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 18s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3008s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 3008s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 19s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2011s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 2011s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 20s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 338s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 338s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 21s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3007s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 3007s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 22s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 335s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 335s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 23s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 260s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 260s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 24s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 117s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 117s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 25s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 396s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 396s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 26s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 2s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 27s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 23s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 23s
+						}]
+					}
+				},
+				{
+					Slot: 28s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2013s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 2013s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 29s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32015s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 32015s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 30s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 69s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 69s
+						}]
+					}
+				},
+				{
+					Slot: 31s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 323s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 323s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 32s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 3s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 33s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3020s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 3020s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 34s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 277s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 277s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 35s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32010s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 32010s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 36s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32013s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 32013s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 37s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32003s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 32003s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 38s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3022s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 3022s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 39s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 125s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 125s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 40s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 344s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 344s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 41s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3006s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 3006s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 42s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 25s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 25s
+						}]
+					}
+				},
+				{
+					Slot: 43s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "minecraft:iron_ingot",
+							Count: 1,
+							Damage: 0s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 51s
+						}]
+					}
+				},
+				{
+					Slot: 44s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 112s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 112s
+						}]
+					}
+				},
+				{
+					Slot: 45s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "minecraft:gold_ingot",
+							Count: 1,
+							Damage: 0s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 41s
+						}]
+					}
+				},
+				{
+					Slot: 46s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2517s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 2517s
+						}]
+					}
+				},
+				{
+					Slot: 47s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 80s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 80s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 48s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2042s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 2042s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 49s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3004s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 3004s
+						}]
+					}
+				},
+				{
+					Slot: 50s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3000s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 3000s
+						}]
+					}
+				},
+				{
+					Slot: 51s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 75s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 75s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 52s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3021s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 3021s
+						}]
+					}
+				},
+				{
+					Slot: 53s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 3003s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 3003s
+						}]
+					}
+				},
+				{
+					Slot: 54s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 77s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 77s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 55s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32001s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 32001s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 56s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2062s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 2062s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 57s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 2519s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 2519s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 58s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 252s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 252s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 59s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 127s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 127s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 60s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 93s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 93s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 61s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 256s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 256s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 62s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 124s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 124s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 63s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 310s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 310s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 64s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 296s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 296s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 65s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32014s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 32014s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 66s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 290s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 290s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 67s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32008s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 32008s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 68s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 50s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 50s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 69s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 130s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 130s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 70s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 126s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 126s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 71s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 1,
+							Damage: 32002s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate",
+							Count: 1,
+							Damage: 32002s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 72s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick_long",
+							Count: 1,
+							Damage: 294s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_spring",
+							Count: 1,
+							Damage: 294s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 73s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick_long",
+							Count: 1,
+							Damage: 338s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_spring",
+							Count: 1,
+							Damage: 338s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 74s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick_long",
+							Count: 1,
+							Damage: 2042s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_spring",
+							Count: 1,
+							Damage: 2042s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 75s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick_long",
+							Count: 1,
+							Damage: 3009s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_spring",
+							Count: 1,
+							Damage: 3009s
+						}]
+					}
+				},
+				{
+					Slot: 76s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick_long",
+							Count: 1,
+							Damage: 2s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_spring",
+							Count: 1,
+							Damage: 2s
+						}]
+					}
+				},
+				{
+					Slot: 77s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick_long",
+							Count: 1,
+							Damage: 334s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_spring",
+							Count: 1,
+							Damage: 334s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 78s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick_long",
+							Count: 1,
+							Damage: 2013s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_spring",
+							Count: 1,
+							Damage: 2013s
+						}],
+						crafting: 0b,
+						substitute: 1b
+					}
+				},
+				{
+					Slot: 79s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick_long",
+							Count: 1,
+							Damage: 2516s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_spring",
+							Count: 1,
+							Damage: 2516s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 80s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick_long",
+							Count: 1,
+							Damage: 296s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_spring",
+							Count: 1,
+							Damage: 296s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 81s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick_long",
+							Count: 1,
+							Damage: 3020s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_spring",
+							Count: 1,
+							Damage: 3020s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 82s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick",
+							Count: 1,
+							Damage: 41s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_spring_small",
+							Count: 2,
+							Damage: 41s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 83s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick",
+							Count: 1,
+							Damage: 334s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_spring_small",
+							Count: 2,
+							Damage: 334s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 84s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick",
+							Count: 1,
+							Damage: 115s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_spring_small",
+							Count: 2,
+							Damage: 115s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 85s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_stick",
+							Count: 1,
+							Damage: 296s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_spring_small",
+							Count: 2,
+							Damage: 296s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 86s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 9,
+							Damage: 3008s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 1b,
+						out: [{
+							id: "gregtech:meta_plate_dense",
+							Count: 1,
+							Damage: 3008s
+						}]
+					}
+				},
+				{
+					Slot: 87s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 9,
+							Damage: 2042s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_dense",
+							Count: 1,
+							Damage: 2042s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 88s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 9,
+							Damage: 2062s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_dense",
+							Count: 1,
+							Damage: 2062s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 89s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 9,
+							Damage: 127s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_dense",
+							Count: 1,
+							Damage: 127s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 90s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 9,
+							Damage: 27s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_dense",
+							Count: 1,
+							Damage: 27s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 91s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 2013s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 2013s
+						}]
+					}
+				},
+				{
+					Slot: 92s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 324s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 324s
+						}]
+					}
+				},
+				{
+					Slot: 93s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 113s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 1b,
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 113s
+						}]
+					}
+				},
+				{
+					Slot: 94s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 50s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 50s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 95s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 3020s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 3020s
+						}],
+						crafting: 0b,
+						substitute: 1b
+					}
+				},
+				{
+					Slot: 96s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 82s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 82s
+						}],
+						crafting: 0b,
+						substitute: 1b
+					}
+				},
+				{
+					Slot: 97s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 100s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 1b,
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 100s
+						}]
+					}
+				},
+				{
+					Slot: 98s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 396s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 396s
+						}]
+					}
+				},
+				{
+					Slot: 99s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 3009s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 3009s
+						}]
+					}
+				},
+				{
+					Slot: 100s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 2036s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						crafting: 0b,
+						substitute: 0b,
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 2036s
+						}]
+					}
+				},
+				{
+					Slot: 101s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 344s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 344s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 102s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 10s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 10s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 103s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 126s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 126s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 104s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 33s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 33s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 105s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 127s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 127s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 106s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 3s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 3s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 107s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 3005s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 3005s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 108s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 3022s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 3022s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 109s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 27s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 27s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 110s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 323s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 323s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				},
+				{
+					Slot: 111s,
+					id: "appliedenergistics2:encoded_pattern",
+					Count: 1,
+					Damage: 0s,
+					tag: {
+						in: [{
+							id: "gregtech:meta_ingot",
+							Count: 2,
+							Damage: 2s
+						},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{},
+						{}],
+						out: [{
+							id: "gregtech:meta_plate_double",
+							Count: 1,
+							Damage: 2s
+						}],
+						crafting: 0b,
+						substitute: 0b
+					}
+				}]
+			}
+		}
+	}]
+}

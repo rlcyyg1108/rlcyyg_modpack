@@ -1,0 +1,67 @@
+{
+	title: "只有能自动抽取网络中库存的甘露才能抚慰员工饱受苦难的心",
+	icon: "gregtech:machine 1 1752",
+	x: -8.0d,
+	y: -2.0d,
+	description: "嘶哈",
+	tasks: [{
+		uid: "0c479990",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_dust 1 80"
+		}],
+		count: 64L
+	},
+	{
+		uid: "35294a09",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_dust 1 93"
+		}],
+		count: 64L
+	},
+	{
+		uid: "396ac6c9",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_dust 1 90"
+		}],
+		count: 64L
+	},
+	{
+		uid: "aad24037",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_dust 1 75"
+		}],
+		count: 64L
+	},
+	{
+		uid: "ae23acd5",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_dust 1 77"
+		}],
+		count: 64L
+	},
+	{
+		uid: "bbe59a90",
+		type: "item",
+		items: [{
+			item: "gregtech:meta_dust 1 50"
+		}],
+		count: 64L
+	}],
+	rewards: [{
+		uid: "46959c18",
+		type: "item",
+		item: "gregtech:machine 1 1752",
+		count: 64
+	},
+	{
+		uid: "c9f0de19",
+		type: "item",
+		item: "gregtech:machine 1 1753",
+		count: 64
+	}]
+}
