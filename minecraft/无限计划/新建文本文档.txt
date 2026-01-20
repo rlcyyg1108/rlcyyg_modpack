@@ -1,0 +1,14 @@
+/gamerule doDaylightCycle false
+/gamerule doWeatherCycle false
+==============================
+ftbultimine-server.snbt拖入save/serverconfig
+==============================
+*删除模组
+旅行地图
+jmi
+更美观的血条  |  Health Overlay / Colorful Hearts
+Pickle Tweaks
+equipment compare
+lootr
+Inventory Sorter (Configurable)
+betterf3

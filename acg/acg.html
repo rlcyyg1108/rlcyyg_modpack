@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>网址合集</title>
+    <title>洋馆储备粮</title>
+    <link rel="icon" href="./img/死馆.ico">
     <style>
-        /* 全局样式 - 深灰色背景 */
+        /* 全局样式 - 保留基础重置和深灰背景 */
         * {
             margin: 0;
             padding: 0;
@@ -14,26 +16,106 @@
         }
 
         body {
-            background-color: #2c2c2c; /* 深灰色背景 */
-            padding: 20px;
+            background-color: #2c2c2c;
+            /* 最深背景 */
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
         }
 
-        /* 容器 - 居中+宽度适配 */
+        /* 左侧固定目录容器 */
+        .sidebar-container {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            top: 20px;
+            width: 140px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-title {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            background-color: #3a3a3a;
+            padding: 10px 10px;
+            overflow-y: auto;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-tip {
+            color: #cccccc;
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #555555;
+        }
+
+        .nav-items-wrapper {
+            flex: 1;
+        }
+
+        .nav-item {
+            display: block;
+            color: #a8d1ff;
+            text-decoration: none;
+            padding: 4px;
+            background-color: #444444;
+            margin-bottom: 8px;
+            transition: background-color 0.2s;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .nav-item:hover {
+            background-color: #555555;
+            color: #ffffff;
+        }
+
+        /* 主容器 */
         .container {
             max-width: 800px;
             margin: 0 auto;
+            padding: 20px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
-        /* 长条卡片样式 */
+        /* 资料块样式 - 移除hover效果 */
         .link-card {
-            background-color: #3a3a3a; /* 卡片浅深灰，区分背景 */
+            background-color: #3a3a3a;
+            /* 第二深背景 */
             border-radius: 8px;
             padding: 20px;
-            margin-bottom: 15px; /* 卡片间距 */
-            border-left: 4px solid #666; /* 左侧装饰线 */
+            margin-bottom: 15px;
+            border-left: 4px solid #666;
+            cursor: default;
+            /* 鼠标样式为默认 */
         }
 
-        /* 标题样式 */
+        /* 完全移除资料块的hover效果 */
+        .link-card:hover {
+            background-color: #3a3a3a;
+            /* 保持原背景色 */
+            transform: none;
+            /* 取消位移 */
+            box-shadow: none;
+            /* 取消阴影 */
+        }
+
         .card-title {
             color: #ffffff;
             font-size: 18px;
@@ -41,74 +123,109 @@
             font-weight: 600;
         }
 
-        /* 链接项样式 - 长条排版 */
-        .link-item {
-            display: block; /* 独占一行，长条效果 */
-            color: #a8d1ff;
-            text-decoration: none;
+        /* 内容项基础样式 - 区分类型和内容色 */
+        .content-item {
+            display: block;
             padding: 10px 15px;
             background-color: #444444;
+            /* 最浅背景 */
             border-radius: 4px;
             margin-bottom: 10px;
-            transition: background-color 0.2s;
+            transition: background-color 0.3s ease;
+            /* 仅添加背景色过渡 */
         }
 
-        /* 平台文字样式 */
-        .platform {
-            color: #ffcc00; /* 醒目的黄色 */
+        /* 单条资料hover效果 - 只变色 */
+        .content-item:hover {
+            background-color: #505050;
+        }
+
+        /* 类型文字（黄色） */
+        .type-text {
+            color: #ffcc00;
             font-weight: bold;
         }
 
-        /* 鼠标悬浮效果 */
-        .link-item:hover {
-            background-color: #555555;
+        /* 链接/密码文字（蓝色） */
+        .content-text {
+            color: #a8d1ff;
+            text-decoration: none;
+        }
+
+        /* 可点击链接样式 */
+        .content-text.link {
+            transition: color 0.2s;
+        }
+
+        .content-text.link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* 可复制的密码文字样式 - 移除虚线下划线 */
+        .content-text.copyable {
+            cursor: pointer;
+            text-decoration: none;
+            /* 移除下划线 */
+            transition: color 0.2s;
+        }
+
+        /* 可复制文本悬停效果 */
+        .content-text.copyable:hover {
             color: #ffffff;
         }
 
-        /* 适配手机端 */
-        @media (max-width: 480px) {
-            .link-card {
-                padding: 15px;
-            }
-            .card-title {
-                font-size: 16px;
-            }
-            .link-item {
-                font-size: 14px;
-                padding: 8px 12px;
-            }
+        /* 分组标题 */
+        .group-title {
+            color: pink;
+            font-size: 40px;
+            text-align: center;
+            margin: 0 0 20px 0;
+            padding: 10px;
         }
 
         /* 警告信息样式 */
         .warning {
-            color: #ffffff; /* 白色字体 */
+            color: #ffffff;
             font-size: 16px;
             font-weight: bold;
-            margin: 10px auto; /* 限制边距 */
+            margin: 10px auto;
             text-align: center;
-            background-color: #3a3a3a; /* 衬底颜色与词条背景一致 */
-            padding: 10px 20px; /* 调整内边距 */
+            background-color: #3a3a3a;
+            padding: 10px 20px;
             border-radius: 8px;
-            max-width: 800px; /* 限制最大宽度 */
+            max-width: 800px;
         }
 
         .warning strong {
-            color: #ff0000; /* “警告”大字保持红色 */
+            color: #ff0000;
         }
 
-        .centered-title {
-            font-size: 40px;
-            color: pink;
-            text-align: center;
-        }
-
+        /* 彩虹标题动画 */
         @keyframes rainbow {
-            0% { color: red; }
-            20% { color: orange; }
-            40% { color: yellow; }
-            60% { color: green; }
-            80% { color: blue; }
-            100% { color: red; }
+            0% {
+                color: red;
+            }
+
+            20% {
+                color: orange;
+            }
+
+            40% {
+                color: yellow;
+            }
+
+            60% {
+                color: green;
+            }
+
+            80% {
+                color: blue;
+            }
+
+            100% {
+                color: red;
+            }
         }
 
         .rainbow-title {
@@ -118,86 +235,703 @@
             display: flex;
             justify-content: center;
             gap: 5px;
+            margin: 20px 0;
         }
 
         .rainbow-title span {
             animation: rainbow 1.5s infinite;
             animation-delay: calc(var(--i) * 0.1s);
         }
+
+        /* 复制提示框样式 - 调整到居中靠近底部位置 */
+        .copy-toast {
+            position: fixed;
+            bottom: 60px;
+            /* 距离底部60px，靠近底部但不贴边 */
+            left: 50%;
+            transform: translateX(-50%);
+            /* 水平居中 */
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .copy-toast.show {
+            opacity: 1;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 992px) {
+            .sidebar-container {
+                position: relative;
+                left: auto;
+                top: auto;
+                bottom: auto;
+                width: 100%;
+                max-width: 800px;
+                margin: 0 auto 20px;
+                padding: 20px;
+                flex-direction: column;
+            }
+
+            .sidebar-title {
+                text-align: left;
+                margin-bottom: 10px;
+            }
+
+            .sidebar-nav {
+                flex: none;
+                height: auto;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 10px 10px;
+            }
+
+            .nav-tip {
+                width: 100%;
+                border-bottom: none;
+                margin-bottom: 10px;
+                padding-bottom: 5px;
+                font-size: 11px;
+                text-align: left;
+            }
+
+            .nav-items-wrapper {
+                flex: none;
+                width: 100%;
+            }
+
+            .nav-item {
+                display: inline-block;
+                margin: 0 5px 8px 0;
+            }
+
+            .container {
+                padding: 0 20px 20px;
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .link-card {
+                padding: 15px;
+            }
+
+            .card-title {
+                font-size: 16px;
+            }
+
+            .content-item {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            .rainbow-title {
+                font-size: 30px;
+            }
+
+            .group-title {
+                font-size: 28px;
+            }
+
+            .copy-toast {
+                font-size: 14px;
+                padding: 8px 16px;
+                bottom: 40px;
+            }
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const copyableElements = document.querySelectorAll('.content-text.copyable');
+            const toast = document.querySelector('.copy-toast');
+
+            copyableElements.forEach(element => {
+                element.addEventListener('click', () => {
+                    const text = element.textContent;
+                    navigator.clipboard.writeText(text).then(() => {
+                        toast.textContent = `已复制: ${text}`;
+                        toast.classList.add('show');
+                        setTimeout(() => toast.classList.remove('show'), 2000);
+                    });
+                });
+            });
+        });
+    </script>
 </head>
+
 <body>
-    <div style="font-size: 10px;color: #2a2a2a;">是爱丽丝啊</div>
-    <!-- 
-    被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了
-    被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了
-    被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了
-    被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了
-    被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了被发现了
-    -->
-    <!-- 警告信息 -->
-    <div class="rainbow-title">
-    <span style="--i: 0;">洋</span>
-    <span style="--i: 1;">馆</span>
-    <span style="--i: 2;">欢</span>
-    <span style="--i: 3;">迎</span>
-    <span style="--i: 4;">您</span>
-        
-    </div>
-    <div class="warning">
-        <div style="font-size: 40px;color: #ff0000;">警告</div><br>
-        ⚠️ 警告：本页面内容包含大量<a style="color: #ff0000;font-size: 20px;">R18G</a>级（血腥、暴力、怪诞等不适元素）内容。<br>
-        可能引发心理不适、生理不适或精神冲击，仅适合 18 周岁以上具备足够心理承受能力的人群。<br>
-        未成年人、心理敏感人群、易受刺激者请勿浏览，浏览前请做好心理准备，自行评估风险。<br><br>
-        📌 免责声明：<br>
-        1. 本页面仅为信息整理，所有内容均来自网络公开资源，不代表本人立场，亦不构成任何推荐或诱导；<br>
-        2. 浏览者需自行承担因访问、查看相关内容产生的一切心理、生理及法律风险，本人不对任何直接或间接损失承担责任；<br>
-        3. 请遵守当地法律法规及公序良俗，理性看待相关内容，切勿模仿其中危险、违法或不适当行为；<br>
-        4. 如您不同意以上声明或无法承受相关风险，请立即关闭本页面。<br><br>
-        <a href="链接以后再填" class="link-item" target="_blank"><span class="platform"></span>教程/食用指南</a>
+    <!-- 复制提示框 -->
+    <div class="copy-toast">已复制到剪贴板</div>
+
+    <!-- 左侧目录容器 -->
+    <div class="sidebar-container">
+        <div class="sidebar-title">目录</div>
+        <div class="sidebar-nav">
+            <div class="nav-tip">点击蓝字即可跳转</div>
+            <div class="nav-items-wrapper">
+                <a href="#group1" class="nav-item">首选</a>
+                <a href="#group2" class="nav-item">次选</a>
+                <a href="#group3" class="nav-item">补丁</a>
+                <a href="#group4" class="nav-item">C G</a>
+            </div>
+        </div>
     </div>
 
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-
+    <!-- 主内容容器 -->
     <div class="container">
-        <!-- 游戏区域 -->
-         <div class="centered-title">~~~~~~~~ 优选 ~~~~~~~~</div><br>
-
-        <div class="link-card">
-            <div class="card-title">死馆1</div>
-            <a href="https://pan.touchgal.net/s/lxqF7" class="link-item" target="_blank"><span class="platform">PC</span>：https://pan.touchgal.net/s/lxqF7</a>
-            <a href="https://pan.touchgal.net/s/1y2SX" class="link-item" target="_blank"><span class="platform">安卓直装</span>：https://pan.touchgal.net/s/1y2SX</a>
+        <div style="font-size: 10px;color: #2a2a2a;">是爱丽丝啊</div>
+        <div class="rainbow-title">
+            <span style="--i: 0;">洋</span>
+            <span style="--i: 1;">馆</span>
+            <span style="--i: 2;">欢</span>
+            <span style="--i: 3;">迎</span>
+            <span style="--i: 4;">您</span>
         </div>
 
-        <div class="link-card">
-            <div class="card-title">死馆2/死骑</div>
-            <a href="https://pan.touchgal.net/s/jWJZs9" class="link-item" target="_blank"><span class="platform">PC</span>：https://pan.touchgal.net/s/jWJZs9</a>
-            <a href="https://pan.touchgal.net/s/0wPlig" class="link-item" target="_blank"><span class="platform">安卓</span>：https://pan.touchgal.net/s/0wPlig</a>
+        <!-- 警告信息 -->
+        <div class="warning">
+            <div style="font-size: 40px;color: #ff0000;">警告</div><br>
+            ⚠️ 警告：本页面内容包含大量<a style="color: #ff0000;font-size: 20px;">R18G</a>级（血腥、暴力、怪诞等猎奇元素）内容。<br>
+            可能引发心理不适、生理不适或精神冲击，仅适合 18 周岁以上具备足够心理承受能力的人群。<br>
+            未成年人、心理敏感人群、易受刺激者请勿浏览，浏览前请做好心理准备，自行评估风险。<br><br>
+            📌 免责声明：<br>
+            1. 本页面仅为信息整理，所有内容均来自网络公开资源，不代表本人立场，亦不构成任何推荐或诱导；<br>
+            2. 浏览者需自行承担因访问、查看相关内容产生的一切心理、生理及法律风险，本人不对任何直接或间接损失承担责任；<br>
+            3. 请遵守当地法律法规及公序良俗，理性看待相关内容，切勿模仿其中危险、违法或不适当行为；<br>
+            4. 如您不同意以上声明或无法承受相关风险，请立即关闭本页面。<br><br>
+            <a href="链接以后再填" class="content-text link" target="_blank"><span class="type-text">教程/食用指南：</span>链接以后再填</a>
         </div>
-      
+
+        <!-- 空行 -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+
+        <!-- 首选分组 -->
+        <h2 id="group1" class="group-title">~~~~~~~~ 首选 ~~~~~~~~</h2><br>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">死馆</div>
+            <div class="content-item">
+                <span class="type-text">PC：</span>
+                <a href="https://pan.touchgal.net/s/lxqF7" class="content-text link"
+                    target="_blank">https://pan.touchgal.net/s/lxqF7</a>
+            </div>
+            <div class="content-item">
+                <span class="type-text">安卓：</span>
+                <a href="https://pan.touchgal.net/s/1y2SX" class="content-text link"
+                    target="_blank">https://pan.touchgal.net/s/1y2SX</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">死骑</div>
+            <div class="content-item">
+                <span class="type-text">PC：</span>
+                <a href="https://pan.touchgal.net/s/jWJZs9" class="content-text link"
+                    target="_blank">https://pan.touchgal.net/s/jWJZs9</a>
+            </div>
+            <div class="content-item">
+                <span class="type-text">安卓：</span>
+                <a href="https://pan.touchgal.net/s/0wPlig" class="content-text link"
+                    target="_blank">https://pan.touchgal.net/s/0wPlig</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
         <div class="link-card">
             <div class="card-title">真爱百合</div>
-            <a href="https://pan.touchgal.net/s/7NxxTX" class="link-item" target="_blank"><span class="platform">PC</span>：https://pan.touchgal.net/s/7NxxTX</a>
-            <a href="https://pan.touchgal.net/s/V5Bptd" class="link-item" target="_blank"><span class="platform">安卓</span>：https://pan.touchgal.net/s/V5Bptd</a>
+            <div class="content-item">
+                <span class="type-text">PC：</span>
+                <a href="https://pan.touchgal.net/s/7NxxTX" class="content-text link"
+                    target="_blank">https://pan.touchgal.net/s/7NxxTX</a>
+            </div>
+            <div class="content-item">
+                <span class="type-text">安卓：</span>
+                <a href="https://pan.touchgal.net/s/V5Bptd" class="content-text link"
+                    target="_blank">https://pan.touchgal.net/s/V5Bptd</a>
+            </div>
         </div>
-        <!-- 次选区域 -->
-         <div class="centered-title">~~~~~~~~ 次选 ~~~~~~~~</div><br>
+        <!---------------------------------------------------------------------------------------------------->
 
-
-
-
-        <!-- 补丁区域 -->
-         <div class="centered-title">~~~~~~~~ 补丁 ~~~~~~~~</div><br>
+        <!-- 次选分组 -->
+        <h2 id="group2" class="group-title">~~~~~~~~ 次选 ~~~~~~~~</h2>
+        <!---------------------------------------------------------------------------------------------------->
         <div class="link-card">
-            <div class="card-title">补丁合集</div>
-            <a href="https://pan.touchgal.net/s/patch1" class="link-item" target="_blank"><span class="platform">PC</span>：https://pan.touchgal.net/s/patch1</a>
-            <a href="https://pan.touchgal.net/s/patch2" class="link-item" target="_blank"><span class="platform">安卓</span>：https://pan.touchgal.net/s/patch2</a>
+            <div class="card-title">【安卓】死馆</div>
+            <div class="content-item">
+                <span class="type-text">微云网盘：</span>
+                <a href="https://share.weiyun.com/qhyxkHgk" class="content-text link"
+                    target="_blank">https://share.weiyun.com/qhyxkHgk</a>
+            </div>
         </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+KR】死馆</div>
+            <div class="content-item">
+                <span class="type-text">度盘提取码：</span>
+                <span class="content-text copyable">b201</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">夸克提取码：</span>
+                <span class="content-text copyable">PnpY</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">Bilibili_Slpeey</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">发布者群：</span>
+                <span class="content-text copyable">341678189</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1ePQqoI7wo8Ut6XJ2mYM5HA" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1ePQqoI7wo8Ut6XJ2mYM5HA</a>
+            </div>
+            <div class="content-item">
+                <span class="type-text">夸克网盘：</span>
+                <a href="https://pan.quark.cn/s/808bc8e0a063" class="content-text link"
+                    target="_blank">https://pan.quark.cn/s/808bc8e0a063</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+KR+安卓】死馆+死骑</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">1225</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">ikaros</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1OWEVCd_MjeNfg7-ngTPFSw?pwd=1225" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1OWEVCd_MjeNfg7-ngTPFSw?pwd=1225</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+KR+TY】死馆1+2合集【附全CG存档+精翻汉化】</div>
+            <div class="content-item">
+                <span class="type-text">发布者群：</span>
+                <span class="content-text copyable">1074106748</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">夸克网盘：</span>
+                <a href="https://pan.quark.cn/s/8410eaad6bcc" class="content-text link"
+                    target="_blank">https://pan.quark.cn/s/8410eaad6bcc</a>
+            </div>
+            <div class="content-item">
+                <span class="type-text">迅雷网盘：</span>
+                <a href="https://pan.xunlei.com/s/VOj-h3_l2EtHA9UHE5hqqmm5A1?pwd=77yd#" class="content-text link"
+                    target="_blank">https://pan.xunlei.com/s/VOj-h3_l2EtHA9UHE5hqqmm5A1?pwd=77yd#</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+KR+TY】死馆【附全CG存档+精翻汉化】</div>
+            <div class="content-item">
+                <span class="type-text">交流群：</span>
+                <span class="content-text copyable">1074106748</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">夸克网盘：</span>
+                <a href="https://pan.quark.cn/s/8ce33c9c41d8" class="content-text link"
+                    target="_blank">https://pan.quark.cn/s/8ce33c9c41d8</a>
+            </div>
+            <div class="content-item">
+                <span class="type-text">迅雷网盘：</span>
+                <a href="https://pan.xunlei.com/s/VOj-hLjxZkfNIdC_BQSpD7ErA1?pwd=aq4e#" class="content-text link"
+                    target="_blank">https://pan.xunlei.com/s/VOj-hLjxZkfNIdC_BQSpD7ErA1?pwd=aq4e#</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+KR+安卓】死骑</div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1v312IeAtitDbGdf59ovRAA?pwd=6d95" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1v312IeAtitDbGdf59ovRAA?pwd=6d95</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+KR】死骑</div>
+            <div class="content-item">
+                <span class="type-text">度盘提取码：</span>
+                <span class="content-text copyable">b201</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">夸克提取码：</span>
+                <span class="content-text copyable">8kCz</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">Bilibili_Slpeey</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">交流群：</span>
+                <span class="content-text copyable">341678189</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1-slymNoUeM61GT-4snf3MQ" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1-slymNoUeM61GT-4snf3MQ</a>
+            </div>
+            <div class="content-item">
+                <span class="type-text">夸克网盘：</span>
+                <a href="https://pan.quark.cn/s/70e61e75611c" class="content-text link"
+                    target="_blank">https://pan.quark.cn/s/70e61e75611c</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+KR+TY】死馆【附全CG存档+精翻汉化】</div>
+            <div class="content-item">
+                <span class="type-text">发布者群：</span>
+                <span class="content-text copyable">1074106748</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">夸克网盘：</span>
+                <a href="https://pan.quark.cn/s/8ce33c9c41d8" class="content-text link"
+                    target="_blank">https://pan.quark.cn/s/8ce33c9c41d8</a>
+            </div>
+            <div class="content-item">
+                <span class="type-text">迅雷网盘：</span>
+                <a href="https://pan.xunlei.com/s/VOj-hLjxZkfNIdC_BQSpD7ErA1?pwd=aq4e#" class="content-text link"
+                    target="_blank">https://pan.xunlei.com/s/VOj-hLjxZkfNIdC_BQSpD7ErA1?pwd=aq4e#</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+KR】死馆</div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">123</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">发布者群：</span>
+                <span class="content-text copyable">524317870</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">迅雷网盘：</span>
+                <a href="https://pan.xunlei.com/s/VOhhgx99fBm8XlW3vPQYvllMA1?pwd=yk74#" class="content-text link"
+                    target="_blank">https://pan.xunlei.com/s/VOhhgx99fBm8XlW3vPQYvllMA1?pwd=yk74#</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+KR双端+安卓直装】死馆</div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">j5tj</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1_LmK-rf8k-feZh5SUKKybg?pwd=j5tj" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1_LmK-rf8k-feZh5SUKKybg?pwd=j5tj</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+KR+TY】死骑【附全CG存档】</div>
+            <div class="content-item">
+                <span class="type-text">发布者群：</span>
+                <span class="content-text copyable">1074106748</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">夸克网盘：</span>
+                <a href="https://pan.quark.cn/s/075c5cdfc896" class="content-text link"
+                    target="_blank">https://pan.quark.cn/s/075c5cdfc896</a>
+            </div>
+            <div class="content-item">
+                <span class="type-text">迅雷网盘：</span>
+                <a href="https://pan.xunlei.com/s/VOj-hkkRt6F6uqmOwbr_Lt7jA1?pwd=gw6e#" class="content-text link"
+                    target="_blank">https://pan.xunlei.com/s/VOj-hkkRt6F6uqmOwbr_Lt7jA1?pwd=gw6e#</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+KR】死骑</div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">123</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">发布者群：</span>
+                <span class="content-text copyable">524317870</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">迅雷网盘：</span>
+                <a href="https://pan.xunlei.com/s/VOhhggD0PISoJzRQxQnIjbhaA1?pwd=ijea#" class="content-text link"
+                    target="_blank">https://pan.xunlei.com/s/VOhhggD0PISoJzRQxQnIjbhaA1?pwd=ijea#</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+KR】死馆+死骑</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">1225</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">ikaros</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1OWEVCd_MjeNfg7-ngTPFSw?pwd=1225" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1OWEVCd_MjeNfg7-ngTPFSw?pwd=1225</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【安卓】死馆+死骑【附全CG存档】</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">ling</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1kFE3CBV83w0_EJnVjk307w" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1kFE3CBV83w0_EJnVjk307w</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【安卓】真爱百合</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">3fq6</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">123456</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1yL6bZVIqNiY49FNFMQuVMw?pwd=3fq6" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1yL6bZVIqNiY49FNFMQuVMw?pwd=3fq6</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC+安卓】真爱百合</div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">daodanruanjian</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">下载：</span>
+                <a href="https://link3.cc/afggl" class="content-text link" target="_blank">https://link3.cc/afggl</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【安卓】真爱百合</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">123</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">交流群：</span>
+                <span class="content-text copyable">524317870</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">迅雷网盘：</span>
+                <a href="https://pan.xunlei.com/s/VOhhcL8kdw8LbSmV6DMiVNZrA1?pwd=x9n8#" class="content-text link"
+                    target="_blank">https://pan.xunlei.com/s/VOhhcL8kdw8LbSmV6DMiVNZrA1?pwd=x9n8#</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【PC＋KR】真爱百合</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">ling</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">zabh</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1E8msLwhn7cTXJLjFEnzWYg" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1E8msLwhn7cTXJLjFEnzWYg</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+
+        <!-- 补丁分组 -->
+        <h2 id="group3" class="group-title">~~~~~~~~ 补丁 ~~~~~~~~</h2>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">死馆 默示吧PC汉化版后半部分汉化补丁</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">0721</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">解压说明：</span>
+                <span class="content-text copyable">无解压密码，patch.xp3文件直接覆盖至游戏目录（无需放入plugin或savedata文件夹）</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1-R5Cm5bIgTSlflxTsLpIQw?pwd=0721" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1-R5Cm5bIgTSlflxTsLpIQw?pwd=0721</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">死馆 全CG补丁</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">1145</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1c1Q43eaYTItvlcDXOblLWg?pwd=1145" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1c1Q43eaYTItvlcDXOblLWg?pwd=1145</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">【安卓】死骑 全CG存档</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">WXGJ</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">WXGJ</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">使用说明：</span>
+                <span class="content-text copyable">仅安卓端可用</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1tJUQNf5vJAK9fFblqT6Lvg?pwd=WXGJ" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1tJUQNf5vJAK9fFblqT6Lvg?pwd=WXGJ</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">死骑 汉化补丁</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">aach</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">汉化组发布地址：</span>
+                <a href="https://tieba.baidu.com/p/9448620043?pn=1" class="content-text link"
+                    target="_blank">https://tieba.baidu.com/p/9448620043?pn=1</a>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘：</span>
+                <a href="https://pan.baidu.com/s/1w0aqe2XCGXknLSqt7vCIbA" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1w0aqe2XCGXknLSqt7vCIbA</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">死骑 汉化补丁和CG存档</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">uh78</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">迅雷网盘：</span>
+                <a href="https://pan.xunlei.com/s/VOMur5L4LPVQzgPvnaDjhVzKA1" class="content-text link"
+                    target="_blank">https://pan.xunlei.com/s/VOMur5L4LPVQzgPvnaDjhVzKA1</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <!--这个我也不知道为什么这么长，不懂，不敢动-->
+        <div class="link-card">
+            <div class="card-title">真爱百合全CG存档</div>
+            <div class="content-item">
+                <span class="type-text">校验码：</span>
+                <span
+                    class="content-text copyable">f9a7a2bad84ba9fce869e3d83122c136a0a9eccf78473ed5cea5c5f28ac9c5e6</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">下载链接：</span>
+                <a href="https://cloud.touchgaloss.com/patch/1212/resource/f9a7a2bad84ba9fce869e3d83122c136a0a9eccf78473ed5cea5c5f28ac9c5e6/old_source_a524b0979f330f39ce2c080ba4a3db68.zip"
+                    class="content-text link"
+                    target="_blank">https://cloud.touchgaloss.com/patch/1212/resource/f9a7a…</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+
+        <!-- CG分组 -->
+        <h2 id="group4" class="group-title">~~~~~~~~ CG ~~~~~~~~</h2>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">死馆 游戏CG（311P）</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">gkfa</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">0e3972f3</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">下载：</span>
+                <a href="https://p.inari.site/usr/1903/68f8ed7339a74.png" class="content-text link"
+                    target="_blank">https://p.inari.site/usr/1903/68f8ed7339a74.png</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">死骑 游戏CG（1002P）</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">ibq9</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">0e3972f3</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">下载：</span>
+                <a href="https://p.inari.site/usr/1903/6929a1ad17e42.png" class="content-text link"
+                    target="_blank">https://p.inari.site/usr/1903/6929a1ad17e42.png</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div class="link-card">
+            <div class="card-title">真爱百合 游戏CG（466P）</div>
+            <div class="content-item">
+                <span class="type-text">提取码：</span>
+                <span class="content-text copyable">q3wm</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">解压码：</span>
+                <span class="content-text copyable">0e3972f3</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">下载：</span>
+                <a href="https://p.inari.site/usr/1903/6929a1f0995c8.png" class="content-text link"
+                    target="_blank">https://p.inari.site/usr/1903/6929a1f0995c8.png</a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
     </div>
 </body>
+
 </html>
