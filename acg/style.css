@@ -1,0 +1,392 @@
+/* 全局样式 - 保留基础重置和深灰背景 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft Yahei", sans-serif;
+}
+
+body {
+    background-color: #2c2c2c;
+    /* 最深背景 */
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+    /* 给左右侧边栏留出空间 */
+    padding-left: 160px;
+    padding-right: 160px;
+}
+
+/* 通用侧边栏容器样式 */
+.sidebar-container {
+    position: fixed;
+    top: 20px;
+    bottom: 20px;
+    width: 140px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 左侧目录侧边栏 */
+.left-sidebar {
+    left: 20px;
+}
+
+/* 右侧信息侧边栏 */
+.right-sidebar {
+    right: 20px;
+}
+
+.sidebar-title {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.sidebar-nav {
+    flex: 1;
+    background-color: #3a3a3a;
+    padding: 10px 10px;
+    overflow-y: auto;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-tip {
+    color: #cccccc;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #555555;
+}
+
+.nav-items-wrapper {
+    flex: 1;
+}
+
+.nav-item {
+    display: block;
+    color: #a8d1ff;
+    text-decoration: none;
+    padding: 4px;
+    background-color: #444444;
+    margin-bottom: 8px;
+    transition: background-color 0.2s;
+    font-size: 18px;
+    text-align: center;
+}
+
+.nav-item:hover {
+    background-color: #555555;
+    color: #ffffff;
+}
+
+/* 右侧信息块的内容样式 */
+.info-item {
+    display: block;
+    color: #a8d1ff;
+    padding: 4px;
+    background-color: #444444;
+    margin-bottom: 8px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* 主容器 */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* 资料块样式 - 移除hover效果 */
+.link-card {
+    background-color: #3a3a3a;
+    /* 第二深背景 */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid #666;
+    cursor: default;
+    /* 鼠标样式为默认 */
+}
+
+/* 完全移除资料块的hover效果 */
+.link-card:hover {
+    background-color: #3a3a3a;
+    /* 保持原背景色 */
+    transform: none;
+    /* 取消位移 */
+    box-shadow: none;
+    /* 取消阴影 */
+}
+
+.card-title {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* 内容项基础样式 - 区分类型和内容色 */
+.content-item {
+    display: block;
+    padding: 10px 15px;
+    background-color: #444444;
+    /* 最浅背景 */
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    /* 仅添加背景色过渡 */
+}
+
+/* 单条资料hover效果 - 只变色 */
+.content-item:hover {
+    background-color: #505050;
+}
+
+/* 类型文字（黄色） */
+.type-text {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+/* 链接/密码文字（蓝色） */
+.content-text {
+    color: #a8d1ff;
+    text-decoration: none;
+}
+
+/* 可点击链接样式 */
+.content-text.link {
+    transition: color 0.2s;
+}
+
+.content-text.link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* 可复制的密码文字样式 - 移除虚线下划线 */
+.content-text.copyable {
+    cursor: pointer;
+    text-decoration: none;
+    /* 移除下划线 */
+    transition: color 0.2s;
+}
+
+/* 可复制文本悬停效果 */
+.content-text.copyable:hover {
+    color: #ffffff;
+}
+
+/* 分组标题 */
+.group-title {
+    color: pink;
+    font-size: 40px;
+    text-align: center;
+    margin: 0 0 20px 0;
+    padding: 10px;
+}
+
+/* 警告信息样式 */
+.warning {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px auto;
+    text-align: center;
+    background-color: #3a3a3a;
+    padding: 10px 20px;
+    border-radius: 8px;
+    max-width: 800px;
+}
+
+.warning strong {
+    color: #ff0000;
+}
+
+/* 彩虹标题动画 */
+@keyframes rainbow {
+    0% {
+        color: red;
+    }
+
+    20% {
+        color: orange;
+    }
+
+    40% {
+        color: yellow;
+    }
+
+    60% {
+        color: green;
+    }
+
+    80% {
+        color: blue;
+    }
+
+    100% {
+        color: red;
+    }
+}
+
+.rainbow-title {
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.rainbow-title span {
+    animation: rainbow 1.5s infinite;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+/* 复制提示框样式 - 调整到居中靠近底部位置 */
+.copy-toast {
+    position: fixed;
+    bottom: 60px;
+    /* 距离底部60px，靠近底部但不贴边 */
+    left: 50%;
+    transform: translateX(-50%);
+    /* 水平居中 */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.copy-toast.show {
+    opacity: 1;
+}
+
+/* 响应式适配 - 移动端优化 */
+@media (max-width: 992px) {
+    body {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* 移动端侧边栏改为横向固定在顶部 */
+    .sidebar-container {
+        position: sticky;
+        top: 0;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto 15px;
+        padding: 10px;
+        background-color: #3a3a3a;
+        border-radius: 8px;
+    }
+
+    .left-sidebar, .right-sidebar {
+        left: auto;
+        right: auto;
+    }
+
+    .sidebar-title {
+        text-align: left;
+        margin-bottom: 8px;
+        font-size: 20px;
+    }
+
+    .sidebar-nav {
+        flex: none;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 8px;
+        background-color: transparent;
+    }
+
+    .nav-tip {
+        width: 100%;
+        border-bottom: none;
+        margin-bottom: 8px;
+        padding-bottom: 5px;
+        font-size: 11px;
+        text-align: left;
+    }
+
+    .nav-items-wrapper {
+        flex: none;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .nav-item, .info-item {
+        display: inline-block;
+        margin: 0 5px 5px 0;
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 10px 20px;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .link-card {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .content-item {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .rainbow-title {
+        font-size: 30px;
+    }
+
+    .group-title {
+        font-size: 28px;
+    }
+
+    .copy-toast {
+        font-size: 14px;
+        padding: 8px 16px;
+        bottom: 40px;
+    }
+
+    .sidebar-title {
+        font-size: 18px;
+    }
+
+    .nav-item, .info-item {
+        padding: 4px 10px;
+        font-size: 13px;
+    }
+}

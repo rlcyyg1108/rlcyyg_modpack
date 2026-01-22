@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板页面</title>
+    <link rel="icon" href=".../img/死馆.ico">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <!-- 引入外部JS文件 -->
+    <script src="../script.js"></script>
+
+    <!-- 左侧固定目录容器 -->
+    <div class="sidebar-container left-sidebar">
+        <div class="sidebar-title">目录</div>
+        <div class="sidebar-nav">
+            <div class="nav-tip">点击蓝字即可跳转</div>
+            <div class="nav-items-wrapper">
+                <a href="#group1" class="nav-item">首选</a>
+                <a href="#group2" class="nav-item">次选</a>
+                <a href="#group3" class="nav-item">补丁</a>
+                <a href="#group4" class="nav-item">C G</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 右侧固定信息块 -->
+    <div class="sidebar-container right-sidebar">
+        <div class="sidebar-title">说明</div>
+        <div class="sidebar-nav">
+            <div class="nav-tip">以下为示例信息</div>
+            <div class="nav-items-wrapper">
+                <div class="info-item">解压密码：123456</div>
+                <div class="info-item">文件格式：zip/7z</div>
+                <div class="info-item">适配系统：PC/安卓</div>
+                <div class="info-item">注意：解压后运行</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容容器 -->
+    <div class="container">
+        <!-- 示例组别1 -->
+        <h2 id="group1" class="group-title">~~~~~~~~ 示例组别1 ~~~~~~~~</h2><br>
+        <div class="link-card">
+            <div class="card-title">示例分类1-1</div>
+            <!-- 可在此处添加具体内容项，示例留空 -->
+        </div>
+        <div class="link-card">
+            <div class="card-title">示例分类1-2</div>
+            <!-- 可在此处添加具体内容项，示例留空 -->
+        </div>
+
+        <!-- 示例组别2 -->
+        <h2 id="group2" class="group-title">~~~~~~~~ 示例组别2 ~~~~~~~~</h2>
+        <div class="link-card">
+            <div class="card-title">示例分类2-1</div>
+            <!-- 可在此处添加具体内容项，示例留空 -->
+        </div>
+        <div class="link-card">
+            <div class="card-title">示例分类2-2</div>
+            <!-- 可在此处添加具体内容项，示例留空 -->
+        </div>
+
+        <!-- 示例组别3 -->
+        <h2 id="group3" class="group-title">~~~~~~~~ 示例组别3 ~~~~~~~~</h2>
+        <div class="link-card">
+            <div class="card-title">示例分类3-1</div>
+            <!-- 可在此处添加具体内容项，示例留空 -->
+        </div>
+        <div class="link-card">
+            <div class="card-title">示例分类3-2</div>
+            <!-- 可在此处添加具体内容项，示例留空 -->
+        </div>
+    </div>
+</body>
+
+</html>
