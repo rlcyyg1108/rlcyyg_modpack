@@ -2,16 +2,20 @@
 <html lang="zh-CN">
 
 <head>
+    <base target="_blank">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>模板页面</title>
-    <link rel="icon" href=".../img/死馆.ico">
+    <title>洋馆储备粮</title>
+    <link rel="icon" href="./img/死馆.ico">
+    <!-- 引入外部CSS文件 -->
     <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
     <!-- 引入外部JS文件 -->
     <script src="../script.js"></script>
+    <!-- 复制提示框 -->
+    <div class="copy-toast">已复制到剪贴板</div>
 
     <!-- 左侧固定目录容器 -->
     <div class="sidebar-container left-sidebar">
@@ -27,54 +31,56 @@
         </div>
     </div>
 
-    <!-- 右侧固定信息块 -->
-    <div class="sidebar-container right-sidebar">
-        <div class="sidebar-title">说明</div>
-        <div class="sidebar-nav">
-            <div class="nav-tip">以下为示例信息</div>
-            <div class="nav-items-wrapper">
-                <div class="info-item">解压密码：123456</div>
-                <div class="info-item">文件格式：zip/7z</div>
-                <div class="info-item">适配系统：PC/安卓</div>
-                <div class="info-item">注意：解压后运行</div>
-            </div>
-        </div>
-    </div>
-
     <!-- 主内容容器 -->
     <div class="container">
-        <!-- 示例组别1 -->
-        <h2 id="group1" class="group-title">~~~~~~~~ 示例组别1 ~~~~~~~~</h2><br>
-        <div class="link-card">
-            <div class="card-title">示例分类1-1</div>
-            <!-- 可在此处添加具体内容项，示例留空 -->
-        </div>
-        <div class="link-card">
-            <div class="card-title">示例分类1-2</div>
-            <!-- 可在此处添加具体内容项，示例留空 -->
+        <div style="font-size: 10px;color: #2a2a2a;">是爱丽丝啊</div>
+        <div class="rainbow-title">
+            <span style="--i: 0;">洋</span>
+            <span style="--i: 1;">馆</span>
+            <span style="--i: 2;">欢</span>
+            <span style="--i: 3;">迎</span>
+            <span style="--i: 4;">您</span>
         </div>
 
-        <!-- 示例组别2 -->
-        <h2 id="group2" class="group-title">~~~~~~~~ 示例组别2 ~~~~~~~~</h2>
-        <div class="link-card">
-            <div class="card-title">示例分类2-1</div>
-            <!-- 可在此处添加具体内容项，示例留空 -->
-        </div>
-        <div class="link-card">
-            <div class="card-title">示例分类2-2</div>
-            <!-- 可在此处添加具体内容项，示例留空 -->
+        <!-- 警告信息 -->
+        <div class="warning">
+            <div style="font-size: 40px;color: #ff0000;">警告</div><br>
+            <a href="https://rlcyyg1108.github.io/rlcyyg_modpack/acg/acg/html/AAA.html" class="content-text link rainbow-title" target="_blank"
+                style="font-size: 20px;">
+                <span class="prompt-text">→ → → </span>
+                教程/食用指南
+                <span class="prompt-text"> ← ← ←</span></a>
         </div>
 
-        <!-- 示例组别3 -->
-        <h2 id="group3" class="group-title">~~~~~~~~ 示例组别3 ~~~~~~~~</h2>
+        <!-- 首选分组 -->
+        <h2 id="group1" class="group-title">~~~~ 首选 ~~~~</h2>
+        <!---------------------------------------------------------------------------------------------------->
         <div class="link-card">
-            <div class="card-title">示例分类3-1</div>
-            <!-- 可在此处添加具体内容项，示例留空 -->
+            <div class="card-title">死馆</div>
+            <div class="content-item">
+                <span class="type-text">PC:</span>
+                <a href="https://pan.touchgal.net/s/lxqF7" class="content-text link"
+                    target="_blank">https://pan.touchgal.net/s/lxqF7</a>
+            </div>
         </div>
+        <!---------------------------------------------------------------------------------------------------->
+
+        <!-- 次选分组 -->
+        <h2 id="group2" class="group-title">~~~~ 次选 ~~~~</h2>
+        <!---------------------------------------------------------------------------------------------------->
         <div class="link-card">
-            <div class="card-title">示例分类3-2</div>
-            <!-- 可在此处添加具体内容项，示例留空 -->
+            <div class="card-title">【PC+KR+安卓】死馆+死骑</div>
+            <div class="content-item">
+                <span class="type-text">提取码:</span>
+                <span class="content-text copyable">1225</span>
+            </div>
+            <div class="content-item">
+                <span class="type-text">百度网盘:</span>
+                <a href="https://pan.baidu.com/s/1OWEVCd_MjeNfg7-ngTPFSw?pwd=1225" class="content-text link"
+                    target="_blank">https://pan.baidu.com/s/1OWEVCd_MjeNfg7-ngTPFSw?pwd=1225</a>
+            </div>
         </div>
+        <!---------------------------------------------------------------------------------------------------->
     </div>
 </body>
 

@@ -5,9 +5,12 @@
     box-sizing: border-box;
     font-family: "Microsoft Yahei", sans-serif;
     /* 新增：强制长文本/长链接自动换行 */
-    word-wrap: break-word;      /* 允许在单词内换行（兼容旧浏览器） */
-    word-break: break-all;      /* 强制换行，哪怕是单个长单词/链接 */
-    white-space: normal;        /* 恢复默认换行，取消强制不换行 */
+    word-wrap: break-word;
+    /* 允许在单词内换行（兼容旧浏览器） */
+    word-break: break-all;
+    /* 强制换行，哪怕是单个长单词/链接 */
+    white-space: normal;
+    /* 恢复默认换行，取消强制不换行 */
 }
 
 body {
@@ -110,7 +113,7 @@ body {
     /* 第二深背景 */
     border-radius: 8px;
     padding: 20px;
-    margin: 7px;
+    margin-bottom: 10px;
     border-left: 4px solid #666;
     cursor: default;
     /* 鼠标样式为默认 */
@@ -161,10 +164,32 @@ body {
     font-weight: bold;
 }
 
+/* 普通文字 */
+.normal-text {
+    color: #ffffff;
+    text-decoration: none;
+    word-wrap: break-word;
+    /* 兼容旧浏览器，允许长单词/文本内换行 */
+    word-break: break-all;
+    /* 强制所有字符换行，适配长概念说明文本 */
+    white-space: normal;
+    /* 恢复默认换行，确保上述属性生效 */
+    line-height: 1.6;
+    /* 可选优化：增大行高，换行后阅读更舒适 */
+}
+
 /* 链接/密码文字（蓝色） */
 .content-text {
     color: #a8d1ff;
     text-decoration: none;
+    word-wrap: break-word;
+    /* 兼容旧浏览器，允许长单词/文本内换行 */
+    word-break: break-all;
+    /* 强制所有字符换行，适配长概念说明文本 */
+    white-space: normal;
+    /* 恢复默认换行，确保上述属性生效 */
+    line-height: 1.6;
+    /* 可选优化：增大行高，换行后阅读更舒适 */
 }
 
 /* 可点击链接样式 */
@@ -199,7 +224,7 @@ body {
 }
 
 /* 警告信息样式 */
-.warning {
+.info {
     color: #ffffff;
     font-size: 16px;
     font-weight: bold;
@@ -209,10 +234,6 @@ body {
     padding: 10px 20px;
     border-radius: 8px;
     max-width: 800px;
-}
-
-.warning strong {
-    color: #ff0000;
 }
 
 /* 彩虹标题动画 */
@@ -279,6 +300,49 @@ body {
     opacity: 1;
 }
 
+/* 核心：用CSS函数实现淡色+斜体 */
+.light-italic-text {
+    /* 斜体效果 */
+    font-style: italic;
+    /* 淡色效果（用rgba函数控制透明度，推荐） */
+    color: rgb(255, 255, 255, 0.8);
+    /* 黑色基础，0.6透明度（0-1可调，越小越淡） */
+    /* 可选：用opacity函数（整体透明，会影响所有子元素） */
+    /* opacity: 0.6; */
+    /* 补充：字体大小，方便查看效果 */
+    font-size: 24px;
+}
+
+/* 左上角跳转模块样式 */
+.home-jump {
+    position: fixed;
+    top: 8px;
+    left: 170px;
+    /* 目录宽度140px + 间距20px + 微调10px */
+    z-index: 998;
+    /* 低于目录层级，避免遮挡目录 */
+}
+
+.jump-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    padding: 8px 8px;
+}
+
+.jump-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+}
+
+.jump-text {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
 /* 响应式适配 - 移动端优化（核心修改：保留侧边栏左右固定） */
 @media (max-width: 992px) {
     body {
@@ -291,7 +355,8 @@ body {
         position: fixed;
         top: 20px;
         bottom: 20px;
-        width: 70px; /* 移动端缩窄侧边栏 */
+        width: 70px;
+        /* 移动端缩窄侧边栏 */
     }
 
     /* 左侧/右侧侧边栏位置不变 */
@@ -311,12 +376,13 @@ body {
     }
 
     .nav-tip {
-        font-size: 10px;
+        font-size: 12px;
         margin-bottom: 8px;
         padding-bottom: 5px;
     }
 
-    .nav-item, .info-item {
+    .nav-item,
+    .info-item {
         font-size: 20px;
         padding: 3px;
         margin-bottom: 5px;
@@ -327,9 +393,24 @@ body {
         padding: 10px;
         max-width: 100%;
     }
+
+    .home-jump {
+        left: 90px;
+        /* 移动端目录宽度70px + 间距10px + 微调10px */
+    }
+
+    .jump-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .jump-text {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px) {
+
     /* 超小屏进一步优化 */
     body {
         padding-left: 65px;
@@ -349,7 +430,8 @@ body {
         font-size: 14px;
     }
 
-    .nav-item, .info-item {
+    .nav-item,
+    .info-item {
         font-size: 20px;
         padding: 2px;
     }
@@ -379,5 +461,24 @@ body {
         font-size: 14px;
         padding: 8px 16px;
         bottom: 40px;
+    }
+
+    .home-jump {
+        left: 70px;
+        /* 超小屏目录宽度60px + 间距5px + 微调10px */
+        top: 5px;
+    }
+
+    .jump-link {
+        padding: 1px 1px;
+    }
+
+    .jump-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .jump-text {
+        font-size: 12px;
     }
 }
