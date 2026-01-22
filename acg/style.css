@@ -4,6 +4,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Microsoft Yahei", sans-serif;
+    /* 新增：强制长文本/长链接自动换行 */
+    word-wrap: break-word;      /* 允许在单词内换行（兼容旧浏览器） */
+    word-break: break-all;      /* 强制换行，哪怕是单个长单词/链接 */
+    white-space: normal;        /* 恢复默认换行，取消强制不换行 */
 }
 
 body {
@@ -12,9 +16,6 @@ body {
     padding: 0;
     position: relative;
     min-height: 100vh;
-    /* 给左右侧边栏留出空间 */
-    padding-left: 160px;
-    padding-right: 160px;
 }
 
 /* 通用侧边栏容器样式 */
@@ -31,11 +32,6 @@ body {
 /* 左侧目录侧边栏 */
 .left-sidebar {
     left: 20px;
-}
-
-/* 右侧信息侧边栏 */
-.right-sidebar {
-    right: 20px;
 }
 
 .sidebar-title {
@@ -86,14 +82,14 @@ body {
     color: #ffffff;
 }
 
-/* 右侧信息块的内容样式 */
+/* 信息块的内容样式 */
 .info-item {
     display: block;
     color: #a8d1ff;
     padding: 4px;
     background-color: #444444;
     margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
 }
 
@@ -114,7 +110,7 @@ body {
     /* 第二深背景 */
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 15px;
+    margin: 7px;
     border-left: 4px solid #666;
     cursor: default;
     /* 鼠标样式为默认 */
@@ -160,6 +156,11 @@ body {
     font-weight: bold;
 }
 
+.prompt-text {
+    color: #39FF39;
+    font-weight: bold;
+}
+
 /* 链接/密码文字（蓝色） */
 .content-text {
     color: #a8d1ff;
@@ -194,8 +195,7 @@ body {
     color: pink;
     font-size: 40px;
     text-align: center;
-    margin: 0 0 20px 0;
-    padding: 10px;
+    margin: 7px;
 }
 
 /* 警告信息样式 */
@@ -203,7 +203,7 @@ body {
     color: #ffffff;
     font-size: 16px;
     font-weight: bold;
-    margin: 10px auto;
+    margin-top: 15px;
     text-align: center;
     background-color: #3a3a3a;
     padding: 10px 20px;
@@ -249,7 +249,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 5px;
-    margin: 20px 0;
 }
 
 .rainbow-title span {
@@ -280,80 +279,81 @@ body {
     opacity: 1;
 }
 
-/* 响应式适配 - 移动端优化 */
+/* 响应式适配 - 移动端优化（核心修改：保留侧边栏左右固定） */
 @media (max-width: 992px) {
     body {
-        padding-left: 20px;
-        padding-right: 20px;
+        /* 缩小侧边栏预留空间，适配小屏幕 */
+        padding-left: 90px;
     }
 
-    /* 移动端侧边栏改为横向固定在顶部 */
+    /* 保留侧边栏固定定位，仅缩小宽度 */
     .sidebar-container {
-        position: sticky;
-        top: 0;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto 15px;
-        padding: 10px;
-        background-color: #3a3a3a;
-        border-radius: 8px;
+        position: fixed;
+        top: 20px;
+        bottom: 20px;
+        width: 70px; /* 移动端缩窄侧边栏 */
     }
 
-    .left-sidebar, .right-sidebar {
-        left: auto;
-        right: auto;
+    /* 左侧/右侧侧边栏位置不变 */
+    .left-sidebar {
+        left: 10px;
     }
 
+    /* 侧边栏标题适配小尺寸 */
     .sidebar-title {
-        text-align: left;
+        font-size: 16px;
         margin-bottom: 8px;
-        font-size: 20px;
     }
 
+    /* 侧边栏内部排版优化 */
     .sidebar-nav {
-        flex: none;
-        height: auto;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 8px;
-        padding: 8px;
-        background-color: transparent;
+        padding: 5px;
     }
 
     .nav-tip {
-        width: 100%;
-        border-bottom: none;
+        font-size: 10px;
         margin-bottom: 8px;
         padding-bottom: 5px;
-        font-size: 11px;
-        text-align: left;
-    }
-
-    .nav-items-wrapper {
-        flex: none;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
     }
 
     .nav-item, .info-item {
-        display: inline-block;
-        margin: 0 5px 5px 0;
-        padding: 6px 12px;
-        font-size: 14px;
+        font-size: 20px;
+        padding: 3px;
+        margin-bottom: 5px;
     }
 
+    /* 主容器适配侧边栏宽度 */
     .container {
-        padding: 0 10px 20px;
-        min-height: auto;
+        padding: 10px;
+        max-width: 100%;
     }
 }
 
 @media (max-width: 480px) {
+    /* 超小屏进一步优化 */
+    body {
+        padding-left: 65px;
+    }
+
+    .sidebar-container {
+        width: 60px;
+        top: 10px;
+        bottom: 10px;
+    }
+
+    .left-sidebar {
+        left: 5px;
+    }
+
+    .sidebar-title {
+        font-size: 14px;
+    }
+
+    .nav-item, .info-item {
+        font-size: 20px;
+        padding: 2px;
+    }
+
     .link-card {
         padding: 15px;
     }
@@ -379,14 +379,5 @@ body {
         font-size: 14px;
         padding: 8px 16px;
         bottom: 40px;
-    }
-
-    .sidebar-title {
-        font-size: 18px;
-    }
-
-    .nav-item, .info-item {
-        padding: 4px 10px;
-        font-size: 13px;
     }
 }
