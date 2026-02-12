@@ -16,6 +16,8 @@ CauseCurse
 魔裁
 破晓传说
 红的旅途
+魔法少女天穹法妮雅
+隐秘露出 真菜香的禁忌快感/塞雷卡
 ========================================
 番剧：
 莉可丽丝 1 1450
@@ -23,6 +25,7 @@ CauseCurse
 宝石之国
 彻夜之歌
 丧女
+超时空辉夜姬
 吊带袜天使
 为什么老师会在这里
 拔作岛
@@ -63,11 +66,15 @@ Fate/UBW 剧场版
 Fate/HF I 恶兆之花 done
 Fate/HF II 迷失之蝶 done
 Fate/HF III 春之歌 done
-魔法少女伊莉雅 第一季
-魔法少女伊莉雅 第二季
-魔法少女伊莉雅 第三季
-魔法少女伊莉雅 Licht 无名少女
-魔法少女伊莉雅 Prisma Phantasm（OVA）
+魔法少女☆伊莉雅 done
+魔法少女☆伊莉雅 2WEI! done 1
+魔法少女☆伊莉雅 2WEI HERZ!
+魔法少女☆伊莉雅 2wei Herz! SP
+魔法少女☆伊莉雅 3REI!!
+魔法少女☆伊莉雅 Licht 无名少女
+魔法少女☆伊莉雅 雪下的誓言
+魔法少女☆伊莉雅 雪下的誓言 黑樱的房间
+魔法少女☆伊莉雅 Prisma Phantasm
 Fate/Grand Order 绝对魔兽战线
 Fate/Grand Order 终局特异点
 Fate/strange fake
@@ -76,11 +83,19 @@ Fate/Apocrypha
 Fate/EXTRA
 Fate/EXTRA CCC
 Fate/EXTRA Link
+Fate/EXTRA Last Encore
+Fate/strange Fake
 卫宫家的饭
 幻想嘉年华
+幻想嘉年华 EX Season
+幻想嘉年华 Special Season
 命运冠位嘉年华
-埃尔梅罗二世事件簿 done 1
+君主·埃尔梅罗二世事件簿 done 1
 冰室的天地
+爱因兹贝伦咨询室
+Fate/Prototype
+月姬
+空之境界
 ----------------------------------------
 进击的巨人 第一季 done
 进击的巨人 第二季 done
