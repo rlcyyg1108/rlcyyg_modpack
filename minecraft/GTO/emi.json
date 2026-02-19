@@ -1,0 +1,120 @@
+{
+  "favorites": [
+    {
+      "stack": "item:gtocore:insanely_max_battery{Charge:3966802296832L,DischargeMode:1b}"
+    },
+    {
+      "stack": "item:mekanism:creative_energy_cube{mekData:{EnergyContainers:[{Container:0b,stored:\"18446744073709551615.9999\"}],componentConfig:{config0:{side0:4,side1:4,side2:4,side3:4,side4:4,side5:4}}}}"
+    },
+    {
+      "stack": "item:gtocore:enderium_vajra{Enchantments:[{id:\"minecraft:fortune\",lvl:255s}],GT.Behaviours:{},GT.Tool:{Damage:0},Unbreakable:1b}"
+    },
+    {
+      "stack": "item:gtocore:shimmerwood_mallet{GT.Behaviours:{},GT.Tool:{Damage:0},Unbreakable:1b}"
+    },
+    {
+      "stack": "item:ae2:singularity"
+    },
+    {
+      "stack": "item:minecraft:ender_pearl"
+    },
+    {
+      "stack": "item:ae2:tiny_tnt"
+    },
+    {
+      "stack": "item:ae2:ender_dust"
+    },
+    {
+      "stack": "item:gtocore:integrated_ore_processor",
+      "recipe": "gtceu:assembler/integrated_ore_processor"
+    },
+    {
+      "stack": "item:gtceu:purified_galena_ore"
+    },
+    {
+      "stack": "item:gtceu:purified_sphalerite_ore"
+    },
+    {
+      "stack": "item:gtceu:purified_chalcocite_ore"
+    },
+    {
+      "stack": "item:gtceu:purified_bornite_ore"
+    },
+    {
+      "stack": "item:gtceu:purified_cooperite_ore"
+    },
+    {
+      "stack": "item:gtceu:purified_tetrahedrite_ore"
+    },
+    {
+      "stack": {
+        "type": "fluid",
+        "id": "gtceu:distilled_water",
+        "amount": 300
+      }
+    },
+    {
+      "stack": "item:gtocore:dimension_data{dim:\"minecraft:overworld\"}",
+      "recipe": "gtceu:world_data_scanner/overworld"
+    },
+    {
+      "stack": "item:gtocore:dimension_data{dim:\"minecraft:the_nether\"}",
+      "recipe": "gtceu:world_data_scanner/the_nether"
+    },
+    {
+      "stack": "item:gtocore:dimension_data{dim:\"minecraft:the_end\"}",
+      "recipe": "gtceu:world_data_scanner/the_end"
+    },
+    {
+      "stack": "item:gtocore:dimension_data{dim:\"gtocore:ancient_world\"}",
+      "recipe": "gtceu:world_data_scanner/ancient_world"
+    },
+    {
+      "stack": "item:gtocore:dimension_data{dim:\"mythicbotany:alfheim\"}",
+      "recipe": "gtceu:world_data_scanner/alfheim"
+    },
+    {
+      "stack": "item:gtceu:lp_steam_solid_boiler"
+    },
+    {
+      "stack": "item:gtocore:me_io_storage_access_hatch"
+    },
+    {
+      "stack": "item:gtocore:me_storage_access_hatch"
+    },
+    {
+      "stack": "item:gtocore:me_big_storage_access_hatch"
+    },
+    {
+      "stack": "item:gtocore:me_cpu"
+    },
+    {
+      "stack": "item:gtocore:super_molecular_assembler"
+    },
+    {
+      "stack": {
+        "type": "item",
+        "id": "gtceu:solid_machine_casing",
+        "amount": 25
+      }
+    },
+    {
+      "stack": "item:gtceu:bronze_brick_casing"
+    },
+    {
+      "stack": "item:gtceu:bronze_small_fluid_pipe"
+    },
+    {
+      "stack": "item:gtocore:mana_steel_wing{Damage:0,Unbreakable:1b}"
+    },
+    {
+      "stack": "item:minecraft:iron_bars"
+    }
+  ],
+  "recipeDefaults": {
+    "added": [],
+    "tags": {},
+    "resolutions": {},
+    "disabled": []
+  }
+}

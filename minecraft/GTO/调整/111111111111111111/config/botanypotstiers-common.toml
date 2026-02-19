@@ -1,0 +1,27 @@
+
+["Botany Pots Tiers Options"]
+	#
+	#Creative Botany Pot Speed
+	#Range: > 1
+	creativeBotanyPotSpeed = 256
+	#
+	#Ultra Botany Pot Speed
+	#Range: > 1
+	ultraBotanyPotSpeed = 64
+	#
+	#Ultra Botany Pot Multiplier
+	#Range: > 1
+	ultraBotanyPotMultiplier = 128
+	#
+	#Elite Botany Pot Speed
+	#Range: > 1
+	eliteBotanyPotSpeed = 16
+	#
+	#Elite Botany Pot Multiplier
+	#Range: > 1
+	eliteBotanyPotMultiplier = 64
+	#
+	#Creative Botany Pot Multiplier
+	#Range: > 1
+	creativeBotanyPotMultiplier = 256
+

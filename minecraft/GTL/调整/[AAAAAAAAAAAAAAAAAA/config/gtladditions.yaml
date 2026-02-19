@@ -1,0 +1,11 @@
+# ME超级样板总成配置
+superPatternBuffer:
+  # 每行样板数量
+  patternsPerRow: 15
+
+  # 每页行数
+  rowsPerPage: 9
+
+  # 最大页数
+  maxPages: 5
+

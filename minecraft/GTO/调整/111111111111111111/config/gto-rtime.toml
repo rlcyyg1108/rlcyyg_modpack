@@ -1,0 +1,8 @@
+#配方处理速度倍率，最小0.01，值越小越快
+#Range: 0.01 ~ 100.0
+time_scale = 0.01
+#当速度倍率很小时强制所有处理在1tick内完成
+force_one_tick = true
+#配方类型ID或配方ID包含以下关键字时，将不进行修改（严格匹配模式）
+blacklist_keywords = ["steam_boiler", "large_boiler", "combustion_generator", "diesel_generator", "gas_turbine", "steam_turbine", "plasma_generator", "plasma_fuel", "radiation_chamber", "decay_chamber", "thermal_generator", "semi_fluid_generator", "semifluid_generator", "supercritical", "rocket_fuel", "rocket_engine", "naquadah_reactor", "fission_reactor", "annihilation_generator", "hyper_reactor", "dyson_sphere", "dyson_swarm", "botania", "mythicbotany"]
+

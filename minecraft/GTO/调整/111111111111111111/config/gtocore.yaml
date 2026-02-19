@@ -1,0 +1,211 @@
+gamePlay:
+  # 游戏难度等级
+  # Game difficulty level
+  # Allowed values:
+  # - Easy
+  # - Normal
+  # - Expert
+  difficulty: Easy
+
+  # 启用自我约束模式以限制任何形式的作弊指令使用（警告：一旦开启，游玩的存档将永久锁定自我约束模式！）
+  # Enable Self Restraint Mode to restrict the use of any form of cheat commands (Warning: Once enabled, the played save will be permanently locked in Self Restraint Mode!)
+  selfRestraint: false
+
+  # 禁用后失去掏灰玩法(在非专家模式生效)
+  # Removing this disables Ash-Scooping gameplay (only applies in non-Expert mode)
+  disableMufflerPart: false
+
+  # 在装配线模式编码带有重命名物品的样板时使用的默认名字
+  # The default name used when encoding patterns with renamed items in assembly line mode
+  renamePatternDefaultString: {}
+
+  # 允许在 AE2 中下单缺少原料的任务
+  # 缺少的原料将以“正在合成”的状态被等待接收
+  # Allow placing orders for tasks that are missing ingredients in AE2
+  # Missing ingredients will be in a 'crafting' state waiting to be received
+  allowMissingCraftingJobs: true
+
+  # 启用后，且未开启 EMI 作弊时，EMI 的作弊交互功能将转为试图从现有的ME终端/无线终端中提取物品
+  # When enabled, and EMI cheats are not enabled, EMI's cheat interaction feature will attempt to extract items from existing ME Terminals/Wireless Terminals
+  nonCheatEmiInteraction: true
+
+  # 启用后，且未开启 EMI 作弊时，在 EMI 界面中悬停物品时，将显示 AE 系统中该物品的数量信息
+  # When enabled, and EMI cheats are not enabled, hovering over an item in the EMI interface will show the quantity information of that item in the AE system
+  showAEAmountTooltipEverywhereEmi: true
+
+  # 批处理模式的最大持续时间（tick）
+  # Maximum duration of batch processing mode (ticks)
+  batchProcessingMaxDuration: 1200
+
+  # 连锁挖掘（不连续模式）时，检查相邻方块的范围
+  # The range to check adjacent blocks during chain mining (non-continuous mode)
+  ftbUltimineRange: 3
+
+  # 扩展样板供应器容量
+  # 仅用于性能测试
+  # Extended Pattern Provider Size
+  # Only for performance testing
+  exPatternSize: 36
+
+  # 连锁挖掘功能的方块黑名单
+  # Block blacklist for chain mining feature
+  breakBlocksBlackList:
+    - ae2:cable_bus
+
+  # 禁用爆弹物品的使用
+  # 警告：爆弹会造成极大范围的破坏！如果你不想爆弹破坏重要的东西，请确保提前备份存档。
+  # Disable the use of Charge Bomb items
+  # Warning: Charge Bombs can cause massive destruction! If you don't want Charge Bombs to destroy important things, make sure to back up your save in advance.
+  disableChargeBomb: false
+
+  # 调整监控器的最大成型尺寸
+  # Adjust the maximum formed size of the monitor
+  maxMonitorSize: 16
+
+  mobConfig:
+    # 当玩家在某动物附近食用其来源食物时，影响的半径（格）
+    # The radius (blocks) affected when a player consumes food derived from an animal near that animal
+    cannibalismRadius: 32
+
+    # 当玩家在某动物附近食用其来源食物时，对该动物造成的伤害值（半颗心=1.0）
+    # The amount of damage dealt to the animal when a player consumes food derived from that animal nearby (Half Heart = 1.0)
+    cannibalismDamage: 1.0
+
+    # 启用后，所有生物将能够自然回血
+    # When enabled, all mobs will naturally regenerate health
+    naturalRegeneration: true
+
+client:
+  # 引雷针在工作时是否生成闪电特效
+  # Whether the lightning rod generates lightning effects when working
+  lightningRodEffect: true
+
+  # 启用内置夜视。该效果也可在游戏内按绑定热键切换
+  # Enable built-in night vision. This effect can also be toggled in-game by pressing the bound hotkey
+  nightVision: true
+
+  # 禁用后将渲染视角外，且渲染器被标记为Global的机器，一些高级特效机器需要开启此选项才能正常渲染
+  # When turned disable, machines that are outside the field of view and whose renderer is marked as Global will be rendered. Some advanced effect machines need to turn on this option to render properly
+  disableEmbeddiumBECulling: true
+
+  hud:
+    # 启用无线能量 HUD 显示
+    # Enable Wireless Energy HUD display
+    wirelessEnergyHUDEnabled: true
+
+    # 无线能量 HUD 的默认 X 相对位置
+    # 0意味着屏幕左侧，100意味着屏幕右侧
+    # The default X relative position of the Wireless Energy HUD
+    # 0.0 means the left side of the screen, 1.0 means the right side of the screen
+    wirelessEnergyHUDDefaultX: 5
+
+    # 无线能量 HUD 的默认 Y 相对位置
+    # 0意味着屏幕顶部，100意味着屏幕底部
+    # The default Y relative position of the Wireless Energy HUD
+    # 0.0 means the top of the screen, 1.0 means the bottom of the screen
+    wirelessEnergyHUDDefaultY: 75
+
+    # 无线能量 HUD 显示的历史秒数
+    # 例如：设为30则显示过去30秒的能量变化情况
+    # The number of historical seconds displayed by the Wireless Energy HUD
+    # For example: setting it to 30 will show the energy changes over the past 30 seconds
+    wirelessEnergyHUDHistorySeconds: 30
+
+    # 无线能量 HUD 折线颜色
+    # Wireless Energy HUD line color
+    wirelessEnergyHUDLineColor: #ECEC71
+
+misc:
+  # 快速加载多方块结构页面，减少不必要的加载时间
+  # Fast loading of multiblock structure pages to reduce unnecessary loading time
+  fastMultiBlockPage: true
+
+  # 启用后，游戏启动时将缓存部分资源以提升性能
+  # 如果你遇到了与数据包/资源包有关的问题（配方错乱/方块丢失其适用破坏工具等），
+  # 抑或你是资源包制作者，需要频繁热重载资源包，请关闭此选项以避免缓存影响资源包预览效果
+  # When enabled, some resources will be cached at game startup to improve performance
+  # If you encounter issues related to datapacks/resourcepacks (recipe disorder/tools required for breaking blocks missing, etc.),
+  # or if you are a resource pack creator who needs to frequently hot reload resource packs, please disable this option to avoid caching affecting the preview of resource packs
+  cacheResources: true
+
+  # 禁用后，不同存档的 EMI 收藏夹将相互独立
+  # After disabling, EMI favorites from different saves will be independent of each other
+  emiGlobalFavorites: true
+
+  # 启用后，进入游戏时，若多方块结构未能成型，则将错误信息将发送给机器的所有者
+  # When enabled, if the multiblock structure fails to form when entering the game, the error message will be sent to the owner of the machine
+  sendMultiblockErrorMessages: true
+
+  # 一些机器内容会以服务器语言的翻译呈现
+  # Some machine contents will be presented in the server language translation
+  serverLang: en_us
+
+travelConfig:
+  # 旅行权杖使用后的冷却时间（tick）
+  # Cooldown time after using the Staff of Travelling (ticks)
+  travelStaffCooldown: 5
+
+  # 锚到锚之间的最大传送距离（格）
+  # The maximum teleportation distance between anchors (blocks)
+  blockRange: 96
+
+  # 旅行手杖向锚点传送的最大距离（格）
+  # The maximum distance (blocks) the Staff of Travelling can teleport to an anchor
+  itemRange: 192
+
+  # 旅行手杖瞬移功能的最大距离（格）
+  # The maximum distance (blocks) for the Staff of Travelling's blink function
+  blinkRange: 24
+
+  # 启用后，样板供应器/样板总成会显示在旅行手杖的节点列表中，以便捷传送
+  # When enabled, Pattern Providers/Pattern Assemblers will appear in the node list of the Staff Of Travelling for easy teleportation
+  staffOfTravellingPatternNodes: true
+
+devMode:
+  # 开启开发者模式
+  # Enable Developer Mode
+  dev: false
+
+  # 启用自定义配方
+  # 自定义配方详情与教程参见https://gtodyssey.com/zh-hans/整合包教学/官方文档/如何修改gto配方/
+  # 注意：启用此选项后，若加载错误的配方脚本，可能会导致进入游戏后配方丢失，请务必在非常规游玩存档中测试配方脚本的正确性。
+  # 注意：在服务器上游玩时，服务器和客户端均需启用此选项且使用相同的配方脚本文件。
+  # Enable custom recipes
+  # For details and tutorials on custom recipes, please refer to https://gtodyssey.com/zh-hans/整合包教学/官方文档/如何修改gto配方/
+  # Note: After enabling this option, if an incorrect recipe script is loaded, it may cause recipes to be lost after entering the game. Please be sure to test the correctness of the recipe script in a non-conventional play save.
+  # Note: When playing on a server, both the server and client need to enable this option and use the same recipe script file.
+  enableCustomRecipes: false
+
+  # 检查配方之间的冲突问题
+  # Check for conflicts between recipes
+  recipeCheck: false
+
+  # 启用后，跳过加载研磨、电弧炉回收等配方以提升开发测试效率
+  # When enabled, recipes such as grinding and arc furnace recycling will not be loaded to improve development testing efficiency
+  disableRecyclingRecipes: false
+
+  # 启用后将显示详细的启动日志输出，包含所有 DEBUG 级别的日志（增加日志文件大小但便于调试）
+  # When enabled, shows detailed startup log output including all DEBUG level logs (increases log file size but useful for debugging)
+  detailedLogging: false
+
+  # 启用 AE2 和同步组件的详细日志
+  # Enable detailed logging for AE2 and sync components
+  aeLog: false
+
+  # 启用 AE2 无线网络调试日志
+  # Enable AE2 wireless network debug logging
+  aeWirelessLog: false
+
+  # AE2 无线网络使用的存储键，切换后将使用新的存储键重新生成网络（警告：切换后所有AE无线设备的设置将重置！）
+  # The storage key used by the AE2 wireless network. After switching, a new storage key will be used to regenerate the network (Warning: After switching, all AE wireless device settings will be reset!)
+  aeGridKey: four
+
+  # Spark 性能分析器的启动阶段
+  # The startup phase of the Spark profiler
+  # Allowed values:
+  # - NONE
+  # - ALL
+  # - MAIN_MENU
+  # - WORLD
+  startSpark: NONE
+

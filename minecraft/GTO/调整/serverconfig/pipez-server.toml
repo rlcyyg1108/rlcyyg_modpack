@@ -1,0 +1,105 @@
+
+[item_pipe]
+
+	[item_pipe.speed]
+		#The speed at which items are transferred
+		#A value of 1 means every tick
+		#Range: > 1
+		no_upgrade = 20
+		#The speed at which items are transferred
+		#A value of 1 means every tick
+		#Range: > 1
+		basic = 15
+		#The speed at which items are transferred
+		#A value of 1 means every tick
+		#Range: > 1
+		improved = 10
+		#The speed at which items are transferred
+		#A value of 1 means every tick
+		#Range: > 1
+		advanced = 5
+		#The speed at which items are transferred
+		#A value of 1 means every tick
+		#Range: > 1
+		ultimate = 1
+
+	[item_pipe.amount]
+		#The amount of items transferred
+		#Range: > 1
+		no_upgrade = 64
+		#The amount of items transferred
+		#Range: > 1
+		basic = 256
+		#The amount of items transferred
+		#Range: > 1
+		improved = 1024
+		#The amount of items transferred
+		#Range: > 1
+		advanced = 4096
+		#The amount of items transferred
+		#Range: > 1
+		ultimate = 16777216
+
+[fluid_pipe]
+
+	[fluid_pipe.amount]
+		#The amount of mB transferred each tick
+		#Range: > 1
+		no_upgrade = 16000
+		#The amount of mB transferred each tick
+		#Range: > 1
+		basic = 64000
+		#The amount of mB transferred each tick
+		#Range: > 1
+		improved = 256000
+		#The amount of mB transferred each tick
+		#Range: > 1
+		advanced = 1024000
+		#The amount of mB transferred each tick
+		#Range: > 1
+		ultimate = 1048576000
+
+
+[energy_pipe]
+
+	[energy_pipe.amount]
+		#The amount of FE transferred each tick
+		#Range: > 1
+		no_upgrade = 131072
+		#The amount of FE transferred each tick
+		#Range: > 1
+		basic = 262144
+		#The amount of FE transferred each tick
+		#Range: > 1
+		improved = 524288
+		#The amount of FE transferred each tick
+		#Range: > 1
+		advanced = 1048576
+		#The amount of FE transferred each tick
+		#Range: > 1
+		ultimate = 1073741824
+
+[gas_pipe]
+
+	[gas_pipe.amount]
+		#The amount of mB transferred each tick
+		#Only available if Mekanism is installed
+		#Range: > 1
+		no_upgrade = 16000
+		#The amount of mB transferred each tick
+		#Only available if Mekanism is installed
+		#Range: > 1
+		basic = 64000
+		#The amount of mB transferred each tick
+		#Only available if Mekanism is installed
+		#Range: > 1
+		improved = 256000
+		#The amount of mB transferred each tick
+		#Only available if Mekanism is installed
+		#Range: > 1
+		advanced = 1024000
+		#The amount of mB transferred each tick
+		#Only available if Mekanism is installed
+		#Range: > 1
+		ultimate = 1048576000
+

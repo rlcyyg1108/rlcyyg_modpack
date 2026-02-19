@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配方样板调试工具生成器 - GTL整合包辅助工具</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* 教程部分样式 */
+        .tutorial {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 15px;
+            padding: 0;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            overflow: hidden;
+        }
+        
+        .tutorial-header {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .tutorial-header:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .tutorial-header h2 {
+            font-size: 1.8rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .tutorial-header h2 i {
+            color: #fbbf24;
+        }
+        
+        .tutorial-toggle {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .tutorial-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .tutorial-content.show {
+            padding: 0 30px 30px;
+            max-height: 1000px;
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #fbbf24;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #fbbf24;
+            color: #1e293b;
+            font-weight: bold;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        
+        .step h3 {
+            color: #fef3c7;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .step p {
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+        
+        .note {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid #10b981;
+        }
+        
+        .note h3 {
+            color: #a7f3d0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        /* 主内容区域样式 */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .input-section, .output-section {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #60a5fa;
+            color: #a5d8ff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: #60a5fa;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #b3e0ff;
+        }
+        
+        .input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
+        }
+        
+        .btn-paste {
+            background: linear-gradient(to right, #8b5cf6, #a78bfa);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 70px;
+        }
+        
+        .btn-paste:hover {
+            background: linear-gradient(to right, #7c3aed, #8b5cf6);
+            transform: translateY(-2px);
+        }
+        
+        .btn-paste:active {
+            transform: translateY(0);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 14px;
+            background: linear-gradient(to right, #2563eb, #60a5fa);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        button:hover {
+            background: linear-gradient(to right, #1d4ed8, #3b82f6);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .reset-btn {
+            background: linear-gradient(to right, #dc2626, #ef4444);
+        }
+        
+        .reset-btn:hover {
+            background: linear-gradient(to right, #b91c1c, #dc2626);
+        }
+        
+        .gui-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .gui-row {
+            display: flex;
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s;
+        }
+        
+        .gui-row:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .row-number {
+            width: 50px;
+            background: linear-gradient(to bottom, #3b82f6, #1d4ed8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .row-content {
+            flex: 1;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .row-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #b3e0ff;
+        }
+        
+        .row-description {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+        
+        .row-value-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .row-value {
+            flex: 1;
+            padding: 10px;
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 5px;
+            min-height: 40px;
+            word-break: break-word;
+            display: flex;
+            align-items: center;
+        }
+        
+        .row-value.empty {
+            color: #64748b;
+            font-style: italic;
+        }
+        
+        .btn-copy {
+            background: linear-gradient(to right, #10b981, #34d399);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 60px;
+        }
+        
+        .btn-copy:hover {
+            background: linear-gradient(to right, #059669, #10b981);
+            transform: translateY(-2px);
+        }
+        
+        .btn-copy:active {
+            transform: translateY(0);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .steps {
+                flex-direction: column;
+            }
+            
+            .tutorial-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .input-wrapper {
+                flex-direction: column;
+            }
+            
+            .btn-paste {
+                width: 100%;
+                padding: 10px;
+            }
+            
+            .row-value-wrapper {
+                flex-direction: column;
+            }
+            
+            .btn-copy {
+                width: 100%;
+            }
+        }
+        
+        .highlight {
+            background-color: rgba(96, 165, 250, 0.2);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #93c5fd;
+        }
+        
+        .tool-purpose {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            color: #cbd5e1;
+        }
+        
+        .tool-purpose i {
+            color: #10b981;
+        }
+        
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(to right, #10b981, #34d399);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            transform: translateX(150%);
+            transition: transform 0.5s ease;
+        }
+        
+        .success-message.show {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 教程部分 -->
+        <div class="tutorial">
+            <div class="tutorial-header" id="tutorial-toggle">
+                <h2><i class="fas fa-graduation-cap"></i> GTL整合包配方样板调试工具使用教程</h2>
+                <div class="tutorial-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="tutorial-content" id="tutorial-content">
+                <p>本工具专为生成GTL整合包中的配方样板调试工具GUI而设计。请按照以下步骤操作：</p>
+                
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>启用高级提示框</h3>
+                        <p>在游戏中按下<strong>F3+H</strong>打开高级提示框，这将允许你查看物品的完整ID。</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>打开JEI查看配方</h3>
+                        <p>在游戏中打开JEI（物品管理器），找到你想要处理的配方并查看详细信息。</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>获取配方信息</h3>
+                        <p>从JEI中获取以下4项信息：输入物品ID、电路编号、输出物品ID和配方ID。</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>填写到工具中</h3>
+                        <p>将获取的信息填写到本工具的对应输入框中，然后点击"生成"。</p>
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <h3><i class="fas fa-lightbulb"></i> 注意事项</h3>
+                    <p>• 输入配方物品ID和输出配方物品ID需要提取最后一部分作为关键词（如"gtceu:long_naquadah_rod"提取"rod"）</p>
+                    <p>• 配方电路编号范围是0-32，如果没有电路则填写0</p>
+                    <p>• 配方ID需要提取第一个"/"前的部分作为配方类型（如"gtceu:bender/bend_naquadah_long_rod_to_spring"提取"bender"）</p>
+                    <p>• 工具会自动提取关键词并填充到对应的GUI栏位中，生成可以直接使用的配方样板调试工具配置</p>
+                </div>
+            </div>
+        </div>
+        
+        <header>
+            <h1><i class="fas fa-cogs"></i> 配方样板调试工具生成器</h1>
+            <p class="subtitle">输入配方信息，自动生成配方样板调试工具的GUI配置。专为GregTech CEU模组配方格式设计。</p>
+            <div class="tool-purpose">
+                <i class="fas fa-hammer"></i>
+                <span>GTL整合包配方样板调试工具的辅助工具</span>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="input-section">
+                <h2 class="section-title"><i class="fas fa-keyboard"></i> 输入</h2>
+                
+                <div class="input-group">
+                    <label for="input-id"><i class="fas fa-arrow-right"></i> 输入配方物品ID</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="input-id" placeholder="例如: gtceu:long_naquadah_rod">
+                        <button class="btn-paste" data-target="input-id">
+                            <i class="fas fa-paste"></i> 粘贴
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="circuit"><i class="fas fa-microchip"></i> 输入配方电路 (0-32号)</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="circuit" placeholder="例如: 1 (没有则为0)">
+                        <button class="btn-paste" data-target="circuit">
+                            <i class="fas fa-paste"></i> 粘贴
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="output-id"><i class="fas fa-arrow-left"></i> 输出配方物品ID</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="output-id" placeholder="例如: gtceu:naquadah_spring">
+                        <button class="btn-paste" data-target="output-id">
+                            <i class="fas fa-paste"></i> 粘贴
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="recipe-id"><i class="fas fa-id-card"></i> 配方 ID</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="recipe-id" placeholder="例如: gtceu:bender/bend_naquadah_long_rod_to_spring">
+                        <button class="btn-paste" data-target="recipe-id">
+                            <i class="fas fa-paste"></i> 粘贴
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button id="generate-btn">
+                        <i class="fas fa-magic"></i> 生成
+                    </button>
+                    <button id="reset-btn" class="reset-btn">
+                        <i class="fas fa-redo"></i> 重置所有
+                    </button>
+                </div>
+            </div>
+            
+            <div class="output-section">
+                <h2 class="section-title"><i class="fas fa-th-large"></i> 填入配方样板调试工具</h2>
+                
+                <div class="gui-grid" id="gui-container">
+                    <!-- GUI栏位将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>GTL整合包配方样板调试工具生成器 &copy; 2023 | 专为GregTech CEU模组设计</p>
+        </footer>
+        
+        <!-- 成功消息提示 -->
+        <div class="success-message" id="success-message">
+            <i class="fas fa-check-circle"></i>
+            <span id="message-text">复制成功！</span>
+        </div>
+    </div>
+
+    <script>
+        // 初始化教程部分
+        const tutorialToggle = document.getElementById('tutorial-toggle');
+        const tutorialContent = document.getElementById('tutorial-content');
+        const tutorialChevron = tutorialToggle.querySelector('.tutorial-toggle i');
+        
+        tutorialToggle.addEventListener('click', function() {
+            tutorialContent.classList.toggle('show');
+            if (tutorialContent.classList.contains('show')) {
+                tutorialChevron.className = 'fas fa-chevron-up';
+            } else {
+                tutorialChevron.className = 'fas fa-chevron-down';
+            }
+        });
+        
+        // 默认展开教程
+        tutorialContent.classList.add('show');
+        tutorialChevron.className = 'fas fa-chevron-up';
+        
+        // 成功消息提示
+        const successMessage = document.getElementById('success-message');
+        const messageText = document.getElementById('message-text');
+        
+        function showMessage(text) {
+            messageText.textContent = text;
+            successMessage.classList.add('show');
+            
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 3000);
+        }
+        
+        // 初始化GUI容器
+        const guiContainer = document.getElementById('gui-container');
+        
+        // 定义GUI栏位信息
+        const guiRows = [
+            { id: 'type', title: '设置配方类型', description: '从配方ID中提取bender' },
+            { id: 'circuit', title: '设置编程电路', description: '0-32号，没有则为0' },
+            { id: 'multiplier', title: '设置模版倍数', description: '任意填写，根据情况翻倍' },
+            { id: 'input-whitelist', title: '输入白名单ID关键词', description: '以空格分割，匹配1个即通过' },
+            { id: 'input-blacklist', title: '输入黑名单ID关键词', description: '以空格分割，匹配1个即否决' },
+            { id: 'output-whitelist', title: '输出白名单ID关键词', description: '以空格分割，匹配1个即通过' },
+            { id: 'output-blacklist', title: '输出黑名单ID关键词', description: '以空格分割，匹配1个即否决' }
+        ];
+        
+        // 初始化GUI显示
+        function initGUI() {
+            guiContainer.innerHTML = '';
+            
+            guiRows.forEach((row, index) => {
+                const rowElement = document.createElement('div');
+                rowElement.className = 'gui-row';
+                rowElement.id = `row-${row.id}`;
+                
+                rowElement.innerHTML = `
+                    <div class="row-number">${index + 1}</div>
+                    <div class="row-content">
+                        <div class="row-title">${row.title}</div>
+                        <div class="row-description">${row.description}</div>
+                        <div class="row-value-wrapper">
+                            <div class="row-value empty" id="value-${row.id}">等待生成...</div>
+                            <button class="btn-copy" data-target="${row.id}">
+                                <i class="fas fa-copy"></i> 复制
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                guiContainer.appendChild(rowElement);
+            });
+            
+            // 为所有复制按钮添加事件监听
+            document.querySelectorAll('.btn-copy').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const valueElement = document.getElementById(`value-${targetId}`);
+                    const textToCopy = valueElement.textContent;
+                    
+                    // 检查是否有内容可以复制
+                    if (!textToCopy || textToCopy === '等待生成...' || textToCopy === '未提取到') {
+                        showMessage('没有内容可以复制！');
+                        return;
+                    }
+                    
+                    // 使用现代剪贴板API
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        showMessage('已复制到剪贴板！');
+                        
+                        // 添加复制成功效果
+                        this.innerHTML = '<i class="fas fa-check"></i> 已复制';
+                        this.style.background = 'linear-gradient(to right, #059669, #10b981)';
+                        
+                        setTimeout(() => {
+                            this.innerHTML = '<i class="fas fa-copy"></i> 复制';
+                            this.style.background = 'linear-gradient(to right, #10b981, #34d399)';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('复制失败: ', err);
+                        showMessage('复制失败，请手动选择文本复制');
+                    });
+                });
+            });
+        }
+        
+        // 粘贴按钮功能
+        document.querySelectorAll('.btn-paste').forEach(btn => {
+            btn.addEventListener('click', async function() {
+                const targetId = this.getAttribute('data-target');
+                const targetInput = document.getElementById(targetId);
+                
+                try {
+                    // 尝试从剪贴板读取文本
+                    const text = await navigator.clipboard.readText();
+                    targetInput.value = text;
+                    showMessage('已粘贴到输入框！');
+                    
+                    // 添加粘贴成功效果
+                    this.innerHTML = '<i class="fas fa-check"></i> 已粘贴';
+                    this.style.background = 'linear-gradient(to right, #059669, #10b981)';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-paste"></i> 粘贴';
+                        this.style.background = 'linear-gradient(to right, #8b5cf6, #a78bfa)';
+                    }, 2000);
+                } catch (err) {
+                    console.error('粘贴失败: ', err);
+                    showMessage('粘贴失败，请确保已授予剪贴板权限');
+                }
+            });
+        });
+        
+        // 提取关键词的函数
+        function extractKeywords() {
+            const inputId = document.getElementById('input-id').value.trim();
+            const circuit = document.getElementById('circuit').value.trim();
+            const outputId = document.getElementById('output-id').value.trim();
+            const recipeId = document.getElementById('recipe-id').value.trim();
+            
+            // 提取输入ID的最后一部分（如"rod"）
+            let inputKeyword = '';
+            if (inputId) {
+                const parts = inputId.split(':');
+                if (parts.length > 1) {
+                    const lastPart = parts[parts.length - 1];
+                    const subParts = lastPart.split('_');
+                    inputKeyword = subParts[subParts.length - 1];
+                }
+            }
+            
+            // 处理电路值
+            let circuitValue = '0';
+            if (circuit) {
+                const circuitNum = parseInt(circuit);
+                if (!isNaN(circuitNum) && circuitNum >= 0 && circuitNum <= 32) {
+                    circuitValue = circuitNum.toString();
+                }
+            }
+            
+            // 提取输出ID的最后一部分（如"spring"）
+            let outputKeyword = '';
+            if (outputId) {
+                const parts = outputId.split(':');
+                if (parts.length > 1) {
+                    const lastPart = parts[parts.length - 1];
+                    const subParts = lastPart.split('_');
+                    outputKeyword = subParts[subParts.length - 1];
+                }
+            }
+            
+            // 提取配方类型（如"bender"）
+            let recipeType = '';
+            if (recipeId) {
+                const parts = recipeId.split(':');
+                if (parts.length > 1) {
+                    const secondPart = parts[1];
+                    const subParts = secondPart.split('/');
+                    recipeType = subParts[0];
+                }
+            }
+            
+            return {
+                recipeType,
+                circuitValue,
+                inputKeyword,
+                outputKeyword
+            };
+        }
+        
+        // 更新GUI显示
+        function updateGUI(keywords) {
+            // 第一栏: 配方类型
+            document.getElementById('value-type').textContent = keywords.recipeType || '未提取到';
+            document.getElementById('value-type').className = keywords.recipeType ? 'row-value' : 'row-value empty';
+            
+            // 第二栏: 编程电路
+            document.getElementById('value-circuit').textContent = keywords.circuitValue;
+            document.getElementById('value-circuit').className = 'row-value';
+            
+            // 第三栏: 模版倍数 (根据情况翻倍，这里简单处理为2倍)
+            const multiplier = keywords.inputKeyword && keywords.outputKeyword ? '2' : '1';
+            document.getElementById('value-multiplier').textContent = multiplier;
+            document.getElementById('value-multiplier').className = 'row-value';
+            
+            // 第四栏: 输入白名单
+            document.getElementById('value-input-whitelist').textContent = keywords.inputKeyword || '未提取到';
+            document.getElementById('value-input-whitelist').className = keywords.inputKeyword ? 'row-value' : 'row-value empty';
+            
+            // 第五栏: 输入黑名单 (默认为空)
+            document.getElementById('value-input-blacklist').textContent = '无';
+            document.getElementById('value-input-blacklist').className = 'row-value';
+            
+            // 第六栏: 输出白名单
+            document.getElementById('value-output-whitelist').textContent = keywords.outputKeyword || '未提取到';
+            document.getElementById('value-output-whitelist').className = keywords.outputKeyword ? 'row-value' : 'row-value empty';
+            
+            // 第七栏: 输出黑名单 (默认为空)
+            document.getElementById('value-output-blacklist').textContent = '无';
+            document.getElementById('value-output-blacklist').className = 'row-value';
+            
+            // 高亮显示提取的关键词
+            highlightKeywords(keywords);
+        }
+        
+        // 高亮显示提取的关键词
+        function highlightKeywords(keywords) {
+            const inputId = document.getElementById('input-id').value;
+            const recipeId = document.getElementById('recipe-id').value;
+            const outputId = document.getElementById('output-id').value;
+            
+            // 在输入框中高亮显示提取的部分
+            if (keywords.inputKeyword && inputId.includes(keywords.inputKeyword)) {
+                document.getElementById('input-id').style.boxShadow = '0 0 0 2px rgba(96, 165, 250, 0.5)';
+            }
+            
+            if (keywords.recipeType && recipeId.includes(keywords.recipeType)) {
+                document.getElementById('recipe-id').style.boxShadow = '0 0 0 2px rgba(96, 165, 250, 0.5)';
+            }
+            
+            if (keywords.outputKeyword && outputId.includes(keywords.outputKeyword)) {
+                document.getElementById('output-id').style.boxShadow = '0 0 0 2px rgba(96, 165, 250, 0.5)';
+            }
+        }
+        
+        // 生成按钮点击事件
+        document.getElementById('generate-btn').addEventListener('click', function() {
+            // 重置高亮
+            document.getElementById('input-id').style.boxShadow = '';
+            document.getElementById('recipe-id').style.boxShadow = '';
+            document.getElementById('output-id').style.boxShadow = '';
+            
+            const keywords = extractKeywords();
+            updateGUI(keywords);
+            
+            // 显示结果提示
+            if (keywords.recipeType || keywords.inputKeyword || keywords.outputKeyword) {
+                this.innerHTML = '<i class="fas fa-check"></i> 已生成！';
+                this.style.background = 'linear-gradient(to right, #10b981, #34d399)';
+                showMessage('配方样板调试工具配置已生成！');
+                
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-magic"></i> 生成';
+                    this.style.background = 'linear-gradient(to right, #2563eb, #60a5fa)';
+                }, 2000);
+            } else {
+                showMessage('请先输入配方信息！');
+            }
+        });
+        
+        // 重置按钮点击事件
+        document.getElementById('reset-btn').addEventListener('click', function() {
+            // 清空输入框
+            document.getElementById('input-id').value = '';
+            document.getElementById('circuit').value = '';
+            document.getElementById('output-id').value = '';
+            document.getElementById('recipe-id').value = '';
+            
+            // 重置高亮
+            document.getElementById('input-id').style.boxShadow = '';
+            document.getElementById('recipe-id').style.boxShadow = '';
+            document.getElementById('output-id').style.boxShadow = '';
+            
+            // 重置GUI显示
+            initGUI();
+            
+            // 按钮反馈效果
+            this.innerHTML = '<i class="fas fa-check"></i> 已重置！';
+            this.style.background = 'linear-gradient(to right, #10b981, #34d399)';
+            showMessage('已重置所有输入和输出！');
+            
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-redo"></i> 重置所有';
+                this.style.background = 'linear-gradient(to right, #dc2626, #ef4444)';
+            }, 1500);
+        });
+        
+        // 页面加载时初始化GUI和预填充示例数据
+        document.addEventListener('DOMContentLoaded', function() {
+            initGUI();
+            
+            // 加载示例数据
+            document.getElementById('input-id').value = 'gtceu:long_naquadah_rod';
+            document.getElementById('circuit').value = '1';
+            document.getElementById('output-id').value = 'gtceu:naquadah_spring';
+            document.getElementById('recipe-id').value = 'gtceu:bender/bend_naquadah_long_rod_to_spring';
+            
+            // 自动生成示例数据
+            const keywords = extractKeywords();
+            updateGUI(keywords);
+        });
+    </script>
+</body>
+</html>

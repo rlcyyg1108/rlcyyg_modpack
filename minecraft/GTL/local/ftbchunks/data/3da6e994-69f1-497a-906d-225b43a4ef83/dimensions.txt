@@ -1,0 +1,13 @@
+minecraft:overworld
+kubejs:void
+kubejs:flat
+kubejs:ancient_world
+ad_astra:moon
+ad_astra:mars
+ad_astra:venus
+ad_astra:mercury
+minecraft:the_nether
+ad_astra:earth_orbit
+kubejs:ceres
+kubejs:io
+kubejs:ganymede
