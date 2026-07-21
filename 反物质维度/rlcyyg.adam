@@ -1,194 +1,149 @@
+if ec12 completions<5{
 if ec10 completions<5{
-AUTO INFINITY 5 s
+AUTO INFINITY 1 s
 AUTO ETERNITY 256 x highest
-STUDIES PURCHASE 11,22,32,42,51,61,antimatter,111,active,151-171
-WAIT TT >= 7
-ETERNITY RESPEC
-STUDIES PURCHASE 11,22,32,42,51,61,time,111,active,151-171
-STUDIES PURCHASE 11-62
-WAIT TOTAL TT >= 160
-
-if ec1 completions<4{
-  eternity respec
-  studies purchase 11-62,infinity,111,active,151-171|1!
-  wait pending completions>=4
-  eternity
-  studies purchase CTD
-}
-
-if ec2 completions<3{
-  studies purchase 11-62,time,111,active,151-171|2!
-  start ec2
-  wait pending completions>=3
-  eternity
-  studies purchase CTD
-}
-
-if ec3 completions<4{
-  eternity respec
-  studies purchase 11-62,infinity,111,active,151-171|3!
-  wait pending completions>=4
-  eternity
-  studies purchase CTD
-}
-
-AUTO INFINITY 2 s
+STUDIES PURCHASE CTD
 WAIT TOTAL TT >= 280
-AUTO ETERNITY OFF
-if ec4 completions<4{
-  eternity respec
-  studies purchase 11-62,time,111,idle,151-171|4!
-  start ec4
-  wait pending completions>=4
-  eternity
-  studies purchase CTD
-}
-
-if ec5 completions<5{
-  eternity respec
-  studies purchase 11-62,infinity,111,active,151-171|5!
-  wait pending completions>=5
-  eternity
-  studies purchase CTD
-}
-
 if ec6 completions<5{
-  eternity respec
-  studies purchase 11-62,infinity,111,active,151-171|6!
-  wait pending completions>=5
-  eternity
-  studies purchase CTD
-}
-
 if ec1 completions<5{
   eternity respec
   studies purchase 11-62,infinity,111,active,151-171|1!
-  wait pending completions>=1
-  eternity
-  studies purchase CTD
+  wait pending completions>=5
 }
 if ec3 completions<5{
   eternity respec
   studies purchase 11-62,infinity,111,active,151-171|3!
-  wait pending completions>=1
-  eternity
-  studies purchase CTD
+  wait pending completions>=5
 }
 if ec2 completions<5{
   eternity respec
   studies purchase 11-62,time,111,active,151-171|2!
-  start ec2
-  wait pending completions>=2
-  eternity
-  studies purchase CTD
+  wait pending completions>=5
 }
-AUTO ETERNITY ON
+if ec5 completions<5{
+  eternity respec
+  studies purchase 11-62,infinity,111,active,151-171|5!
+  wait pending completions>=5
+}
+if ec6 completions<5{
+  eternity respec
+  studies purchase 11-62,infinity,111,active,151-171|6!
+  wait pending completions>=5
+}
+}
 studies purchase CTD
 WAIT TOTAL TT >= 312
 studies purchase XFR
 AUTO INFINITY OFF
-AUTO ETERNITY 16384 x highest
-WAIT TOTAL TT >= 600
-AUTO ETERNITY OFF
+AUTO ETERNITY 1e10 x highest
+WAIT TOTAL TT >= 500
+
 if ec4 completions<5{
   eternity respec
   studies purchase 11-62,time,111,idle,151-181|4!
-  start ec4
-  wait pending completions>=1
-  eternity
-  studies purchase XFR
+  wait pending completions>=5
 }
 
 if ec7 completions<5{
-  eternity respec
+  eternity nowait respec
   studies purchase 11-62,antimatter,111,active,151-181|7!
   wait pending completions>=5
-  eternity
-  studies purchase XFR
 }
-AUTO ETERNITY ON
-AUTO ETERNITY 1e10 x highest
+
+studies purchase XFR
 WAIT TOTAL TT >= 800
-AUTO ETERNITY OFF
+
 if ec8 completions<5{
   eternity respec
   studies purchase 11-62,time,111,idle,151-181|8!
-  start ec8
   wait pending completions>=5
-  eternity
-  studies purchase XFR
+}
+if ec9 completions<5{
+  eternity nowait respec
+  studies purchase 11-62,time,111,active,151-181|9!
+  wait pending completions>=5
 }
 
-if ec9 completions<5{
-  eternity respec
-  studies purchase 11-62,time,111,active,151-181|9!
-  start ec9
-  wait pending completions>=5
-  eternity
-  studies purchase XFR
-}
-AUTO ETERNITY ON
+studies purchase XFR
 WAIT TOTAL TT >= 1000
-AUTO ETERNITY OFF
+
 if ec10 completions<1{
-  eternity respec
+  eternity nowait respec
   studies purchase 11-62,antimatter,111,active,151-181|10!
   wait pending completions>=1
-  eternity
-  studies purchase XFR
+  eternity nowait
 }
-AUTO ETERNITY ON
+
 AUTO ETERNITY 1e50 x highest
+studies purchase XFR
 studies purchase 191,211,212
-WAIT TOTAL TT >= 1900
 studies purchase 223
-WAIT TOTAL TT >= 2400
 studies purchase 232
-WAIT TOTAL TT >= 3300
 studies purchase 222
-WAIT TOTAL TT >= 5000
 studies purchase 192,201,infinity
-WAIT TOTAL TT >= 5387
 studies purchase 193,214
-WAIT TOTAL TT >= 6287
 studies purchase 228
-WAIT TOTAL TT >= 6787
 studies purchase 234
 WAIT TOTAL TT >= 7887
 eternity respec
-studies purchase FIN
+studies purchase AIT
 WAIT TOTAL TT >= 9000
-AUTO ETERNITY OFF
+ 
 }
 if ec10 completions<5{
-  eternity respec
-  studies purchase FIN
+  eternity nowait respec
+  studies purchase AIT
   start ec10
   wait pending completions>=4
-  eternity
-  studies purchase FIN
 }
 if ec12 completions<5{
-  eternity respec
+  eternity nowait respec
   studies purchase ECIZ
-  start ec12
   wait pending completions>=5
-  eternity
-  studies purchase FIN
 }
-if ec11 completions<2{
-  eternity respec
-  studies purchase ECII
-  start ec11
-  wait pending completions>=2
-  eternity
-  studies purchase FIN
 }
-AUTO ETERNITY ON
+
+studies purchase AIT
+AUTO ETERNITY 1e100 x highest
 WAIT TOTAL TT >= 13000
+
 unlock dilation
 start dilation
-studies purchase DTPA
-pause 5s
+pause 1s
+eternity
+
+if ec11 completions<5{
+  eternity nowait respec
+  studies purchase ECII
+  wait pending completions>=5
+}
+
+AUTO ETERNITY 1e500 x highest
+eternity nowait respec
+studies purchase AAIT
+WAIT ep >= 1e9000
+AUTO ETERNITY 1e300 x highest
+
 eternity respec
-pause 999999999999999999999999999999999999999999999s
+studies purchase IAIT
+start dilation
+pause 1s
+eternity
+start dilation
+pause 3s
+eternity
+start dilation
+pause 5s
+eternity
+
+WAIT ep >= 1e11100
+AUTO ETERNITY 1e100 x highest
+
+start dilation
+pause 1s
+eternity
+
+WAIT ep >= 1e12000
+auto eternity off
+
+stop
