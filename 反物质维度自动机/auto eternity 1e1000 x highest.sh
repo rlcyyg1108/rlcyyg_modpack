@@ -1,4 +1,4 @@
-auto eternity 1e500 x highest
+auto eternity 1e1000 x highest
 auto infinity off
 
 if ec11 completions<5{
@@ -11,7 +11,7 @@ if ec10 completions<5{
 studies purchase IIT
 unlock dilation
 start dilation
-pause 1s
+pause 0.2s
 eternity respec
 
 if ec1 completions<5{
@@ -82,11 +82,11 @@ if ec11 completions<5{
 }
 
 studies purchase IAIT
-wait ep >= 1e13000
+wait ep >= 1e20000
 auto eternity 1e100 x highest
 
 start dilation
-pause 1s
+pause 0.5s
 eternity
 
 wait reality

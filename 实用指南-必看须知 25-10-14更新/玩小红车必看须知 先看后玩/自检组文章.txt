@@ -1,0 +1,7 @@
+这是壁纸引擎使用手册，包括病毒编年史、杀毒软件(如何区分误报等)、常见疑难杂症、白名单、黑名单
+https://steamcommunity.com/groups/zhizhuzi/discussions/0/597402967401831898/进不去，尝试挂加速器或者梯子、或者改hosts
+
+这是白名单(2025.6.4)https://steamcommunity.com/groups/zhizhuzi/discussions/0/597402967401830702/
+
+这是黑名单(2025.3.8~2025.6.26)https://steamcommunity.com/groups/zhizhuzi/discussions/0/597404578618630944/
+毒狗再怎么改名，你点链接就会跳转到他最新的名字，要么你就直接在小红车屏蔽它

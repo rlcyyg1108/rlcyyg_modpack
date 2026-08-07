@@ -1,0 +1,11 @@
+找到在C:\Windows\System32\drivers\etc的hosts，记事本打开，输入：
+127.0.0.1 geo2.adobe.com
+127.0.0.1 fpdownload2.macromedia.com
+127.0.0.1 fpdownload.macromedia.com
+127.0.0.1 macromedia.com
+127.0.0.1 flash.cn
+保存后覆盖
+
+找到在C:\Users\你的用户名\AppData\Roaming\Macromedia\Flash Player\macromedia.com\support\flashplayer\sys的settings.sol文件，删除，新建文件夹名为settings.sol，属性只读
+
+开始游戏
