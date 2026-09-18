@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>等值线波纹 · 背景试验</title>
+<style>
+  html,body{margin:0;height:100%;background:#0b0b0b;overflow:hidden}
+  canvas{display:block;width:100vw;height:100vh}
+  #hint{
+    position:fixed;left:20px;bottom:16px;
+    color:rgba(255,255,255,.34);
+    font:500 12px/1.6 'Segoe UI','Noto Sans SC',system-ui,sans-serif;
+    letter-spacing:.08em;pointer-events:none;
+  }
+  #hint b{color:rgba(255,255,255,.62);font-weight:600}
+</style>
+</head>
+<body>
+<canvas id="cv"></canvas>
+<div id="hint"><b>点击</b>任意处产生涟漪 · 中心每 3 秒自动扩散一波</div>
+
+<script>
+(function(){
+  'use strict';
+  var cv=document.getElementById('cv');
+  if(!cv) return;
+  var ctx=cv.getContext('2d');
+  var dpr=Math.min(window.devicePixelRatio||1, 1.5);
+  var W=0, H=0;
+
+  function resize(){
+    W=window.innerWidth; H=window.innerHeight;
+    cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr);
+    cv.style.width=W+'px'; cv.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  window.addEventListener('resize',resize);
+  resize();
+
+  /* ============ 等值线场：缓慢变形的"地形" ============ */
+  var STEP=14;                     // 采样网格步长（px）
+  var LEVELS=[-2.2,-1.1,0,1.1,2.2];// 等高线层级（中间层稍亮）
+  var grid=null;
+
+  function field(x,y,t){
+    return (Math.sin(x*0.0040 + t*0.35)*0.9
+          + Math.sin(y*0.0046 - t*0.28)*0.9
+          + Math.sin((x+y)*0.0028 + t*0.20)*0.7
+          + Math.sin(x*0.011  - y*0.009 + t*0.55)*0.5);
+  }
+
+  function computeField(t){
+    var cols=Math.ceil(W/STEP)+1, rows=Math.ceil(H/STEP)+1;
+    if(!grid || grid.length!==cols*rows) grid=new Float32Array(cols*rows);
+    for(var j=0;j<rows;j++){
+      var y=j*STEP;
+      for(var i=0;i<cols;i++){
+        grid[j*cols+i]=field(i*STEP, y, t);
+      }
+    }
+    return {cols:cols, rows:rows};
+  }
+
+  function drawContours(t){
+    var dim=computeField(t), cols=dim.cols, rows=dim.rows;
+    ctx.lineWidth=1;
+    for(var li=0; li<LEVELS.length; li++){
+      var L=LEVELS[li];
+      ctx.strokeStyle='rgba(226,226,226,'+(li===2?0.16:0.10)+')';
+      ctx.beginPath();
+      for(var j=0;j<rows-1;j++){
+        for(var i=0;i<cols-1;i++){
+          var v00=grid[j*cols+i], v10=grid[j*cols+i+1];
+          var v01=grid[(j+1)*cols+i], v11=grid[(j+1)*cols+i+1];
+          var x0=i*STEP, y0=j*STEP, x1=x0+STEP, y1=y0+STEP;
+          var pts=[];
+          var d,px,py;
+          // 顶边
+          d=v10-v00;
+          if(Math.abs(d)>1e-9 && (v00>L)!==(v10>L)) pts.push([x0+STEP*(L-v00)/d, y0]);
+          // 右边
+          d=v11-v10;
+          if(Math.abs(d)>1e-9 && (v10>L)!==(v11>L)) pts.push([x1, y0+STEP*(L-v10)/d]);
+          // 底边
+          d=v11-v01;
+          if(Math.abs(d)>1e-9 && (v01>L)!==(v11>L)) pts.push([x0+STEP*(L-v01)/d, y1]);
+          // 左边
+          d=v01-v00;
+          if(Math.abs(d)>1e-9 && (v00>L)!==(v01>L)) pts.push([x0, y0+STEP*(L-v00)/d]);
+          if(pts.length>=2){
+            ctx.moveTo(pts[0][0], pts[0][1]);
+            ctx.lineTo(pts[1][0], pts[1][1]);
+          }
+        }
+      }
+      ctx.stroke();
+    }
+  }
+
+  /* ============ 涟漪：点击扩散 / 中心自动扩散 ============ */
+  var ripples=[];
+  function spawn(x,y){ ripples.push({x:x, y:y, age:0}); }
+  cv.addEventListener('pointerdown', function(e){ spawn(e.clientX, e.clientY); });
+  setInterval(function(){ spawn(W/2, H/2); }, 3000);
+
+  function drawRipples(dt){
+    var life=3400, maxR=Math.max(W,H)*0.55;
+    for(var i=ripples.length-1;i>=0;i--){
+      var r=ripples[i];
+      r.age+=dt;
+      if(r.age>life){ ripples.splice(i,1); continue; }
+      var k=r.age/life;
+      for(var n=0;n<6;n++){
+        var rad=n*26 + r.age*0.16;
+        if(rad>maxR) continue;
+        var fade=(1-rad/maxR)*(1-k);
+        if(fade<=0.01) continue;
+        ctx.strokeStyle='rgba(240,240,240,'+(0.42*fade).toFixed(3)+')';
+        ctx.lineWidth=1;
+        ctx.beginPath();
+        for(var s=0;s<=72;s++){
+          var th=s/72*Math.PI*2;
+          var wob=Math.sin(th*5  + r.age*0.004 + n*1.7)*3.2
+                 + Math.sin(th*2  - r.age*0.006)*1.8;
+          var rr=rad+wob;
+          var px=r.x+rr*Math.cos(th), py=r.y+rr*Math.sin(th);
+          if(s===0){ ctx.moveTo(px,py); } else { ctx.lineTo(px,py); }
+        }
+        ctx.stroke();
+      }
+    }
+  }
+
+  /* ============ 主循环 ============ */
+  var last=performance.now();
+  function frame(now){
+    var dt=Math.min(now-last, 50); last=now;
+    ctx.fillStyle='#0b0b0b';
+    ctx.fillRect(0,0,W,H);
+    drawContours(now*0.001);
+    drawRipples(dt);
+    requestAnimationFrame(frame);
+  }
+
+  var reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced){
+    // 尊重"减弱动效"：只画一帧静态等值线
+    ctx.fillStyle='#0b0b0b';
+    ctx.fillRect(0,0,W,H);
+    drawContours(0);
+  }else{
+    requestAnimationFrame(frame);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星环 · 板块控制台</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Orbitron:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+/* ============ 基础与配色 ============ */
+:root{
+  --bg:#070b15;
+  --ink:#e6ebf5;
+  --ink-dim:#8b95ab;
+  --ink-faint:#5a6478;
+  --line:rgba(255,255,255,.14);
+  --sel:#f1f5f9;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 760px at 50% 40%, #0d1729 0%, #070b15 58%, #04060c 100%);
+  color:var(--ink);
+  font-family:'Noto Sans SC', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  overflow:hidden;
+  user-select:none;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important}
+}
+
+/* ============ 星点背景 ============ */
+#stage{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;border-radius:50%;background:#cfe0ff;animation:tw 4s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:.12}to{opacity:.85}}
+
+/* ============ 应用骨架 ============ */
+.app{position:relative;z-index:1;height:100vh;display:flex;flex-direction:column}
+
+header{
+  flex:0 0 auto;text-align:center;padding:20px 16px 4px;
+}
+h1{
+  margin:0;font-weight:500;font-size:22px;letter-spacing:.42em;text-indent:.42em;color:var(--ink);
+}
+.h-en{
+  display:block;font-family:'Orbitron','Noto Sans SC',sans-serif;font-weight:500;font-size:10px;
+  letter-spacing:.62em;text-indent:.62em;color:var(--ink-faint);margin-top:6px;
+}
+.readout{
+  margin-top:10px;font-family:'Orbitron','Noto Sans SC',sans-serif;font-size:11px;letter-spacing:.3em;
+  color:var(--ink-dim);
+}
+.readout b{color:var(--sel);font-weight:600}
+
+main{
+  flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  align-items:center;gap:clamp(12px,3vw,44px);padding:8px clamp(12px,4vw,52px) 10px;
+}
+#ringWrap{display:flex;align-items:center;justify-content:center}
+#ring{width:min(62vh,46vw,600px);height:auto;touch-action:none}
+
+/* ============ 两侧信息面板 ============ */
+.panel{display:flex;justify-content:center;min-width:0}
+.panel-inner{
+  width:clamp(232px,22vw,330px);
+  padding:22px 24px;border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+  animation:fadeIn .35s ease both;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.p-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px}
+.kicker{font-size:11px;letter-spacing:.24em;color:var(--ink-faint)}
+.p-idx{font-family:'Orbitron','Noto Sans SC',sans-serif;font-size:12px;color:var(--sel);letter-spacing:.12em}
+.p-name{font-size:30px;font-weight:500;line-height:1.15;margin:2px 0 2px}
+.p-en{font-family:'Orbitron','Noto Sans SC',sans-serif;font-size:10px;letter-spacing:.34em;color:var(--ink-dim);margin-bottom:12px}
+.p-desc{font-size:13.5px;line-height:1.85;color:var(--ink-dim);margin:0 0 16px;font-weight:300}
+
+.stat{display:grid;grid-template-columns:52px 1fr 34px;align-items:center;gap:10px;margin-bottom:11px}
+.st-name{font-size:12px;color:var(--ink-dim)}
+.st-track{height:4px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden}
+.st-fill{height:100%;border-radius:2px;background:var(--sel);transition:width .5s ease, background .3s}
+.st-val{font-family:'Orbitron','Noto Sans SC',sans-serif;font-size:11px;text-align:right;color:var(--ink)}
+.pinnote{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:11.5px;color:var(--ink-faint);letter-spacing:.05em}
+.pinnote b{color:var(--ink-dim);font-weight:500}
+
+/* ============ 底部控制 ============ */
+footer{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 16px 18px}
+.ctlbar{display:flex;align-items:center;gap:10px}
+.ctl{
+  width:42px;height:42px;display:grid;place-items:center;cursor:pointer;
+  background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:10px;
+  color:var(--ink);transition:background .15s, border-color .15s, color .15s;
+}
+.ctl:hover{background:rgba(255,255,255,.1)}
+.ctl svg{width:18px;height:18px;fill:currentColor}
+.ctl.active{background:var(--sel);border-color:var(--sel);color:#070b15}
+.ctl.wide{width:auto;padding:0 18px;font-size:12px;letter-spacing:.18em;font-family:'Noto Sans SC',sans-serif}
+.divider{width:1px;height:22px;background:var(--line)}
+.hint{font-size:11px;letter-spacing:.14em;color:var(--ink-faint);margin:0}
+
+/* ============ SVG 圆环 ============ */
+.sector{
+  transform-box:view-box;transform-origin:280px 280px;
+  transition:transform .18s ease, filter .2s ease, fill-opacity .2s ease;
+  cursor:pointer;fill-opacity:.14;
+}
+.sector:hover{transform:scale(1.045);filter:brightness(1.22) drop-shadow(0 0 10px var(--c));fill-opacity:.24}
+.sector.selected{
+  transform:scale(1.13);fill-opacity:.34;
+  filter:brightness(1.3) drop-shadow(0 0 16px var(--c));
+}
+.sector.ghost{opacity:.25;transform:scale(.92)}
+#rimHit{cursor:grab}
+body.rotating #rimHit{cursor:grabbing}
+
+.s-label{pointer-events:none}
+.s-name{font-size:17px;font-weight:500;fill:var(--ink)}
+.s-idx{font-family:'Orbitron','Noto Sans SC',sans-serif;font-size:9px;letter-spacing:2px;fill:rgba(230,235,245,.42)}
+.hub-name{font-size:21px;font-weight:500;fill:var(--ink)}
+.hub-idx{font-family:'Orbitron','Noto Sans SC',sans-serif;font-size:10px;letter-spacing:3px;fill:rgba(230,235,245,.5)}
+
+/* 星轨（若隐若现） */
+.webline{fill:none;stroke:#9fb4d8;stroke-width:1}
+.w-spoke{opacity:.05}
+.w-ring{opacity:.14;stroke-dasharray:2 6;animation:dashflow 16s linear infinite, breathe 5.5s ease-in-out infinite alternate}
+.w-skip{opacity:.09;stroke-dasharray:1 9;animation:dashflow 26s linear infinite, breathe 7.5s ease-in-out infinite alternate}
+@keyframes dashflow{to{stroke-dashoffset:-200}}
+@keyframes breathe{from{opacity:.04}to{opacity:.2}}
+
+#dialSpin{
+  transform-box:view-box;transform-origin:280px 280px;
+  animation:spin 140s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ============ 四角停靠 ============ */
+.dropzone{
+  position:fixed;width:232px;height:142px;border:1px dashed rgba(255,255,255,.16);
+  border-radius:12px;display:grid;place-items:center;pointer-events:none;
+  opacity:0;transition:opacity .2s, border-color .15s, background .15s;
+}
+body.dragging .dropzone{opacity:1}
+.dropzone.hot{border-color:#fff;background:rgba(255,255,255,.055);box-shadow:inset 0 0 26px rgba(255,255,255,.07)}
+.dz-label{font-size:11px;letter-spacing:.3em;color:rgba(255,255,255,.4);opacity:0;transition:opacity .15s}
+.dropzone.hot .dz-label{opacity:1;color:var(--ink)}
+.dz-tl{top:14px;left:14px}.dz-tr{top:14px;right:14px}.dz-bl{bottom:14px;left:14px}.dz-br{bottom:14px;right:14px}
+
+.pinslot{position:fixed;width:232px;height:142px;pointer-events:none;z-index:30}
+.ps-tl{top:14px;left:14px}.ps-tr{top:14px;right:14px}.ps-bl{bottom:14px;left:14px}.ps-br{bottom:14px;right:14px}
+
+.pin{
+  position:absolute;inset:0;pointer-events:auto;cursor:pointer;
+  background:rgba(10,16,30,.92);border:1px solid var(--line);border-left:3px solid var(--c);
+  border-radius:12px;padding:12px 14px;animation:pinIn .3s cubic-bezier(.2,.9,.3,1.3) both;
+}
+@keyframes pinIn{from{opacity:0;transform:scale(.7) translateY(6px)}to{opacity:1;transform:none}}
+.pin:hover{border-color:var(--c);box-shadow:0 0 18px color-mix(in srgb, var(--c) 30%, transparent)}
+.pin-top{display:flex;align-items:center;gap:8px}
+.pin-dot{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c)}
+.pin-en{font-family:'Orbitron','Noto Sans SC',sans-serif;font-size:9px;letter-spacing:.22em;color:var(--ink-dim)}
+.pin-name{font-size:22px;font-weight:500;margin-top:8px}
+.pin-x{
+  position:absolute;top:8px;right:10px;width:24px;height:24px;border:none;background:none;
+  color:var(--ink-faint);font-size:15px;line-height:1;cursor:pointer;border-radius:6px;
+}
+.pin-x:hover{color:var(--ink);background:rgba(255,255,255,.08)}
+
+/* ============ 拖动令牌 ============ */
+#token{
+  position:fixed;left:0;top:0;width:72px;height:84px;display:none;pointer-events:none;z-index:100;
+}
+#token .tok-disc{
+  width:52px;height:52px;margin:0 auto;border-radius:50%;
+  background:radial-gradient(circle at 32% 28%, var(--c), color-mix(in srgb, var(--c) 45%, #0a1020));
+  border:1px solid var(--c);box-shadow:0 0 22px color-mix(in srgb, var(--c) 55%, transparent);
+}
+#token .tok-name{margin-top:6px;text-align:center;font-size:11px;color:var(--ink);letter-spacing:.1em}
+
+/* ============ 窄屏适配 ============ */
+@media (max-width: 1024px){
+  body{overflow:auto}
+  .app{height:auto;min-height:100vh}
+  main{grid-template-columns:1fr;gap:18px;padding:14px 16px 18px}
+  #ring{width:min(80vw, 54vh)}
+  .panel-inner{width:100%;max-width:460px}
+  .dropzone,.pinslot{width:160px;height:100px}
+  .pin{padding:8px 10px}
+  .pin-name{font-size:17px;margin-top:4px}
+  .pin-en{font-size:8px}
+}
+</style>
+</head>
+<body>
+
+<div id="stage"></div>
+
+<div class="app">
+  <header>
+    <h1>星环</h1>
+    <span class="h-en">NEXUS&nbsp;RING</span>
+    <div class="readout">方位 <b id="readout">000°</b></div>
+  </header>
+
+  <main>
+    <aside class="panel"><div class="panel-inner" id="pLeft"></div></aside>
+    <div id="ringWrap">
+      <svg id="ring" viewBox="0 0 560 560" role="img" aria-label="星环板块控制盘">
+        <defs>
+          <radialGradient id="hubFill" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity=".2"/>
+            <stop offset="100%" stop-color="#0b1120" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- 背景刻度盘 -->
+        <circle cx="280" cy="280" r="352" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="2 10" id="dialSpin"></circle>
+
+        <!-- 星轨：板块间的若隐若现轨迹 -->
+        <g id="web"></g>
+
+        <!-- 静态细线（内圈 / 外圈） -->
+        <circle cx="280" cy="280" r="252" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1"></circle>
+        <circle cx="280" cy="280" r="130" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1"></circle>
+
+        <!-- 板块组（随旋转） -->
+        <g id="ringGroup">
+          <g id="sectors"></g>
+          <!-- 中心核心 -->
+          <circle class="sector hub" data-sid="core" cx="280" cy="280" r="130" fill="url(#hubFill)" stroke="var(--sel)" stroke-width="1.5" style="--c:#f1f5f9"></circle>
+          <g pointer-events="none">
+            <circle cx="280" cy="280" r="88" fill="none" stroke="rgba(241,245,249,.25)" stroke-width="1" stroke-dasharray="3 7"></circle>
+            <circle cx="280" cy="280" r="52" fill="none" stroke="rgba(241,245,249,.18)" stroke-width="1"></circle>
+          </g>
+        </g>
+
+        <!-- 板块标签（保持水平，随位置旋转） -->
+        <g id="labels"></g>
+        <g id="hubLabel" class="s-label" transform="translate(280 280)">
+          <text text-anchor="middle">
+            <tspan x="0" dy="-4" class="hub-name">核心</tspan>
+            <tspan x="0" dy="20" class="hub-idx">CORE</tspan>
+          </text>
+        </g>
+
+        <!-- 外圈刻度与旋转抓取区 -->
+        <g id="rimTicks"></g>
+        <circle cx="280" cy="280" r="264" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2"></circle>
+        <circle id="rimHit" cx="280" cy="280" r="270" fill="none" stroke="rgba(255,255,255,.02)" stroke-width="22"></circle>
+      </svg>
+    </div>
+    <aside class="panel"><div class="panel-inner" id="pRight"></div></aside>
+  </main>
+
+  <footer>
+    <div class="ctlbar">
+      <button class="ctl" id="rotL" aria-label="逆时针旋转">
+        <svg viewBox="0 0 24 24"><path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z"/></svg>
+      </button>
+      <button class="ctl" id="autoBtn" aria-label="自动旋转">
+        <svg class="ic-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="ic-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+      </button>
+      <button class="ctl" id="rotR" aria-label="顺时针旋转">
+        <svg viewBox="0 0 24 24"><path d="M12 5V2l5 4-5 4V7a6 6 0 1 0 6 6h2a8 8 0 1 1-8-8z"/></svg>
+      </button>
+      <span class="divider"></span>
+      <button class="ctl wide" id="resetBtn">重置布局</button>
+    </div>
+    <p class="hint">拖拽外圈旋转 · 拖动板块停靠四角 · 点击查看详情 · ← → 旋转</p>
+  </footer>
+</div>
+
+<!-- 四角停靠位 -->
+<div class="dropzone dz-tl"><span class="dz-label">停靠</span></div>
+<div class="dropzone dz-tr"><span class="dz-label">停靠</span></div>
+<div class="dropzone dz-bl"><span class="dz-label">停靠</span></div>
+<div class="dropzone dz-br"><span class="dz-label">停靠</span></div>
+
+<div class="pinslot ps-tl"></div>
+<div class="pinslot ps-tr"></div>
+<div class="pinslot ps-bl"></div>
+<div class="pinslot ps-br"></div>
+
+<div id="token">
+  <div class="tok-disc"></div>
+  <div class="tok-name"></div>
+</div>
+
+<script>
+/* ================================================================
+ * 数据：板块配置（想换内容，只改这里即可）
+ * ================================================================ */
+const CX=280, CY=280, R_IN=130, R_OUT=252, R_MID=192;
+const SECTORS=[
+  {id:'fire',  idx:1, name:'火', en:'FIRE',  color:'#fb7185', tag:'炽烈 · 爆发',
+   desc:'力量的源头。掌管爆发与冲锋，一切战意的具象。',
+   stats:[['爆发',95],['力量',90],['速度',68],['稳定',40]]},
+  {id:'terra', idx:2, name:'土', en:'TERRA', color:'#fb923c', tag:'坚实 · 稳固',
+   desc:'万物的基石。厚德载物，以不变应万变。',
+   stats:[['力量',85],['防护',94],['速度',30],['稳定',98]]},
+  {id:'lux',   idx:3, name:'光', en:'LUX',   color:'#facc15', tag:'洞悉 · 净化',
+   desc:'洞悉与净化的光。驱散迷雾，照亮前路。',
+   stats:[['感知',96],['力量',55],['速度',78],['稳定',80]]},
+  {id:'aero',  idx:4, name:'风', en:'AERO',  color:'#4ade80', tag:'迅捷 · 流动',
+   desc:'迅捷的流动。无形之中，来去自如。',
+   stats:[['速度',94],['灵动',97],['力量',40],['稳定',62]]},
+  {id:'aqua',  idx:5, name:'水', en:'AQUA',  color:'#22d3ee', tag:'柔韧 · 包容',
+   desc:'柔韧的包容。随形就势，亦可载舟。',
+   stats:[['治愈',90],['速度',55],['力量',60],['稳定',86]]},
+  {id:'glacie',idx:6, name:'冰', en:'GLACIE',color:'#60a5fa', tag:'凝结 · 静止',
+   desc:'凝结的静止。让时间在冰晶中停驻。',
+   stats:[['冻结',93],['力量',72],['速度',38],['稳定',92]]},
+  {id:'umbra', idx:7, name:'暗', en:'UMBRA', color:'#a78bfa', tag:'隐秘 · 深邃',
+   desc:'隐秘的深邃。藏于阴影，伺机而动。',
+   stats:[['潜行',95],['力量',76],['速度',82],['稳定',58]]},
+  {id:'volt',  idx:8, name:'雷', en:'VOLT',  color:'#f472b6', tag:'震荡 · 冲击',
+   desc:'震荡的冲击。一瞬之间，雷霆万钧。',
+   stats:[['冲击',97],['力量',88],['速度',96],['稳定',34]]},
+];
+const CORE={id:'core', idx:0, name:'核心', en:'CORE', color:'#f1f5f9', tag:'锚点 · 中枢',
+  desc:'所有板块环绕的中心。打开页面时默认聚焦于此。',
+  stats:[['能量',100],['稳定',100],['连接',100]]};
+const ALL=[CORE].concat(SECTORS);
+const CORNER_LABEL={tl:'左上', tr:'右上', bl:'左下', br:'右下'};
+
+/* ================================================================
+ * 状态
+ * ================================================================ */
+const state={angle:0, selectedId:'core', auto:false,
+  pins:{tl:null, tr:null, bl:null, br:null}};
+
+const NS='http://www.w3.org/2000/svg';
+const $=s=>document.querySelector(s);
+const byId=id=>ALL.find(d=>d.id===id);
+
+/* ================================================================
+ * 几何工具
+ * ================================================================ */
+function polar(cx,cy,r,deg){
+  const t=(deg-90)*Math.PI/180;
+  return [cx+r*Math.cos(t), cy+r*Math.sin(t)];
+}
+function ptKey(deg){
+  const [x,y]=polar(CX,CY,R_MID,deg);
+  return x.toFixed(2)+','+y.toFixed(2);
+}
+function sectorPath(a0,a1){
+  const p1=polar(CX,CY,R_OUT,a0), p2=polar(CX,CY,R_OUT,a1);
+  const p3=polar(CX,CY,R_IN,a1),  p4=polar(CX,CY,R_IN,a0);
+  return 'M '+p1[0].toFixed(2)+' '+p1[1].toFixed(2)+
+         ' A '+R_OUT+' '+R_OUT+' 0 0 1 '+p2[0].toFixed(2)+' '+p2[1].toFixed(2)+
+         ' L '+p3[0].toFixed(2)+' '+p3[1].toFixed(2)+
+         ' A '+R_IN+' '+R_IN+' 0 0 0 '+p4[0].toFixed(2)+' '+p4[1].toFixed(2)+' Z';
+}
+function normAngle(a){return ((a%360)+360)%360}
+
+/* ================================================================
+ * 构建 SVG
+ * ================================================================ */
+const sectorsG=$('#sectors'), labelsG=$('#labels'), webG=$('#web'), ticksG=$('#rimTicks');
+
+SECTORS.forEach((s,i)=>{
+  const a0=i*45-90;
+  const p=document.createElementNS(NS,'path');
+  p.setAttribute('d',sectorPath(a0,a0+45));
+  p.setAttribute('data-sid',s.id);
+  p.classList.add('sector');
+  p.style.setProperty('--c',s.color);
+  p.setAttribute('fill',s.color);
+  p.setAttribute('stroke',s.color); p.setAttribute('stroke-width','1.5');
+  sectorsG.appendChild(p);
+
+  const g=document.createElementNS(NS,'g');
+  g.classList.add('s-label'); g.setAttribute('data-lid',s.id);
+  const num=String(s.idx).padStart(2,'0');
+  g.innerHTML='<text text-anchor="middle">'+
+    '<tspan x="0" dy="-2" class="s-name">'+s.name+'</tspan>'+
+    '<tspan x="0" dy="17" class="s-idx">'+num+'</tspan></text>';
+  labelsG.appendChild(g);
+});
+
+/* 星轨：三组线 */
+const spokes=SECTORS.map((_,i)=>'M 280 280 L '+ptKey(i*45-67.5)).join(' ');
+const oct=SECTORS.map((_,i)=>'M '+ptKey(i*45-67.5)+' L '+ptKey(((i+1)%8)*45-67.5)).join(' ');
+const skip=SECTORS.map((_,i)=>'M '+ptKey(i*45-67.5)+' L '+ptKey(((i+2)%8)*45-67.5)).join(' ');
+function addWeb(d,cls){const p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.classList.add('webline',cls);webG.appendChild(p);}
+addWeb(spokes,'w-spoke');
+addWeb(oct,'w-ring');
+addWeb(skip,'w-skip');
+
+/* 外圈刻度 */
+for(let i=0;i<8;i++){
+  const a=i*45-90;
+  const p1=polar(CX,CY,255,a), p2=polar(CX,CY,271,a);
+  const line=document.createElementNS(NS,'line');
+  line.setAttribute('x1',p1[0].toFixed(2)); line.setAttribute('y1',p1[1].toFixed(2));
+  line.setAttribute('x2',p2[0].toFixed(2)); line.setAttribute('y2',p2[1].toFixed(2));
+  line.setAttribute('stroke','rgba(255,255,255,.32)'); line.setAttribute('stroke-width','1.4');
+  ticksG.appendChild(line);
+}
+
+/* ================================================================
+ * 旋转渲染
+ * ================================================================ */
+const ringGroup=$('#ringGroup'), readout=$('#readout');
+function renderRotation(){
+  ringGroup.setAttribute('transform','rotate('+state.angle+' '+CX+' '+CY+')');
+  SECTORS.forEach((s,i)=>{
+    const [x,y]=polar(CX,CY,R_MID, i*45-67.5+state.angle);
+    labelsG.querySelector('[data-lid="'+s.id+'"]')
+      .setAttribute('transform','translate('+x.toFixed(2)+' '+y.toFixed(2)+')');
+  });
+  readout.textContent=String(Math.round(normAngle(state.angle))).padStart(3,'0')+'°';
+}
+
+/* ================================================================
+ * 选中与信息面板
+ * ================================================================ */
+const pLeft=$('#pLeft'), pRight=$('#pRight');
+function select(id, silent){
+  state.selectedId=id;
+  document.querySelectorAll('.sector').forEach(p=>p.classList.toggle('selected', p.dataset.sid===id));
+  document.documentElement.style.setProperty('--sel', byId(id).color);
+  renderPanels(silent);
+}
+function renderPanels(silent){
+  const d=byId(state.selectedId);
+  const num=String(d.idx).padStart(2,'0');
+
+  pLeft.innerHTML=
+    '<div class="p-head"><span class="kicker">当前板块 · CURRENT</span>'+
+    '<span class="p-idx" style="color:'+d.color+'">'+num+'</span></div>'+
+    '<div class="p-name" style="color:'+d.color+'">'+d.name+'</div>'+
+    '<div class="p-en">'+d.en+' · '+d.tag+'</div>'+
+    '<p class="p-desc">'+d.desc+'</p>';
+
+  const rows=d.stats.map(st=>
+    '<div class="stat"><span class="st-name">'+st[0]+'</span>'+
+    '<div class="st-track"><div class="st-fill" style="width:'+st[1]+'%;background:'+d.color+'"></div></div>'+
+    '<span class="st-val">'+st[1]+'</span></div>').join('');
+
+  const pins=[];
+  Object.keys(state.pins).forEach(c=>{ if(state.pins[c]) pins.push(CORNER_LABEL[c]+'·'+byId(state.pins[c]).name); });
+  const note=pins.length? '已停靠：'+pins.join(' / ') : '未停靠';
+
+  pRight.innerHTML=
+    '<div class="p-head"><span class="kicker">属性 · ATTRIBUTES</span>'+
+    '<span class="p-idx" style="color:'+d.color+'">'+d.en+'</span></div>'+
+    rows+
+    '<div class="pinnote">'+note+'</div>';
+
+  if(!silent){
+    [pLeft,pRight].forEach(el=>{
+      el.style.animation='none'; void el.offsetWidth; el.style.animation='';
+    });
+  }
+}
+
+/* ================================================================
+ * 四角停靠
+ * ================================================================ */
+const slots={tl:$('.ps-tl'), tr:$('.ps-tr'), bl:$('.ps-bl'), br:$('.ps-br')};
+const zones={tl:$('.dz-tl'), tr:$('.dz-tr'), bl:$('.dz-bl'), br:$('.dz-br')};
+
+function renderPin(corner){
+  const id=state.pins[corner], slot=slots[corner];
+  if(!id){slot.innerHTML='';return;}
+  const d=byId(id), num=String(d.idx).padStart(2,'0');
+  slot.innerHTML='<article class="pin" style="--c:'+d.color+'">'+
+    '<button class="pin-x" aria-label="移除停靠">×</button>'+
+    '<div class="pin-top"><span class="pin-dot"></span>'+
+    '<span class="pin-en">'+d.en+' · '+num+'</span></div>'+
+    '<div class="pin-name" style="color:'+d.color+'">'+d.name+'</div></article>';
+  slot.querySelector('.pin-x').addEventListener('click',e=>{
+    e.stopPropagation();
+    state.pins[corner]=null; renderPin(corner); renderPanels(true);
+  });
+  slot.querySelector('.pin').addEventListener('click',()=>select(id));
+}
+function renderAllPins(){Object.keys(slots).forEach(renderPin);}
+
+/* ================================================================
+ * 指针交互：点击 / 拖拽旋转 / 拖出停靠
+ * ================================================================ */
+const svg=$('#ring'), token=$('#token');
+let mode=null, drag=null, rotStart=null;
+
+function angleFromEvent(e){
+  const r=svg.getBoundingClientRect();
+  const cx=r.left+r.width/2, cy=r.top+r.height/2;
+  return Math.atan2(e.clientY-cy, e.clientX-cx)*180/Math.PI;
+}
+
+svg.addEventListener('pointerdown',e=>{
+  const rim=e.target.closest? e.target.closest('#rimHit'):null;
+  if(rim){
+    mode='rot';
+    rotStart={a:angleFromEvent(e), base:state.angle};
+    document.body.classList.add('rotating');
+    if(state.auto) toggleAuto();
+    svg.setPointerCapture(e.pointerId);
+    e.preventDefault();
+    return;
+  }
+  const sec=e.target.closest? e.target.closest('[data-sid]'):null;
+  if(sec){
+    mode='sec';
+    drag={id:sec.dataset.sid, x0:e.clientX, y0:e.clientY, moved:false, hot:null};
+    svg.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  }
+});
+
+svg.addEventListener('pointermove',e=>{
+  if(mode==='rot' && rotStart){
+    state.angle=rotStart.base + (angleFromEvent(e)-rotStart.a);
+    renderRotation();
+    return;
+  }
+  if(mode==='sec' && drag){
+    const dx=e.clientX-drag.x0, dy=e.clientY-drag.y0;
+    if(!drag.moved && Math.hypot(dx,dy)>8){
+      beginDrag(e);
+    }
+    if(drag.moved){
+      token.style.left=(e.clientX-36)+'px';
+      token.style.top=(e.clientY-30)+'px';
+      updateHotCorner(e);
+    }
+  }
+});
+
+svg.addEventListener('pointerup',e=>{
+  if(mode==='rot'){mode=null;rotStart=null;document.body.classList.remove('rotating');return;}
+  if(mode==='sec' && drag){
+    if(drag.moved){
+      const corner=drag.hot;
+      endDrag();
+      if(corner){ state.pins[corner]=drag.id; renderPin(corner); renderPanels(true); }
+    }else{
+      select(drag.id);
+    }
+    mode=null; drag=null;
+  }
+});
+svg.addEventListener('pointercancel',()=>{
+  if(mode==='sec' && drag && drag.moved) endDrag();
+  mode=null; drag=null; rotStart=null;
+  document.body.classList.remove('rotating');
+});
+
+function beginDrag(e){
+  drag.moved=true;
+  const secEl=document.querySelector('[data-sid="'+drag.id+'"]');
+  if(secEl) secEl.classList.add('ghost');
+  document.body.classList.add('dragging');
+  const d=byId(drag.id);
+  token.style.display='block';
+  token.style.left=(e.clientX-36)+'px';
+  token.style.top=(e.clientY-30)+'px';
+  token.querySelector('.tok-disc').style.setProperty('--c', d.color);
+  token.querySelector('.tok-name').textContent=d.name;
+  updateHotCorner(e);
+}
+function endDrag(){
+  document.body.classList.remove('dragging');
+  token.style.display='none';
+  const secEl=document.querySelector('[data-sid="'+drag.id+'"]');
+  if(secEl) secEl.classList.remove('ghost');
+  Object.keys(zones).forEach(k=>zones[k].classList.remove('hot'));
+}
+function updateHotCorner(e){
+  drag.hot=null;
+  Object.keys(zones).forEach(k=>{
+    const z=zones[k], r=z.getBoundingClientRect();
+    const inside=e.clientX>=r.left-28 && e.clientX<=r.right+28 &&
+                 e.clientY>=r.top-28  && e.clientY<=r.bottom+28;
+    z.classList.toggle('hot', inside);
+    if(inside) drag.hot=k;
+  });
+}
+
+/* ================================================================
+ * 控制按钮 / 键盘
+ * ================================================================ */
+function rotateBy(d){state.angle=state.angle+d;renderRotation();}
+$('#rotL').addEventListener('click',()=>rotateBy(-45));
+$('#rotR').addEventListener('click',()=>rotateBy(45));
+
+function toggleAuto(){
+  state.auto=!state.auto;
+  $('#autoBtn').classList.toggle('active',state.auto);
+  $('#autoBtn .ic-play').style.display=state.auto?'none':'block';
+  $('#autoBtn .ic-pause').style.display=state.auto?'block':'none';
+}
+$('#autoBtn').addEventListener('click',toggleAuto);
+
+$('#resetBtn').addEventListener('click',()=>{
+  state.angle=0; renderRotation();
+  state.pins={tl:null,tr:null,bl:null,br:null}; renderAllPins();
+  if(state.auto) toggleAuto();
+  select('core');
+});
+
+window.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft'){rotateBy(-45);}
+  else if(e.key==='ArrowRight'){rotateBy(45);}
+});
+
+/* ================================================================
+ * 背景星点
+ * ================================================================ */
+(function buildStars(){
+  const stage=$('#stage');
+  for(let i=0;i<130;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const size=(Math.random()*1.6+0.6).toFixed(1);
+    s.style.width=size+'px'; s.style.height=size+'px';
+    s.style.left=(Math.random()*100).toFixed(2)+'%';
+    s.style.top=(Math.random()*100).toFixed(2)+'%';
+    s.style.animationDelay=(Math.random()*4).toFixed(2)+'s';
+    s.style.animationDuration=(2.5+Math.random()*4).toFixed(2)+'s';
+    stage.appendChild(s);
+  }
+})();
+
+/* ================================================================
+ * 自动旋转循环
+ * ================================================================ */
+let last=performance.now();
+function loop(t){
+  const dt=Math.min((t-last)/1000,0.1); last=t;
+  if(state.auto){ state.angle=(state.angle+8*dt)%360; renderRotation(); }
+  requestAnimationFrame(loop);
+}
+
+/* ================================================================
+ * 启动：默认显示中心板块
+ * ================================================================ */
+renderRotation();
+renderAllPins();
+select('core', true);
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

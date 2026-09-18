@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>光斑漂移 · 呼吸脉动 · 背景试验</title>
+<style>
+  html,body{margin:0;height:100%;background:#0b0b0b;overflow:hidden}
+  canvas{display:block;width:100vw;height:100vh}
+  #hint{
+    position:fixed;left:20px;bottom:16px;
+    color:rgba(255,255,255,.30);
+    font:500 12px/1.6 'Segoe UI','Noto Sans SC',system-ui,sans-serif;
+    letter-spacing:.08em;pointer-events:none;
+  }
+</style>
+</head>
+<body>
+<canvas id="cv"></canvas>
+<div id="hint">光斑漂移 · 呼吸脉动 —— 纯氛围背景（无交互）</div>
+
+<script>
+(function(){
+  'use strict';
+  var cv=document.getElementById('cv');
+  if(!cv) return;
+  var ctx=cv.getContext('2d');
+  var dpr=Math.min(window.devicePixelRatio||1, 1.5);
+  var W=0, H=0;
+
+  function resize(){
+    W=window.innerWidth; H=window.innerHeight;
+    cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr);
+    cv.style.width=W+'px'; cv.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  window.addEventListener('resize',resize);
+  resize();
+
+  /* 两个光斑：沿利萨茹轨迹缓慢漂移（周期约 40~60s） */
+  var blobs=[
+    {ax:.5, ay:.5, A:.32, B:.24, wx:.10, wy:.07, px:0,   py:1.3, r:.34, a:.24},
+    {ax:.5, ay:.5, A:.26, B:.32, wx:.08, wy:.11, px:2.1, py:.8,  r:.28, a:.18}
+  ];
+
+  function draw(t){
+    var S=Math.max(W,H);
+    ctx.fillStyle='#0b0b0b';
+    ctx.fillRect(0,0,W,H);
+
+    /* 呼吸：整体亮度周期约 12s */
+    var breath=0.78+0.22*Math.sin(t*0.52+1.0);
+
+    ctx.globalCompositeOperation='lighter';
+
+    /* 环境光：居中大光晕，缓慢漂移，承载呼吸的主体 */
+    var ex=W*0.5+Math.sin(t*0.03)*W*0.02, ey=H*0.5+Math.cos(t*0.026)*H*0.02;
+    var er=S*0.95;
+    var eg=ctx.createRadialGradient(ex,ey,0,ex,ey,er);
+    eg.addColorStop(0,   'rgba(255,255,255,'+(0.10*breath).toFixed(3)+')');
+    eg.addColorStop(0.55,'rgba(255,255,255,'+(0.05*breath).toFixed(3)+')');
+    eg.addColorStop(1,   'rgba(255,255,255,0)');
+    ctx.fillStyle=eg;
+    ctx.beginPath(); ctx.arc(ex,ey,er,0,Math.PI*2); ctx.fill();
+
+    /* 两个漂移光斑 */
+    for(var i=0;i<blobs.length;i++){
+      var b=blobs[i];
+      var x=W*(b.ax+b.A*Math.sin(t*b.wx+b.px));
+      var y=H*(b.ay+b.B*Math.sin(t*b.wy+b.py));
+      var r=S*b.r;
+      var a=b.a*breath;
+      var g=ctx.createRadialGradient(x,y,0,x,y,r);
+      g.addColorStop(0,   'rgba(255,255,255,'+a.toFixed(3)+')');
+      g.addColorStop(0.5, 'rgba(255,255,255,'+(a*0.45).toFixed(3)+')');
+      g.addColorStop(1,   'rgba(255,255,255,0)');
+      ctx.fillStyle=g;
+      ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill();
+    }
+
+    ctx.globalCompositeOperation='source-over';
+  }
+
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function frame(now){ draw(now*0.001); requestAnimationFrame(frame); }
+  if(reduced){ draw(0); } else { requestAnimationFrame(frame); }
+})();
+</script>
+</body>
+</html>

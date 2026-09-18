@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>斜向流动 · 弯曲版</title>
+<style>
+  html,body{height:100%;margin:0;overflow:hidden;background:#0b0b0b}
+  body{color:#fff;font-family:Arial,sans-serif}
+
+  /* 背景层：保留斜向直线流动，背景铺满 400% */
+  .flow{
+    position:fixed;inset:-12%;z-index:-1;
+    background:linear-gradient(-45deg,
+      #111111, #1c1c1c, #272727, #333333,
+      #3f3f3f, #222222, #2e2e2e, #161616);
+    background-size:400% 400%;
+    animation:gflow 7s ease infinite;
+    /* 关键：让直线被噪声场掰弯 */
+    filter:url(#warp);
+  }
+  @keyframes gflow{
+    0%  {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+  }
+
+  .hint{
+    position:fixed;left:20px;bottom:16px;
+    color:rgba(255,255,255,.35);font:500 12px/1.6 Arial,sans-serif;
+    letter-spacing:.08em;pointer-events:none;
+  }
+</style>
+</head>
+<body>
+
+<div class="flow"></div>
+<div class="hint">斜向流动 · 弯曲版 —— 直线渐变被噪声场平滑扭曲，色阶加密过渡更柔</div>
+
+<!-- 湍流变形滤镜：把 SourceGraphic（直线渐变）按噪声场位移，直线变曲线 -->
+<svg width="0" height="0" style="position:absolute;pointer-events:none;">
+  <filter id="warp" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="2" seed="7" result="noise">
+      <!-- seed 随时间连续变化 = 噪声场不断流动变形 -->
+      <animate attributeName="seed" from="0" to="120" dur="16s" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="90" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+</body>
+</html>

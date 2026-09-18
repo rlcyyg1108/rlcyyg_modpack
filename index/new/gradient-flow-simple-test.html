@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>流动渐变 · 简版</title>
+<style>
+  body{
+    margin:0;height:100vh;color:#fff;font-family:Arial,sans-serif;overflow:hidden;
+    background:#0c0c0c;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-1;
+    background:
+      linear-gradient(-45deg, rgba(110,110,110,.5), rgba(14,14,14,.65), rgba(85,85,85,.5), rgba(8,8,8,.65), rgba(95,95,95,.5)),
+      linear-gradient(45deg, rgba(65,65,65,.5), rgba(6,6,6,.65), rgba(50,50,50,.5), rgba(12,12,12,.65));
+    background-size:400% 400%;
+    animation:flow 50s linear infinite;
+  }
+  @keyframes flow{
+    0%  {background-position:0% 50%, 100% 50%;}
+    1% {background-position:0% 50%, 100% 50%; animation-timing-function:ease-in-out;}
+    50% {background-position:100% 50%, 0% 50%; animation-timing-function:linear;}
+    51% {background-position:100% 50%, 0% 50%; animation-timing-function:ease-in-out;}
+    100%{background-position:0% 50%, 100% 50%;}
+  }
+</style>
+</head>
+<body></body>
+</html>
