@@ -1,0 +1,62 @@
+    #decoLines .dline {
+      position: absolute;
+      background: rgba(255,255,255,.3);
+      opacity: 0;
+    }
+    #decoLines .arc {
+      position: absolute;
+      opacity: 0;
+    }
+
+    /* 水平线始终水平定位 */
+    #decoLines .dline.left,
+    #decoLines .dline.right {
+      top: 50%;
+      height: 1px;
+      transform: translateY(-50%) scaleX(0);
+      transition: transform .4s ease, opacity .2s ease;
+    }
+    #decoLines .dline.left { left: clamp(18px,4.5vw,54px); transform-origin: left center; }
+    #decoLines .dline.right { right: clamp(18px,4.5vw,54px); transform-origin: right center; }
+
+    /* 垂直线始终垂直定位 */
+    #decoLines .dline.top,
+    #decoLines .dline.bottom {
+      left: 50%;
+      width: 1px;
+      transform: translateX(-50%) scaleY(0);
+      transition: transform .4s ease, opacity .2s ease;
+    }
+    #decoLines .dline.top { top: clamp(18px,4.5vh,54px); transform-origin: top center; }
+    #decoLines .dline.bottom { bottom: clamp(18px,4.5vh,54px); transform-origin: bottom center; }
+
+    /* show-h：左右线生长/收回 */
+    #decoLines.show-h .dline.left,
+    #decoLines.show-h .dline.right {
+      opacity: 1;
+      transform: translateY(-50%) scaleX(1);
+      transition: transform 1s cubic-bezier(.3,.05,.2,1);
+    }
+
+    /* show-v：上下线生长/收回 */
+    #decoLines.show-v .dline.top,
+    #decoLines.show-v .dline.bottom {
+      opacity: 1;
+      transform: translateX(-50%) scaleY(1);
+      transition: transform 1s cubic-bezier(.3,.05,.2,1);
+    }
+
+    /* 弧：描边生长 */
+    #decoLines .arc {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset .35s ease, opacity .3s ease;
+    }
+    #decoLines.show-h .arc.left,
+    #decoLines.show-h .arc.right,
+    #decoLines.show-v .arc.top,
+    #decoLines.show-v .arc.bottom {
+      opacity: 1;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset .35s ease .65s, opacity .3s ease;
+    }

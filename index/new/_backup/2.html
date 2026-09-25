@@ -252,7 +252,7 @@
       font-size: 14px;
       font-weight: 500;
       letter-spacing: .4em;
-      color: rgba(255, 255, 255, .55);
+      color: rgba(255,255,255,.55);
       margin: 0;
     }
 
@@ -512,9 +512,9 @@
 
     #decoLines .dline {
       position: absolute;
-      background: rgba(255, 255, 255, .3);
+      background: rgba(255,255,255,.3);
+      opacity: 0;
     }
-
     #decoLines .arc {
       position: absolute;
       opacity: 0;
@@ -526,18 +526,10 @@
       top: 50%;
       height: 1px;
       transform: translateY(-50%) scaleX(0);
-      transition: transform .5s cubic-bezier(.5, 0, .7, .4);
+      transition: transform .4s ease, opacity .2s ease;
     }
-
-    #decoLines .dline.left {
-      left: clamp(18px, 4.5vw, 54px);
-      transform-origin: left center;
-    }
-
-    #decoLines .dline.right {
-      right: clamp(18px, 4.5vw, 54px);
-      transform-origin: right center;
-    }
+    #decoLines .dline.left { left: clamp(18px,4.5vw,54px); transform-origin: left center; }
+    #decoLines .dline.right { right: clamp(18px,4.5vw,54px); transform-origin: right center; }
 
     /* 垂直线始终垂直定位 */
     #decoLines .dline.top,
@@ -545,47 +537,45 @@
       left: 50%;
       width: 1px;
       transform: translateX(-50%) scaleY(0);
-      transition: transform .5s cubic-bezier(.5, 0, .7, .4);
+      transition: transform .4s ease, opacity .2s ease;
     }
+    #decoLines .dline.top { top: clamp(18px,4.5vh,54px); transform-origin: top center; }
+    #decoLines .dline.bottom { bottom: clamp(18px,4.5vh,54px); transform-origin: bottom center; }
 
-    #decoLines .dline.top {
-      top: clamp(18px, 4.5vh, 54px);
-      transform-origin: top center;
-    }
-
-    #decoLines .dline.bottom {
-      bottom: clamp(18px, 4.5vh, 54px);
-      transform-origin: bottom center;
-    }
-
-    /* show-h：左右线生长 */
-    #decoLines.show-h .dline.left,
-    #decoLines.show-h .dline.right {
+    /* h模式：左右线生长 */
+    #decoLines.h.show .dline.left,
+    #decoLines.h.show .dline.right {
+      opacity: 1;
       transform: translateY(-50%) scaleX(1);
-      transition: transform 1s cubic-bezier(.3, .05, .2, 1);
+      transition: transform 1s cubic-bezier(.3,.05,.2,1);
     }
 
-    /* show-v：上下线生长 */
-    #decoLines.show-v .dline.top,
-    #decoLines.show-v .dline.bottom {
+    /* v模式：上下线生长 */
+    #decoLines.v.show .dline.top,
+    #decoLines.v.show .dline.bottom {
+      opacity: 1;
       transform: translateX(-50%) scaleY(1);
-      transition: transform 1s cubic-bezier(.3, .05, .2, 1);
+      transition: transform 1s cubic-bezier(.3,.05,.2,1);
     }
 
     /* 弧：描边生长 */
-    #decoLines .arc {
-      stroke-dasharray: 1;
-      stroke-dashoffset: 1;
-      transition: stroke-dashoffset .35s ease, opacity .3s ease;
+    #decoLines .arc path {
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      transition: stroke-dashoffset .35s ease;
     }
-
-    #decoLines.show-h .arc.left,
-    #decoLines.show-h .arc.right,
-    #decoLines.show-v .arc.top,
-    #decoLines.show-v .arc.bottom {
+    #decoLines.h.show .arc.left,
+    #decoLines.h.show .arc.right,
+    #decoLines.v.show .arc.top,
+    #decoLines.v.show .arc.bottom {
       opacity: 1;
+    }
+    #decoLines.h.show .arc.left path,
+    #decoLines.h.show .arc.right path,
+    #decoLines.v.show .arc.top path,
+    #decoLines.v.show .arc.bottom path {
       stroke-dashoffset: 0;
-      transition: stroke-dashoffset .35s ease .65s, opacity .3s ease;
+      transition: stroke-dashoffset .35s ease .65s;
     }
 
     /* ============ 常驻角落装饰 ============ */
@@ -653,12 +643,10 @@
     <div class="dline right"></div>
     <div class="dline top"></div>
     <div class="dline bottom"></div>
-    <svg id="decoSvg" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;">
-      <path class="arc left" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1" />
-      <path class="arc right" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1" />
-      <path class="arc top" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1" />
-      <path class="arc bottom" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1" />
-    </svg>
+    <svg class="arc left" width="24" height="48" viewBox="0 0 24 48"><path d="M24 8 Q14 24 24 40" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1"/></svg>
+    <svg class="arc right" width="24" height="48" viewBox="0 0 24 48"><path d="M0 8 Q10 24 0 40" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1"/></svg>
+    <svg class="arc top" width="48" height="24" viewBox="0 0 48 24"><path d="M8 24 Q24 14 40 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1"/></svg>
+    <svg class="arc bottom" width="48" height="24" viewBox="0 0 48 24"><path d="M8 0 Q24 10 40 0" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1"/></svg>
   </div>
 
   <!-- 常驻角落装饰 -->
@@ -716,8 +704,7 @@
   <!-- 右下角：项目贡献 -->
   <div class="corner-panel br" data-corner="projects">
     <div class="ac-desc">
-      <a class="corner-sub p-link" href="https://github.com/PlexPt/factorio-chinese">开源中文汉化语言包<span
-          class="sub-en">FACTORIO</span></a><br>
+      <a class="corner-sub p-link" href="https://github.com/PlexPt/factorio-chinese">开源中文汉化语言包<span class="sub-en">FACTORIO</span></a><br>
       我是该仓库提交行数第二多的贡献者<br>
       补了大量词条和翻译<br>
       主要活跃于2024.12~2025.6<br>
@@ -735,7 +722,9 @@
         <div class="p-en">RLCYYG</div>
         <div class="p-desc">是学生，各种意义上的<br>
           在尝试做点东西<br>
-          模组、视频、文章<br>
+          模组、视频、文章<br><br>
+
+           <a class="p-link" href="https://github.com/rlcyyg1108/rlcyyg_modpack/">此网站仓库</a>
         </div>
       </div>
       <!-- 项目 -->
@@ -743,8 +732,7 @@
         <div class="p-name">项目</div>
         <div class="p-en">PROJECTS</div>
         <div class="p-desc">
-          <a class="p-sub p-link" href="https://github.com/rlcyyg1108/Disk-Savior">硬盘拯救者<span
-              class="sub-en">DISKSAVIOR</span></a><br>
+          <a class="p-sub p-link" href="https://github.com/rlcyyg1108/Disk-Savior">硬盘拯救者<span class="sub-en">DISKSAVIOR</span></a><br>
           我给
           <a class="p-link" href="https://www.mcmod.cn/modpack/769.html">GregTech Leisure</a>
           整合包写的 KubeJS 私货<br>
@@ -800,10 +788,8 @@
     <aside class="panel panel-right">
       <!-- 中心：我 -->
       <div class="pane" data-pane="core">
-        <div class="p-desc" style="font-size: 32px;"><br>
-          <a class="p-link" href="https://space.bilibili.com/34786453">特别鸣谢</a><br>
-          <a class="p-link" href="https://github.com/rlcyyg1108/rlcyyg_modpack/">此网站仓库</a>
-        </div>
+        <div class="r-tag">学生 · 创作者</div>
+        <div class="r-lines">身份　学生<br>创作　进行中<br>方向　未定</div>
       </div>
       <!-- 项目 -->
       <div class="pane" data-pane="projects">
@@ -1024,16 +1010,20 @@
       panes.forEach(p => p.classList.toggle('show', p.dataset.pane === id));
       cornerEls.forEach(el => el.classList.toggle('visible', el.dataset.corner === id));
       main.classList.toggle('mirror', id === 'links');
-      /* deco lines: 智能切换——只动需要变的方向 */
+      /* deco lines: h=左右(喜好/记忆), v=上下(项目/链接) */
       const dl = document.getElementById('decoLines');
-      const wantH = (id === 'interests' || id === 'artists' || id === 'core');
-      const wantV = (id === 'projects' || id === 'links' || id === 'core');
-      const hasH = dl.classList.contains('show-h');
-      const hasV = dl.classList.contains('show-v');
-      if (wantH && !hasH) dl.classList.add('show-h');
-      else if (!wantH && hasH) dl.classList.remove('show-h');
-      if (wantV && !hasV) dl.classList.add('show-v');
-      else if (!wantV && hasV) dl.classList.remove('show-v');
+      dl.classList.remove('show','h','v');
+      void dl.offsetWidth; /* reflow: reset to hidden */
+      if (id === 'interests' || id === 'artists') {
+        dl.classList.add('h');
+        void dl.offsetWidth;
+        dl.classList.add('show');
+      } else if (id === 'projects' || id === 'links') {
+        dl.classList.add('v');
+        void dl.offsetWidth;
+        dl.classList.add('show');
+      }
+
 
       if (!silent) {
         panes.forEach(p => { if (p.classList.contains('show')) { p.style.animation = 'none'; void p.offsetWidth; p.style.animation = ''; } });
@@ -1074,44 +1064,38 @@
 
     /* ============ 装饰线定位 ============ */
     const decoLines = document.getElementById('decoLines');
-    const decoSvg = document.getElementById('decoSvg');
-    function polarXY(cx, cy, r, deg) {
-      const t = deg * Math.PI / 180;
-      return [cx + r * Math.cos(t), cy + r * Math.sin(t)];
-    }
     function positionDeco() {
       const r = svg.getBoundingClientRect();
       const cx = r.left + r.width / 2;
       const cy = r.top + r.height / 2;
       const tickR = r.width * 285 / 560;
-      const gap = 5;
-      const arcR = tickR + gap;
-      const halfSpan = 22;
       const m = window.innerWidth < 1024 ? 20 : Math.min(54, Math.max(18, window.innerWidth * 0.045));
       const mv = window.innerHeight < 800 ? 20 : Math.min(54, Math.max(18, window.innerHeight * 0.045));
 
-      /* 这一块害我上头晚睡两小时😡 */
-      /* 线端点 = 弧中点 */
-      decoLines.querySelector('.dline.left').style.width = (cx - arcR - m) + 'px';
-      decoLines.querySelector('.dline.right').style.width = ((window.innerWidth - m) - (cx + arcR)) + 'px';
-      decoLines.querySelector('.dline.top').style.height = (cy - arcR - mv) + 'px';
-      decoLines.querySelector('.dline.bottom').style.height = ((window.innerHeight - mv) - (cy + arcR)) + 'px';
+      /* 水平线：从边缘到环边 */
+      decoLines.querySelector('.dline.left').style.width = (cx - tickR - m) + 'px';
+      decoLines.querySelector('.dline.right').style.width = ((window.innerWidth - m) - (cx + tickR)) + 'px';
 
-      /* 弧：与刻度环同心，半径 arcR */
-      const arcs = {
-        left: [180 - halfSpan, 180 + halfSpan],
-        right: [0 - halfSpan, 0 + halfSpan],
-        top: [270 - halfSpan, 270 + halfSpan],
-        bottom: [90 - halfSpan, 90 + halfSpan]
-      };
-      for (const key in arcs) {
-        const [a0, a1] = arcs[key];
-        const [x0, y0] = polarXY(cx, cy, arcR, a0);
-        const [x1, y1] = polarXY(cx, cy, arcR, a1);
-        const p = decoSvg.querySelector('.arc.' + key);
-        p.setAttribute('d', `M ${x0.toFixed(1)} ${y0.toFixed(1)} A ${arcR} ${arcR} 0 0 1 ${x1.toFixed(1)} ${y1.toFixed(1)}`);
-        p.setAttribute('pathLength', '1');
-      }
+      /* 垂直线 */
+      decoLines.querySelector('.dline.top').style.height = (cy - tickR - mv) + 'px';
+      decoLines.querySelector('.dline.bottom').style.height = ((window.innerHeight - mv) - (cy + tickR)) + 'px';
+
+      /* 弧：贴靠环边 */
+      const la = decoLines.querySelector('.arc.left');
+      la.style.left = (cx - tickR - 24) + 'px';
+      la.style.top = (cy - 24) + 'px';
+
+      const ra = decoLines.querySelector('.arc.right');
+      ra.style.left = (cx + tickR) + 'px';
+      ra.style.top = (cy - 24) + 'px';
+
+      const ta = decoLines.querySelector('.arc.top');
+      ta.style.left = (cx - 24) + 'px';
+      ta.style.top = (cy - tickR - 24) + 'px';
+
+      const ba = decoLines.querySelector('.arc.bottom');
+      ba.style.left = (cx - 24) + 'px';
+      ba.style.top = (cy + tickR) + 'px';
     }
     window.addEventListener('resize', positionDeco);
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -111,31 +111,16 @@
       border: 1px solid rgba(255, 255, 255, .7);
       box-shadow: 0 0 10px rgba(0, 0, 0, .5);
       transition: transform .18s ease, box-shadow .2s ease, opacity .25s ease;
-      animation: breathe 8s ease-in-out infinite;
-    }
-
-    @keyframes breathe {
-
-      0%,
-      100% {
-        box-shadow: 0 0 10px rgba(0, 0, 0, .5), 0 0 20px rgba(255, 255, 255, .08);
-      }
-
-      50% {
-        box-shadow: 0 0 10px rgba(0, 0, 0, .5), 0 0 36px rgba(255, 255, 255, .18);
-      }
     }
 
     #hubImg.on {
       transform: translate(-50%, -50%) scale(1.24);
       box-shadow: 0 0 18px rgba(255, 255, 255, .35);
-      animation: none;
     }
 
     #hubImg.sel {
       transform: translate(-50%, -50%) scale(1.4773);
       box-shadow: 0 0 24px rgba(255, 255, 255, .45);
-      animation: none;
     }
 
     /* ============ 两侧信息面板 ============ */
@@ -179,16 +164,6 @@
       display: block
     }
 
-    .pane[data-pane='projects'].show {
-      display: flex;
-      flex-direction: column;
-      height: calc(100vh - clamp(36px, 9vh, 108px));
-    }
-
-    .pane[data-pane='projects'] .p-desc {
-      margin-top: auto;
-    }
-
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -229,44 +204,6 @@
       text-shadow: 0 0 12px rgba(255, 255, 255, .4);
     }
 
-    .p-sub,
-    .corner-sub {
-      display: block;
-      font-size: 40px;
-      font-weight: 700;
-      margin: 10px 0 14px;
-      line-height: 1.2;
-      color: #fff;
-      white-space: nowrap;
-      letter-spacing: .04em;
-    }
-
-    .p-sub a,
-    .corner-sub a {
-      display: inline-block;
-    }
-
-    .sub-en {
-      display: block;
-      font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: .4em;
-      color: rgba(255, 255, 255, .55);
-      margin: 0;
-    }
-
-    .p-link {
-      color: #fff;
-      text-decoration: none;
-      transition: transform .2s;
-      display: inline-block;
-    }
-
-    .p-link:hover {
-      transform: translateY(-1px);
-    }
-
     .r-tag {
       font-size: 28px;
       font-weight: 700;
@@ -296,66 +233,12 @@
       text-shadow: 0 0 16px rgba(255, 255, 255, .7);
     }
 
-    .r-lines.badges {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      align-items: flex-start;
-    }
-
-    .panel-right .r-lines.badges {
-      align-items: flex-end;
-    }
-
-    .r-lines.badges a {
-      border-bottom: none;
-      opacity: .82;
-      transition: opacity .2s, transform .2s;
-      display: inline-block;
-      cursor: pointer;
-      padding: 10px 14px;
-      margin: -10px -14px;
-    }
-
-    .r-lines.badges a:hover {
-      transform: translateY(-1px);
-      text-shadow: none;
-    }
-
-    .r-lines.badges img {
-      height: 40px;
-      display: block;
-      pointer-events: none;
-    }
-
-    .r-lines.badges img.white-icon {
-      filter: brightness(0) invert(1);
-    }
-
-    .r-lines.badges a.txt-link {
-      height: 28px;
-      line-height: 28px;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: .05em;
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255, 255, 255, .25);
-      transition: border-color .2s, text-shadow .2s;
-    }
-
-    .r-lines.badges a.txt-link:hover {
-      border-bottom-color: #fff;
-      text-shadow: 0 0 16px rgba(255, 255, 255, .7);
-      transform: none;
-    }
-
     /* ============ 四角面板 ============ */
     .corner-panel {
       position: fixed;
-      max-width: 480px;
+      max-width: 360px;
       z-index: 10;
-      pointer-events: none;
+      pointer-events: auto;
       display: flex;
       flex-direction: column;
       opacity: 0;
@@ -364,7 +247,6 @@
 
     .corner-panel.visible {
       opacity: 1;
-      pointer-events: auto;
     }
 
     .corner-panel.tl {
@@ -387,16 +269,6 @@
       bottom: clamp(18px, 4.5vh, 54px);
       right: clamp(18px, 4.5vw, 54px);
       text-align: right;
-    }
-
-    .corner-panel.br[data-corner='projects'] {
-      top: clamp(18px, 4.5vh, 54px);
-      bottom: clamp(18px, 4.5vh, 54px);
-    }
-
-    .corner-panel.br[data-corner='projects'] .ac-en {
-      margin-top: auto;
-      margin-bottom: 16px;
     }
 
     .ac-name {
@@ -431,19 +303,17 @@
     .sector {
       transform-box: view-box;
       transform-origin: 280px 280px;
-      transition: transform .18s ease, fill-opacity .2s ease, filter .25s ease;
+      transition: transform .18s ease, fill-opacity .2s ease;
       cursor: pointer;
       fill-opacity: .06;
     }
 
     .sector:hover {
       fill-opacity: .16;
-      filter: drop-shadow(0 0 6px rgba(255, 255, 255, .25));
     }
 
     .sector.selected {
       fill-opacity: .26;
-      filter: drop-shadow(0 0 10px rgba(255, 255, 255, .35));
     }
 
     .ring-line {
@@ -453,18 +323,18 @@
     }
 
     .tick {
-      stroke: rgba(255, 255, 255, .22);
+      stroke: rgba(255, 255, 255, .15);
       stroke-width: 1;
     }
 
     .tick-major {
-      stroke: rgba(255, 255, 255, .38);
+      stroke: rgba(255, 255, 255, .25);
       stroke-width: 1;
     }
 
     .faint-circle {
       fill: none;
-      stroke: rgba(255, 255, 255, .1);
+      stroke: rgba(255, 255, 255, .06);
       stroke-width: 1;
     }
 
@@ -499,114 +369,6 @@
       font-size: 10px;
       letter-spacing: 3px;
       fill: rgba(255, 255, 255, .45)
-    }
-
-    /* ============ 装饰延伸线 ============ */
-    #decoLines {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    #decoLines .dline {
-      position: absolute;
-      background: rgba(255, 255, 255, .3);
-    }
-
-    #decoLines .arc {
-      position: absolute;
-      opacity: 0;
-    }
-
-    /* 水平线始终水平定位 */
-    #decoLines .dline.left,
-    #decoLines .dline.right {
-      top: 50%;
-      height: 1px;
-      transform: translateY(-50%) scaleX(0);
-      transition: transform .5s cubic-bezier(.5, 0, .7, .4);
-    }
-
-    #decoLines .dline.left {
-      left: clamp(18px, 4.5vw, 54px);
-      transform-origin: left center;
-    }
-
-    #decoLines .dline.right {
-      right: clamp(18px, 4.5vw, 54px);
-      transform-origin: right center;
-    }
-
-    /* 垂直线始终垂直定位 */
-    #decoLines .dline.top,
-    #decoLines .dline.bottom {
-      left: 50%;
-      width: 1px;
-      transform: translateX(-50%) scaleY(0);
-      transition: transform .5s cubic-bezier(.5, 0, .7, .4);
-    }
-
-    #decoLines .dline.top {
-      top: clamp(18px, 4.5vh, 54px);
-      transform-origin: top center;
-    }
-
-    #decoLines .dline.bottom {
-      bottom: clamp(18px, 4.5vh, 54px);
-      transform-origin: bottom center;
-    }
-
-    /* show-h：左右线生长 */
-    #decoLines.show-h .dline.left,
-    #decoLines.show-h .dline.right {
-      transform: translateY(-50%) scaleX(1);
-      transition: transform 1s cubic-bezier(.3, .05, .2, 1);
-    }
-
-    /* show-v：上下线生长 */
-    #decoLines.show-v .dline.top,
-    #decoLines.show-v .dline.bottom {
-      transform: translateX(-50%) scaleY(1);
-      transition: transform 1s cubic-bezier(.3, .05, .2, 1);
-    }
-
-    /* 弧：描边生长 */
-    #decoLines .arc {
-      stroke-dasharray: 1;
-      stroke-dashoffset: 1;
-      transition: stroke-dashoffset .35s ease, opacity .3s ease;
-    }
-
-    #decoLines.show-h .arc.left,
-    #decoLines.show-h .arc.right,
-    #decoLines.show-v .arc.top,
-    #decoLines.show-v .arc.bottom {
-      opacity: 1;
-      stroke-dashoffset: 0;
-      transition: stroke-dashoffset .35s ease .65s, opacity .3s ease;
-    }
-
-    /* ============ 常驻角落装饰 ============ */
-    .corner-deco {
-      position: fixed;
-      bottom: clamp(10px, 2vh, 24px);
-      font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
-      font-size: 11px;
-      letter-spacing: .2em;
-      color: rgba(255, 255, 255, .22);
-      z-index: 5;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .corner-deco.bl {
-      left: clamp(14px, 2vw, 28px);
-    }
-
-    .corner-deco.br {
-      right: clamp(14px, 2vw, 28px);
     }
 
     /* ============ 窄屏适配 ============ */
@@ -647,23 +409,6 @@
 
 <body>
 
-  <!-- 装饰延伸线 -->
-  <div id="decoLines">
-    <div class="dline left"></div>
-    <div class="dline right"></div>
-    <div class="dline top"></div>
-    <div class="dline bottom"></div>
-    <svg id="decoSvg" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;">
-      <path class="arc left" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1" />
-      <path class="arc right" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1" />
-      <path class="arc top" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1" />
-      <path class="arc bottom" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1" />
-    </svg>
-  </div>
-
-  <!-- 常驻角落装饰 -->
-  <div class="corner-deco bl">RLCYYG © 2026</div>
-
   <!-- 四角：记忆 -->
   <div class="corner-panel tl" data-corner="artists">
     <div class="ac-name">水树</div>
@@ -690,12 +435,7 @@
   <div class="corner-panel tl" data-corner="interests">
     <div class="ac-name">音乐</div>
     <div class="ac-en">MUSIC</div>
-    <div class="ac-desc">
-      · 独立 / 电子<br>
-      · 后摇 / 氛围<br>
-      · 摇滚 / 金属<br>
-      · 同人 / 二次元
-    </div>
+    <div class="ac-desc">听歌是常态。偏爱独立和电子，经常一首歌循环到烦。</div>
   </div>
   <div class="corner-panel tr" data-corner="interests">
     <div class="ac-name">游戏</div>
@@ -713,73 +453,30 @@
     <div class="ac-name">文字</div>
   </div>
 
-  <!-- 右下角：项目贡献 -->
-  <div class="corner-panel br" data-corner="projects">
-    <div class="ac-desc">
-      <a class="corner-sub p-link" href="https://github.com/PlexPt/factorio-chinese">开源中文汉化语言包<span
-          class="sub-en">FACTORIO</span></a><br>
-      我是该仓库提交行数第二多的贡献者<br>
-      补了大量词条和翻译<br>
-      主要活跃于2024.12~2025.6<br>
-      现已不再做汉化<br>
-    </div>
-    <div class="ac-en">CONTRIBUTION</div>
-    <div class="ac-name">贡献</div>
-  </div>
-
   <main>
     <aside class="panel panel-left">
       <!-- 中心：我 -->
       <div class="pane" data-pane="core">
         <div class="p-name">我</div>
         <div class="p-en">RLCYYG</div>
-        <div class="p-desc">是学生，各种意义上的<br>
-          在尝试做点东西<br>
-          模组、视频、文章<br>
-        </div>
+        <div class="p-desc">是学生，各种意义上的<br>在尝试做点东西<br>模组、视频、文章<br><br><span
+            style="font-size:.7em;font-weight:400;color:rgba(255,255,255,.65)">也叫 Rlcyyg1108，或者早上好:)</span></div>
       </div>
       <!-- 项目 -->
       <div class="pane" data-pane="projects">
         <div class="p-name">项目</div>
         <div class="p-en">PROJECTS</div>
-        <div class="p-desc">
-          <a class="p-sub p-link" href="https://github.com/rlcyyg1108/Disk-Savior">硬盘拯救者<span
-              class="sub-en">DISKSAVIOR</span></a><br>
-          我给
-          <a class="p-link" href="https://www.mcmod.cn/modpack/769.html">GregTech Leisure</a>
-          整合包写的 KubeJS 私货<br>
-          起因是存档跑图跑太大<br>
-          装上后几乎不用跑图<br>
-          毕业存档也才 100MB 出头<br>
-          基本不考虑平衡<br><br>
-
-          除此之外 还有大量超模配方和功能<br>
-          机器阶段下调、电解/集大成配方<br>
-          粉直出、单步、多倍压缩等<br><br>
-
-          当与产线撕裂一起安装时<br>
-          全流程将几乎不再需要循环配方<br>
-          大部分资源都被改为下单和被动产出<br>
-        </div>
+        <div class="p-desc">在尝试做点东西。模组、视频、文章——方向还在摸索，东西陆续在做，好坏都先放出来再说。</div>
       </div>
       <!-- 链接 -->
       <div class="pane" data-pane="links">
         <div class="r-tag">在别处找到我</div>
-        <div class="r-lines badges">
-          <a href="https://space.bilibili.com/668140372"><img
-              src="https://img.shields.io/badge/Bilibili-00A1D6?style=flat&logo=bilibili&logoColor=white"
-              alt="Bilibili"></a>
-          <a href="https://github.com/rlcyyg1108"><img
-              src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub"></a>
-          <a href="https://steamcommunity.com/profiles/76561199215712354/"><img
-              src="https://img.shields.io/badge/Steam-1B2838?style=flat&logo=steam&logoColor=white" alt="Steam"></a>
-          <a href="mailto:yzy_0920@qq.com"><img
-              src="https://img.shields.io/badge/Email-EA4335?style=flat&logo=gmail&logoColor=white" alt="Email"></a>
-          <a href="https://user.qzone.qq.com/1939063243"><img src="./qq.png" alt="QQ"></a>
-          <a href="https://center.mcmod.cn/368168/"><img src="./mcmod.png" alt="MC百科"></a>
-          <a href="https://www.xbox.com/zh-CN/play/user/rlcyyg1108"><img src="./xbox.png" alt="Xbox"></a>
-          <a href="https://mods.factorio.com/user/rlcyyg1108"><img src="./factorio.png" alt="Factorio"></a>
-        </div>
+        <div class="r-lines"><a href="https://space.bilibili.com/668140372">哔哩哔哩</a><br><a
+            href="https://github.com/rlcyyg1108">GitHub</a><br><a
+            href="https://steamcommunity.com/profiles/76561199215712354/">Steam</a><br><a
+            href="https://mods.factorio.com/user/rlcyyg1108">Factorio</a><br><a
+            href="https://center.mcmod.cn/368168/">MC百科</a><br><a
+            href="https://user.qzone.qq.com/1939063243">QQ</a><br><a href="mailto:yzy_0920@qq.com">邮箱</a></div>
       </div>
     </aside>
 
@@ -800,19 +497,19 @@
     <aside class="panel panel-right">
       <!-- 中心：我 -->
       <div class="pane" data-pane="core">
-        <div class="p-desc" style="font-size: 32px;"><br>
-          <a class="p-link" href="https://space.bilibili.com/34786453">特别鸣谢</a><br>
-          <a class="p-link" href="https://github.com/rlcyyg1108/rlcyyg_modpack/">此网站仓库</a>
-        </div>
+        <div class="r-tag">学生 · 创作者</div>
+        <div class="r-lines">身份　学生<br>创作　进行中<br>方向　未定</div>
       </div>
       <!-- 项目 -->
       <div class="pane" data-pane="projects">
+        <div class="r-tag">正在做的事</div>
+        <div class="r-lines">MC 模组　进行中<br>Factorio 模组　已发布<br>视频　不定期<br>文章　偶尔</div>
       </div>
       <!-- 链接 -->
       <div class="pane" data-pane="links">
         <div class="p-name">链接</div>
         <div class="p-en">LINKS</div>
-        <div class="p-desc">我其他平台的账号<br></div>
+        <div class="p-desc">各平台账号都在这里。同名为主，认准 Rlcyyg1108。</div>
       </div>
     </aside>
   </main>
@@ -838,8 +535,7 @@
     ];
 
     /* ============ 状态 ============ */
-    const state = { angle: 0, autoAngle: 0, selectedId: 'core' };
-    let autoRotating = true;
+    const state = { angle: 0, selectedId: 'core' };
     const NS = 'http://www.w3.org/2000/svg';
     const $ = s => document.querySelector(s);
 
@@ -964,13 +660,6 @@
     function animLoop(t) {
       const dt = Math.min((t - lastT) / 1000, 0.12); lastT = t;
       let dirty = false;
-
-      /* 外圈刻度缓慢自转：60s/圈，拖拽时暂停 */
-      if (autoRotating && mode !== 'rot') {
-        state.autoAngle = (state.autoAngle + dt * 6) % 360;
-        renderRotation();
-      }
-
       SECTORS.forEach(s => {
         const g = geo[s.id];
         const next = Math.abs(g.cur - g.target) < 0.05 ? g.target : g.cur + (g.target - g.cur) * Math.min(1, dt * 14);
@@ -990,15 +679,12 @@
     /* ============ 旋转 ============ */
     const ringGroup = $('#ringGroup');
     function renderRotation() {
-      /* 用户拖拽只转板块+线稿+标签 */
       ringGroup.setAttribute('transform', 'rotate(' + state.angle + ' ' + CX + ' ' + CY + ')');
       SECTORS.forEach((s, i) => {
         const [x, y] = polar(CX, CY, R_MID, sectorCenter(i) + state.angle);
         labelsG.querySelector('[data-lid="' + s.id + '"]')
           .setAttribute('transform', 'translate(' + x.toFixed(2) + ' ' + y.toFixed(2) + ')');
       });
-      /* 外圈刻度独自缓慢自转 */
-      decorG.setAttribute('transform', 'rotate(' + state.autoAngle + ' ' + CX + ' ' + CY + ')');
     }
 
     /* ============ 中心图片 ============ */
@@ -1024,17 +710,6 @@
       panes.forEach(p => p.classList.toggle('show', p.dataset.pane === id));
       cornerEls.forEach(el => el.classList.toggle('visible', el.dataset.corner === id));
       main.classList.toggle('mirror', id === 'links');
-      /* deco lines: 智能切换——只动需要变的方向 */
-      const dl = document.getElementById('decoLines');
-      const wantH = (id === 'interests' || id === 'artists' || id === 'core');
-      const wantV = (id === 'projects' || id === 'links' || id === 'core');
-      const hasH = dl.classList.contains('show-h');
-      const hasV = dl.classList.contains('show-v');
-      if (wantH && !hasH) dl.classList.add('show-h');
-      else if (!wantH && hasH) dl.classList.remove('show-h');
-      if (wantV && !hasV) dl.classList.add('show-v');
-      else if (!wantV && hasV) dl.classList.remove('show-v');
-
       if (!silent) {
         panes.forEach(p => { if (p.classList.contains('show')) { p.style.animation = 'none'; void p.offsetWidth; p.style.animation = ''; } });
       }
@@ -1072,58 +747,12 @@
       else if (e.key === 'ArrowRight') { state.angle += GAP; renderRotation(); }
     });
 
-    /* ============ 装饰线定位 ============ */
-    const decoLines = document.getElementById('decoLines');
-    const decoSvg = document.getElementById('decoSvg');
-    function polarXY(cx, cy, r, deg) {
-      const t = deg * Math.PI / 180;
-      return [cx + r * Math.cos(t), cy + r * Math.sin(t)];
-    }
-    function positionDeco() {
-      const r = svg.getBoundingClientRect();
-      const cx = r.left + r.width / 2;
-      const cy = r.top + r.height / 2;
-      const tickR = r.width * 285 / 560;
-      const gap = 5;
-      const arcR = tickR + gap;
-      const halfSpan = 22;
-      const m = window.innerWidth < 1024 ? 20 : Math.min(54, Math.max(18, window.innerWidth * 0.045));
-      const mv = window.innerHeight < 800 ? 20 : Math.min(54, Math.max(18, window.innerHeight * 0.045));
-
-      /* 这一块害我上头晚睡两小时😡 */
-      /* 线端点 = 弧中点 */
-      decoLines.querySelector('.dline.left').style.width = (cx - arcR - m) + 'px';
-      decoLines.querySelector('.dline.right').style.width = ((window.innerWidth - m) - (cx + arcR)) + 'px';
-      decoLines.querySelector('.dline.top').style.height = (cy - arcR - mv) + 'px';
-      decoLines.querySelector('.dline.bottom').style.height = ((window.innerHeight - mv) - (cy + arcR)) + 'px';
-
-      /* 弧：与刻度环同心，半径 arcR */
-      const arcs = {
-        left: [180 - halfSpan, 180 + halfSpan],
-        right: [0 - halfSpan, 0 + halfSpan],
-        top: [270 - halfSpan, 270 + halfSpan],
-        bottom: [90 - halfSpan, 90 + halfSpan]
-      };
-      for (const key in arcs) {
-        const [a0, a1] = arcs[key];
-        const [x0, y0] = polarXY(cx, cy, arcR, a0);
-        const [x1, y1] = polarXY(cx, cy, arcR, a1);
-        const p = decoSvg.querySelector('.arc.' + key);
-        p.setAttribute('d', `M ${x0.toFixed(1)} ${y0.toFixed(1)} A ${arcR} ${arcR} 0 0 1 ${x1.toFixed(1)} ${y1.toFixed(1)}`);
-        p.setAttribute('pathLength', '1');
-      }
-    }
-    window.addEventListener('resize', positionDeco);
-
-
     /* ============ 启动 ============ */
     renderRotation();
     sizeHubImg();
     updateLines();
-    positionDeco();
     select('core', true);
     requestAnimationFrame(animLoop);
-
   </script>
 </body>
 
