@@ -234,7 +234,7 @@
       display: block;
       font-size: 40px;
       font-weight: 700;
-      margin: 10px 0 14px;
+      margin: 10px 0 10px;
       line-height: 1.2;
       color: #fff;
       white-space: nowrap;
@@ -250,6 +250,16 @@
       display: block;
       font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
       font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .4em;
+      color: rgba(255, 255, 255, .55);
+      margin: 0;
+    }
+
+    .sm-en {
+      display: block;
+      font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
+      font-size: 8px;
       font-weight: 500;
       letter-spacing: .4em;
       color: rgba(255, 255, 255, .55);
@@ -353,7 +363,7 @@
     /* ============ 四角面板 ============ */
     .corner-panel {
       position: fixed;
-      max-width: 480px;
+      max-width: 680px;
       z-index: 10;
       pointer-events: none;
       display: flex;
@@ -396,7 +406,7 @@
 
     .corner-panel.br[data-corner='projects'] .ac-en {
       margin-top: auto;
-      margin-bottom: 16px;
+      margin-bottom: 2px;
     }
 
     .ac-name {
@@ -414,8 +424,38 @@
       font-size: 14px;
       letter-spacing: .4em;
       color: rgba(255, 255, 255, .55);
-      margin: 0 0 16px;
+      margin: 0 0 0px;
       font-weight: 500;
+    }
+
+
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 8em));
+      gap: 12px;
+      text-align: left;
+      justify-content: start;
+    }
+
+    .cols>div {
+      min-width: 0;
+    }
+
+    .cols strong {
+      font-size: 26px;
+      display: block;
+      margin-bottom: 10px;
+      line-height: 1.15;
+    }
+
+    .corner-panel.bl .ac-en,
+    .corner-panel.br .ac-en {
+      margin: 0 0 2px;
+    }
+
+    .corner-panel.bl .ac-desc,
+    .corner-panel.br .ac-desc {
+      margin: 0 0 0px;
     }
 
     .ac-desc {
@@ -602,46 +642,23 @@
     }
 
     .corner-deco.bl {
-      left: clamp(14px, 2vw, 28px);
+      left: clamp(50px, 2vw, 28px);
     }
 
     .corner-deco.br {
-      right: clamp(14px, 2vw, 28px);
+      right: clamp(50px, 2vw, 28px);
     }
 
-    /* ============ 窄屏适配 ============ */
-    @media (max-width: 1024px) {
-      body {
-        overflow: auto
-      }
-
-      main {
-        height: auto;
-        min-height: 100vh;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 12px 20px 18px;
-      }
-
-      .panel-left,
-      .panel-right {
-        justify-self: stretch;
-        text-align: left;
-        padding: 0;
-      }
-
-      .p-name {
-        font-size: 34px
-      }
-
-      #ring {
-        width: min(78vw, 52vh)
-      }
-
-      .corner-panel {
-        display: none
-      }
+    .word {
+      font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
+      font-style: italic;
+      font-size: 22px;
+      letter-spacing: .1em;
+      color: rgba(255, 255, 255, .55);
+      margin: 0 0 0px;
+      font-weight: 500;
     }
+
   </style>
 </head>
 
@@ -666,22 +683,55 @@
 
   <!-- 四角：记忆 -->
   <div class="corner-panel tl" data-corner="artists">
-    <div class="ac-name">水树</div>
-    <div class="ac-en">TASSI</div>
-    <div class="ac-desc">网易云音乐人。愿我们的烦恼与忧虑化为乌有。</div>
-  </div>
-  <div class="corner-panel tr" data-corner="artists">
-    <div class="ac-name">醒山</div>
-    <div class="ac-en">AWAKE MOUNTAINS</div>
-    <div class="ac-desc">中文摇滚乐队。重的、响的、直接的，现场尤其猛。</div>
-  </div>
-  <div class="corner-panel bl" data-corner="artists">
-    <div class="ac-desc">游戏设计师。把电影叙事带进游戏，他不做游戏，他做"连接"。</div>
-    <div class="ac-en">KOJIMA</div>
     <div class="ac-name">小岛秀夫</div>
+    <div class="ac-en">KOJIMA</div>
+    <div class="ac-desc">
+      <div class="word">My favorite creator</div>
+      奠定了我一半审美标准的人<br>
+      擅长电影化叙事<br>
+      合金装备、死亡搁浅的缔造者<br>
+      哲学思考多如牛毛<br>
+      重视镜头语言<br>
+      热爱电影<br>
+      执着于打破表达边界<br>
+    </div>
   </div>
+
+  <div class="corner-panel tr" data-corner="artists">
+    <div class="ac-name">飞跃地平线</div>
+    <div class="ac-en">BRING ME THE HORIZON</div>
+    <div class="ac-desc">
+      <div class="word">My favorite band</div>
+      陪伴了我四年的英国摇滚乐队<br>
+      编曲与人声结合叹为观止<br>
+      大量融入电子与流行摇滚元素<br>
+      擅长嘶吼与清嗓的来回切换<br><br>
+
+      我最爱的一首<br>
+      <a class="p-link word" href="https://www.bilibili.com/video/BV1f14y1X7vg">Drown</a>
+    </div>
+  </div>
+
+  <div class="corner-panel bl" data-corner="artists">
+    <div class="ac-desc">
+      音乐人<br>
+      愿我们的烦恼与忧虑化为乌有
+    </div>
+    <div class="word">Vos have ut ambulare farther in via</div>
+    <div class="ac-en">TASSI</div>
+    <div class="ac-name">水树</div>
+  </div>
+
   <div class="corner-panel br" data-corner="artists">
-    <div class="ac-desc">音乐人。今敏动画配乐。电子实验独行者，音乐里有种灵性。</div>
+    <div class="ac-desc">
+      音乐人<br>
+      擅长合成器与民俗音乐的融合<br>
+      几乎所有元素都会出现在他的音乐里<br>
+      人声多层堆叠营造仪式般宏大氛围<br>
+      大量吸纳东南亚民俗采样与打击乐<br>
+      富含神话心理学与社会哲思<br>
+    </div>
+    <div class="word">Hai yai forces</div>
     <div class="ac-en">HIRASAWA</div>
     <div class="ac-name">平沢進</div>
   </div>
@@ -690,27 +740,121 @@
   <div class="corner-panel tl" data-corner="interests">
     <div class="ac-name">音乐</div>
     <div class="ac-en">MUSIC</div>
-    <div class="ac-desc">
-      · 独立 / 电子<br>
-      · 后摇 / 氛围<br>
-      · 摇滚 / 金属<br>
-      · 同人 / 二次元
+    <div class="ac-desc cols">
+      <div>
+        <strong>金属狗</strong>
+        · 旋律死亡金属<br>
+        · 抑郁自杀黑金属<br>
+        · 氛围黑金属<br>
+        · 原始黑金属<br>
+        · 激流金属<br>
+        · 力量金属<br>
+        · 新金属<br>
+      </div>
+      <div>
+        <strong>喜欢的风格</strong>
+        · 后核<br>
+        · 死核<br>
+        · 金属核<br>
+        · 后硬核<br>
+        · 旋律硬核<br>
+        · 另类摇滚<br>
+      </div>
+      <div>
+        <strong>其他</strong>
+        · 前卫电子<br>
+        · Techno‑Pop<br>
+        · 民族音乐<br>
+        · 实验音乐<br>
+        · 氛围音乐<br>
+        · 咏唱<br>
+      </div>
     </div>
   </div>
   <div class="corner-panel tr" data-corner="interests">
     <div class="ac-name">游戏</div>
     <div class="ac-en">GAME</div>
-    <div class="ac-desc">玩过的做过的。MC、Factorio 为主，其他也沾。</div>
+    <div class="ac-desc cols">
+      <div><strong>其他</strong>
+        · 死亡搁浅<br>
+        · 泰拉瑞亚<br>
+        · 使命召唤 20<br>
+        · 星露谷物语<br>
+        · 反物质维度<br>
+        · BLACK SOULS<br>
+      </div>
+      <div><strong>自动化建设</strong>
+        · 戴森球计划<br>
+        · 异星工厂<br>
+        · 幸福工厂<br>
+        · 异形工厂<br>
+        · 像素工厂<br>
+        · 格雷科技
+      </div>
+      <div><strong>潜行战术谍报</strong>
+        · 合金装备<br>
+        · 耻辱<br>
+        · 杀手<br>
+        · 刺客信条<br>
+        · 阿卡姆系列<br>
+        · 狙击精英<br>
+        · 细胞分裂
+      </div>
+    </div>
   </div>
   <div class="corner-panel bl" data-corner="interests">
-    <div class="ac-desc">电影和动画。叙事好的会反复看。</div>
-    <div class="ac-en">FILM</div>
-    <div class="ac-name">影像</div>
-  </div>
-  <div class="corner-panel br" data-corner="interests">
-    <div class="ac-desc">写点东西。想法多，落成文字的少。</div>
-    <div class="ac-en">WRITE</div>
-    <div class="ac-name">文字</div>
+    <div class="ac-desc cols">
+      <div><strong>国产乐队</strong>
+        · 醒山<br>
+        · 往生<br>
+        · 郁乐队<br>
+        · 霜冻前夜<br>
+        · 死因池<br>
+        · 黑冥煞<br>
+      </div>
+      <div><strong>国外乐队</strong>
+        · BMTH<br>
+        · KSE<br>
+        · EToS<br>
+        · Lorna Shore<br>
+        · Dreariness<br>
+        · ALAZKA<br>
+      </div>
+      <div><strong>音乐人</strong>
+        · 水树<br>
+        · 平沢進<br>
+        · Andy Cizek<br>
+      </div>
+    </div>
+    <div class="ac-en">BAND</div>
+    <div class="ac-name">乐队</div>
+    <div class="corner-panel br" data-corner="interests">
+      <div class="ac-desc cols">
+        <div><strong>剧集</strong>
+          · 超人与露易丝<br>
+          · 哥谭<br>
+          · V世代<br>
+        </div>
+        <div><strong>电影</strong>
+          · 超人：钢铁之躯<br>
+          · 蝙蝠侠大战超人<br>
+          · 正义联盟扎导版<br>
+          · 新蝙蝠侠<br>
+          · 诺兰蝙蝠侠<br>
+          · 美国队长 2 & 3<br>
+        </div>
+        <div><strong>动画/漫画</strong>
+          · 进击的巨人<br>
+          · 魔法少女小圆<br>
+          · 吊带袜天使<br>
+          · Fate/UBW<br>
+          · 炎拳<br>
+          · 蓦然回首<br>
+        </div>
+      </div>
+      <div class="ac-en">FILM</div>
+      <div class="ac-name">影像</div>
+    </div>
   </div>
 
   <!-- 右下角：项目贡献 -->
@@ -733,9 +877,10 @@
       <div class="pane" data-pane="core">
         <div class="p-name">我</div>
         <div class="p-en">RLCYYG</div>
-        <div class="p-desc">是学生，各种意义上的<br>
+        <div class="p-desc">是学生 各种意义上的<br>
           在尝试做点东西<br>
           模组、视频、文章<br>
+          以及这个网站<br>
         </div>
       </div>
       <!-- 项目 -->
@@ -747,7 +892,7 @@
               class="sub-en">DISKSAVIOR</span></a><br>
           我给
           <a class="p-link" href="https://www.mcmod.cn/modpack/769.html">GregTech Leisure</a>
-          整合包写的 KubeJS 私货<br>
+          整合包写的 <a class="p-link" href="https://www.mcmod.cn/class/2450.html">Kubejs</a> 私货<br>
           起因是存档跑图跑太大<br>
           装上后几乎不用跑图<br>
           毕业存档也才 100MB 出头<br>
@@ -766,9 +911,6 @@
       <div class="pane" data-pane="links">
         <div class="r-tag">在别处找到我</div>
         <div class="r-lines badges">
-          <a href="https://space.bilibili.com/668140372"><img
-              src="https://img.shields.io/badge/Bilibili-00A1D6?style=flat&logo=bilibili&logoColor=white"
-              alt="Bilibili"></a>
           <a href="https://github.com/rlcyyg1108"><img
               src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub"></a>
           <a href="https://steamcommunity.com/profiles/76561199215712354/"><img
@@ -777,6 +919,7 @@
               src="https://img.shields.io/badge/Email-EA4335?style=flat&logo=gmail&logoColor=white" alt="Email"></a>
           <a href="https://user.qzone.qq.com/1939063243"><img src="./qq.png" alt="QQ"></a>
           <a href="https://center.mcmod.cn/368168/"><img src="./mcmod.png" alt="MC百科"></a>
+          <a href="https://space.bilibili.com/668140372"><img src="./bilibili.png" alt="Bilibili"></a>
           <a href="https://www.xbox.com/zh-CN/play/user/rlcyyg1108"><img src="./xbox.png" alt="Xbox"></a>
           <a href="https://mods.factorio.com/user/rlcyyg1108"><img src="./factorio.png" alt="Factorio"></a>
         </div>
@@ -804,9 +947,6 @@
           <a class="p-link" href="https://space.bilibili.com/34786453">特别鸣谢</a><br>
           <a class="p-link" href="https://github.com/rlcyyg1108/rlcyyg_modpack/">此网站仓库</a>
         </div>
-      </div>
-      <!-- 项目 -->
-      <div class="pane" data-pane="projects">
       </div>
       <!-- 链接 -->
       <div class="pane" data-pane="links">
@@ -1084,7 +1224,7 @@
       const cx = r.left + r.width / 2;
       const cy = r.top + r.height / 2;
       const tickR = r.width * 285 / 560;
-      const gap = 5;
+      const gap = 12;
       const arcR = tickR + gap;
       const halfSpan = 22;
       const m = window.innerWidth < 1024 ? 20 : Math.min(54, Math.max(18, window.innerWidth * 0.045));
@@ -1114,7 +1254,6 @@
       }
     }
     window.addEventListener('resize', positionDeco);
-
 
     /* ============ 启动 ============ */
     renderRotation();

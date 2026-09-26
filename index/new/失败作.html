@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我不会陷落</title>
   <base target="_blank">
-  <link rel="icon" href="./index/rlcyyg1108圆.png">
+  <link rel="icon" href="./rlcyyg1108.png">
   <link rel="stylesheet"
     href="https://miaoda.feishu.cn/fonts/css2?family=Orbitron:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
   <style>
@@ -659,10 +659,158 @@
       font-weight: 500;
     }
 
+
+    /* ============ 开场 Intro ============ */
+    #intro {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      overflow: hidden;
+      background: #0d0d0d;
+      transition: opacity .45s ease, visibility 0s linear .45s;
+    }
+    #intro.done {
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    #intro.done #introHubRot,
+    #intro.done .cloud { animation-play-state: paused; }
+
+    #introBase {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, #161616 0%, #0a0a0a 70%);
+      transition: opacity .6s ease .2s;
+    }
+    #intro.entering #introBase { opacity: 0; }
+    /* 云层：整层，云团分组向两侧散开（无矩形裁剪，无接缝） */
+    #clouds { position: absolute; inset: 0; }
+    .cloud-go {
+      position: absolute;
+      transition: transform .95s cubic-bezier(.6, 0, .3, 1);
+      will-change: transform;
+    }
+    #intro.entering .cloud-go.go-l { transform: translateX(-130%); }
+    #intro.entering .cloud-go.go-r { transform: translateX(130%); }
+
+    /* 单个云团 */
+    .cloud {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(34px);
+      will-change: transform;
+    }
+    @keyframes driftA {
+      0%, 100% { transform: translate(-8%, -4%) scale(1); }
+      50% { transform: translate(10%, 7%) scale(1.1); }
+    }
+    @keyframes driftB {
+      0%, 100% { transform: translate(8%, 5%) scale(1.05); }
+      50% { transform: translate(-10%, -7%) scale(.95); }
+    }
+    @keyframes driftC {
+      0%, 100% { transform: translate(-5%, 8%) scale(1); }
+      50% { transform: translate(7%, -9%) scale(1.08); }
+    }
+
+    /* 巨大中心图：外层定位，旋转层，图片层 */
+    #introHub {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+    }
+    #introHubRot {
+      animation: introCCW 36s linear infinite;
+    }
+    @keyframes introCCW {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+    #introHubImg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(255, 255, 255, .7);
+      cursor: pointer;
+      transform: translate(-50%, -50%) scale(1.85);
+      transition: transform .3s ease, box-shadow .3s ease, opacity .25s ease;
+    }
+    #introHubImg:hover {
+      transform: translate(-50%, -50%) scale(1.95);
+      box-shadow: 0 0 30px rgba(255, 255, 255, .5), 0 0 70px rgba(255, 255, 255, .25);
+    }
+    /* 砸下（正向） */
+    #intro.entering #introHubImg {
+      animation: introSlam .62s cubic-bezier(.3, .8, .3, 1) .42s both;
+    }
+    @keyframes introSlam {
+      0% { transform: translate(-50%, -50%) scale(1.85); }
+      68% { transform: translate(-50%, -50%) scale(.95); }
+      85% { transform: translate(-50%, -50%) scale(1.03); }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+    /* 回升（倒放） */
+    #intro.lifting #introHubImg {
+      animation: introLift .75s cubic-bezier(.5, 0, .6, .3) both;
+    }
+    @keyframes introLift {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      100% { transform: translate(-50%, -50%) scale(1.85); }
+    }
+
+    /* 屏幕震动 */
+    @keyframes screenShake {
+      0%, 100% { transform: translate(0, 0); }
+      15% { transform: translate(-7px, 4px); }
+      35% { transform: translate(6px, -5px); }
+      55% { transform: translate(-5px, -3px); }
+      75% { transform: translate(4px, 4px); }
+    }
+    body.shaking { animation: screenShake .38s ease; }
+
+    /* 重播按钮 */
+    #replayBtn {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index: 60;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .35);
+      background: rgba(20, 20, 20, .4);
+      color: rgba(255, 255, 255, .7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: color .25s ease, border-color .25s ease, transform .25s ease;
+    }
+    #replayBtn:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, .8);
+      transform: rotate(-30deg);
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- 开场 Intro -->
+  <div id="intro">
+    <div id="introBase"></div>
+    <div id="clouds"></div>
+    <div id="introHub">
+      <div id="introHubRot">
+        <img id="introHubImg" src="./rlcyyg1108.png" alt="核心">
+      </div>
+    </div>
+  </div>
 
   <!-- 装饰延伸线 -->
   <div id="decoLines">
@@ -680,6 +828,13 @@
 
   <!-- 常驻角落装饰 -->
   <div class="corner-deco bl">RLCYYG © 2026</div>
+
+  <button id="replayBtn" title="重播开场" aria-label="重播开场">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12a9 9 0 1 0 3-6.7"/>
+      <path d="M3 4v5h5"/>
+    </svg>
+  </button>
 
   <!-- 四角：记忆 -->
   <div class="corner-panel tl" data-corner="artists">
@@ -917,11 +1072,11 @@
               src="https://img.shields.io/badge/Steam-1B2838?style=flat&logo=steam&logoColor=white" alt="Steam"></a>
           <a href="mailto:yzy_0920@qq.com"><img
               src="https://img.shields.io/badge/Email-EA4335?style=flat&logo=gmail&logoColor=white" alt="Email"></a>
-          <a href="https://user.qzone.qq.com/1939063243"><img src="./index/qq.png" alt="QQ"></a>
-          <a href="https://center.mcmod.cn/368168/"><img src="./index/mcmod.png" alt="MC百科"></a>
-          <a href="https://space.bilibili.com/668140372"><img src="./index/bilibili.png" alt="Bilibili"></a>
-          <a href="https://www.xbox.com/zh-CN/play/user/rlcyyg1108"><img src="./index/xbox.png" alt="Xbox"></a>
-          <a href="https://mods.factorio.com/user/rlcyyg1108"><img src="./index/factorio.png" alt="Factorio"></a>
+          <a href="https://user.qzone.qq.com/1939063243"><img src="./qq.png" alt="QQ"></a>
+          <a href="https://center.mcmod.cn/368168/"><img src="./mcmod.png" alt="MC百科"></a>
+          <a href="https://space.bilibili.com/668140372"><img src="./bilibili.png" alt="Bilibili"></a>
+          <a href="https://www.xbox.com/zh-CN/play/user/rlcyyg1108"><img src="./xbox.png" alt="Xbox"></a>
+          <a href="https://mods.factorio.com/user/rlcyyg1108"><img src="./factorio.png" alt="Factorio"></a>
         </div>
       </div>
     </aside>
@@ -937,7 +1092,7 @@
         <g id="decor"></g>
         <circle id="rimHit" cx="280" cy="280" r="270" fill="none" stroke="none" stroke-width="22"></circle>
       </svg>
-      <img id="hubImg" src="./index/rlcyyg1108圆.png" alt="核心">
+      <img id="hubImg" src="./rlcyyg1108.png" alt="核心">
     </div>
 
     <aside class="panel panel-right">
@@ -1106,7 +1261,7 @@
       let dirty = false;
 
       /* 外圈刻度缓慢自转：60s/圈，拖拽时暂停 */
-      if (autoRotating && mode !== 'rot') {
+      if (autoRotating && mode !== 'rot' && !introBusy) {
         state.autoAngle = (state.autoAngle + dt * 6) % 360;
         renderRotation();
       }
@@ -1255,13 +1410,136 @@
     }
     window.addEventListener('resize', positionDeco);
 
+    /* ============ 开场 Intro 逻辑 ============ */
+    const intro = document.getElementById('intro');
+    const introHubImg = document.getElementById('introHubImg');
+
+    /* ---- 云团 ---- */
+    const cloudContainer = document.getElementById('clouds');
+    const cloudShades = [
+      'radial-gradient(circle at 42% 38%, #c8c8c8 0%, #9a9a9a 18%, #5c5c5c 42%, #2a2a2a 66%, transparent 76%)',
+      'radial-gradient(circle at 58% 52%, #b0b0b0 0%, #828282 20%, #4c4c4c 44%, #222 68%, transparent 78%)',
+      'radial-gradient(circle at 40% 60%, #d2d2d2 0%, #a0a0a0 16%, #606060 40%, #2c2c2c 64%, transparent 74%)',
+      'radial-gradient(circle at 62% 42%, #9a9a9a 0%, #6a6a6a 24%, #3c3c3c 48%, #1c1c1c 70%, transparent 80%)',
+      'radial-gradient(circle at 50% 50%, #bcbcbc 0%, #8a8a8a 22%, #525252 46%, #262626 70%, transparent 80%)'
+    ];
+    const driftNames = ['driftA', 'driftB', 'driftC'];
+    function makeClouds(count, seed) {
+      for (let i = 0; i < count; i++) {
+        const wrap = document.createElement('div');
+        wrap.className = 'cloud-go ' + (i % 2 === 0 ? 'go-l' : 'go-r');
+        const size = 38 + ((i * 13 + seed) % 30);
+        wrap.style.width = size + 'vmax';
+        wrap.style.height = size + 'vmax';
+        wrap.style.left = (((i * 17 + seed) % 80) - 15) + '%';
+        wrap.style.top = (((i * 23 + seed) % 80) - 15) + '%';
+        const d = document.createElement('div');
+        d.className = 'cloud';
+        d.style.width = '100%';
+        d.style.height = '100%';
+        d.style.background = cloudShades[(i + seed) % cloudShades.length];
+        d.style.animation = driftNames[(i + seed) % 3] + ' ' + (20 + i * 4) + 's ease-in-out infinite';
+        d.style.animationDelay = (-i * 3 - seed) + 's';
+        wrap.appendChild(d);
+        cloudContainer.appendChild(wrap);
+      }
+    }
+    makeClouds(13, 4);
+
+    /* ---- 开场图尺寸 = 真实中心选中大小 ---- */
+    function sizeIntroHub() {
+      const rw = svg.getBoundingClientRect().width;
+      const finalPx = rw * 176 / 560 * 1.4773;
+      introHubImg.style.width = finalPx + 'px';
+      introHubImg.style.height = finalPx + 'px';
+    }
+    window.addEventListener('resize', sizeIntroHub);
+
+    /* ---- 刻度环快速旋转 ---- */
+    let introBusy = false, spinRAF = 0;
+    function spinRing(dir, dur, done) {
+      introBusy = true;
+      const startA = state.autoAngle;
+      const total = 720;
+      const t0 = performance.now();
+      cancelAnimationFrame(spinRAF);
+      function frame(now) {
+        const p = Math.min(1, (now - t0) / dur);
+        const e = dir > 0 ? (1 - Math.pow(1 - p, 3)) : (p * p * p);
+        state.autoAngle = startA + dir * total * e;
+        decorG.setAttribute('transform', 'rotate(' + state.autoAngle + ' ' + CX + ' ' + CY + ')');
+        if (p < 1) spinRAF = requestAnimationFrame(frame);
+        else { state.autoAngle = startA + dir * total; introBusy = false; done && done(); }
+      }
+      spinRAF = requestAnimationFrame(frame);
+    }
+
+    /* ---- 状态机 ---- */
+    let introState = 'waiting'; // waiting / entering / normal / reversing
+    function playIntro() {
+      if (introState !== 'waiting') return;
+      introState = 'entering';
+      intro.classList.add('entering');
+      intro.classList.remove('lifting');
+      /* 落定瞬间震动 */
+      setTimeout(() => document.body.classList.add('shaking'), 820);
+      setTimeout(() => document.body.classList.remove('shaking'), 1260);
+      /* 砸完交接：开场图淡出，露出真实中心 */
+      setTimeout(() => { introHubImg.style.opacity = '0'; }, 1080);
+      /* 刻度环顺时针高速归位 */
+      setTimeout(() => { spinRing(1, 1300); }, 1100);
+      /* 收尾：开场层淡出移除 */
+      setTimeout(() => {
+        intro.classList.add('done');
+        intro.classList.remove('entering');
+        introHubImg.style.opacity = '';
+        introState = 'normal';
+        sessionStorage.setItem('introSeen', '1');
+      }, 2500);
+    }
+
+    function playReplay() {
+      if (introState !== 'normal') return;
+      introState = 'reversing';
+      /* 以"已进入"状态显示开场层（云分开、图 scale1） */
+      intro.style.visibility = 'visible';
+      intro.classList.remove('done');
+      intro.classList.add('entering');
+      introHubImg.style.opacity = '1';
+      /* 刻度环先逆时针倒转 */
+      spinRing(-1, 1300);
+      /* 随后云层合拢 + 中心图回升 */
+      setTimeout(() => {
+        intro.classList.remove('entering');
+        intro.classList.add('lifting');
+      }, 550);
+      /* 回到等待状态 */
+      setTimeout(() => {
+        intro.classList.remove('lifting');
+        introState = 'waiting';
+      }, 1800);
+    }
+
+    introHubImg.addEventListener('click', playIntro);
+    document.getElementById('replayBtn').addEventListener('click', playReplay);
+
+
     /* ============ 启动 ============ */
     renderRotation();
     sizeHubImg();
+    sizeIntroHub();
     updateLines();
     positionDeco();
     select('core', true);
     requestAnimationFrame(animLoop);
+
+    /* 首次访问播放开场；之后跳过 */
+    if (sessionStorage.getItem('introSeen')) {
+      intro.classList.add('done');
+      introState = 'normal';
+    } else {
+      introState = 'waiting';
+    }
 
   </script>
 </body>

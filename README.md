@@ -3,5 +3,5 @@ Factorio自用模组包
 https://mods.factorio.com/mod/rlcyyg_modpack  
 我的个人网站  
 https://rlcyyg1108.github.io/rlcyyg_modpack  
-给洋馆做的资源网  
-https://rlcyyg1108.github.io/rlcyyg_modpack/acg/acg  
+新版个人网站  
+https://rlcyyg1108.github.io/rlcyyg_modpack/index/new/index  
