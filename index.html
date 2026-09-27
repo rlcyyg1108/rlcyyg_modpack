@@ -10,6 +10,12 @@
   <link rel="stylesheet"
     href="https://miaoda.feishu.cn/fonts/css2?family=Orbitron:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
   <style>
+    @font-face {
+      font-family: 'Orbitron';
+      src: url('./index/font/Orbitron.ttf') format('truetype');
+      font-weight: 100 900;
+      font-display: swap;
+    }
     * {
       box-sizing: border-box
     }
@@ -375,7 +381,10 @@
     .corner-panel.visible {
       opacity: 1;
     }
-    .corner-panel a { pointer-events: auto; }
+
+    .corner-panel a {
+      pointer-events: auto;
+    }
 
     .corner-panel.tl {
       top: clamp(18px, 4.5vh, 54px);
@@ -661,47 +670,173 @@
 
     /* ============ 移动端适配 ============ */
     @media (max-width: 768px) {
-      #ring { width: min(60vh, 52vw, 280px); }
-      #hubImg { width: 110px; height: 110px; }
+      #ring {
+        width: min(60vh, 52vw, 280px);
+      }
 
-      .panel-left, .panel-right { padding: 10px; }
-      .p-name { font-size: clamp(22px, 6vw, 34px); white-space: nowrap; text-shadow: 0 0 12px rgba(255,255,255,.4); }
-      .p-en { font-size: 9px; letter-spacing: .25em; margin-bottom: 6px; }
-      .p-desc { font-size: 12px; line-height: 1.6; }
-      .p-sub, .corner-sub { font-size: 17px; margin: 5px 0; white-space: nowrap; }
-      .sub-en, .sm-en { font-size: 8px; letter-spacing: .22em; }
-      .r-tag { font-size: 14px; margin-bottom: 5px; }
-      .r-lines { font-size: 12px; line-height: 1.7; }
+      #hubImg {
+        width: 110px;
+        height: 110px;
+      }
 
-      .corner-panel { max-width: 44vw; }
-      .corner-panel.tl, .corner-panel.tr, .corner-panel.bl { max-height: calc(50vh - 30px); }
-      .corner-panel.br[data-corner='projects'] { max-height: none; top: auto; }
-      .corner-panel .ac-name { font-size: clamp(22px, 6vw, 36px); white-space: nowrap; text-shadow: 0 0 12px rgba(255,255,255,.4); }
-      .corner-panel .ac-en { font-size: 9px; letter-spacing: .25em; }
-      .corner-panel .ac-desc { font-size: 11px; line-height: 1.55; }
-      .cols { gap: 6px; }
-      .cols strong { font-size: 11px; margin-bottom: 4px; }
+      .panel-left,
+      .panel-right {
+        padding: 10px;
+      }
 
-      .corner-deco { display: none; }
-      .r-lines.badges img { height: 26px; }
-      .corner-panel.tl { top: 10px; left: 10px; }
-      .corner-panel.tr { top: 10px; right: 10px; }
-      .corner-panel.bl { bottom: 10px; left: 10px; }
-      .corner-panel.br { bottom: 10px; right: 10px; }
-      .panel-right .pane[data-pane='core'] .p-desc { font-size: 16px !important; }
-      .corner-panel.br[data-corner='projects'] { top: 10px; bottom: 10px; }
-      .corner-panel.br[data-corner='projects'] .ac-en { margin-top: auto; }
-      .pane[data-pane='projects'].show { height: calc(100vh - 20px) !important; }
+      .p-name {
+        font-size: clamp(22px, 6vw, 34px);
+        white-space: nowrap;
+        text-shadow: 0 0 12px rgba(255, 255, 255, .4);
+      }
+
+      .p-en {
+        font-size: 9px;
+        letter-spacing: .25em;
+        margin-bottom: 6px;
+      }
+
+      .p-desc {
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .p-sub,
+      .corner-sub {
+        font-size: 17px;
+        margin: 5px 0;
+        white-space: nowrap;
+      }
+
+      .sub-en,
+      .sm-en {
+        font-size: 8px;
+        letter-spacing: .22em;
+      }
+
+      .r-tag {
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      .r-lines {
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .corner-panel {
+        max-width: 44vw;
+      }
+
+      .corner-panel.tl,
+      .corner-panel.tr,
+      .corner-panel.bl {
+        max-height: calc(50vh - 30px);
+      }
+
+      .corner-panel.br[data-corner='projects'] {
+        max-height: none;
+        top: auto;
+      }
+
+      .corner-panel .ac-name {
+        font-size: clamp(22px, 6vw, 36px);
+        white-space: nowrap;
+        text-shadow: 0 0 12px rgba(255, 255, 255, .4);
+      }
+
+      .corner-panel .ac-en {
+        font-size: 9px;
+        letter-spacing: .25em;
+      }
+
+      .corner-panel .ac-desc {
+        font-size: 11px;
+        line-height: 1.55;
+      }
+
+      .cols {
+        gap: 6px;
+      }
+
+      .cols strong {
+        font-size: 11px;
+        margin-bottom: 4px;
+      }
+
+      .corner-deco {
+        display: none;
+      }
+
+      .r-lines.badges img {
+        height: 26px;
+      }
+
+      .corner-panel.tl {
+        top: 10px;
+        left: 10px;
+      }
+
+      .corner-panel.tr {
+        top: 10px;
+        right: 10px;
+      }
+
+      .corner-panel.bl {
+        bottom: 10px;
+        left: 10px;
+      }
+
+      .corner-panel.br {
+        bottom: 10px;
+        right: 10px;
+      }
+
+      .panel-right .pane[data-pane='core'] .p-desc {
+        font-size: 16px !important;
+      }
+
+      .corner-panel.br[data-corner='projects'] {
+        top: 10px;
+        bottom: 10px;
+      }
+
+      .corner-panel.br[data-corner='projects'] .ac-en {
+        margin-top: auto;
+      }
+
+      .pane[data-pane='projects'].show {
+        height: calc(100vh - 20px) !important;
+      }
 
     }
 
     @media (max-width: 480px) {
-      .p-desc { font-size: 11px; }
-      .corner-panel .ac-desc { font-size: 10px; }
+      .p-desc {
+        font-size: 11px;
+      }
+
+      .corner-panel .ac-desc {
+        font-size: 10px;
+      }
     }
 
-    #mobileNotice { display: none; }
-    @media (max-width: 768px) { #mobileNotice.visible { display: block; position: fixed; left: 10px; bottom: 10px; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.4); z-index: 5; } }
+    #mobileNotice {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      #mobileNotice.visible {
+        display: block;
+        position: fixed;
+        left: 10px;
+        bottom: 10px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, .4);
+        z-index: 5;
+      }
+    }
   </style>
 </head>
 
