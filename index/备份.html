@@ -3,20 +3,19 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我不会陷落</title>
   <base target="_blank">
-  <link rel="icon" href="./index/photo/rlcyyg1108圆.png">
+  <link rel="icon" href="./photo/rlcyyg1108圆.png">
   <link rel="stylesheet"
     href="https://miaoda.feishu.cn/fonts/css2?family=Orbitron:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
   <style>
     @font-face {
       font-family: 'Orbitron';
-      src: url('./index/font/Orbitron.ttf') format('truetype');
+      src: url('./font/Orbitron.ttf') format('truetype');
       font-weight: 100 900;
       font-display: swap;
     }
-
     * {
       box-sizing: border-box
     }
@@ -32,38 +31,43 @@
       color: #fff;
       font-family: Arial, sans-serif;
       overflow: hidden;
-      background: #0d0d10;
+      background: #0c0c0c;
     }
 
-    /* 背景：一整块比视口大得多的对角渐变，300 秒极慢转一圈。
-       边长取 150vmax ≥ 视口对角线(≈1.414vmax)，转到任何角度都不会露边。 */
     body::before {
       content: "";
       position: fixed;
-      left: 50%;
-      top: 50%;
-      width: 150vmax;
-      height: 150vmax;
-      margin-left: -75vmax;
-      margin-top: -75vmax;
+      inset: 0;
       z-index: -1;
-      background: linear-gradient(115deg,
-          #0d0d10 0%,
-          #2a2a32 28%,
-          #14141a 52%,
-          #33333c 76%,
-          #0d0d10 100%);
-      will-change: transform;
-      animation: bgSpin 30s linear infinite;
+      background:
+        linear-gradient(-45deg, rgba(110, 110, 110, .5), rgba(14, 14, 14, .65), rgba(85, 85, 85, .5), rgba(8, 8, 8, .65), rgba(95, 95, 95, .5)),
+        linear-gradient(45deg, rgba(65, 65, 65, .5), rgba(6, 6, 6, .65), rgba(50, 50, 50, .5), rgba(12, 12, 12, .65));
+      background-size: 400% 400%;
+      animation: flow 50s linear infinite;
     }
 
-    @keyframes bgSpin {
-      from {
-        transform: rotate(0deg)
+    @keyframes flow {
+      0% {
+        background-position: 0% 50%, 100% 50%;
       }
 
-      to {
-        transform: rotate(360deg)
+      1% {
+        background-position: 0% 50%, 100% 50%;
+        animation-timing-function: ease-in-out;
+      }
+
+      50% {
+        background-position: 100% 50%, 0% 50%;
+        animation-timing-function: linear;
+      }
+
+      51% {
+        background-position: 100% 50%, 0% 50%;
+        animation-timing-function: ease-in-out;
+      }
+
+      100% {
+        background-position: 0% 50%, 100% 50%;
       }
     }
 
@@ -146,11 +150,9 @@
       min-width: 0
     }
 
-    /* 左栏撑满整列：顶部放「我」，底部放鸣谢/仓库 */
     .panel-left {
       justify-self: start;
-      align-self: stretch;
-      flex-direction: column;
+      align-self: start;
       padding-top: clamp(18px, 4.5vh, 54px);
       padding-bottom: clamp(18px, 4.5vh, 54px);
       padding-left: clamp(18px, 4.5vw, 54px);
@@ -181,11 +183,6 @@
 
     .pane.show {
       display: block
-    }
-
-    /* 贴到所在栏的底部 */
-    .pane-bottom {
-      margin-top: auto
     }
 
     .pane[data-pane='projects'].show {
@@ -236,10 +233,6 @@
       line-height: 1.8;
       color: #fff;
       text-shadow: 0 0 12px rgba(255, 255, 255, .4);
-    }
-
-    .p-desc.lg {
-      font-size: 32px;
     }
 
     .p-sub,
@@ -492,12 +485,9 @@
       fill-opacity: .06;
     }
 
-    /* 触屏上 :hover 点完之后不会自动消退，会一直卡住高亮 */
-    @media (hover: hover) and (pointer: fine) {
-      .sector:hover {
-        fill-opacity: .16;
-        filter: drop-shadow(0 0 6px rgba(255, 255, 255, .25));
-      }
+    .sector:hover {
+      fill-opacity: .16;
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, .25));
     }
 
     .sector.selected {
@@ -678,340 +668,173 @@
       font-weight: 500;
     }
 
-    /* ============ 可发现性提示：外环波纹 ============ */
-    #rimHint {
-      fill: none;
-      stroke: rgba(255, 255, 255, .4);
-      stroke-width: 1.2;
-      pointer-events: none;
-      transform-box: view-box;
-      transform-origin: 280px 280px;
-      animation: rimHint 2.8s ease-out 2s infinite backwards;
-    }
-
-    body.interacted #rimHint {
-      animation: none;
-      opacity: 0;
-    }
-
-    @keyframes rimHint {
-      0% {
-        transform: scale(.985);
-        opacity: 0
+    /* ============ 移动端适配 ============ */
+    @media (max-width: 768px) {
+      #ring {
+        width: min(60vh, 52vw, 280px);
       }
 
-      25% {
-        opacity: .45
+      #hubImg {
+        width: 110px;
+        height: 110px;
       }
 
-      100% {
-        transform: scale(1.035);
-        opacity: 0
+      .panel-left,
+      .panel-right {
+        padding: 10px;
+      }
+
+      .p-name {
+        font-size: clamp(22px, 6vw, 34px);
+        white-space: nowrap;
+        text-shadow: 0 0 12px rgba(255, 255, 255, .4);
+      }
+
+      .p-en {
+        font-size: 9px;
+        letter-spacing: .25em;
+        margin-bottom: 6px;
+      }
+
+      .p-desc {
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .p-sub,
+      .corner-sub {
+        font-size: 17px;
+        margin: 5px 0;
+        white-space: nowrap;
+      }
+
+      .sub-en,
+      .sm-en {
+        font-size: 8px;
+        letter-spacing: .22em;
+      }
+
+      .r-tag {
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      .r-lines {
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .corner-panel {
+        max-width: 44vw;
+      }
+
+      .corner-panel.tl,
+      .corner-panel.tr,
+      .corner-panel.bl {
+        max-height: calc(50vh - 30px);
+      }
+
+      .corner-panel.br[data-corner='projects'] {
+        max-height: none;
+        top: auto;
+      }
+
+      .corner-panel .ac-name {
+        font-size: clamp(22px, 6vw, 36px);
+        white-space: nowrap;
+        text-shadow: 0 0 12px rgba(255, 255, 255, .4);
+      }
+
+      .corner-panel .ac-en {
+        font-size: 9px;
+        letter-spacing: .25em;
+      }
+
+      .corner-panel .ac-desc {
+        font-size: 11px;
+        line-height: 1.55;
+      }
+
+      .cols {
+        gap: 6px;
+      }
+
+      .cols strong {
+        font-size: 11px;
+        margin-bottom: 4px;
+      }
+
+      .corner-deco {
+        display: none;
+      }
+
+      .r-lines.badges img {
+        height: 26px;
+      }
+
+      .corner-panel.tl {
+        top: 10px;
+        left: 10px;
+      }
+
+      .corner-panel.tr {
+        top: 10px;
+        right: 10px;
+      }
+
+      .corner-panel.bl {
+        bottom: 10px;
+        left: 10px;
+      }
+
+      .corner-panel.br {
+        bottom: 10px;
+        right: 10px;
+      }
+
+      .panel-right .pane[data-pane='core'] .p-desc {
+        font-size: 16px !important;
+      }
+
+      .corner-panel.br[data-corner='projects'] {
+        top: 10px;
+        bottom: 10px;
+      }
+
+      .corner-panel.br[data-corner='projects'] .ac-en {
+        margin-top: auto;
+      }
+
+      .pane[data-pane='projects'].show {
+        height: calc(100vh - 20px) !important;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+      .p-desc {
+        font-size: 11px;
+      }
+
+      .corner-panel .ac-desc {
+        font-size: 10px;
       }
     }
 
-    /* ============ 入场序列 ============ */
-    body.boot #ringWrap {
-      animation: bootRing 1s cubic-bezier(.2, .7, .25, 1) .05s both;
-    }
-
-    body.boot #decor {
-      animation: bootFade .9s ease-out .45s both;
-    }
-
-    body.boot #labels {
-      animation: bootFade .7s ease-out .85s both;
-    }
-
-    body.boot .panel-left {
-      animation: bootPanel .8s ease-out 1s both;
-    }
-
-    body.boot .panel-right {
-      animation: bootPanel .8s ease-out 1.15s both;
-    }
-
-    body.boot .corner-deco {
-      animation: bootFade .8s ease-out 1.4s both;
-    }
-
-    /* 与左右两栏一致走 bootPanel（淡入+上浮），而不是纯淡入 */
-    body.boot .corner-panel.visible {
-      animation: bootPanel .8s ease-out 1.1s both;
-    }
-
-    @keyframes bootRing {
-      from {
-        opacity: 0;
-        transform: scale(.9)
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1)
-      }
-    }
-
-    @keyframes bootFade {
-      from {
-        opacity: 0
-      }
-
-      to {
-        opacity: 1
-      }
-    }
-
-    @keyframes bootPanel {
-      from {
-        opacity: 0;
-        transform: translateY(14px)
-      }
-
-      to {
-        opacity: 1;
-        transform: none
-      }
-    }
-
-    /* ============ 移动端：圆盘在上，内容在下可滚 ============
-       由 JS 判定断点后给 body 加 .is-mobile，并创建 #mStack 搬运内容。
-       样式全部挂在 .is-mobile 上，保证与 JS 的判定完全一致、不会分叉。 */
-
-    #mStack {
+    #mobileNotice {
       display: none;
     }
 
-    /* body 变成上下两段：圆盘区（不滚）+ 内容区（滚） */
-    body.is-mobile {
-      height: 100vh;
-      height: 100dvh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    body.is-mobile main {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: auto;
-      flex: 0 0 auto;
-      padding: calc(env(safe-area-inset-top, 0px) + 8px) 0 4px;
-    }
-
-    body.is-mobile #ringWrap {
-      width: 100%;
-    }
-
-    body.is-mobile #ring {
-      width: min(46vh, 78vw, 360px);
-      width: min(46dvh, 78vw, 360px);
-    }
-
-    /* 圆盘变小后，扇区文字按比例会缩到 11px，这里反向补回来 */
-    body.is-mobile .s-name {
-      font-size: 30px;
-    }
-
-    body.is-mobile .s-idx {
-      font-size: 13px;
-    }
-
-    /* 拖拽命中区：viewBox 单位，34 在约 300px 的盘上约合 18px */
-    body.is-mobile #rimHit {
-      stroke-width: 34;
-    }
-
-    body.is-mobile #mStack {
-      display: block;
-      flex: 1 1 auto;
-      min-height: 0;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      overscroll-behavior: contain;
-      padding: 6px clamp(16px, 5vw, 26px) calc(env(safe-area-inset-bottom, 0px) + 32px);
-    }
-
-    /* 移动端砍掉：装饰延伸线（会横穿内容区）与角落署名 */
-    body.is-mobile #decoLines,
-    body.is-mobile .corner-deco {
-      display: none;
-    }
-
-    /* ---- 左右分栏 → 纵向卡片 ---- */
-    body.is-mobile .panel {
-      display: block;
-      padding: 0;
-      text-align: left;
-      justify-self: auto;
-      align-self: auto;
-    }
-
-    body.is-mobile .panel-right {
-      text-align: left;
-    }
-
-    body.is-mobile .pane.show {
-      padding: 4px 0 14px;
-    }
-
-    body.is-mobile .pane-bottom {
-      margin-top: 14px;
-    }
-
-    body.is-mobile .pane[data-pane='projects'].show {
-      display: block;
-      height: auto;
-    }
-
-    body.is-mobile .pane[data-pane='projects'] .p-desc {
-      margin-top: 0;
-    }
-
-    /* ---- 四角面板：固定定位 → 栈内卡片 ---- */
-    body.is-mobile .corner-panel {
-      position: static;
-      top: auto;
-      right: auto;
-      bottom: auto;
-      left: auto;
-      display: none;
-      max-width: none;
-      max-height: none;
-      text-align: left;
-      padding: 16px 0 18px;
-      border-top: 1px solid rgba(255, 255, 255, .14);
-    }
-
-    body.is-mobile .corner-panel.visible {
-      display: flex;
-    }
-
-    /* 原本 bottom 角的卡片是「正文在上、标题在下」，纵向流里统一把标题提到顶部。
-       两套类名（ac-* 与 p-*）都覆盖，避免换类后失效 */
-    body.is-mobile .corner-panel .ac-name,
-    body.is-mobile .corner-panel .p-name {
-      order: -2;
-    }
-
-    body.is-mobile .corner-panel .ac-en,
-    body.is-mobile .corner-panel .p-en {
-      order: -1;
-      margin: 0 0 8px;
-    }
-
-    body.is-mobile .corner-panel .ac-desc,
-    body.is-mobile .corner-panel .p-desc {
-      order: 0;
-    }
-
-    body.is-mobile .corner-panel .word {
-      order: 1;
-    }
-
-    body.is-mobile .corner-panel.br[data-corner='projects'] .ac-en {
-      margin-top: 0;
-      margin-bottom: 8px;
-    }
-
-    /* ---- 字号：移动端原来的 11~12px 太小，统一提到可读区间 ---- */
-    body.is-mobile .p-name,
-    body.is-mobile .ac-name {
-      font-size: clamp(28px, 9vw, 40px);
-      white-space: normal;
-      text-shadow: 0 0 14px rgba(255, 255, 255, .4);
-      margin-bottom: 2px;
-    }
-
-    body.is-mobile .p-en,
-    body.is-mobile .ac-en {
-      font-size: 10px;
-      letter-spacing: .3em;
-      margin-bottom: 10px;
-    }
-
-    body.is-mobile .p-desc,
-    body.is-mobile .ac-desc,
-    body.is-mobile .p-desc.lg {
-      font-size: 15px;
-      line-height: 1.9;
-      text-shadow: 0 0 8px rgba(255, 255, 255, .3);
-    }
-
-    body.is-mobile .p-sub,
-    body.is-mobile .corner-sub {
-      font-size: 21px;
-      white-space: normal;
-      margin: 14px 0 6px;
-    }
-
-    body.is-mobile .sub-en,
-    body.is-mobile .sm-en {
-      font-size: 9px;
-      letter-spacing: .3em;
-    }
-
-    body.is-mobile .word {
-      font-size: 15px;
-      margin-top: 10px;
-    }
-
-    body.is-mobile .r-tag {
-      font-size: 19px;
-      margin-bottom: 8px;
-    }
-
-    body.is-mobile .r-lines {
-      font-size: 15px;
-      line-height: 2;
-    }
-
-    /* 三列 8em 的固定网格在窄屏会撑爆，改成自适应列数 */
-    body.is-mobile .cols {
-      grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
-      gap: 10px 14px;
-      width: 100%;
-    }
-
-    body.is-mobile .cols strong {
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
-
-    /* 徽章竖排在移动端占太高，改成横排换行 */
-    body.is-mobile .r-lines.badges,
-    body.is-mobile .panel-right .r-lines.badges {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 12px 10px;
-      align-items: center;
-    }
-
-    body.is-mobile .r-lines.badges img {
-      height: 30px;
-    }
-
-    /* ---- 横屏：圆盘挪到左侧，内容在右 ---- */
-    @media (orientation: landscape) and (max-height: 560px) {
-      body.is-mobile {
-        flex-direction: row;
-      }
-
-      body.is-mobile main {
-        width: 40vw;
-        flex: 0 0 40vw;
-        height: 100%;
-        padding: 6px 0;
-      }
-
-      body.is-mobile #ring {
-        width: min(80vh, 34vw, 300px);
-        width: min(80dvh, 34vw, 300px);
-      }
-
-      body.is-mobile #mStack {
-        height: 100%;
+    @media (max-width: 768px) {
+      #mobileNotice.visible {
+        display: block;
+        position: fixed;
+        left: 10px;
+        bottom: 10px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, .4);
+        z-index: 5;
       }
     }
   </style>
@@ -1035,24 +858,6 @@
 
   <!-- 常驻角落装饰 -->
   <div class="corner-deco bl">RLCYYG © 2026</div>
-
-  <!-- core 态两块角面板：与左栏「我」共用 p-name/p-en/p-desc，保证排版与特效一致 -->
-  <div class="corner-panel tr" data-corner="core">
-    <div class="p-name">关于</div>
-    <div class="p-en">ABOUT</div>
-    <div class="p-desc">
-      初版写于2025.2.11<br>
-      现版写于2026.9.17<br>
-    </div>
-  </div>
-
-  <div class="corner-panel br" data-corner="core">
-    <div class="p-desc">
-      不知道写啥<br>
-      <div class="ac-en">STATUS</div>
-      <div class="ac-name">近况</div>
-    </div>
-  </div>
 
   <!-- 四角：记忆 -->
   <div class="corner-panel tl" data-corner="artists">
@@ -1258,12 +1063,10 @@
           以及这个网站<br>
         </div>
       </div>
-      <!-- 中心：鸣谢与仓库（左栏底部） -->
-      <div class="pane pane-bottom" data-pane="core">
-        <div class="p-desc lg">
-          <a class="p-link" href="https://space.bilibili.com/34786453">特别鸣谢</a><br>
-          <a class="p-link" href="https://github.com/rlcyyg1108/rlcyyg_modpack/">此网站仓库</a>
-        </div>
+      <div id="mobileNotice">
+        本页面的移动端适配不良<br>
+        请使用 PC 端查看<br>
+        以获得最佳体验
       </div>
       <!-- 项目 -->
       <div class="pane" data-pane="projects">
@@ -1298,11 +1101,11 @@
               src="https://img.shields.io/badge/Steam-1B2838?style=flat&logo=steam&logoColor=white" alt="Steam"></a>
           <a href="mailto:yzy_0920@qq.com"><img
               src="https://img.shields.io/badge/Email-EA4335?style=flat&logo=gmail&logoColor=white" alt="Email"></a>
-          <a href="https://user.qzone.qq.com/1939063243"><img src="./index/photo/qq.png" alt="QQ"></a>
-          <a href="https://center.mcmod.cn/368168/"><img src="./index/photo/mcmod.png" alt="MC百科"></a>
-          <a href="https://space.bilibili.com/668140372"><img src="./index/photo/bilibili.png" alt="Bilibili"></a>
-          <a href="https://www.xbox.com/zh-CN/play/user/rlcyyg1108"><img src="./index/photo/xbox.png" alt="Xbox"></a>
-          <a href="https://mods.factorio.com/user/rlcyyg1108"><img src="./index/photo/factorio.png" alt="Factorio"></a>
+          <a href="https://user.qzone.qq.com/1939063243"><img src="./photo/qq.png" alt="QQ"></a>
+          <a href="https://center.mcmod.cn/368168/"><img src="./photo/mcmod.png" alt="MC百科"></a>
+          <a href="https://space.bilibili.com/668140372"><img src="./photo/bilibili.png" alt="Bilibili"></a>
+          <a href="https://www.xbox.com/zh-CN/play/user/rlcyyg1108"><img src="./photo/xbox.png" alt="Xbox"></a>
+          <a href="https://mods.factorio.com/user/rlcyyg1108"><img src="./photo/factorio.png" alt="Factorio"></a>
         </div>
       </div>
     </aside>
@@ -1316,13 +1119,19 @@
         </g>
         <g id="labels"></g>
         <g id="decor"></g>
-        <circle id="rimHint" cx="280" cy="280" r="270"></circle>
         <circle id="rimHit" cx="280" cy="280" r="270" fill="none" stroke="none" stroke-width="22"></circle>
       </svg>
-      <img id="hubImg" src="./index/photo/rlcyyg1108圆.png" alt="核心">
+      <img id="hubImg" src="./photo/rlcyyg1108圆.png" alt="核心">
     </div>
 
     <aside class="panel panel-right">
+      <!-- 中心：我 -->
+      <div class="pane" data-pane="core">
+        <div class="p-desc" style="font-size: 32px;"><br>
+          <a class="p-link" href="https://space.bilibili.com/34786453">特别鸣谢</a><br>
+          <a class="p-link" href="https://github.com/rlcyyg1108/rlcyyg_modpack/">此网站仓库</a>
+        </div>
+      </div>
       <!-- 链接 -->
       <div class="pane" data-pane="links">
         <div class="p-name">链接</div>
@@ -1362,7 +1171,6 @@
     const state = { angle: 0, autoAngle: 0, selectedId: 'core', kickV: 0 };
     let autoRotating = true;
     const reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
-    const hoverMQ = matchMedia('(hover: hover) and (pointer: fine)');
     const NS = 'http://www.w3.org/2000/svg';
     const $ = s => document.querySelector(s);
 
@@ -1479,7 +1287,7 @@
     function syncTargets() {
       SECTORS.forEach(s => {
         const el = sectorsG.querySelector('[data-sid="' + s.id + '"]');
-        const hovered = hoverMQ.matches && el.matches(':hover');
+        const hovered = el.matches(':hover');
         geo[s.id].target = s.id === state.selectedId ? SEL_OUT : (hovered ? HOVER_OUT : R_OUT);
       });
     }
@@ -1560,8 +1368,7 @@
       syncTargets();
       panes.forEach(p => p.classList.toggle('show', p.dataset.pane === id));
       cornerEls.forEach(el => el.classList.toggle('visible', el.dataset.corner === id));
-      /* 移动端切板块后回到内容顶部，否则会停在上一板块的滚动位置 */
-      if (mStack) mStack.scrollTop = 0;
+      document.getElementById('mobileNotice').classList.toggle('visible', id === 'core');
       main.classList.toggle('mirror', id === 'links');
       /* deco lines: 智能切换——只动需要变的方向 */
       const dl = document.getElementById('decoLines');
@@ -1581,58 +1388,6 @@
       }
     }
 
-    /* ============ 移动端重排：圆盘在上，内容在下可滚 ============
-     * 四角面板是 position:fixed 的 body 子元素，纯 CSS 无法让它们进入下方内容流，
-     * 所以由 JS 在断点切换时把它们和左右两栏一起搬进 #mStack。
-     * 每条元素都记下原父节点与后继节点，切回桌面端时原样还原。
-     */
-    const MQ_MOBILE = '(max-width: 768px), (max-height: 560px) and (orientation: landscape)';
-    const mqMobile = matchMedia(MQ_MOBILE);
-    const ringWrapEl = document.getElementById('ringWrap');
-    const panelLeft = document.querySelector('.panel-left');
-    const panelRight = document.querySelector('.panel-right');
-
-    /* markup 修正：「影像」原本被错嵌在「乐队」面板内部，先提到 body 层 */
-    const nestedPanel = document.querySelector('.corner-panel .corner-panel');
-    const projPanel = document.querySelector('.corner-panel.br[data-corner="projects"]');
-    if (nestedPanel && projPanel) document.body.insertBefore(nestedPanel, projPanel);
-
-    const cornerList = Array.prototype.slice.call(document.querySelectorAll('.corner-panel'));
-    cornerList.forEach(el => { el._home = el.parentNode; el._next = el.nextElementSibling; });
-
-    let mStack = null;
-    function toMobile() {
-      if (!mStack) { mStack = document.createElement('div'); mStack.id = 'mStack'; }
-      /* 右栏先放：core 态右栏为空，links 态则是「链接」标题排在徽章之前 */
-      mStack.appendChild(panelRight);
-      mStack.appendChild(panelLeft);
-      cornerList.forEach(el => mStack.appendChild(el));
-      document.body.appendChild(mStack);
-    }
-    function toDesktop() {
-      if (!mStack) return;
-      main.insertBefore(panelLeft, ringWrapEl);
-      main.appendChild(panelRight);
-      cornerList.forEach(el => {
-        if (el._next && el._next.parentNode === el._home) el._home.insertBefore(el, el._next);
-        else el._home.appendChild(el);
-      });
-      mStack.remove();
-    }
-    let mobile = null;
-    function applyLayout() {
-      const on = mqMobile.matches;
-      if (on === mobile) return;
-      mobile = on;
-      document.body.classList.toggle('is-mobile', on);
-      if (on) toMobile(); else toDesktop();
-      /* 圆盘尺寸与装饰线位置都依赖布局，重排后要重算 */
-      sizeHubImg();
-      positionDeco();
-    }
-    if (mqMobile.addEventListener) mqMobile.addEventListener('change', applyLayout);
-    else mqMobile.addListener(applyLayout);
-
     /* ============ 指针交互 ============ */
     let mode = null, rotStart = null;
     function angleFromEvent(e) {
@@ -1640,7 +1395,6 @@
       return Math.atan2(e.clientY - (r.top + r.height / 2), e.clientX - (r.left + r.width / 2)) * 180 / Math.PI;
     }
     svg.addEventListener('pointerdown', e => {
-      markInteracted();
       const rim = e.target.closest ? e.target.closest('#rimHit') : null;
       if (rim) {
         mode = 'rot';
@@ -1662,7 +1416,6 @@
     svg.addEventListener('pointercancel', () => { mode = null; rotStart = null; document.body.classList.remove('rotating'); });
 
     window.addEventListener('keydown', e => {
-      markInteracted();
       if (e.key === 'ArrowLeft') { state.angle -= GAP; renderRotation(); }
       else if (e.key === 'ArrowRight') { state.angle += GAP; renderRotation(); }
     });
@@ -1710,28 +1463,13 @@
     }
     window.addEventListener('resize', positionDeco);
 
-    /* ============ 可发现性：外环波纹，首次交互后消失 ============ */
-    let interacted = false;
-    function markInteracted() {
-      if (interacted) return;
-      interacted = true;
-      document.body.classList.add('interacted');
-    }
-    if (reduceMQ.matches) markInteracted();
-
     /* ============ 启动 ============ */
-    applyLayout();
     renderRotation();
     sizeHubImg();
     updateLines();
     positionDeco();
     select('core', true);
-    document.body.classList.add('boot');
     requestAnimationFrame(animLoop);
-    /* 入场期间 #ringWrap 处于 scale(.9)，结束后按真实尺寸重算 */
-    setTimeout(() => { sizeHubImg(); positionDeco(); }, 1250);
-    /* 入场是一次性的：跑完就摘掉 boot，避免后续切换被入场延迟拖慢 */
-    setTimeout(() => document.body.classList.remove('boot'), 2400);
 
   </script>
 </body>
