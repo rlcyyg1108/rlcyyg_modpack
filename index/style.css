@@ -704,60 +704,6 @@
         stroke-dashoffset .55s ease-in-out .45s;
     }
 
-    /* ---- 延伸线上的游走光点 ----
-       线长出来之后就死住了，显得很呆。给每条线挂一颗 2px 的光点，沿「屏幕边缘 → 圆心」
-       缓慢往复（8s 一个来回）。线的长度是 JS 每帧按视口算的，所以位移只能用百分比。
-       左右两条线的「圆心那一端」在盒子的不同侧，所以右线 / 下线用 alternate-reverse
-       走反方向，四颗光点就都是朝圆心去的。
-       隐藏态线是 scaleX(0) / scaleY(0)，光点跟着一起被压没，不用额外处理。 */
-    #decoLines .dline::after {
-      content: '';
-      position: absolute;
-      background: rgba(255, 255, 255, .9);
-      box-shadow: 0 0 7px rgba(255, 255, 255, .65);
-      animation: decoDotX 8s ease-in-out infinite alternate;
-    }
-
-    #decoLines .dline.left::after,
-    #decoLines .dline.right::after {
-      width: 2px;
-      height: 3px;
-      top: -1px;
-    }
-
-    #decoLines .dline.top::after,
-    #decoLines .dline.bottom::after {
-      width: 3px;
-      height: 2px;
-      left: -1px;
-      animation-name: decoDotY;
-    }
-
-    /* 盒子靠屏幕边缘的那一端 → 靠圆心的那一端 */
-    #decoLines .dline.right::after,
-    #decoLines .dline.bottom::after {
-      animation-direction: alternate-reverse;
-    }
-
-    @keyframes decoDotX {
-      from {
-        left: 0
-      }
-
-      to {
-        left: calc(100% - 2px)
-      }
-    }
-
-    @keyframes decoDotY {
-      from {
-        top: 0
-      }
-
-      to {
-        top: calc(100% - 2px)
-      }
-    }
 
     /* ============ 常驻角落装饰 ============ */
     .corner-deco {

@@ -18,13 +18,20 @@ const SECTORS = [
 ];
 
 /* ============ 刻度环转速 ============ */
-const AUTO_SPEED = 12;                // deg/s 常驻自转（60s/圈）
-const KICK_V0 = 420;                 // deg/s 切换板块时的冲量初速度
-const KICK_TAU = 0.40;               // s    衰减时间常数（越大减速越慢）
-/* 每个板块一档收尾速度：同样的冲量，衰减常数不同 ⇒ 「利落」与「沉」分得开。
-   项目最短（爽快）、记忆最长（沉得住），这是入场里最便宜的一处性格差异。 */
-const KICK_TAU_BY = { projects: .32, links: .38, interests: .40, core: .45, artists: .50 };
-const KICK_STOP = AUTO_SPEED;        // deg/s 低于此值归零，与常驻自转无缝衔接
+const AUTO_SPEED = 12;               // deg/s 常驻自转（60s/圈）
+/* 切换板块时，在常驻自转之上叠一段「额外旋转」，用一条两端斜率都为 0 的钟形包络
+   驱动：起手没有速度跳变（不显生硬），中段冲到峰值，尾段慢慢收回到常驻自转，
+   全程速度连续，读起来是顺的一记回旋而不是忽快忽慢。 */
+const SPIN_PEAK = 360;              // deg/s 额外旋转的峰值速度（点下那一刻就达到）
+const SPIN_DUR = 1.4;               // s    额外旋转的总时长
+const spinBoost = { t: 0, active: false };
+/* 包络 = (1-p)²：点下那一帧就拉到峰值（立即开始转），之后匀速减速、尾段平滑收到 0
+   （p=1 处斜率为 0，与常驻自转 12 deg/s 无缝衔接）。整段速度连续，不存在中途忽快忽慢。 */
+function spinBump(p) {
+  if (p <= 0 || p >= 1) return 0;
+  const q = 1 - p;
+  return q * q;
+}
 
 /* ============ 背景亮带 ============ */
 const BG_SPIN = 12;                  // deg/s 被动自转（30s/圈，沿用用户调过的速度）
@@ -35,7 +42,7 @@ const BG_BREATH = 26;                // s    亮带亮度呼吸的周期（与 8
 const BG_ANGLE = { projects: 0, links: 0, interests: 90, artists: 90 };
 
 /* ============ 状态 ============ */
-const state = { angle: 0, autoAngle: 0, selectedId: 'core', kickV: 0 };
+const state = { angle: 0, autoAngle: 0, selectedId: 'core' };
 let autoRotating = true;
 const reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
 const hoverMQ = matchMedia('(hover: hover) and (pointer: fine)');
@@ -193,15 +200,16 @@ function animLoop(t) {
   const dt = Math.max(0, Math.min((t - lastT) / 1000, 0.12)); lastT = t;
   let dirty = false;
 
-  /* 外圈刻度：常驻缓慢自转 + 切换板块时的冲量（拖拽时整体暂停） */
+  /* 外圈刻度：常驻缓慢自转 + 切换板块时叠一记顺滑回旋（拖拽时整体暂停） */
   if (mode !== 'rot') {
     let v = autoRotating ? AUTO_SPEED : 0;
-    if (state.kickV > KICK_STOP) {
-      v += state.kickV;
-      state.kickV *= Math.exp(-dt / (KICK_TAU_BY[state.selectedId] || KICK_TAU));
-      if (state.kickV < KICK_STOP) state.kickV = 0;
-    } else {
-      state.kickV = 0;
+    if (spinBoost.active && autoRotating) {
+      spinBoost.t += dt;
+      const p = spinBoost.t / SPIN_DUR;
+      if (p >= 1) spinBoost.active = false;
+      else v += SPIN_PEAK * spinBump(p);
+    } else if (!autoRotating) {
+      spinBoost.active = false;     // 自转被关时别让 boost 一直挂着
     }
     if (v) {
       state.autoAngle = (state.autoAngle + v * dt) % 360;
@@ -1221,9 +1229,8 @@ function select(id, silent) {
 
   if (!silent) {
     panes.forEach(p => { if (p.classList.contains('show')) { p.style.animation = 'none'; void p.offsetWidth; p.style.animation = ''; } });
-    /* 切换板块：给刻度环一记冲量，高速转约 .5s 后缓慢减速
-       （衰减常数按板块走 KICK_TAU_BY，收尾快慢就是各板块的性格之一） */
-    if (!reduceMQ.matches) state.kickV = KICK_V0;
+    /* 切换板块：给刻度环叠一记顺滑回旋（两端无速度跳变，慢慢收回到常驻自转） */
+    if (!reduceMQ.matches) { spinBoost.t = 0; spinBoost.active = true; }
     startEntry(id);
   }
 }
