@@ -326,6 +326,8 @@
       height: 40px;
       display: block;
       pointer-events: none;
+      /* 纯黑白主题：徽标图标一律转为灰度，不改动图片文件本身 */
+      filter: grayscale(1);
     }
 
     .r-lines.badges a.txt-link {
@@ -1221,22 +1223,85 @@
       padding: 0;
     }
 
-    /* ---- 移动端：标题压到圆盘下方，长条夹在标题与徽章之间 ---- */
+    /* ============ 移动端：三栏（轮转 | 展示区 | 标题 + 个人链接）============
+       标题原本横在圆盘下方、徽章横满屏幕底 —— 这一版把两块合成一条【右栏】：
+       标题落在右栏顶、徽章竖排在它下面。中间那条展示区据此收窄（宽度由 JS 按
+       右栏实测宽度算，见 measure()），不再一路铺到屏幕右边去挤那一条。
+       --rcol（右栏宽）/ --bh（徽章高度）都由 JS 写，三处共用同一个值。 */
+
+    body.is-mobile #linkHead {
+      right: 14px;
+      left: auto;
+      max-width: var(--rcol, 150px);
+      line-height: 1.1;
+    }
+
     body.is-mobile #linkHead .p-name {
-      font-size: clamp(30px, 9vw, 44px);
+      font-size: clamp(22px, 6.5vw, 32px);
+      white-space: nowrap;
+    }
+
+    body.is-mobile #linkHead .p-en {
+      font-size: 9px;
+      letter-spacing: .26em;
+      margin-bottom: 2px;
     }
 
     body.is-mobile #linkHead .p-desc {
-      font-size: 13px;
+      font-size: 11px;
+      margin-top: 3px;
+      white-space: nowrap;
     }
 
+    /* 徽章：竖排一列贴右，顶端由 JS 按标题下沿写。
+       【图片只给 max-height / max-width、宽高都留 auto】—— 两条 max 同时生效时
+       浏览器按原比例取小，所以宽高比大的那条会被压得更扁，整列永远不会横着溢出。
+       高度上限 --bh 是 JS 按「有多少竖直空间」算的，窄屏上会自动缩到能放下为止。 */
     body.is-mobile #linkBadges {
-      max-width: calc(100vw - 32px);
-      gap: 6px;
+      left: auto;
+      right: 14px;
+      bottom: auto;
+      max-width: none;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: flex-end;
+      /* 缝宽由 JS 按剩余高度均摊（7~30px），窄屏摆不满就照 30px 排在上半段 */
+      gap: var(--bgap, 7px);
+      line-height: 0;
+    }
+
+    body.is-mobile #linkBadges a {
+      display: block;
     }
 
     body.is-mobile #linkBadges img {
-      height: 32px;
+      width: auto;
+      height: auto;
+      max-height: var(--bh, 28px);
+      max-width: var(--rcol, 150px);
+      /* 与桌面端一致：移动端徽标同样转灰度，不改动图片文件 */
+      filter: grayscale(1);
+    }
+
+    /* 展示区被夹成中间一条：表头与列表的内边距各收一档，标题字号也降一点，
+       否则「收藏夹栏 + 10 站」这一行在 170px 宽的条里必然被省略号截断。 */
+    body.is-mobile .pn-head {
+      padding: 9px 8px 8px;
+      gap: 6px;
+    }
+
+    body.is-mobile .pn-title {
+      font-size: 16px;
+    }
+
+    body.is-mobile .pn-count {
+      font-size: 10px;
+      letter-spacing: .1em;
+    }
+
+    body.is-mobile .pn-list {
+      padding: 6px 4px 12px 8px;
     }
 
     /* ============ 入场序列 ============ */
@@ -1700,18 +1765,8 @@
       margin-bottom: 6px;
     }
 
-    /* 徽章竖排在移动端占太高，改成横排换行 */
-    body.is-mobile .r-lines.badges,
-    body.is-mobile .panel-right .r-lines.badges {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 12px 10px;
-      align-items: center;
-    }
-
-    body.is-mobile .r-lines.badges img {
-      height: 30px;
-    }
+    /* 徽章的移动端排布已整块挪到上面 #linkBadges 那一段（竖排右栏），
+       这里不再重复定义，避免 `.r-lines.badges` 的横排规则和 id 规则打架。 */
 
     /* ---- 横屏：圆盘挪到左侧，内容在右 ---- */
     @media (orientation: landscape) and (max-height: 560px) {

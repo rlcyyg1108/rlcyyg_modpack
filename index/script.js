@@ -607,6 +607,7 @@ const CUR_W = 118, CUR_H = 68;
 const CARD_GAP = 6;                           // 列模式下卡片之间的间隙
 const ELLIPSE_MIN_VW = 1500;                  // 视口窄于此一律走「一列」模式
 const ELLIPSE_MIN_PANEL = 220;                // 椭圆模式要求中心至少留这么宽给展示区
+const PANEL_MIN_M = 132;                      // 移动端三栏里，中间那条展示区至少留这么宽
 const SCROLL_MIN = 10;                        // 展示区站点数 ≥ 此值才显示滚动条
 
 const deckEl = $('#deck');
@@ -681,20 +682,55 @@ function measure() {
   const rr = svg.getBoundingClientRect();
   const isM = document.body.classList.contains('is-mobile');
 
-  if (isM) linkHead.style.top = Math.round(rr.bottom + 6) + 'px';
-  else linkHead.style.top = '';
-
-  const headR = linkHead.getBoundingClientRect();
-  const badgeR = linkBadges.getBoundingClientRect();
-
-  let limL, limR, topLim, botLim;
+  let limL, limR, topLim, botLim, rw = 0;
   if (isM) {
+    /* ============ 移动端三栏：轮转（左）/ 展示区（中）/ 标题 + 个人链接（右） ============
+       标题原本横在圆盘下方、徽章横满屏幕底 —— 两块合成右栏之后，
+       「圆盘下沿 → 视口底」这一整条都腾出来给三栏，上下都吃满。 */
+    linkHead.style.top = Math.round(rr.bottom) + 8 + 'px';
+    const headR = linkHead.getBoundingClientRect();
+    const badgeTop = Math.round(headR.bottom + 8);
+    linkBadges.style.top = badgeTop + 'px';
+
+    /* 右栏宽度只能【实测】：这一列里混着 shields.io 的长条和本地 png，
+       最宽那条差不多是最窄的两倍，写死一个宽度不是切掉尾巴就是白占地方。
+       先把高度上限放开量一次自然宽度，超预算再整列等比缩一档高度，
+       最后把实测宽度写进 --rcol —— 右栏自己、标题的 max-width、中间那条展示区
+       全用这一个值，三处永远对齐。 */
+    const nB = Math.max(1, linkBadges.children.length), bGap = 7;
+    const availH = Math.max(140, (vh - 14) - badgeTop);
+    let bh = Math.max(16, Math.min(30, Math.floor((availH - (nB - 1) * bGap) / nB)));
+    /* 右栏最多能占多宽 = 总宽 − 左右边距 − 卡片列 − 两道 12px 缝 − 展示区最小宽 */
+    const room = Math.max(84, Math.min(Math.round(vw * 0.32),
+      (vw - 28) - (CUR_W + 12) - 12 - PANEL_MIN_M));
+
+    document.body.style.setProperty('--rcol', '999px');   /* 先放开上限，量自然宽度 */
+    document.body.style.setProperty('--bh', bh + 'px');
+    let w0 = linkBadges.getBoundingClientRect().width || 0;
+    if (w0 > room) {
+      bh = Math.max(16, Math.floor(bh * room / w0));
+      document.body.style.setProperty('--bh', bh + 'px');
+      w0 = linkBadges.getBoundingClientRect().width || 0;
+    }
+    rw = Math.max(84, Math.min(room, Math.ceil(w0) || room));
+    document.body.style.setProperty('--rcol', rw + 'px');
+    /* 徽章之间的缝：定完剩余的高度均摊掉，最多 30px —— 少了挤成一坨，
+       多了散成一串珠子。窄屏上高度用不完就按 30px 摆在上半段。 */
+    const bgap = nB > 1
+      ? Math.max(7, Math.min(30, Math.floor((availH - nB * bh) / (nB - 1))))
+      : 0;
+    document.body.style.setProperty('--bgap', bgap + 'px');
+
     limL = 14;
     limR = vw - 14;
-    /* 上下界：圆盘下方的标题 ↔ 屏幕底部的徽章。量不出来（0）就退回到按屏高估 */
-    if (badgeR.top - headR.bottom > 200) { topLim = headR.bottom + 8; botLim = badgeR.top - 8; }
-    else { topLim = vh * 0.36; botLim = vh * 0.94; }
+    topLim = Math.round(rr.bottom + 12);
+    botLim = vh - 14;
   } else {
+    linkHead.style.top = '';
+    linkBadges.style.top = '';
+    document.body.style.removeProperty('--rcol');
+    document.body.style.removeProperty('--bh');
+    document.body.style.removeProperty('--bgap');
     /* rr.left 取不到（圆盘还没布局）时按「圆环居中、占 44vw」估一个，
        免得算出负的边界把所有卡片挤到最左边 */
     limL = Math.min(54, Math.max(18, vw * 0.045));
@@ -762,6 +798,17 @@ function measure() {
     else { pw = 170; ph = Math.max(160, Math.min(maxPH, 320)); }
     px = cx - pw / 2;
     py = cy - ph / 2;
+  } else if (isM) {
+    /* 移动端三栏：卡片列贴左（中心 colX）、展示区夹在中间、右栏（标题 + 徽章）贴右。
+       展示区宽度 = 右栏左边 − 卡片列右边，【不再一路铺到屏幕右边】——
+       上一版就是这么铺的，把右侧那条个人链接挤得只剩一列竖着的徽章。 */
+    const gap = 12;
+    const pxL = limL + CUR_W + gap;
+    const pxR = limR - rw - gap;
+    pw = Math.max(104, pxR - pxL);
+    ph = bandH;
+    px = pxL;
+    py = topLim;
   } else {
     pw = Math.max(150, Math.min(420, bandW - CUR_W - 14));
     ph = bandH;
@@ -1367,6 +1414,17 @@ updateLines();
 positionDeco();
 select('core', true);
 buildDeck();
+/* 徽章是外链图片，宽度要等加载完才知道，而移动端右栏的宽度正是按它量的。
+   图片若比脚本慢到，第一次量到的是 alt 文本宽度，右栏就永远停在那个错误值上，
+   所以每张图落地后再重量一次（只补差值，不重排整站）。 */
+linkBadges.querySelectorAll('img').forEach(img => {
+  if (img.complete && img.naturalWidth) return;
+  const remeasure = () => {
+    if (state.selectedId === 'links') { measure(); layoutDeck(); }
+  };
+  img.addEventListener('load', remeasure, { once: true });
+  img.addEventListener('error', remeasure, { once: true });
+});
 renderBg();
 booting = true;
 document.body.classList.add('boot');
