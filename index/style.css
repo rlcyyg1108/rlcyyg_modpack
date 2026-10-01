@@ -5,6 +5,13 @@
       font-display: swap;
     }
 
+    /* 八边形卡片的几何常量集中在此，供 .dcard 及其伪元素继承；
+       元素态（选中 / 焦点）仍可在各自规则里覆盖 --bw。 */
+    :root {
+      --cut: 9px;
+      --bw: 1.3px;
+    }
+
     * {
       box-sizing: border-box
     }
@@ -41,7 +48,6 @@
       margin-top: -75vmax;
       z-index: -1;
       pointer-events: none;
-      will-change: transform;
       background: linear-gradient(0deg,
           #0d0d10 0%,
           #15151b 26%,
@@ -51,6 +57,26 @@
           #15151b 74%,
           #0d0d10 100%);
       transform: rotate(0deg);
+    }
+
+    /* 亮度呼吸：26s 一个来回，交给 CSS 常驻动画，不再由 JS 每帧写 opacity
+       （#bgField 是全站面积最大的一块，每帧重绘最亏）。reduced-motion 下被下面
+       *{animation:none} 自动关掉，停在静态亮度。它与 hub 的 8s、刻度环自转的 30s
+       周期互质，几样常驻动画不会打同一个拍子。 */
+    #bgField {
+      animation: bgBreath 26s ease-in-out infinite;
+    }
+
+    @keyframes bgBreath {
+
+      0%,
+      100% {
+        opacity: .86
+      }
+
+      50% {
+        opacity: 1
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -883,8 +909,6 @@
       justify-content: space-between;
       gap: 4px;
       padding: 0 9px;
-      --cut: 9px;
-      --bw: 1.3px;
       /* 半透明必须配 backdrop-filter 做毛玻璃：卡片是互相重叠的，纯透明会把
          后面卡片的类别名透上来变成能读出来的第二行字（一团鬼影）—— 这是更早一版
          最大的毛病。糊掉之后透上来的只是一片柔光，反而成了纵深。 */
@@ -907,6 +931,11 @@
       pointer-events: auto;
       cursor: pointer;
       touch-action: none;
+    }
+
+    /* 仅在轮盘转动期间临时提升合成层：常驻 will-change 会一直占着 GPU 显存，
+       非动画态没必要。animLoop 里按 deck.dur>0 给 body 切 .deck-anim。 */
+    .deck-anim .dcard {
       will-change: transform;
     }
 
@@ -924,8 +953,12 @@
       /* 选中/取消选中时这张「灰色卡面」淡掉（见下面 .dcard.cur::before），
          把下面的灰白渐变让出来。两个方向走同一条过渡，所以灰 ↔ 白都不会硬跳。
          【只动 opacity、不动 transform】：它自带的八边形 clip 是固定的，
-         一旦加位移就会连 clip 一起挪，反而会在滑动途中露出直角。 */
-      transition: opacity .26s ease;
+         一旦加位移就会连 clip 一起挪，反而会在滑动途中露出直角。
+         另加 inset / background-color 过渡：hover（--bw 变粗、--fill 更实）与
+         键盘焦点都改的是这张层的 inset 和底色，补上过渡后描边由 1.3px 缓缓长粗
+         到 2.4px、底子同步变实，不再是「啪」一下跳变。这两个属性与上面的 opacity
+         互不干涉（选中态走的是 opacity 那条），可并存。 */
+      transition: opacity .26s ease, inset .2s ease, background-color .2s ease;
     }
 
     /* 描边/底色层（下层）：整块八边形。非选中 = 一圈静态描边色（被上面的卡面盖掉中间，
@@ -1093,6 +1126,8 @@
 
     .pn-list {
       flex: 1 1 auto;
+      /* 超大屏（4K 等）限制列表最大宽，避免行宽失控、可读性下降 */
+      max-width: min(100%, 760px);
       /* min-height:0 是必须的：flex 子项默认 min-height:auto，不加这行
          列表就撑到内容高度、永远不出现滚动条（父级 overflow:hidden 直接裁掉）。 */
       min-height: 0;
@@ -1355,24 +1390,14 @@
        统一 1.05s、统一一条减速曲线（cubic-bezier(.16,1,.3,1)，与链接板块轮转收尾
        的 pow=4 同族），只换【运动原语】，所以各有性格又属于同一族：
          core      由内向外扩散（从「我」散发出去）
-         interests 横向逐列擦除（和它的水平装饰线同向）
+         interests 横向【向内】刷出：左边两块从左缘往右、右边两块从右缘往左
          projects  纵向刷出，左右【反向】：左栏向上、右下向下
-         artists   显影（blur → 清晰，记忆浮上来）
+         artists   四角【斜向飘入】：四块各从所在角的屏幕外侧斜着飘回位上
          links     轮盘由 JS 转，标题与徽章延后补上
        触发：JS 往 body 上写 data-enter="<id>"。
        【关键】写上之后【不再摘除】—— 摘掉的话动画名会从 entXxx 退回 fadeIn，
        浏览器当成一条新动画从头播一遍，整块闪一下。所以只改值、不删除，
        下次切板块由 startEntry 换成新值（值变了动画名就变了，自然重播）。 */
-
-    @keyframes entFade {
-      from {
-        opacity: 0
-      }
-
-      to {
-        opacity: 1
-      }
-    }
 
     /* ---- core：由内向外扩散 ---- */
     @keyframes entSpread {
@@ -1418,8 +1443,17 @@
       --ey: 0px;
     }
 
-    /* ---- interests：横向逐列擦除 ---- */
-    @keyframes entWipeX {
+    /* ---- interests：左右两边【向内】刷出 ----
+       和 projects 同一套做法（整块 clip-path 擦除，不是逐列位移）——
+       差别只在 project 是纵向往中间合，这里换成横向：
+         · 左边两块（tl 音乐 / bl 乐队）从左缘往右【向内】刷出；
+         · 右边两块（tr 游戏 / br 影像）从右缘往左【向内】刷出。
+       inset(top right bottom left) 里的左右两个值：
+         inset(0 100% 0 0)  = 右边收掉 100% ⇒ 只在左缘留一条零宽 ⇒ 由左往右开；
+         inset(0 0 0 100%)  = 左边收掉 100% ⇒ 只在右缘留一条零宽 ⇒ 由右往左开。
+       【注意打在 .corner-panel 本体上、不是 .cols>div】：擦除的必须是整块
+       （含大标题 音乐/游戏），逐列擦会出现三个独立的小擦条，和项目板块不是一回事。 */
+    @keyframes entWipeInL {
       from {
         opacity: .25;
         clip-path: inset(0 100% 0 0)
@@ -1431,24 +1465,29 @@
       }
     }
 
-    body[data-enter='interests'] .corner-panel.visible {
-      animation: entFade .45s ease-out both;
+    @keyframes entWipeInR {
+      from {
+        opacity: .25;
+        clip-path: inset(0 0 0 100%)
+      }
+
+      to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0)
+      }
     }
 
-    body[data-enter='interests'] .cols>div {
-      animation: entWipeX .6s cubic-bezier(.16, 1, .3, 1) both;
+    /* 左侧两块：由左缘向内 */
+    body[data-enter='interests'] .corner-panel.tl.visible,
+    body[data-enter='interests'] .corner-panel.bl.visible {
+      animation: entWipeInL 1.05s cubic-bezier(.16, 1, .3, 1) both;
     }
 
-    body[data-enter='interests'] .cols>div:nth-child(2) {
-      animation-delay: 90ms;
-    }
-
-    body[data-enter='interests'] .cols>div:nth-child(3) {
-      animation-delay: 180ms;
-    }
-
-    body[data-enter='interests'] .cols>div:nth-child(n+4) {
-      animation-delay: 270ms;
+    /* 右侧两块：由右缘向内，与左侧【同一起步】——左右同时朝中线合拢，不抢拍 */
+    body[data-enter='interests'] .corner-panel.tr.visible,
+    body[data-enter='interests'] .corner-panel.br.visible {
+      animation: entWipeInR 1.05s cubic-bezier(.16, 1, .3, 1) both;
+      animation-delay: 0ms;
     }
 
     /* ---- projects：左右【反向】纵向刷出 ----
@@ -1496,35 +1535,55 @@
     }
 
     /* ---- artists：显影 ---- */
-    @keyframes entDevelop {
+    /* ---- artists：四角【斜向飘入】----
+       四块各自从「所在屏幕角的外侧」斜着飘回位上：
+         左上 tl 从左上角外侧 → 右下方向归位
+         右上 tr 从右上角外侧 → 左下方向归位
+         左下 bl 从左下角外侧 → 右上方向归位
+         右下 br 从右下角外侧 → 左上方向归位
+       位移用 vw/vh（屏幕越大飘得越远、比例恒定），起点正好越出屏幕边缘，
+       所以观感是「从画面外浮进来」。配 scale(.97→1) 让它带一点「飘」的轻盈，
+       终点回到 clamp 定的角落，四块同时朝中心合拢。
+       曲线 cubic-bezier(.16,1,.3,1) 尾段极长 ⇒ 越到后面越慢，就是【减速收尾】；
+       若换成 ease/linear 会像匀速平移滑进来，没有「缓缓停住」的感觉。 */
+    @keyframes entDiagIn {
       from {
         opacity: 0;
-        filter: blur(5px);
-        transform: scale(.985)
+        transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(.97)
       }
 
       to {
         opacity: 1;
-        filter: blur(0);
         transform: none
       }
     }
 
+    /* 四块同时起步（不排先后）：对称的「四角向内」必须同时合拢，
+       一错峰最后一块就明显"迟到"，破坏一体感。
+       不挂常驻 will-change：data-enter 永不摘除，挂上就永久占显存；
+       transform 动画期间浏览器会自行提升合成层，无需常驻。 */
     body[data-enter='artists'] .corner-panel.visible {
-      animation: entDevelop .8s cubic-bezier(.16, 1, .3, 1) both;
-      will-change: filter, opacity, transform;
+      animation: entDiagIn 1.05s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    body[data-enter='artists'] .corner-panel.tl.visible {
+      --dx: -7vw;
+      --dy: -9vh;
     }
 
     body[data-enter='artists'] .corner-panel.tr.visible {
-      animation-delay: 110ms;
+      --dx: 7vw;
+      --dy: -9vh;
     }
 
     body[data-enter='artists'] .corner-panel.bl.visible {
-      animation-delay: 220ms;
+      --dx: -7vw;
+      --dy: 9vh;
     }
 
     body[data-enter='artists'] .corner-panel.br.visible {
-      animation-delay: 330ms;
+      --dx: 7vw;
+      --dy: 9vh;
     }
 
     /* ---- links：轮盘先转停（deckEnter），标题与徽章延后 .25s 补进来 ---- */
@@ -1630,6 +1689,30 @@
     body.is-mobile #decoLines,
     body.is-mobile .corner-deco {
       display: none;
+    }
+
+    /* 横屏矮屏（手机横过来）：三栏会很挤，圆盘与标题都收一档，徽章缝也收紧 */
+    @media (orientation: landscape) and (max-height: 500px) {
+      body.is-mobile #ring {
+        width: min(40vh, 56vw, 300px);
+        width: min(40dvh, 56vw, 300px);
+      }
+
+      body.is-mobile .s-name {
+        font-size: 22px;
+      }
+
+      body.is-mobile .s-idx {
+        font-size: 11px;
+      }
+
+      body.is-mobile #linkHead .p-name {
+        font-size: clamp(20px, 5vw, 28px);
+      }
+
+      body.is-mobile #linkBadges {
+        gap: 5px;
+      }
     }
 
     /* ---- 左右分栏 → 纵向卡片 ---- */

@@ -236,33 +236,33 @@ function animLoop(t) {
       renderBg();
       if (p >= 1) bg.mode = 'idle';
     }
-    /* 亮度呼吸：26s 一个来回，与 hub 的 8s、刻度环常驻自转的 30s 互质 ——
-       几样常驻动画绝不能打同一个拍子，同步是廉价感的主要来源。
-       只改 opacity 不改渐变：这是全站面积最大的一块，动它最「活」又最不吵。 */
-    bg.bt += dt;
-    const bo = 0.86 + 0.14 * (0.5 + 0.5 * Math.sin(bg.bt / BG_BREATH * Math.PI * 2));
-    if (Math.abs(bo - (bg.bo < 0 ? -9 : bg.bo)) > 0.002) {
-      bg.bo = bo;
-      bgField.style.opacity = bo.toFixed(3);
-    }
   }
 
   /* 卡片轮盘：一格一格地转。easeOutCubic —— 起步快、收尾有一小段减速。
      每格时长恒定（不随卡片数变），所以卡片越多转得越密，但手感不变。 */
   if (deck.dur > 0) {
-    deck.t += dt;
-    const p = Math.min(1, deck.t / deck.dur);
-    /* pow 默认 3（平时切一格）；入场那一下用 4，尾段的减速拖得更长更明显。
-       back = 点击 / 滚轮 / 方向键切卡：换成 easeOutBack，到位前冲过去一点点再弹回来
-       （c1 = 1.1，过冲约 6.5%，只够看出「咔哒」一下，不至于甩出去）。
-       拖动松手的吸附【不用】过冲 —— 手刚离开就回弹一下会显得打滑。 */
-    const e = deck.back
-      ? 1 + 2.1 * Math.pow(p - 1, 3) + 1.1 * Math.pow(p - 1, 2)
-      : 1 - Math.pow(1 - p, deck.pow);
-    deck.pos = deck.from + (deck.to - deck.from) * e;
-    if (p >= 1) deckSettle();
-    else layoutDeck();
+    /* 尊重「减少动态效果」：直接瞬跳到位，不播那一下旋转 */
+    if (reduceMQ.matches) {
+      deck.pos = deck.to;
+      layoutDeck();
+      deckSettle();
+    } else {
+      deck.t += dt;
+      const p = Math.min(1, deck.t / deck.dur);
+      /* pow 默认 3（平时切一格）；入场那一下用 4，尾段的减速拖得更长更明显。
+         back = 点击 / 滚轮 / 方向键切卡：换成 easeOutBack，到位前冲过去一点点再弹回来
+         （c1 = 1.1，过冲约 6.5%，只够看出「咔哒」一下，不至于甩出去）。
+         拖动松手的吸附【不用】过冲 —— 手刚离开就回弹一下会显得打滑。 */
+      const e = deck.back
+        ? 1 + 2.1 * Math.pow(p - 1, 3) + 1.1 * Math.pow(p - 1, 2)
+        : 1 - Math.pow(1 - p, deck.pow);
+      deck.pos = deck.from + (deck.to - deck.from) * e;
+      if (p >= 1) deckSettle();
+      else layoutDeck();
+    }
   }
+  /* 转动期间临时提升卡片合成层；停下即撤，避免常驻占 GPU 显存 */
+  document.body.classList.toggle('deck-anim', deck.dur > 0);
   requestAnimationFrame(animLoop);
 }
 
@@ -607,7 +607,7 @@ const CUR_W = 118, CUR_H = 68;
 const CARD_GAP = 6;                           // 列模式下卡片之间的间隙
 const ELLIPSE_MIN_VW = 1500;                  // 视口窄于此一律走「一列」模式
 const ELLIPSE_MIN_PANEL = 220;                // 椭圆模式要求中心至少留这么宽给展示区
-const PANEL_MIN_M = 132;                      // 移动端三栏里，中间那条展示区至少留这么宽
+const PANEL_MIN_M = 108;                      // 移动端三栏里，中间那条展示区至少留这么宽（窄屏给右栏多腾点空间）
 const SCROLL_MIN = 10;                        // 展示区站点数 ≥ 此值才显示滚动条
 
 const deckEl = $('#deck');
@@ -677,10 +677,23 @@ function buildDeck() {
 /* 几何：先量出可用的矩形带（桌面端 = 圆环左侧的空白带，移动端 = 圆盘下方、徽章上方），
    再决定走椭圆还是走一列，最后定下展示区的位置和尺寸。
    必须在 body.deck-on 已经生效之后量，否则 getBoundingClientRect 全是 0。 */
+/* 读出 iOS 底部安全区（刘海屏 home indicator）高度，单位 px；普通设备返回 0。
+   把 env(safe-area-inset-bottom) 套在一个 fixed 元素上量出来 —— 这样移动端三栏里
+   「标题 + 个人链接」右栏的底部不会压到指示条上。 */
+function readSafeBottom() {
+  const p = document.createElement('div');
+  p.style.cssText = 'position:fixed;left:0;bottom:env(safe-area-inset-bottom,0px);width:0;height:0;visibility:hidden';
+  document.body.appendChild(p);
+  const v = Math.max(0, Math.round(window.innerHeight - p.getBoundingClientRect().bottom));
+  p.remove();
+  return v;
+}
+
 function measure() {
   const vw = window.innerWidth, vh = window.innerHeight;
   const rr = svg.getBoundingClientRect();
   const isM = document.body.classList.contains('is-mobile');
+  const sab = readSafeBottom();
 
   let limL, limR, topLim, botLim, rw = 0;
   if (isM) {
@@ -698,8 +711,8 @@ function measure() {
        最后把实测宽度写进 --rcol —— 右栏自己、标题的 max-width、中间那条展示区
        全用这一个值，三处永远对齐。 */
     const nB = Math.max(1, linkBadges.children.length), bGap = 7;
-    const availH = Math.max(140, (vh - 14) - badgeTop);
-    let bh = Math.max(16, Math.min(30, Math.floor((availH - (nB - 1) * bGap) / nB)));
+    const availH = Math.max(140, (vh - 14 - sab) - badgeTop);
+    let bh = Math.max(18, Math.min(30, Math.floor((availH - (nB - 1) * bGap) / nB)));
     /* 右栏最多能占多宽 = 总宽 − 左右边距 − 卡片列 − 两道 12px 缝 − 展示区最小宽 */
     const room = Math.max(84, Math.min(Math.round(vw * 0.32),
       (vw - 28) - (CUR_W + 12) - 12 - PANEL_MIN_M));
@@ -708,7 +721,7 @@ function measure() {
     document.body.style.setProperty('--bh', bh + 'px');
     let w0 = linkBadges.getBoundingClientRect().width || 0;
     if (w0 > room) {
-      bh = Math.max(16, Math.floor(bh * room / w0));
+      bh = Math.max(18, Math.floor(bh * room / w0));
       document.body.style.setProperty('--bh', bh + 'px');
       w0 = linkBadges.getBoundingClientRect().width || 0;
     }
@@ -724,7 +737,7 @@ function measure() {
     limL = 14;
     limR = vw - 14;
     topLim = Math.round(rr.bottom + 12);
-    botLim = vh - 14;
+    botLim = vh - 14 - sab;
   } else {
     linkHead.style.top = '';
     linkBadges.style.top = '';
@@ -1418,12 +1431,25 @@ buildDeck();
    图片若比脚本慢到，第一次量到的是 alt 文本宽度，右栏就永远停在那个错误值上，
    所以每张图落地后再重量一次（只补差值，不重排整站）。 */
 linkBadges.querySelectorAll('img').forEach(img => {
-  if (img.complete && img.naturalWidth) return;
   const remeasure = () => {
     if (state.selectedId === 'links') { measure(); layoutDeck(); }
   };
+  /* 外链图（shields.io）挂了 / 被墙时：把这张图就地换成同名的文字链接，
+     既不破坏右栏排版、也不留裂图。 */
+  const onerr = () => {
+    const a = img.closest('a');
+    if (a && !a.classList.contains('txt-link')) {
+      a.classList.add('txt-link');
+      a.textContent = img.alt || a.getAttribute('href') || 'link';
+    } else if (img.parentNode) {
+      img.remove();
+    }
+    remeasure();
+  };
+  if (img.complete && img.naturalWidth) return;                 /* 已经加载成功 */
+  if (img.complete && !img.naturalWidth) { onerr(); return; }   /* 脚本跑之前就已失败 */
   img.addEventListener('load', remeasure, { once: true });
-  img.addEventListener('error', remeasure, { once: true });
+  img.addEventListener('error', onerr, { once: true });
 });
 renderBg();
 booting = true;
