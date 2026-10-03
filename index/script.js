@@ -271,6 +271,8 @@ function animLoop(t) {
   }
   /* 转动期间临时提升卡片合成层；停下即撤，避免常驻占 GPU 显存 */
   document.body.classList.toggle('deck-anim', deck.dur > 0);
+  /* 莫比乌斯带：非链接板块时函数内部立刻返回（顺手把 svg 藏掉） */
+  updateMobius(dt);
   requestAnimationFrame(animLoop);
 }
 
@@ -680,6 +682,63 @@ function buildDeck() {
   });
   linkMeta.textContent = DECK.length + ' 类 · ' +
     DECK.reduce((s, c) => s + c.items.length, 0) + ' 站';
+}
+
+/* ============ 莫比乌斯带（链接板块的「环心连线」） ============
+   卡片圆心正好落在一条椭圆上：P(t) = (cx − rx·cos t, cy + ry·sin t)。
+   沿【同一条椭圆】铺一条有宽度的带子，让卡片像珠子一样串在带上：
+     法线 N(t) = 切线转 90°
+     半宽 w(t) = W · cos(t/2 + 相位)
+   绕一圈 t 走 0→2π，t/2 恰好走 0→π ⇒ cos 【过一次零、正负互换】：带子在一点
+   收窄到零宽（侧对着你），越过之后两条边互换左右 —— 这就是莫比乌斯的一处「半扭」。
+   相位随时间增长 ⇒ 这个扭结沿环自己慢慢游走。
+   另外，带子的【单条边】= 两条边缘首尾相接成的一条长约 2L 的闭环（A 走完接 B，
+   因为 A(2π) 正好落在 B(0) 上），让它虚线流动 —— 对上莫比乌斯「只有一条边」的性格。
+   带子垫在卡片下面，只在卡片缝里露出来；尺寸/坐标全部走视口 px，与卡片同一套。 */
+const mobius = (() => {
+  const NS_SVG = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(NS_SVG, 'svg');
+  svg.id = 'deckMobius';
+  svg.setAttribute('aria-hidden', 'true');
+  const band = document.createElementNS(NS_SVG, 'path'); band.setAttribute('class', 'mb-band');
+  const edge = document.createElementNS(NS_SVG, 'path'); edge.setAttribute('class', 'mb-edge');
+  svg.appendChild(band); svg.appendChild(edge);
+  deckEl.insertBefore(svg, deckEl.firstChild);   // 放到卡片之前（z-index 也压着，双保险）
+  return { svg: svg, band: band, edge: edge, phase: 0 };
+})();
+const MB_W = 9;          // 带子半宽（px）—— 总宽 18
+const MB_N = 96;         // 椭圆采样点数
+const MB_SPEED = 0.5;    // 扭结沿环游走的角速度（rad/s）⇒ 约 6.3s 走一圈
+
+function updateMobius(dt) {
+  const on = document.body.classList.contains('deck-on') && G && G.ellipse;
+  mobius.svg.style.display = on ? '' : 'none';
+  if (!on) return;
+  if (!reduceMQ.matches) mobius.phase += MB_SPEED * dt;
+  const ph = mobius.phase, cx = G.cx, cy = G.cy, rx = G.rx, ry = G.ry;
+  const Ax = [], Ay = [], Bx = [], By = [];
+  for (let i = 0; i <= MB_N; i++) {
+    const t = i / MB_N * 2 * Math.PI, ct = Math.cos(t), st = Math.sin(t);
+    const x = cx - rx * ct, y = cy + ry * st;
+    let nx = -ry * ct, ny = rx * st;              // 切线 (rx·st, ry·ct) 转 90°
+    const nl = Math.hypot(nx, ny) || 1; nx /= nl; ny /= nl;
+    const w = MB_W * Math.cos(t / 2 + ph);
+    Ax.push(x + nx * w); Ay.push(y + ny * w);
+    Bx.push(x - nx * w); By.push(y - ny * w);
+  }
+  const P = (x, y) => x.toFixed(1) + ' ' + y.toFixed(1);
+  /* 带本体：A 正着走完，再从 B 倒着走回来，闭合 ⇒ 夹在两条边之间的那块面 */
+  let bandD = 'M' + P(Ax[0], Ay[0]);
+  for (let i = 1; i <= MB_N; i++) bandD += 'L' + P(Ax[i], Ay[i]);
+  for (let i = MB_N; i >= 0; i--) bandD += 'L' + P(Bx[i], By[i]);
+  bandD += 'Z';
+  /* 单条边：A 走完接着走 B（A 末端 = B 起点，天然接上），闭环 */
+  let edgeD = 'M' + P(Ax[0], Ay[0]);
+  for (let i = 1; i <= MB_N; i++) edgeD += 'L' + P(Ax[i], Ay[i]);
+  for (let i = 0; i <= MB_N; i++) edgeD += 'L' + P(Bx[i], By[i]);
+  edgeD += 'Z';
+  mobius.band.setAttribute('d', bandD);
+  mobius.edge.setAttribute('d', edgeD);
 }
 
 /* 几何：先量出可用的矩形带（桌面端 = 圆环左侧的空白带，移动端 = 圆盘下方、徽章上方），
@@ -1420,6 +1479,10 @@ function endBoot() {
   bootTimers.length = 0;
   document.body.classList.remove('boot');
   document.body.classList.add('boot-skipped');
+  /* 环 / 刻度 / 标签的入场挂在 .anim-in 上，这里【故意不摘】：
+     它们多半已经在播了，中途摘掉会被 boot-skipped 的淡入重播一遍，环心图会闪。
+     等它们各自跑完（最长 ~1.6s）再摘 —— 那时动画已停在终态，摘了也没有变化。 */
+  setTimeout(() => document.body.classList.remove('anim-in'), 1700);
   /* ringWrap 可能还停在 scale(.9)，摘掉 boot 后按真实尺寸重算 */
   sizeHubImg();
   positionDeco();
@@ -1460,12 +1523,14 @@ linkBadges.querySelectorAll('img').forEach(img => {
 });
 renderBg();
 booting = true;
-document.body.classList.add('boot');
+document.body.classList.add('boot', 'anim-in');
 requestAnimationFrame(animLoop);
 /* 入场期间 #ringWrap 处于 scale(.9)，结束后按真实尺寸重算 */
 bootTimers.push(setTimeout(() => { if (booting) { sizeHubImg(); positionDeco(); } }, 1250));
-/* 入场是一次性的：跑完就摘掉 boot，避免后续切换被入场延迟拖慢 */
+/* 入场是一次性的：跑完就摘掉 boot（连同环 / 刻度 / 标签的 anim-in），
+   避免后续切换被入场延迟拖慢。 */
 bootTimers.push(setTimeout(() => {
+  document.body.classList.remove('anim-in');
   if (!booting) return;
   booting = false;
   document.body.classList.remove('boot');

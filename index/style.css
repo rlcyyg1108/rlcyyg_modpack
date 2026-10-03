@@ -827,6 +827,41 @@
       overflow: hidden;
     }
 
+    /* ---- 莫比乌斯带：链接板块的「环心连线」 ----
+       沿卡片所坐的那条椭圆铺一条会扭的带子，几何由 JS 每帧写各 path 的 d。
+       垫在卡片【下面】（z-index 远低于卡片的 2000+），只在卡片缝里露出来。
+       扭结（带子收窄到零宽、两侧边缘互换的那一点）沿环游走 ⇒ 会动；
+       带子的「单条边」是一条闭环，虚线沿它流动。
+       #deck 是 fixed inset:0，子元素按视口坐标即可与卡片对齐。 */
+    #deckMobius {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .mb-band {
+      fill: rgba(255, 255, 255, .05);
+    }
+
+    .mb-edge {
+      fill: none;
+      stroke: rgba(255, 255, 255, .4);
+      stroke-width: 1;
+      stroke-dasharray: 7 9;
+      /* 位移取虚线周期的整数倍（16×10），往复到首尾严丝合缝 */
+      animation: mbFlow 2.6s linear infinite;
+    }
+
+    @keyframes mbFlow {
+      to {
+        stroke-dashoffset: -160px;
+      }
+    }
+
     /* ---- 卡片：八边形（四角斜切）+ 双层结构 ----
        基准 100×58，不随条目数变；只有当前卡放大到 118×68（尺寸由 JS 每帧写）。
        不能用 border：clip-path 会把 border 连同四角一起切掉，斜边就没有线了。
@@ -1286,15 +1321,21 @@
     }
 
     /* ============ 入场序列 ============ */
-    body.boot #ringWrap {
+    /* 环 / 刻度 / 标签的入场同时挂在 .anim-in 上：交互打断时只摘 boot、保留 anim-in，
+       它们的入场就【接着跑完】而不是被 boot-skipped 的淡入打断重播。
+       （环心那张图就在 #ringWrap 里，重播会闪一下——这是用户报的那个 bug。） */
+    body.boot #ringWrap,
+    body.anim-in #ringWrap {
       animation: bootRing 1s cubic-bezier(.2, .7, .25, 1) .05s both;
     }
 
-    body.boot #decor {
+    body.boot #decor,
+    body.anim-in #decor {
       animation: bootFade .9s ease-out .45s both;
     }
 
-    body.boot #labels {
+    body.boot #labels,
+    body.anim-in #labels {
       animation: bootFade .7s ease-out .85s both;
     }
 
@@ -1317,10 +1358,9 @@
     }
 
     /* 入场被交互打断时的收尾：直接摘掉 boot 会让还卡在 delay 里的元素硬跳出来，
-       这里补一段 .25s 淡入把它们的终态走完（animation 由 none 变成有名字会立即播放）。 */
-    body.boot-skipped #ringWrap,
-    body.boot-skipped #decor,
-    body.boot-skipped #labels,
+       这里补一段 .25s 淡入把它们的终态走完（animation 由 none 变成有名字会立即播放）。
+       只留【交互时多半还没显形】的左右两栏与角落版权；环 / 刻度 / 标签【不在】此列 ——
+       它们大概率已经在播了，重播会闪（改由 .anim-in 续播）。 */
     body.boot-skipped .panel-left,
     body.boot-skipped .panel-right,
     body.boot-skipped .corner-deco {
