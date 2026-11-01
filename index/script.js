@@ -36,10 +36,13 @@ function spinBump(p) {
 /* ============ 背景亮带 ============ */
 const BG_SPIN = 12;                  // deg/s 被动自转（30s/圈，沿用用户调过的速度）
 const BG_TURN = 1.0;                 // s    切换板块时主动转到目标角度的时长
-const BG_BREATH = 26;                // s    亮带亮度呼吸的周期（与 8s / 30s 互质）
+const BG_FULL = 1.4;                 // s    中心态再点一次中心时，整圈（360°）的时长
 /* 亮带是一条穿过圆心的线，必然同时指向一对相反的扇区，所以两个板块共用一档：
    左(links) + 右(projects) → 横着(0°)；上(interests) + 下(artists) → 竖着(90°) */
 const BG_ANGLE = { projects: 0, links: 0, interests: 90, artists: 90 };
+/* 四个板块按钟面排列、顺时针递增：喜好 12 点、项目 3 点、记忆 6 点、链接 9 点。
+   切板块时用它算出「顺一格 / 正对面 / 逆一格」，决定亮带往哪个方向转。 */
+const BG_CLOCK = { interests: 0, projects: 1, artists: 2, links: 3 };
 
 /* ============ 状态 ============ */
 const state = { angle: 0, autoAngle: 0, selectedId: 'core' };
@@ -83,7 +86,7 @@ SECTORS.forEach((s, i) => {
   p.setAttribute('aria-label', s.name);
   p.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
-      e.preventDefault(); markInteracted(); select(s.id);
+      e.preventDefault(); select(s.id);
     }
   });
   p.addEventListener('pointerenter', () => {
@@ -169,20 +172,62 @@ for (let deg = 0; deg < 360; deg += 5) {
 
 /* ============ 背景亮带 ============
  * 渐变是 linear-gradient(0deg,…)，等值线水平 ⇒ rotate(0) 亮带横着、rotate(90) 竖着。
- * core 态被动自转；板块态 1s 内顺时针转到该板块的档位后停住。
+ * core 态被动自转；板块态 1s 内转到该板块的档位后停住。
+ * 【方向按钟面定】：四个板块顺时针排列（喜好 12、项目 3、记忆 6、链接 9），
+ *   顺一格 → 顺时针 90°；逆一格 → 逆时针 90°；
+ *   正对面（12↔6、9↔3）按「往哪边走」定方向：
+ *     上→下（12→6）、左→右（9→3）顺时针 180°；下→上（6→12）、右→左（3→9）逆时针 180°；
+ *   从中心进任何板块 → 顺时针；
+ *   重复点击当前板块 → 顺时针 180°（靠 bgTurnTarget 的「补半圈」实现）。
  * bg.angle 只累加不取模 —— 取模会在归零那一帧造成反向回跳。 */
 const bgField = document.getElementById('bgField');
-const bg = { angle: 0, mode: 'spin', from: 0, to: 0, t: 0, bt: 0, bo: -1 };
+const bg = { angle: 0, mode: 'spin', from: 0, to: 0, t: 0, dur: BG_TURN, bt: 0, bo: -1 };
+let bgId = 'core';                    /* 上一次进入的板块；中心记作 'core' */
 function renderBg() {
   bgField.style.transform = 'rotate(' + bg.angle.toFixed(2) + 'deg)';
 }
+/* 沿指定方向走到 want 的下一个等价角（want + 180k）。
+   dir = +1 顺时针（角度递增）、-1 逆时针（角度递减）；
+   已经停在目标档位时再走半圈，保证每次切换都有可见动作（沿用旧实现的手感）。 */
+function bgTurnTarget(angle, want, dir) {
+  if (dir > 0) {
+    let to = want + 180 * Math.ceil((angle - want) / 180);
+    if (to - angle < 1) to += 180;
+    return to;
+  }
+  let to = want + 180 * Math.floor((angle - want) / 180);
+  if (angle - to < 1) to -= 180;
+  return to;
+}
 function bgTurnTo(id) {
   const want = BG_ANGLE[id];
-  if (want === undefined) { bg.mode = 'spin'; return; }
-  /* 顺时针（角度递增）转到下一个 want + 180k 档位 */
-  let to = want + Math.ceil((bg.angle - want) / 180) * 180;
-  if (to - bg.angle < 1) to += 180;   /* 已经在该档位时也完整转半圈，保证每次切换都有动作 */
-  bg.from = bg.angle; bg.to = to; bg.t = 0; bg.mode = 'turn';
+  if (want === undefined) { bgId = 'core'; bg.mode = 'spin'; return; }
+  const from = BG_CLOCK[bgId];
+  const toIdx = BG_CLOCK[id];
+  bgId = id;
+  /* step：1 = 顺一格、2 = 正对面、3 = 逆一格、0 = 同一格。
+     顺一格顺时针、逆一格逆时针；
+     正对面看「移动方向」：上→下(12→6)、左→右(9→3) 顺时针，下→上(6→12)、右→左(3→9) 逆时针；
+     同一格（重复点击当前板块）仍顺时针补半圈 —— 由 bgTurnTarget 里的「补半圈」实现。 */
+  const step = from === undefined ? 1 : (toIdx - from + 4) % 4;
+  const dir = step === 3 ? -1
+    : step === 2 ? (from === 0 || from === 3 ? 1 : -1)
+      : 1;
+  bg.from = bg.angle;
+  bg.to = bgTurnTarget(bg.angle, want, dir);
+  bg.t = 0; bg.dur = BG_TURN; bg.mode = 'turn';
+}
+/* 中心态：从板块回来时恢复被动自转；已经停在中心时再点一次，转满一整圈（360°）。
+   「这次是不是已经在中心」只能看 bgId —— select() 一进来就把 state.selectedId 改掉了。
+   initial=true 是启动时那次静默选中，只摆好姿态、不转圈。 */
+function bgCoreClick(initial) {
+  const inCore = bgId === 'core';
+  bgId = 'core';
+  if (initial || !inCore) { bg.mode = 'spin'; return; }
+  if (reduceMQ.matches) return;          /* 减少动态效果：不做整圈动画 */
+  bg.from = bg.angle;
+  bg.to = bg.angle + 360;                /* 顺时针整圈，起点与终点的视觉姿态相同 */
+  bg.t = 0; bg.dur = BG_FULL; bg.mode = 'turn';
 }
 
 /* ============ 动画 ============ */
@@ -238,11 +283,12 @@ function animLoop(t) {
       renderBg();
     } else if (bg.mode === 'turn') {
       bg.t += dt;
-      const p = Math.min(1, bg.t / BG_TURN);
+      const p = Math.min(1, bg.t / bg.dur);
       const e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;   /* easeInOutCubic */
       bg.angle = bg.from + (bg.to - bg.from) * e;
       renderBg();
-      if (p >= 1) bg.mode = 'idle';
+      /* 中心态转完（整圈）要继续自转，板块态转完就停住 */
+      if (p >= 1) bg.mode = state.selectedId === 'core' ? 'spin' : 'idle';
     }
   }
 
@@ -301,7 +347,7 @@ hubEl.setAttribute('role', 'button');
 hubEl.setAttribute('aria-label', '关于我');
 hubEl.addEventListener('keydown', e => {
   if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
-    e.preventDefault(); markInteracted(); select('core');
+    e.preventDefault(); select('core');
   }
 });
 function sizeHubImg() {
@@ -310,6 +356,47 @@ function sizeHubImg() {
   hubImg.style.height = (rw * 176 / 560) + 'px';
 }
 window.addEventListener('resize', sizeHubImg);
+/* 中心图延迟到第 0.45 秒才真正请求（时机见启动段的 setTimeout）：
+   那一刻正好是延伸线的弧起步（style.css 里 .arc 的生长延时 .45s），
+   「弧开始延伸」与「头像开始请求」因此落在同一个节拍上。
+   前 0.45 秒让它给 CSS / 字体 / 徽章让出带宽。
+   HTML 里只留 data-src，这里再补 src —— 绝不写空的 src=""（部分浏览器会把它当页面
+   自身地址再请求一次）。整个函数幂等，重复调用只生效第一次。 */
+let hubLoaded = false;
+let hubRevealed = false;
+/* 显现：不透明度 0 → 1 严格走满 1.95s（0.45s 弧起步时开始，2.4s 与入场同时收尾）。
+   不用 CSS transition —— 它会被 `.sel` / `.on` 上的 animation:none、以及
+   reduce-motion 的全局 transition:none 一并管住，跑不跑、跑多久都不在自己手里；
+   这里用 WAAPI 直接把 opacity 从 0 插值到 1：linear 匀速、时长写死 1950ms，
+   每 100ms 只涨约 .051，整段都在缓慢变亮，不会像 ease 那样前 100ms 就窜到一半
+   （那才是之前看起来「啪一下出现」的原因）。
+   顺序：先起动画（WAAPI 的优先级高于 .pending 的 opacity:0），再摘 .pending，
+   保证中间任何一帧都不会闪出全不透明的图。不加 fill —— 结束后元素自然回到
+   CSS 的 opacity:1，不会把状态锁死。 */
+function revealHubImg() {
+  if (hubRevealed) return;
+  hubRevealed = true;
+  if (!reduceMQ.matches && hubImg.animate) {
+    hubImg.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 1950, easing: 'linear' });
+  }
+  hubImg.classList.remove('pending');
+}
+function loadHubImg() {
+  if (hubLoaded) return;
+  hubLoaded = true;
+  const src = hubImg.dataset.src;
+  if (!src) return;
+  hubImg.addEventListener('load', revealHubImg, { once: true });
+  /* 加载失败就保持 .pending（opacity:0）并顺手 visibility:hidden：
+     图没了不该留一个空圆框，也不该留裂图。 */
+  hubImg.addEventListener('error', () => {
+    hubImg.classList.add('pending');
+    hubImg.style.visibility = 'hidden';
+  }, { once: true });
+  hubImg.src = src;
+  /* 命中缓存时 load 可能同步就绪，补一次兜底 */
+  if (hubImg.complete && hubImg.naturalWidth) revealHubImg();
+}
 hubEl.addEventListener('pointerenter', () => hubImg.classList.add('on'));
 hubEl.addEventListener('pointerleave', () => hubImg.classList.remove('on'));
 
@@ -1223,7 +1310,6 @@ window.addEventListener('wheel', e => {
 deckEl.addEventListener('pointerdown', e => {
   const card = e.target.closest ? e.target.closest('.dcard') : null;
   if (!card) return;
-  markInteracted();
   deck.dur = 0;
   deck.drag = { y: e.clientY, pos: deck.pos, k: +card.dataset.k, moved: 0 };
   /* 这里【绝对不能】setPointerCapture：捕获会把 pointerup 重定向到卡片，
@@ -1282,8 +1368,8 @@ function select(id, silent) {
   if (wantV && !hasV) dl.classList.add('show-v');
   else if (!wantV && hasV) dl.classList.remove('show-v');
 
-  /* 背景亮带：回到中心恢复被动自转，切到板块则 1s 内顺时针转到该板块的档位 */
-  if (id === 'core') bg.mode = 'spin';
+  /* 背景亮带：回中心恢复被动自转（已在中心时再点 = 整圈）；进板块按钟面方向转 */
+  if (id === 'core') bgCoreClick(silent);
   else if (!silent) bgTurnTo(id);
 
   if (!silent) {
@@ -1370,7 +1456,6 @@ function angleFromEvent(e) {
   return Math.atan2(e.clientY - (r.top + r.height / 2), e.clientX - (r.left + r.width / 2)) * 180 / Math.PI;
 }
 svg.addEventListener('pointerdown', e => {
-  markInteracted();
   endBoot();
   const rim = e.target.closest ? e.target.closest('#rimHit') : null;
   if (rim) {
@@ -1393,7 +1478,6 @@ svg.addEventListener('pointerup', () => { mode = null; rotStart = null; document
 svg.addEventListener('pointercancel', () => { mode = null; rotStart = null; document.body.classList.remove('rotating'); });
 
 window.addEventListener('keydown', e => {
-  markInteracted();
   endBoot();
   /* 链接板块：上下键转轮盘（左右键留给圆盘本身） */
   if (state.selectedId === 'links') {
@@ -1458,14 +1542,6 @@ window.addEventListener('resize', () => {
   if (state.selectedId === 'links') { measure(); layoutDeck(); }
 });
 
-/* ============ 可发现性：外环波纹，首次交互后消失 ============ */
-let interacted = false;
-function markInteracted() {
-  if (interacted) return;
-  interacted = true;
-  document.body.classList.add('interacted');
-}
-
 /* ============ 入场 ============ */
 let booting = false;
 const bootTimers = [];
@@ -1528,12 +1604,16 @@ requestAnimationFrame(animLoop);
 /* 入场期间 #ringWrap 处于 scale(.9)，结束后按真实尺寸重算 */
 bootTimers.push(setTimeout(() => { if (booting) { sizeHubImg(); positionDeco(); } }, 1250));
 /* 入场是一次性的：跑完就摘掉 boot（连同环 / 刻度 / 标签的 anim-in），
-   避免后续切换被入场延迟拖慢。 */
+   避免后续切换被入场延迟拖慢。2400 = CSS 入场总时长。 */
 bootTimers.push(setTimeout(() => {
   document.body.classList.remove('anim-in');
   if (!booting) return;
   booting = false;
   document.body.classList.remove('boot');
 }, 2400));
-if (reduceMQ.matches) markInteracted();
+/* 中心图固定在第 0.45 秒开始加载 —— 那一刻正好是延伸线的弧起步
+   （style.css 里 .arc 的生长延时 .45s），两个动作共用同一个节拍。
+   这个计时器【不进 bootTimers】：入场被交互提前打断时 endBoot() 会清空 bootTimers，
+   但中心图该在 .45s 出现就还是 .45s 出现。 */
+setTimeout(loadHubImg, 450);
 

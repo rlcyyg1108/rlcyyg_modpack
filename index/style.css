@@ -59,25 +59,9 @@
       transform: rotate(0deg);
     }
 
-    /* 亮度呼吸：26s 一个来回，交给 CSS 常驻动画，不再由 JS 每帧写 opacity
-       （#bgField 是全站面积最大的一块，每帧重绘最亏）。reduced-motion 下被下面
-       *{animation:none} 自动关掉，停在静态亮度。它与 hub 的 8s、刻度环自转的 30s
-       周期互质，几样常驻动画不会打同一个拍子。 */
-    #bgField {
-      animation: bgBreath 26s ease-in-out infinite;
-    }
-
-    @keyframes bgBreath {
-
-      0%,
-      100% {
-        opacity: .86
-      }
-
-      50% {
-        opacity: 1
-      }
-    }
+    /* 背景亮度恒定：不再做明暗呼吸。整块背景是全站面积最大的一块，
+       任何 opacity 动画都等于每帧重绘整屏，收益远小于代价；
+       去掉之后常驻动效只剩「亮带缓慢自转」与「刻度环 60s 自转」。 */
 
     @media (prefers-reduced-motion: reduce) {
       * {
@@ -124,8 +108,17 @@
       z-index: 5;
       border: 1px solid rgba(255, 255, 255, .7);
       box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-      transition: transform .18s ease, box-shadow .2s ease, opacity .25s ease;
+      transition: transform .18s ease, box-shadow .2s ease;
       animation: breathe 8s ease-in-out infinite;
+    }
+
+    /* 第 0.45 秒（弧起步）才注入 src（见 script.js 的 loadHubImg）。加载前这张图没有像素，
+       但 border 与 box-shadow 照样会画出一圈空的发光圆框 —— 所以先用 opacity:0 藏住。
+       显现交给 JS 的 revealHubImg()：WAAPI，0 → 1 匀速 1.95s，这里只负责「藏着」。
+       【不要在这里再加 opacity 的 transition】：两套机制同时改同一个属性会互相打断，
+       而且全局 reduce-motion 的 transition:none 会把 CSS 那条整条掐掉。 */
+    #hubImg.pending {
+      opacity: 0;
     }
 
     @keyframes breathe {
@@ -613,7 +606,10 @@
        生长（共 1s）：线先向圆心延伸 .5s → 弧从「线与弧的交点」（= 弧中点）起步，
                      向左右同时铺开 .55s（延后 .45s 出发，比线略慢）
        消散（共 1s）：严格倒放 —— 弧先从两端收回交点 .55s → 线再向外退缩 .5s（延后 .5s）
-       所以下面「隐藏态」的 transition 描述的是消散，「.show-* 态」描述的是生长。 */
+       所以下面「隐藏态」的 transition 描述的是消散，「.show-* 态」描述的是生长。
+       【弧起步的 .45s 是全站锚点】：中心图就在这一刻开始加载（见 script.js 的
+       setTimeout(loadHubImg, 450)），并用 1.95s 匀速淡入到 2.4s。两处成对调整，
+       改一个记得改另一个。 */
     #decoLines {
       position: fixed;
       inset: 0;
@@ -734,38 +730,6 @@
       color: rgba(255, 255, 255, .55);
       margin: 0 0 0px;
       font-weight: 500;
-    }
-
-    /* ============ 可发现性提示：外环波纹 ============ */
-    #rimHint {
-      fill: none;
-      stroke: rgba(255, 255, 255, .4);
-      stroke-width: 1.2;
-      pointer-events: none;
-      transform-box: view-box;
-      transform-origin: 280px 280px;
-      animation: rimHint 2.8s ease-out 2s infinite backwards;
-    }
-
-    body.interacted #rimHint {
-      animation: none;
-      opacity: 0;
-    }
-
-    @keyframes rimHint {
-      0% {
-        transform: scale(.985);
-        opacity: 0
-      }
-
-      25% {
-        opacity: .45
-      }
-
-      100% {
-        transform: scale(1.035);
-        opacity: 0
-      }
     }
 
     /* ============ 链接板块：卡片环 + 中心展示区 ============
@@ -1321,6 +1285,9 @@
     }
 
     /* ============ 入场序列 ============ */
+    /* 本段是入场全部时序的唯一出处，总入场 2.4s（最后到位的是 .corner-deco：
+       1.4s + .8s）。改这里时记得同步 script.js 末尾的三个计时器
+       （1250 / 2400 / endBoot 里的 1700）。 */
     /* 环 / 刻度 / 标签的入场同时挂在 .anim-in 上：交互打断时只摘 boot、保留 anim-in，
        它们的入场就【接着跑完】而不是被 boot-skipped 的淡入打断重播。
        （环心那张图就在 #ringWrap 里，重播会闪一下——这是用户报的那个 bug。） */
