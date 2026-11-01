@@ -153,7 +153,9 @@
 
     /* 左栏撑满整列：顶部放「我」，底部放鸣谢/仓库 */
     .panel-left {
-      justify-self: start;
+      /* 撑满整列（而不是收缩到内容宽度）：项目板块要按列宽排版，
+         否则左列的条目宽度与右下角那列对不齐，分隔线会长短不一。 */
+      justify-self: stretch;
       align-self: stretch;
       flex-direction: column;
       padding-top: clamp(18px, 4.5vh, 54px);
@@ -184,14 +186,21 @@
       margin-top: auto
     }
 
+    /* 项目板块：一列若干条 .proj，条目在可用高度里均分（space-between）。
+       左列是项目 pane、右列是右下角那块，两边的上下边距都是
+       clamp(18px, 4.5vh, 54px)，可用高度相同，所以两列的行能对齐。 */
     .pane[data-pane='projects'].show {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       height: calc(100vh - clamp(36px, 9vh, 108px));
-    }
-
-    .pane[data-pane='projects'] .p-desc {
-      margin-top: auto;
+      /* 让这一栏的盒子「无视左侧内边距」、直接顶到屏幕边缘：
+         条目上的分隔线要一直伸到屏幕最左侧，而板块入场动画用的是 clip-path: inset(0)、
+         fill 为 both，跑完之后裁剪一直生效——盒子之外的部分会被整段切掉。
+         所以只能把盒子本身向左撑出去（负 margin 抵消 .panel-left 的 padding），
+         再用等量的 padding 把文字推回原来的缩进，文字位置完全不变。 */
+      margin-left: calc(-1 * clamp(18px, 4.5vw, 54px));
+      padding-left: clamp(18px, 4.5vw, 54px);
     }
 
     @keyframes fadeIn {
@@ -263,6 +272,133 @@
       letter-spacing: .4em;
       color: rgba(255, 255, 255, .55);
       margin: 0;
+    }
+
+    /* ============ 项目条目（左右两列共用） ============
+       一条四行：标题 32 / 英文 14 / 图标行 20 / 正文 20。
+       分隔线挂在每条上方（第一条也带），「线 + 内容」因此是一个整体。
+       字号固定不缩，纵向不够时只压行高与上边距（clamp 里的 vh）。 */
+    .proj {
+      position: relative;
+      padding-top: clamp(6px, 1.4vh, 16px);
+      /* 每条占等高的一格（而不是按内容高度 + space-between）：
+         这样左右两列无论各有几条、内容多高，分隔线都落在同样的 y 上，
+         空条目也能撑出与对面一样高的格子。内容比格子高时按内容撑开，不会重叠。 */
+      flex: 1 1 0;
+    }
+
+    /* 分隔线画在伪元素上（border 没法只画 3/4）：
+       水平段就到文字栏的左边缘为止（= .proj 的 x=0），长度是原来的 3/4；
+       再往左、也就是边距里那一段，交给 45° 折线，一路斜到屏幕边缘。 */
+    .proj::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 75%;
+      height: 1px;
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .proj::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      /* 折线只占边距的 1/3，是一小段「折角」，不铺满整条边距：
+         竖直长度 = 边距 ÷ 3 × √2 ⇒ 横向与纵向各落下 1/3 个边距（1440 下约 18px）。
+         想更长/更短就改这里的 / 3（除以 1 = 铺满边距，除以 2 = 半个边距）。 */
+      height: calc(clamp(18px, 4.5vw, 54px) / 3 * 1.4142);
+      /* 45° 斜线会被抗锯齿摊薄，alpha 提一档，观感才与横线等重 */
+      background: rgba(255, 255, 255, .2);
+      /* 竖线以顶端为轴转 45°：从线的起点朝左下折 */
+      transform-origin: top left;
+      transform: rotate(45deg);
+    }
+
+    /* 右列镜像：水平段从文字栏右边缘起、折角朝右下折进右侧边距。
+       面板本身也「顶到屏幕右边」（见下面的 width / padding-right），
+       折角才不会越过裁剪边界。 */
+    .corner-panel.br[data-corner='projects'] .proj::before {
+      left: auto;
+      right: 0;
+    }
+
+    .corner-panel.br[data-corner='projects'] .proj::after {
+      left: auto;
+      right: 0;
+      transform-origin: top right;
+      transform: rotate(-45deg);
+    }
+
+    .proj-title {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: .02em;
+      color: #fff;
+      text-shadow: 0 0 14px rgba(255, 255, 255, .4);
+    }
+
+    .proj-en {
+      font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .4em;
+      line-height: 1.2;
+      color: rgba(255, 255, 255, .55);
+      margin: 2px 0 6px;
+    }
+
+    /* 图标行：纯图标、无文字。灰度 + 常态偏暗，hover 提亮并轻抬 1px */
+    .proj-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .proj-links a {
+      display: block;
+      opacity: .75;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .proj-links img {
+      display: block;
+      height: 20px;
+      width: auto;
+      filter: grayscale(1);
+    }
+
+    .proj-links a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .proj-body {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: clamp(24px, 3.1vh, 32px);
+      color: #fff;
+      text-shadow: 0 0 12px rgba(255, 255, 255, .4);
+      /* 万一一句话超出列宽，避免最后一个字被单独挤成一行（老浏览器忽略这行） */
+      text-wrap: pretty;
+    }
+
+    /* 窄屏（≤1400px）两列只剩 ~280px：英文副标题若按 .4em 字距会折行，
+       收到 .24em 后长名字（如 REMOVE EFFECT DISPLAY）仍能保持一行 */
+    @media (max-width: 1400px) {
+      .proj-en {
+        font-size: 12px;
+        letter-spacing: .24em;
+      }
+    }
+
+    /* 右列镜像：图标行反向排，GitHub 落在最右，与右对齐的标题同一侧收口 */
+    .corner-panel.br[data-corner='projects'] .proj-links {
+      flex-direction: row-reverse;
     }
 
     .sm-en {
@@ -405,7 +541,10 @@
     .corner-panel.visible .p-en,
     .corner-panel.visible .p-cn,
     .corner-panel.visible .p-sub,
-    .corner-panel.visible .p-desc {
+    .corner-panel.visible .p-desc,
+    .corner-panel.visible .proj-title,
+    .corner-panel.visible .proj-en,
+    .corner-panel.visible .proj-body {
       pointer-events: auto;
     }
 
@@ -431,15 +570,18 @@
       text-align: right;
     }
 
+    /* 右列（项目）：与左栏同高（上下边距一致）、同宽（按圆盘两侧的可用宽度算），
+       条目同样 space-between 均分，于是左右两列的行能对齐。
+       圆盘宽 = min(72vh, 44vw, 620px)，两侧各剩 (100vw - 圆盘) / 2。
+       和左栏一样把盒子撑到屏幕边：`right: 0` + 等量 padding-right，
+       文字仍在原来那条边距线上，折角则落进右侧留白里。 */
     .corner-panel.br[data-corner='projects'] {
       top: clamp(18px, 4.5vh, 54px);
       bottom: clamp(18px, 4.5vh, 54px);
-    }
-
-    /* 贡献面板撑满右侧高度，用 auto 把副标题和标题压到角上 */
-    .corner-panel.br[data-corner='projects'] .p-en {
-      margin-top: auto;
-      margin-bottom: 2px;
+      right: 0;
+      padding-right: clamp(18px, 4.5vw, 54px);
+      width: calc((100vw - min(72vh, 44vw, 620px)) / 2);
+      justify-content: space-between;
     }
 
     /* ============ 四角面板排版 ============
@@ -1692,10 +1834,10 @@
     body.is-mobile .pane[data-pane='projects'].show {
       display: block;
       height: auto;
-    }
-
-    body.is-mobile .pane[data-pane='projects'] .p-desc {
-      margin-top: 0;
+      /* 移动端 .panel 的 padding 是 0，这里要把「顶到屏幕边缘」的补偿撤掉，
+         否则内容会整体左移一个内边距 */
+      margin-left: 0;
+      padding-left: 0;
     }
 
     /* ---- 四角面板：固定定位 → 栈内卡片 ---- */
@@ -1735,9 +1877,66 @@
       order: 1;
     }
 
-    body.is-mobile .corner-panel.br[data-corner='projects'] .p-en {
-      margin-top: 0;
-      margin-bottom: 8px;
+    /* 右列在移动端回到普通卡片：宽度自动、一律左对齐、图标行恢复正常顺序；
+       分隔线也从左侧起画（与左列同一套），不再镜像到右边 */
+    body.is-mobile .corner-panel.br[data-corner='projects'] {
+      width: auto;
+      padding-right: 0;
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    body.is-mobile .corner-panel.br[data-corner='projects'] .proj-links {
+      flex-direction: row;
+    }
+
+    body.is-mobile .corner-panel.br[data-corner='projects'] .proj::before {
+      left: 13px;
+      right: auto;
+      width: 75%;
+    }
+
+    body.is-mobile .corner-panel.br[data-corner='projects'] .proj::after {
+      left: 13px;
+      right: auto;
+      height: 18px;
+      transform-origin: top left;
+      transform: rotate(45deg);
+    }
+
+    /* 项目条目在移动端：分隔线与折痕更淡、字号降一档 */
+    body.is-mobile .proj {
+      padding-top: 12px;
+    }
+
+    body.is-mobile .proj::before,
+    body.is-mobile .proj::after {
+      left: 13px;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    body.is-mobile .proj::before {
+      width: 75%;
+    }
+
+    /* 移动端没有「边距可折」，折线收回短的一小节，且不能越出条目被裁掉 */
+    body.is-mobile .proj::after {
+      height: 18px;
+    }
+
+    body.is-mobile .proj-title {
+      font-size: clamp(24px, 7vw, 32px);
+    }
+
+    body.is-mobile .proj-en {
+      font-size: 9px;
+      letter-spacing: .3em;
+      margin: 2px 0 6px;
+    }
+
+    body.is-mobile .proj-body {
+      font-size: 17px;
+      line-height: 1.7;
     }
 
     /* ---- 字号：移动端原来的 11~12px 太小，统一提到可读区间 ---- */

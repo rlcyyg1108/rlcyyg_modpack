@@ -13,7 +13,7 @@
   <meta property="og:image" content="og-cover.png">
   <meta name="twitter:card" content="summary_large_image">
   <base target="_blank">
-  <link rel="icon" href="./photo/rlcyyg1108圆.png">
+  <link rel="icon" href="./index/photo/rlcyyg1108圆.png">
   <link rel="stylesheet"
     href="https://miaoda.feishu.cn/fonts/css2?family=Orbitron:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
   <link rel="stylesheet" href="./index/style.css">
@@ -217,47 +217,46 @@
     </div>
     <div class="p-en">BAND</div>
     <div class="p-name">乐队</div>
-    <div class="corner-panel br" data-corner="interests">
-      <div class="p-desc cols">
-        <div><strong>剧集</strong>
-          · 超人与露易丝<br>
-          · 哥谭<br>
-          · V世代<br>
-        </div>
-        <div><strong>电影</strong>
-          · 超人：钢铁之躯<br>
-          · 蝙蝠侠大战超人<br>
-          · 正义联盟扎导版<br>
-          · 新蝙蝠侠<br>
-          · 诺兰蝙蝠侠<br>
-          · 美国队长 2 & 3<br>
-        </div>
-        <div><strong>动画/漫画</strong>
-          · 进击的巨人<br>
-          · 魔法少女小圆<br>
-          · 吊带袜天使<br>
-          · Fate/UBW<br>
-          · 炎拳<br>
-          · 蓦然回首<br>
-        </div>
-      </div>
-      <div class="p-en">FILM</div>
-      <div class="p-name">影像</div>
-    </div>
   </div>
 
-  <!-- 右下角：项目贡献 -->
-  <div class="corner-panel br" data-corner="projects">
-    <div class="p-desc">
-      <a class="corner-sub p-link" href="https://github.com/PlexPt/factorio-chinese" target="_blank"
-        rel="noopener noreferrer">开源中文汉化语言包<span class="sub-en">FACTORIO</span></a><br>
-      我是该仓库提交行数第二多的贡献者<br>
-      补了大量词条和翻译<br>
-      主要活跃于2024.12~2025.6<br>
-      现已不再做汉化<br>
+  <!-- 影像：原先被错嵌在「乐队」面板内部，这里提到同级。
+       （script.js 里那段"纠正嵌套"的补丁因此会自动变成 no-op，不再依赖右下角那块面板存在。） -->
+  <div class="corner-panel br" data-corner="interests">
+    <div class="p-desc cols">
+      <div><strong>剧集</strong>
+        · 超人与露易丝<br>
+        · 哥谭<br>
+        · V世代<br>
+      </div>
+      <div><strong>电影</strong>
+        · 超人：钢铁之躯<br>
+        · 蝙蝠侠大战超人<br>
+        · 正义联盟扎导版<br>
+        · 新蝙蝠侠<br>
+        · 诺兰蝙蝠侠<br>
+        · 美国队长 2 & 3<br>
+      </div>
+      <div><strong>动画/漫画</strong>
+        · 进击的巨人<br>
+        · 魔法少女小圆<br>
+        · 吊带袜天使<br>
+        · Fate/UBW<br>
+        · 炎拳<br>
+        · 蓦然回首<br>
+      </div>
     </div>
-    <div class="p-en">CONTRIBUTION</div>
-    <div class="p-name">贡献</div>
+    <div class="p-en">FILM</div>
+    <div class="p-name">影像</div>
+  </div>
+
+  <!-- 右下角：项目（右列）。4 条目前都是空条目 —— 只留「分隔线 + 45° 折角」，
+       用来把右列的网格骨架先立起来；日后在每条 .proj 里补
+       「.proj-title / .proj-en / .proj-links / .proj-body」四行即可，位置与间距自动沿用。 -->
+  <div class="corner-panel br" data-corner="projects">
+    <div class="proj"></div>
+    <div class="proj"></div>
+    <div class="proj"></div>
+    <div class="proj"></div>
   </div>
 
   <!-- 链接板块：左侧卡片环 + 环中心的展示区 + 右上标题 + 右下个人链接。
@@ -321,37 +320,61 @@
             rel="noopener noreferrer">此网站仓库</a>
         </div>
       </div>
-      <!-- 项目 -->
+      <!-- 项目（左列）：与右下角那列同构，一条项目一段 .proj；凑满 4 条即为一屏。
+           大字标题已按要求删除，标题信息由环上选中的「项目」扇区承担。 -->
       <div class="pane" data-pane="projects">
-        <div class="p-name">项目</div>
-        <div class="p-en">PROJECTS</div>
-        <div class="p-desc">
-          <a class="p-sub p-link" href="https://github.com/rlcyyg1108/Disk-Savior" target="_blank"
-            rel="noopener noreferrer">硬盘拯救者<span class="sub-en">DISK SAVIOR</span></a><br>
-          我给
-          <a class="p-link" href="https://www.mcmod.cn/modpack/769.html" target="_blank"
-            rel="noopener noreferrer">GregTech Leisure</a>
-          整合包写的 <a class="p-link" href="https://www.mcmod.cn/class/2450.html" target="_blank"
-            rel="noopener noreferrer">Kubejs</a> 私货<br>
-          基本不考虑平衡
+        <div class="proj">
+          <div class="proj-title">硬盘拯救者</div>
+          <div class="proj-en">DISK SAVIOR</div>
+          <div class="proj-links">
+            <a href="https://github.com/rlcyyg1108/Disk-Savior" target="_blank" rel="noopener noreferrer"
+              aria-label="GitHub"><img src="./index/photo/github-s.png" alt=""></a>
+          </div>
+          <div class="proj-body">我给
+            <a class="p-link" href="https://www.mcmod.cn/modpack/769.html" target="_blank"
+              rel="noopener noreferrer">GTL</a>
+            整合包写的 <a class="p-link" href="https://www.mcmod.cn/class/2450.html" target="_blank"
+              rel="noopener noreferrer">Kubejs</a> 私货<br>
+            基本不考虑平衡</div>
         </div>
-        <div class="p-desc">
-          <a class="p-sub p-link" href="https://github.com/rlcyyg1108/SimpleInfo" target="_blank"
-            rel="noopener noreferrer">简单信息展示<span class="sub-en">SIMPLE INFO</span></a><br>
-          一个简单的信息展示模组<br>
-          方便查看TPS、MSPT等常用信息
+        <div class="proj">
+          <div class="proj-title">简单信息展示</div>
+          <div class="proj-en">SIMPLE INFO</div>
+          <div class="proj-links">
+            <a href="https://github.com/rlcyyg1108/SimpleInfo" target="_blank" rel="noopener noreferrer"
+              aria-label="GitHub"><img src="./index/photo/github-s.png" alt=""></a>
+            <!-- TODO: 换成 MC百科 class 页 -->
+            <a href="#" aria-label="MC百科"><img src="./index/photo/mcmod-s.png" alt=""></a>
+            <!-- TODO: 换成 CurseForge project 页 -->
+            <a href="#" aria-label="CurseForge"><img src="./index/photo/curseforge-s.png" alt=""></a>
+          </div>
+          <div class="proj-body">一个简单的信息展示模组<br>方便查看TPS、MSPT等常用信息</div>
         </div>
-        <div class="p-desc">
-          <a class="p-sub p-link" href="https://github.com/rlcyyg1108/OmniTrinket" target="_blank"
-            rel="noopener noreferrer">全能饰品<span class="sub-en">OMNI TRINKET</span></a><br>
-          添加了一件面向个人使用的多功能饰品<br>
-          所有功能均可在设置 UI 内开关
+        <div class="proj">
+          <div class="proj-title">全能饰品</div>
+          <div class="proj-en">OMNI TRINKET</div>
+          <div class="proj-links">
+            <a href="https://github.com/rlcyyg1108/OmniTrinket" target="_blank" rel="noopener noreferrer"
+              aria-label="GitHub"><img src="./index/photo/github-s.png" alt=""></a>
+            <!-- TODO: 换成 MC百科 class 页 -->
+            <a href="#" aria-label="MC百科"><img src="./index/photo/mcmod-s.png" alt=""></a>
+            <!-- TODO: 换成 CurseForge project 页 -->
+            <a href="#" aria-label="CurseForge"><img src="./index/photo/curseforge-s.png" alt=""></a>
+          </div>
+          <div class="proj-body">添加了一件面向个人使用的多功能饰品<br>所有功能均可在设置 UI 内开关</div>
         </div>
-        <div class="p-desc">
-          <a class="p-sub p-link" href="https://github.com/rlcyyg1108/RemoveEffectDisplay" target="_blank"
-            rel="noopener noreferrer">移除效果显示<span class="sub-en">REMOVE EFFECT DISPLAY</span></a><br>
-          一个纯客户端模组<br>
-          用于去除状态效果带来的视觉干扰
+        <div class="proj">
+          <div class="proj-title">移除效果显示</div>
+          <div class="proj-en">REMOVE EFFECT DISPLAY</div>
+          <div class="proj-links">
+            <a href="https://github.com/rlcyyg1108/RemoveEffectDisplay" target="_blank" rel="noopener noreferrer"
+              aria-label="GitHub"><img src="./index/photo/github-s.png" alt=""></a>
+            <!-- TODO: 换成 MC百科 class 页 -->
+            <a href="#" aria-label="MC百科"><img src="./index/photo/mcmod-s.png" alt=""></a>
+            <!-- TODO: 换成 CurseForge project 页 -->
+            <a href="#" aria-label="CurseForge"><img src="./index/photo/curseforge-s.png" alt=""></a>
+          </div>
+          <div class="proj-body">一个纯客户端模组<br>用于去除状态效果带来的视觉干扰</div>
         </div>
       </div>
     </aside>

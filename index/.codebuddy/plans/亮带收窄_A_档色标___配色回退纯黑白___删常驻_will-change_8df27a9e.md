@@ -17,138 +17,108 @@ todos:
       - revert-cold
 ---
 
-## 用户需求
-
-把「切换板块时背景光带永远顺时针转半圈」改为「按钟面方向决定旋转方向」。
-
 ## 产品概述
-
-把四个板块看成钟面：**喜好 12 点、项目 3 点、记忆 6 点、链接 9 点**。切换板块时，光带的旋转方向跟随钟面上从起点到终点的方向，让背景转动与用户点击的空间关系一致。
+个人主页（`index/test.html`）的「项目」板块重构：原结构是「左栏 3 段文字 + 右下角贡献面板」，项目变多后放不下。改为**左右两列的项目条目列表**，每列最多 5 条，本期先左 1 条、右 3 条，左右都有内容可看。
 
 ## 核心功能
+- **删标题**：「项目」大字与 `PROJECTS` 英文小标都删除，项目列表直接从第一条开始。
+- **删贡献**：右下角「贡献 / CONTRIBUTION」面板的汉化语言包内容整段删除，原位改为右列项目。
+- **条目结构**（左右共用一套）：
+  1. 32px 标题（纯文本，不可点击）
+  2. 一行英文副标题（14px，字距 .4em）
+  3. 一行纯图标链接：GitHub、MC百科、CurseForge，20px 灰度图标，悬停提亮并上移；缺链接不占位
+  4. 两行 20px 正文，手动断行，不截断
+  5. 每条**上方**一条 1px 细分隔线（第一条也有）
+- **两列布局**：左右两列上下边距相同、可用高度相等，条目在高度内均匀分布；右列文字整体右对齐、图标顺序镜像，与左列围绕圆盘形成左右对称。
+- **自适应压缩**：视口变矮时字号不缩，只自动压缩正文行高与条目间距，尽量保证两列都排得下。
+- **移动端**：两列合并为一列纵向堆叠，顺序为「硬盘拯救者 → 三个模组」；全部左对齐，分隔线更淡。
+- **数据**：硬盘拯救者仅 GitHub；三个 MC 模组的 MC百科 / CurseForge 链接暂用占位，后续补填。
 
-- **顺一格**（如 项目 3 → 记忆 6、喜好 12 → 项目 3）：光带顺时针转 90°。
-- **逆一格**（如 项目 3 → 喜好 12、记忆 6 → 链接 9）：光带逆时针转 90°。
-- **正对面**（喜好 12 ↔ 记忆 6、链接 9 ↔ 项目 3）：一律顺时针转 180°。
-- **中心 → 任意板块**：一律顺时针，转到该板块的档位（0° 或 90°）。
-- **重复点击当前板块**：沿用现有「每次都有动作」的语义，给一记顺时针 180°。
-
-## 视觉结果
-
-在相邻板块间切换时，背景亮带会按点击的方向「顺/逆」旋转 90°，动作方向与手指在圆盘上移动的方向一致；上切下、左切右时则是一次完整的半圈回转。光带的尺寸、亮度、12°/s 自转、1s 转场时长均不变。
+## 视觉要点
+保持站点既有语言：纯黑白、无边框卡片、靠留白与 1px 细线分块；标题最重、英文副标题最轻、图标行最淡；右列与左列严格镜像。
 
 
 ## 技术栈
-
-沿用现有纯静态站点：HTML + CSS + 原生 ES6，无构建、无框架、无新增运行时依赖。仅修改 `index/script.js`。
-
-验证用 Node + puppeteer-core 驱动本机 Edge（依赖已在 `%TEMP%\pptr`，按要求不删除），读 `bg.from` / `bg.to` 与 `getComputedStyle(#bgField).transform` 校验方向。
+沿用现有原生技术，不引入构建或框架：`index/test.html`（结构）+ `index/style.css`（样式），`index/script.js` 不改（仅验证其移动端重排与板块切换不受影响）。
 
 ## 实现方案
 
-### 核心策略
+### 1. 结构（`index/test.html`）
+删除贡献面板内部三个节点（`.p-desc`、`.p-en`、`.p-name`），保留容器 `.corner-panel.br[data-corner="projects"]` 作为右列（它的显示/隐藏、入场动画、移动端搬运都靠这个容器）。左列删除 `.p-name` / `.p-en`，只留 1 条。
 
-现有的 `bgTurnTo()` 只有「顺时针」一种语义：`Math.ceil((angle - want) / 180)` 永远向上取整，已经在档位上时再补 180°。
+每条统一用新语义类，左右完全同构：
 
-改为**两段判断**：
-1. 用「上一次所处的板块」在钟面上的序号差算出方向（`step`）：`1` 顺一格、`2` 正对面、`3` 逆一格、`0` 同一格。
-2. 把方向交给一个纯函数求目标角度：顺时针取 `want + 180k` 中**大于**当前角的最小值，逆时针取**小于**当前角的最大值；若正好落在档位上，再按方向多走 180°。
-
-### 关键决策
-
-1. **方向由「上一次的板块」决定，而不是由当前角度决定**
-   光带是一条直线（180° 对称），任意时刻都满足两个档位；只看角度无法区分「从哪来」。因此新增 `bgId` 记录来源板块，`core` 记为 `'core'`。
-
-2. **抽出一个纯函数 `bgTurnTarget(angle, want, dir)`**
-   把「顺时针/逆时针求等价角 + 补半圈」从 `bgTurnTo` 中分离，`bgTurnTo` 只负责判定方向。副作用是重复点击（`step === 0`）自然落到「顺时针补半圈」，与现有行为一致。
-
-3. **正对面与重复点击都走顺时针**
-   `step === 2`（12↔6、3↔9）与 `step === 0`（同格）时的角度增量都必然是 ±180°/180°，按用户要求统一取顺时针。
-
-4. **不改动 `bg.angle` 只累加不取模的约定**
-   逆时针会让角度持续减小（可为负），`toFixed(2)` 与 `rotate()` 都能正确处理；一旦取模就会在归零那一帧反向回跳。
-
-5. **不改缓动与时长**
-   继续用 `animLoop` 里的 `easeInOutCubic` 与 `BG_TURN = 1.0`，正反转手感一致。
-
-### 边界与可靠性
-
-- **转场途中再点其它板块**：`bgTurnTo` 以当前 `bg.angle` 为起点重新计算，方向按新的 `bgId → 目标` 判定，不排队、不叠加（沿用现有行为）。
-- **reduced-motion**：`animLoop` 的整段背景更新仍被 `!reduceMQ.matches` 挡住，激活该设置时亮带不参与任何旋转，行为与改动前一致。
-- **切后台回来**：`dt` 已钳在 0.12s，角度不跳变。
-- **性能**：不新增每帧计算，`bgTurnTarget` 只在点击时调用一次；`renderBg` 仍每帧只写一个 `transform`。
-
-## 系统架构
-
-```mermaid
-stateDiagram-v2
-    [*] --> spin
-    spin --> turn: 点击任一板块（dir 由钟面序号差决定）
-    turn --> idle: 1s 到位
-    turn --> turn: 中途改点其它板块（以当前角度重算）
-    idle --> turn: 切到其它板块
-    turn --> spin: 点击中心
-    idle --> spin: 点击中心
-    spin --> spin: 点击中心（bgId 复位）
+```html
+<div class="proj">
+  <div class="proj-title">简单信息展示</div>
+  <div class="proj-en">SIMPLE INFO</div>
+  <div class="proj-links">
+    <a href="https://github.com/rlcyyg1108/SimpleInfo" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><img src="./photo/github-s.png" alt=""></a>
+    <a href="#" aria-label="MC百科"><img src="./photo/mcmod-s.png" alt=""></a><!-- TODO: 补 mcmod 链接 -->
+    <a href="#" aria-label="CurseForge"><img src="./photo/curseforge-s.png" alt=""></a><!-- TODO: 补 curseforge 链接 -->
+  </div>
+  <div class="proj-body">一个简单的信息展示模组<br>方便查看TPS、MSPT等常用信息</div>
+</div>
 ```
 
-数据流：扇区点击 → `select(id)` → `bgTurnTo(id)` 读 `BG_CLOCK[bgId]` 与 `BG_CLOCK[id]` 求 `step → dir` → `bgTurnTarget()` 得到 `bg.to` → 主循环按 `dt` 推进 `bg.angle` → `renderBg()`。
+- 左列：硬盘拯救者（仅 GitHub 图标，正文里的 `GTL` / `Kubejs` 内联链接保留）。
+- 右列：简单信息展示、全能饰品、移除效果显示。
+- 右列末尾留注释，标明「再补 2 条即满 5 条」。
+
+### 2. 两列等宽（关键）
+`main` 是 `grid-template-columns: minmax(0,1fr) auto minmax(0,1fr)`，圆盘宽 `min(72vh, 44vw, 620px)`。要让两列正好填满圆盘两侧的空档且等宽，**两列共用同一个宽度公式**：
+
+```css
+width: calc((100vw - min(72vh, 44vw, 620px)) / 2 - clamp(18px, 4.5vw, 54px));
+```
+
+左列：`justify-self:start` + `padding-left: clamp(18px,4.5vw,54px)`，宽度正好顶到圆盘左缘。
+右列：`position:fixed` + `right: clamp(18px,4.5vw,54px)`，左缘正好落在圆盘右缘。
+
+**必须给右列加 `max-width: none`** —— `.corner-panel` 基础规则带 `max-width:680px`，超宽屏（如 2560）会被它截断而破坏对称。宽度公式再加下限 `max(220px, …)` 防极窄屏算出负值。
+
+### 3. 均分与压缩
+- 两列容器：`display:flex; flex-direction:column; justify-content:space-between`（`.corner-panel` 本身就是 flex column，只补 `justify-content`）。
+- 左列 pane 保留原有的 `height: calc(100vh - clamp(36px,9vh,108px))`，与右列 `top/bottom: clamp(18px,4.5vh,54px)` 天然等高。
+- 删除 `.pane[data-pane='projects'] .p-desc { margin-top:auto }`（已无 `.p-desc`）。
+- 压缩策略：字号固定，仅 `line-height: clamp(24px, 3.1vh, 32px)` 与 `padding-top: clamp(6px, 1.4vh, 16px)` 随视口收缩。
+
+### 4. 样式（新增，靠近 `.p-sub` 一节）
+`.proj`（border-top + padding）、`.proj-title`（32px/700/1.2/白 + 14px 白光晕）、`.proj-en`（Orbitron 14px/500/字距 .4em/白 55%）、`.proj-links`（flex + gap 8px）、`.proj-links img`（height 20px、`filter: grayscale(1)`）、`.proj-links a`（opacity .75 → hover 1 + `translateY(-1px)`）、`.proj-body`（20px/600，字重与 `.p-desc` 一致）。
+右列镜像：`.corner-panel.br[data-corner='projects'] .proj-links { flex-direction: row-reverse }`（右对齐由 `.corner-panel.br` 的 `text-align:right` 继承）。
+指针事件：`.corner-panel.visible .proj { pointer-events: auto }`（容器是 `pointer-events:none`，否则正文无法选中）。
+
+### 5. 清理死规则
+删除 `.corner-panel.br[data-corner='projects'] .p-en { margin-top:auto }`、`body.is-mobile .corner-panel.br[data-corner='projects'] .p-en`、`body.is-mobile .pane[data-pane='projects'] .p-desc`。
+
+### 6. 移动端
+`body.is-mobile` 下：`.proj` 线色 `.08`、`.proj-title` `clamp(24px,7vw,32px)`、`.proj-en` 9px/字距 .3em、`.proj-body` 17px/1.7；左右两列 `width:auto`、`text-align:left`、图标行恢复 `row`。
+堆叠顺序由现有 `toMobile()` 决定：`panelRight`(空) → `panelLeft`(左列 1 条) → 各 `.corner-panel`（右列 3 条），即「硬盘拯救者 → 三个模组」。
+
+### 7. 不动的部分
+`entWipeYDown` / `entWipeY` 与 130ms 错拍、`.p-sub`/`.sub-en` 原有规则（其他板块仍在用）、圆盘、背景、光带、入场时序、`index.html`（按约定最后统一收口）。
 
 ## 目录结构
 
 ```
 d:/AAAmp/rlcyyg_modpack/index/
-└── script.js   # [MODIFY] 四处：
-                # 1) 常量区（BG_ANGLE 之后，约第 41 行）新增 BG_CLOCK 与 bgId；
-                # 2) 第 169–172 行段首注释改写为「按钟面方向顺/逆时针」；
-                # 3) 第 178–185 行 bgTurnTo 重写，并新增 bgTurnTarget；
-                # 4) 第 1324–1326 行 select() 末尾：回中心时同时把 bgId 复位为 'core'。
+├── test.html   # [MODIFY] 项目区块重写：删「项目/PROJECTS」标题与「贡献」内容；
+│               #          左列 1 条 + 右列 3 条，统一 .proj 结构；右列末尾留补条目注释
+└── style.css   # [MODIFY] 新增 .proj 系列样式与右列镜像；两列等宽公式（右列补 max-width:none）；
+                #          左列 pane 改 space-between；删 3 条死规则；补移动端覆盖
 ```
 
-不改 `style.css`、`index.html`、`index/test.html`、`index/失败的背景.md`。
+## 关键风险
+1. **无滚动 + 不截断**：某条正文写到 3 行会顶破该列（用户已接受）。
+2. **宽度公式与圆盘尺寸强耦合**：`min(72vh,44vw,620px)` 若改动，两列宽度需同步。
+3. **`#` 占位链接**：MC百科 / CurseForge 点击会因 `<base target="_blank">` 新开当前页，属预期，待补真实 URL。
+4. `.corner-panel` 的 `visibility/pointer-events` 时序不能动，否则会重现「看不见却能点」的热区。
 
-## 关键代码结构
-
-```js
-/* 钟面序号：顺时针递增（喜好 12、项目 3、记忆 6、链接 9） */
-const BG_CLOCK = { interests: 0, projects: 1, artists: 2, links: 3 };
-let bgId = 'core';        /* 上一次进入的板块；中心为 'core' */
-
-/* 沿指定方向走到 want 的下一个等价角（want + 180k）。
-   dir = +1 顺时针（角度递增）、-1 逆时针（角度递减）；
-   已经停在该档位时再走半圈，保证每次切换都有动作。 */
-function bgTurnTarget(angle, want, dir) { /* 返回目标角度 */ }
-
-function bgTurnTo(id) { /* 由 BG_CLOCK 差值得 step，step 3 → 逆时针，其余顺时针 */ }
-```
-
-## 各切换的预期增量
-
-| 切换 | 钟面 | 角度 | step | 增量 |
-| --- | --- | --- | --- | --- |
-| 项目 → 记忆 | 3 → 6 | 0 → 90 | 1 | **+90** |
-| 记忆 → 链接 | 6 → 9 | 90 → 0 | 1 | **+90** |
-| 链接 → 喜好 | 9 → 12 | 0 → 90 | 1 | **+90** |
-| 喜好 → 项目 | 12 → 3 | 90 → 0 | 1 | **+90** |
-| 项目 → 喜好 | 3 → 12 | 0 → 90 | 3 | **−90** |
-| 喜好 → 链接 | 12 → 9 | 90 → 0 | 3 | **−90** |
-| 链接 → 记忆 | 9 → 6 | 0 → 90 | 3 | **−90** |
-| 记忆 → 项目 | 6 → 3 | 90 → 0 | 3 | **−90** |
-| 喜好 ↔ 记忆 | 12 ↔ 6 | 90 ↔ 90 | 2 | **+180** |
-| 链接 ↔ 项目 | 9 ↔ 3 | 0 ↔ 0 | 2 | **+180** |
-| 中心 → 任意 | core → x | 任意 → 0/90 | 1 | 顺时针 |
-| 重复点击当前 | x → x | 同角 | 0 | **+180** |
-
-## 验收方式
-
-1. **静态**：`script.js` 出现 `BG_CLOCK`、`bgId`、`bgTurnTarget`；`bgTurnTo` 内不再是无条件 `Math.ceil` 单向取整；注释与新语义一致。
-2. **运行时**（无头 Edge，每次点击后等 1.2s 读 `bg.from` / `bg.to`）：
-   - 顺时针链 `projects → artists → links → interests → projects`，四次增量均为 **+90**；
-   - 逆时针链 `projects → interests → links → artists → projects`，四次均为 **−90**；
-   - `interests → artists`、`links → projects` 为 **+180**；
-   - 中心 → 四个板块，`bg.to - bg.from` 均 **> 0**；
-   - 连续两次点击同一板块，第二次仍为 **+180**；
-   - 采样 `transform` 矩阵反算角度，确认转向与符号一致、无反向抖动，控制台无报错。
-3. **视觉**：截两张 GIF 级别的连续截图（顺时针一格、逆时针一格），确认亮带转动方向与点击方向一致。
-4. **临时文件**：按要求不删除验证脚本与截图，在汇报末尾列出完整路径。
+## 验证
+1. 1440×900 截项目态：左 1 条、右 3 条；两列顶边 y 一致（误差 ≤2px）；右列右缘与左边距对称；分隔线左右齐平。
+2. 量像素：`.proj-links img` 渲染高 20px、gap 8px、`filter: grayscale(1)`；右列图标视觉顺序为 CurseForge←MC百科←GitHub（GitHub 最右）。
+3. 2560 宽下右列不被 `max-width:680px` 截断，仍与左列等宽。
+4. 390×844 移动端：顺序「硬盘拯救者 → 简单信息 → 全能饰品 → 移除效果」，全左对齐，线色 .08，无横向溢出。
+5. 切换四个板块正常，项目板块入场仍为左右对开；控制台无报错。
+6. 临时验证产物保留，末尾列出路径。
 
