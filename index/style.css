@@ -10,6 +10,11 @@
     :root {
       --cut: 9px;
       --bw: 1.3px;
+      /* 文字色：正文 #CCCEF、标题 #E6E7E7（= CCCEF 与纯白的中点，亮但不过分）。
+         存成 RGB 三元组，方便与透明度组合：rgba(var(--ink), .55)；
+         整体再调亮/调暗时只改这两个数即可。 */
+      --ink: 204, 206, 207;
+      --ink-hi: 230, 231, 231;
     }
 
     * {
@@ -24,7 +29,7 @@
     body {
       margin: 0;
       height: 100vh;
-      color: #fff;
+      color: rgb(var(--ink));
       /* Noto Sans SC 放在 Arial 之后：Arial 没有中文字形，中文会落到 Noto Sans SC；
          拉丁字符仍走 Arial，观感不变。CDN 挂了也只退回原样，不损失。 */
       font-family: Arial, 'Noto Sans SC', sans-serif;
@@ -220,16 +225,16 @@
       font-size: clamp(44px, 5.5vw, 72px);
       font-weight: 900;
       line-height: 1.05;
-      color: #fff;
+      color: rgb(var(--ink-hi));
       letter-spacing: .03em;
-      text-shadow: 0 0 22px rgba(255, 255, 255, .5);
+      text-shadow: 0 0 22px rgba(var(--ink-hi), .5);
     }
 
     .p-en {
       font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
       font-size: 14px;
       letter-spacing: .4em;
-      color: rgba(255, 255, 255, .55);
+      color: rgba(var(--ink), .55);
       margin: 0 0 0px;
       font-weight: 500;
     }
@@ -239,8 +244,8 @@
       font-size: 22px;
       font-weight: 600;
       line-height: 1.8;
-      color: #fff;
-      text-shadow: 0 0 12px rgba(255, 255, 255, .4);
+      color: rgb(var(--ink));
+      text-shadow: 0 0 12px rgba(var(--ink), .4);
     }
 
     .p-desc.lg {
@@ -254,7 +259,7 @@
       font-weight: 700;
       margin: 10px 0 10px;
       line-height: 1.2;
-      color: #fff;
+      color: rgb(var(--ink-hi));
       white-space: nowrap;
       letter-spacing: .04em;
     }
@@ -270,7 +275,7 @@
       font-size: 14px;
       font-weight: 500;
       letter-spacing: .4em;
-      color: rgba(255, 255, 255, .55);
+      color: rgba(var(--ink), .55);
       margin: 0;
     }
 
@@ -337,8 +342,8 @@
       font-weight: 700;
       line-height: 1.2;
       letter-spacing: .02em;
-      color: #fff;
-      text-shadow: 0 0 14px rgba(255, 255, 255, .4);
+      color: rgb(var(--ink-hi));
+      text-shadow: 0 0 14px rgba(var(--ink-hi), .4);
     }
 
     .proj-en {
@@ -347,7 +352,7 @@
       font-weight: 500;
       letter-spacing: .4em;
       line-height: 1.2;
-      color: rgba(255, 255, 255, .55);
+      color: rgba(var(--ink), .55);
       margin: 2px 0 6px;
     }
 
@@ -381,8 +386,8 @@
       font-size: 20px;
       font-weight: 600;
       line-height: clamp(24px, 3.1vh, 32px);
-      color: #fff;
-      text-shadow: 0 0 12px rgba(255, 255, 255, .4);
+      color: rgb(var(--ink));
+      text-shadow: 0 0 12px rgba(var(--ink), .4);
       /* 万一一句话超出列宽，避免最后一个字被单独挤成一行（老浏览器忽略这行） */
       text-wrap: pretty;
     }
@@ -407,12 +412,12 @@
       font-size: 8px;
       font-weight: 500;
       letter-spacing: .4em;
-      color: rgba(255, 255, 255, .55);
+      color: rgba(var(--ink), .55);
       margin: 0;
     }
 
     .p-link {
-      color: #fff;
+      color: rgb(var(--ink));
       text-decoration: none;
       transition: transform .2s;
       display: inline-block;
@@ -426,21 +431,21 @@
       font-size: 28px;
       font-weight: 700;
       letter-spacing: .06em;
-      color: #fff;
+      color: rgb(var(--ink-hi));
       margin: 0 0 12px;
-      text-shadow: 0 0 14px rgba(255, 255, 255, .45);
+      text-shadow: 0 0 14px rgba(var(--ink-hi), .45);
     }
 
     .r-lines {
       font-size: 24px;
       font-weight: 600;
       line-height: 2.05;
-      color: #fff;
-      text-shadow: 0 0 12px rgba(255, 255, 255, .4);
+      color: rgb(var(--ink));
+      text-shadow: 0 0 12px rgba(var(--ink), .4);
     }
 
     .r-lines a {
-      color: #fff;
+      color: rgb(var(--ink));
       text-decoration: none;
       border-bottom: 1px solid rgba(255, 255, 255, .25);
       transition: border-color .2s, text-shadow .2s;
@@ -448,7 +453,7 @@
 
     .r-lines a:hover {
       border-bottom-color: #fff;
-      text-shadow: 0 0 16px rgba(255, 255, 255, .7);
+      text-shadow: 0 0 16px rgba(var(--ink), .7);
     }
 
     .r-lines.badges {
@@ -491,7 +496,7 @@
       font-size: 16px;
       font-weight: 700;
       letter-spacing: .05em;
-      color: #fff;
+      color: rgb(var(--ink));
       text-decoration: none;
       border-bottom: 1px solid rgba(255, 255, 255, .25);
       transition: border-color .2s, text-shadow .2s;
@@ -499,7 +504,7 @@
 
     .r-lines.badges a.txt-link:hover {
       border-bottom-color: #fff;
-      text-shadow: 0 0 16px rgba(255, 255, 255, .7);
+      text-shadow: 0 0 16px rgba(var(--ink), .7);
       transform: none;
     }
 
@@ -700,7 +705,7 @@
       font-family: 'Noto Sans SC', sans-serif;
       font-size: 22px;
       font-weight: 900;
-      fill: rgba(255, 255, 255, .9);
+      fill: rgba(var(--ink), .9);
       letter-spacing: .08em;
     }
 
@@ -708,7 +713,7 @@
       font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
       font-size: 10px;
       letter-spacing: 3px;
-      fill: rgba(255, 255, 255, .45)
+      fill: rgba(var(--ink), .45)
     }
 
     /* 选中板块的标签顺带提亮，与外弧同步 */
@@ -850,7 +855,7 @@
       font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
       font-size: 11px;
       letter-spacing: .2em;
-      color: rgba(255, 255, 255, .22);
+      color: rgba(var(--ink), .22);
       z-index: 5;
       pointer-events: none;
       user-select: none;
@@ -869,7 +874,7 @@
       font-style: italic;
       font-size: 22px;
       letter-spacing: .1em;
-      color: rgba(255, 255, 255, .55);
+      color: rgba(var(--ink), .55);
       margin: 0 0 0px;
       font-weight: 500;
     }
@@ -1162,7 +1167,7 @@
       font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
       font-size: 9px;
       letter-spacing: .08em;
-      color: rgba(255, 255, 255, .42);
+      color: rgba(var(--ink), .42);
       white-space: nowrap;
     }
 
@@ -1196,8 +1201,8 @@
       font-weight: 900;
       line-height: 1.2;
       letter-spacing: .04em;
-      color: #fff;
-      text-shadow: 0 0 14px rgba(255, 255, 255, .4);
+      color: rgb(var(--ink-hi));
+      text-shadow: 0 0 14px rgba(var(--ink-hi), .4);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -1208,7 +1213,7 @@
       font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
       font-size: 11px;
       letter-spacing: .14em;
-      color: rgba(255, 255, 255, .45);
+      color: rgba(var(--ink), .45);
     }
 
     .pn-list {
@@ -1273,7 +1278,7 @@
     .pn-item {
       display: block;
       text-decoration: none;
-      color: #fff;
+      color: rgb(var(--ink));
       padding: 3px 0;
       animation: panelSwap .28s ease both;
     }
@@ -1285,7 +1290,7 @@
       font-size: 13.5px;
       font-weight: 600;
       line-height: 1.35;
-      color: #fff;
+      color: rgb(var(--ink));
       overflow-wrap: anywhere;
     }
 
@@ -1296,18 +1301,18 @@
       /* 简介空着也要占住这一行，否则有简介和没简介的条目一大一小很难看。
          min-height 不能省：只写一个普通空格会被当成空内容、高度直接归零。 */
       min-height: 1.35em;
-      color: rgba(255, 255, 255, .5);
+      color: rgba(var(--ink), .5);
       overflow-wrap: anywhere;
     }
 
     .pn-item:hover .pn-iname,
     .pn-item:focus-visible .pn-iname {
-      text-shadow: 0 0 14px rgba(255, 255, 255, .85);
+      text-shadow: 0 0 14px rgba(var(--ink), .85);
     }
 
     .pn-item:hover .pn-inote,
     .pn-item:focus-visible .pn-inote {
-      color: rgba(255, 255, 255, .82);
+      color: rgba(var(--ink), .82);
     }
 
     /* ---- 右上：标题 ---- */
@@ -1324,7 +1329,7 @@
     #linkHead .p-desc {
       font-size: 15px;
       font-weight: 500;
-      color: rgba(255, 255, 255, .55);
+      color: rgba(var(--ink), .55);
       text-shadow: none;
       margin-top: 8px;
     }
@@ -1943,7 +1948,7 @@
     body.is-mobile .p-name {
       font-size: clamp(28px, 9vw, 40px);
       white-space: normal;
-      text-shadow: 0 0 14px rgba(255, 255, 255, .4);
+      text-shadow: 0 0 14px rgba(var(--ink-hi), .4);
       margin-bottom: 2px;
     }
 
@@ -1957,7 +1962,7 @@
     body.is-mobile .p-desc.lg {
       font-size: 15px;
       line-height: 1.9;
-      text-shadow: 0 0 8px rgba(255, 255, 255, .3);
+      text-shadow: 0 0 8px rgba(var(--ink), .3);
     }
 
     body.is-mobile .p-sub,
